@@ -1,0 +1,238 @@
+movie_title,origin_country,is_local,film_kind,is_sequel_or_franchise,franchise_name,predecessor_title,predecessor_year,predecessor_admissions_id,predecessor_source_url,predecessor_published,source_material,production_house,wikipedia_en,wikipedia_id,confidence,notes
+JUMBO,Indonesia,1,animation,0,,,,,,,original,"Visinema Studios (with Springboard, Anami Films)",Jumbo (2025 film),Jumbo (film 2025),high,"Released 2025-03-31 (Lebaran), already running at start of data window"
+THE CONJURING: LAST RITES,United States,0,live_action,1,The Conjuring Universe,The Conjuring: The Devil Made Me Do It,2021,,,,true_story,"New Line Cinema, Atomic Monster, The Safran Company",The Conjuring: Last Rites,The Conjuring: Last Rites,high,Warren case files; previews from 2025-08-29 (IMAX)
+SORE ISTRI DARI MASA DEPAN,Indonesia,1,live_action,0,,,,,,,other,Cerita Films,Sore: A Wife from the Future,Sore: Istri dari Masa Depan (film),high,Adapted from the 2017 web series Sore by the same director (Yandy Laurens)
+KOMANG,Indonesia,1,live_action,0,,,,,,,true_story,Kharisma Starvision Plus,,Komang (film),high,True story of Raim Laode and Komang; released 2025-03-31 (Lebaran)
+PABRIK GULA UNCUT,Indonesia,1,live_action,0,,,,,,,viral_story,MD Pictures,Sugar Mill,Pabrik Gula (film),high,"Uncut (21+) version of PABRIK GULA, same film; viral story by SimpleMan; released 2025-03-31"
+JALAN PULANG,Indonesia,1,live_action,0,,,,,,,original,"Leo Pictures, Legacy Pictures",Jalan Pulang,Jalan Pulang,medium,Directorial debut of Jeropoint (viral horror thread writer); no adaptation stated
+JURASSIC WORLD: REBIRTH,United States,0,live_action,1,Jurassic Park,Jurassic World Dominion,2022,,,,novel,"Universal Pictures, Amblin Entertainment",Jurassic World Rebirth,Jurassic World Rebirth,high,
+QODRAT 2,Indonesia,1,live_action,1,Qodrat,Qodrat,2022,1675561,https://www.detik.com/jatim/berita/d-6418918/15-film-indonesia-terlaris-di-2022,2022-11-22,original,Magma Entertainment,Qodrat 2,Qodrat 2,high,Released 2025-03-31 (Lebaran); predecessor count is as of 2022-11-22 (film still near end of run)
+MISSION: IMPOSSIBLE - THE FINAL RECKONING,United States,0,live_action,1,Mission: Impossible,Mission: Impossible – Dead Reckoning Part One,2023,,,,other,"Paramount Pictures, Skydance",Mission: Impossible – The Final Reckoning,Mission: Impossible – The Final Reckoning,high,Franchise originally from TV series
+PENGEPUNGAN DI BUKIT DURI,Indonesia,1,live_action,0,,,,,,,original,"Come and See Pictures, Amazon MGM Studios",The Siege at Thorn High,Pengepungan di Bukit Duri,high,Joko Anwar film
+DEMON SLAYER -KIMETSU NO YAIBA- THE MOVIE: INFINITY CASTLE,Japan,0,anime,1,Demon Slayer,Demon Slayer: Kimetsu no Yaiba the Movie: Mugen Train,2020,,,,comic,"Ufotable, Aniplex",Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle,Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle,high,Manga by Koyoharu Gotouge; continues TV anime
+FINAL DESTINATION: BLOODLINES,United States,0,live_action,1,Final Destination,Final Destination 5,2011,,,,original,New Line Cinema,Final Destination Bloodlines,Final Destination: Bloodlines,high,
+SUPERMAN,United States,0,live_action,1,DC Universe / Superman,Man of Steel,2013,,,,comic,"DC Studios, Warner Bros.",Superman (2025 film),Superman (film 2025),high,"Reboot, first DCU film"
+THUNDERBOLTS*,United States,0,live_action,1,Marvel Cinematic Universe,Captain America: Brave New World,2025,,,,comic,Marvel Studios,Thunderbolts*,Thunderbolts*,high,
+HOW TO TRAIN YOUR DRAGON,United States,0,live_action,1,How to Train Your Dragon,How to Train Your Dragon (2010 animated),2010,,,,remake,"Universal Pictures, DreamWorks Animation",How to Train Your Dragon (2025 film),How to Train Your Dragon (film 2025),high,Live-action remake of the 2010 animated film (book series by Cressida Cowell)
+THE FANTASTIC FOUR: FIRST STEPS,United States,0,live_action,1,Marvel Cinematic Universe,Thunderbolts*,2025,,,,comic,Marvel Studios,The Fantastic Four: First Steps,The Fantastic Four: First Steps,high,
+"BELIEVE - TAKDIR, MIMPI, KEBERANIAN",Indonesia,1,live_action,0,,,,,,,true_story,Bahagia Tanpa Drama,,Believe: The Ultimate Battle,medium,"Biopic of army chief Agus Subiyanto, inspired by biography book Believe"
+WEAPONS,United States,0,live_action,0,,,,,,,original,New Line Cinema,Weapons (2025 film),Weapons (film 2025),high,
+THE SHADOWS EDGE,China,0,live_action,0,,,,,,,remake,Chinese-Hong Kong co-production (Beijing Hairun Pictures),The Shadow's Edge,The Shadow's Edge,medium,Jackie Chan; loose remake of Hong Kong film Eye in the Sky (2007); strong Indonesian word of mouth
+ANDAI IBU TIDAK MENIKAH DENGAN AYAH,Indonesia,1,live_action,0,,,,,,,original,Rapi Films,,Andai Ibu Tidak Menikah dengan Ayah,medium,Producer Gope T. Samtani (Rapi Films); no adaptation stated on id.wikipedia
+PABRIK GULA,Indonesia,1,live_action,0,,,,,,,viral_story,MD Pictures,Sugar Mill,Pabrik Gula (film),high,"Viral story by SimpleMan (author of KKN di Desa Penari, 9,233,847 admissions per detik 2022-11-22) but not a sequel; released 2025-03-31; regular (17+) cut"
+"LA TAHZAN: CINTA, DOSA, LUKA...",Indonesia,1,live_action,0,,,,,,,viral_story,MD Pictures,,"La Tahzan: Cinta, Dosa, Luka...",high,Based on true affair story shared on TikTok by Elizasifaa (viral)
+PANGGIL AKU AYAH,Indonesia,1,live_action,0,,,,,,,remake,Visinema Studios,Call Me Dad,Panggil Aku Ayah,high,Remake of Korean film Pawn (2020)
+KANG SOLAH FROM KANG MAK X NENEK GAYUNG,Indonesia,1,live_action,1,Kang Mak,Kang Mak from Pee Mak,2024,4860565,https://katadata.co.id/lifestyle/varia/67b2c28b4e252/10-film-indonesia-terlaris-sepanjang-2024,2025-02-17,original,Falcon Pictures,,Kang Solah from Kang Mak x Nenek Gayung,high,"Spin-off of Kang Mak from Pee Mak (itself a remake of Thai Pee Mak); crossover with Nenek Gayung; release 2025-09-25, data starts 2025-09-20 (previews)"
+SUKMA,Indonesia,1,live_action,0,,,,,,,original,"Tiger Wong Productions, Legacy Pictures",,Sukma (film),high,"Directed and produced by Baim Wong; release 2025-09-11 (data from 2025-08-29, previews)"
+LILO & STITCH,United States,0,live_action,1,Lilo & Stitch,Lilo & Stitch (2002 animated),2002,,,,remake,Walt Disney Pictures,Lilo & Stitch (2025 film),Lilo & Stitch (film 2025),high,Live-action remake
+SIHIR PELAKOR,Indonesia,1,live_action,0,,,,,,,original,Kharisma Starvision Plus,,Sihir Pelakor,medium,No adaptation stated; release 2025-07-31
+PEMBANTAIAN DUKUN SANTET,Indonesia,1,live_action,0,,,,,,,viral_story,Pichouse Films (MD),,Pembantaian Dukun Santet,high,"Adapted from viral story Lemah Santet Banyuwangi by Jeropoint, about 1998 Banyuwangi killings"
+NORMA: ANTARA MERTUA DAN MENANTU,Indonesia,1,live_action,0,,,,,,,viral_story,Dee Company,,Norma: Antara Mertua dan Menantu,high,True story of Norma Risma that went viral on social media; released 2025-03-31
+KITAB SIJJIN & ILLIYYIN,Indonesia,1,live_action,1,Sijjin,Sijjin,2023,1930901,https://www.ngopibareng.id/read/daftar-film-indonesia-dengan-jumlah-penonton-terbanyak-2023,2023-12-27,other,"Rapi Films (with Sky Media, Rhaya Flicks)",The Book of Sijjin and Illiyyin,Kitab Sijjin & Illiyyin,high,"Sequel of Sijjin (2023, itself a remake of Turkish Siccin); release 2025-07-17 (data from 07-06, previews); predecessor count as of 2023-12-27 (Sijjin released 2023-11-09)"
+JODOH 3 BUJANG,Indonesia,1,live_action,0,,,,,,,viral_story,"Kharisma Starvision Plus, Rhaya Flicks",,Jodoh 3 Bujang,medium,Inspired by viral Makassar story of three brothers marrying at once
+A MINECRAFT MOVIE,United States,0,live_action,0,,,,,,,game,"Warner Bros., Legendary Pictures, Mojang Studios",A Minecraft Movie,A Minecraft Movie,high,
+WAKTU MAGHRIB 2,Indonesia,1,live_action,1,Waktu Maghrib,Waktu Maghrib,2023,2409112,https://www.ngopibareng.id/read/daftar-film-indonesia-dengan-jumlah-penonton-terbanyak-2023,2023-12-27,original,Rapi Films,Waktu Maghrib 2,Waktu Maghrib 2,high,
+F1 THE MOVIE,United States,0,live_action,0,,,,,,,original,"Apple Original Films, Plan B, Jerry Bruckheimer Films",F1 (film),F1 (film),high,
+RUMAH UNTUK ALIE,Indonesia,1,live_action,0,,,,,,,novel,Falcon Pictures,,Rumah untuk Alie,high,Novel by Lenn Liu
+GUNDIK,Indonesia,1,live_action,0,,,,,,,original,Umbara Brothers Film,,Gundik (film),high,Written and directed by Anggy Umbara
+PENCARIAN TERAKHIR,Indonesia,1,live_action,0,,,,,,,original,Kharisma Starvision Plus,,,medium,Mountain-climbing horror; no id.wikipedia article found; source not verified
+GJLS: IBUKU IBU IBU,Indonesia,1,live_action,0,,,,,,,other,Amadeus Sinemagna,,GJLS: Ibuku Ibu-Ibu,high,"Built on GJLS comedy podcast/YouTube group (Rigen, Rispo, Hifdzi)"
+KARATE KID: LEGENDS,United States,0,live_action,1,The Karate Kid,The Karate Kid,2010,,,,original,Columbia Pictures,Karate Kid: Legends,Karate Kid: Legends,high,
+LABINAK,Indonesia,1,live_action,0,,,,,,,original,,,,low,Cannibal horror by Azhar Kinoi Lubis; producers Chugani family; production house not verified
+PENJAGAL IBLIS DOSA TURUNAN,Indonesia,1,live_action,0,,,,,,,original,"Screenplay Films, Rapi Films, IFI Sinema",,Penjagal Iblis: Dosa Turunan,high,Written and directed by Tommy Dewo
+BALLERINA,United States,0,live_action,1,John Wick,John Wick: Chapter 4,2023,,,,original,"Lionsgate, Thunder Road",Ballerina (2025 film),Ballerina (film 2025),high,Spin-off of John Wick
+A WORKING MAN,United States,0,live_action,0,,,,,,,novel,"Amazon MGM Studios, Black Bear, Balboa Productions",A Working Man,A Working Man,medium,"Novel Levon's Trade by Chuck Dixon; released March 2025, already running before April"
+SAYAP SAYAP PATAH 2: OLIVIA,Indonesia,1,live_action,1,Sayap-Sayap Patah,Sayap-Sayap Patah,2022,2426084,https://www.detik.com/jatim/berita/d-6418918/15-film-indonesia-terlaris-di-2022,2022-11-22,true_story,Denny Siregar Pictures,,Sayap-Sayap Patah 2: Olivia,high,"Sequel of Sayap-Sayap Patah (2022, based on 2018 Mako Brimob riot); action-thriller about terror events"
+DEMON SLAYER -KIMETSU NO YAIBA- THE MOVIE: INFINITY CASTLE (IMAX 2D),Japan,0,anime,1,Demon Slayer,Demon Slayer: Kimetsu no Yaiba the Movie: Mugen Train,2020,,,,comic,"Ufotable, Aniplex",Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle,Demon Slayer: Kimetsu no Yaiba – The Movie: Infinity Castle,high,Format version of DEMON SLAYER -KIMETSU NO YAIBA- THE MOVIE: INFINITY CASTLE. Manga by Koyoharu Gotouge; continues TV anime
+ASSALAMUALAIKUM BAITULLAH,Indonesia,1,live_action,0,,,,,,,original,,,Assalamualaikum Baitullah,low,Religious romance by Hadrah Daeng Ratu; production house and source not verified; not part of Assalamualaikum Beijing series as far as known
+MENDADAK DANGDUT,Indonesia,1,live_action,0,,,,,,,remake,SinemArt,,Mendadak Dangdut (film 2025),medium,New version of the 2006 film Mendadak Dangdut (Rudi Soedjarwo)
+REGO NYOWO,Indonesia,1,live_action,0,,,,,,,viral_story,Hitmaker Studios,,Rego Nyowo,high,Based on viral X thread Kosan Berdarah by Kelanara Studio (2024)
+GEREJA SETAN,Indonesia,1,live_action,0,,,,,,,original,"Amazing Grace Production, Shakti Cinema",,Gereja Setan (film),medium,
+TAK INGIN USAI DI SINI,Indonesia,1,live_action,0,,,,,,,original,"Paragon Pictures, Ideosource Entertainment",,Tak Ingin Usai di Sini,medium,Romance drama by Robert Ronny
+MY DAUGHTER IS A ZOMBIE,South Korea,0,live_action,0,,,,,,,comic,"Next Entertainment World (NEW), Studio N",My Daughter Is a Zombie,My Daughter is a Zombie,medium,Based on Naver webtoon
+LYORA: PENANTIAN BUAH HATI,Indonesia,1,live_action,0,,,,,,,true_story,Paragon Pictures,,Lyora: Penantian Buah Hati,medium,From Fenty Effendy book on Meutya Hafid and husband IVF struggle; production house inferred from producer Robert Ronny
+JADI TUH BARANG,Indonesia,1,live_action,0,,,,,,,original,,,,low,Comedy written/directed by Kemal Palevi; production house not verified
+NARIK SUKMO,Indonesia,1,live_action,0,,,,,,,novel,,,Narik Sukmo: Menari atau Mati,medium,Adapted from novel by Dewie Yulliantina; production house not verified
+EJEN ALI: THE MOVIE 2,Malaysia,0,animation,1,Ejen Ali,Ejen Ali The Movie,2019,,,,original,WAU Animation,Ejen Ali The Movie 2,Ejen Ali The Movie 2: Misi Satria,high,Malaysian animation (TV series origin); predecessor Indonesian admissions not found
+MUSLIHAT,Indonesia,1,live_action,0,,,,,,,original,IM Pictures (Indonesia MaknaKarya Pictures),,Muslihat (film),medium,
+COCOTE TONGGO,Indonesia,1,live_action,0,,,,,,,original,"Skak Pictures, Tobali Film",,Cocote Tonggo,high,Bayu Skak Javanese-language comedy (Solo)
+PAMALI: TUMBAL,Indonesia,1,live_action,1,Pamali,Pamali: Dusun Pocong,2023,1607054,https://www.ngopibareng.id/read/daftar-film-indonesia-dengan-jumlah-penonton-terbanyak-2023,2023-12-27,game,"LYTO Pictures, Legacy Pictures",,Pamali: Tumbal,high,"Third Pamali film, based on horror game Pamali; first film Pamali (2022) had 880,618 per detik 2022-11-22"
+TINGGAL MENINGGAL,Indonesia,1,live_action,0,,,,,,,original,Imajinari Pictures,Better Off Dead (2025 film),Tinggal Meninggal,high,Debut of Kristo Immanuel; produced by Ernest Prakasa
+28 YEARS LATER,United Kingdom,0,live_action,1,28 Days Later,28 Weeks Later,2007,,,,original,"Columbia Pictures, DNA Films",28 Years Later,28 Years Later,high,
+THE ACCOUNTANT 2,United States,0,live_action,1,The Accountant,The Accountant,2016,,,,original,Amazon MGM Studios,The Accountant 2,The Accountant 2,high,
+ELIO,United States,0,animation,0,,,,,,,original,"Pixar Animation Studios, Disney",Elio (film),Elio (film),high,
+THE AMATEUR,United States,0,live_action,0,,,,,,,novel,20th Century Studios,The Amateur (2025 film),The Amateur (film 2025),high,Novel by Robert Littell (also 1981 film)
+DASIM,Indonesia,1,live_action,0,,,,,,,original,Kharisma Starvision Plus,,Dasim,high,
+THE FANTASTIC FOUR: FIRST STEPS (IMAX 2D),United States,0,live_action,1,Marvel Cinematic Universe,Thunderbolts*,2025,,,,comic,Marvel Studios,The Fantastic Four: First Steps,The Fantastic Four: First Steps,high,Format version of THE FANTASTIC FOUR: FIRST STEPS.
+SUPERMAN (IMAX 2D),United States,0,live_action,1,DC Universe / Superman,Man of Steel,2013,,,,comic,"DC Studios, Warner Bros.",Superman (2025 film),Superman (film 2025),high,"Format version of SUPERMAN. Reboot, first DCU film"
+MISSION: IMPOSSIBLE - THE FINAL RECKONING (IMAX 2D) ,United States,0,live_action,1,Mission: Impossible,Mission: Impossible – Dead Reckoning Part One,2023,,,,other,"Paramount Pictures, Skydance",Mission: Impossible – The Final Reckoning,Mission: Impossible – The Final Reckoning,high,Format version of MISSION: IMPOSSIBLE - THE FINAL RECKONING. Franchise originally from TV series
+GOWOK KAMASUTRA JAWA UNCUT,Indonesia,1,live_action,0,,,,,,,original,"MVP Pictures, Dapur Films",Gowok: Javanese Kamasutra,Gowok: Kamasutra Jawa,high,"Uncut (21+) version of GOWOK KAMASUTRA JAWA, same film"
+SELEPAS TAHLIL,Indonesia,1,live_action,0,,,,,,,original,BION Studios,,Selepas Tahlil,medium,
+GHOST TRAIN,South Korea,0,live_action,0,,,,,,,original,,Ghost Train (2025 film),Ghost Train (film 2025),medium,Korean horror; production house not verified
+F1 THE MOVIE (IMAX 2D),United States,0,live_action,0,,,,,,,original,"Apple Original Films, Plan B, Jerry Bruckheimer Films",F1 (film),F1 (film),high,Format version of F1 THE MOVIE.
+TENUNG BY RISA SARASWATI & DIMASTA,Indonesia,1,live_action,0,,,,,,,novel,MD Pictures,,Tenung by Risa Saraswati & Dimasta,high,From novel Tenung by Risa Saraswati (Danur author) and Dimasta; not a Danur sequel
+UNTIL DAWN,United States,0,live_action,0,,,,,,,game,"Screen Gems, PlayStation Productions",Until Dawn (film),Until Dawn (film),high,
+KAMPUNG JABANG MAYIT: RITUAL MAUT,Indonesia,1,live_action,1,Jabang Mayit,,,,,,viral_story,"Kucing Hitam Pictures, Spasi Moving Image, BEN Film",,Kampung Jabang Mayit,medium,From viral X thread by Qwertyping and Jabang Mayit podcast; positioned as prequel; same producers released Jabang Mayit earlier in 2025 (admissions not found)
+PEREMPUAN PEMBAWA SIAL,Indonesia,1,live_action,0,,,,,,,folklore,IDN Pictures,,Perempuan Pembawa Sial,high,Javanese Bahu Laweyan myth; Fajar Nugros
+THE CONJURING: LAST RITES (IMAX 2D),United States,0,live_action,1,The Conjuring Universe,The Conjuring: The Devil Made Me Do It,2021,,,,true_story,"New Line Cinema, Atomic Monster, The Safran Company",The Conjuring: Last Rites,The Conjuring: Last Rites,high,Format version of THE CONJURING: LAST RITES. Warren case files; previews from 2025-08-29 (IMAX)
+MAMA: PESAN DARI NERAKA,Indonesia,1,live_action,0,,,,,,,viral_story,"Pichouse Films, PAW Pictures",,Mama: Pesan dari Neraka,high,Adapted from viral Nessie Judge YouTube video Mama
+ONE BATTLE AFTER ANOTHER,United States,0,live_action,0,,,,,,,novel,Warner Bros.,One Battle After Another,One Battle After Another,high,Loosely based on Thomas Pynchon novel Vineland
+LORONG KOST,Indonesia,1,live_action,0,,,,,,,original,Minka Rosie Production,,Lorong Kost,medium,
+NE ZHA 2,China,0,animation,1,Ne Zha,Ne Zha,2019,,,,novel,"Chengdu Coco Cartoon, Beijing Enlight Pictures",Ne Zha 2,Ne Zha 2,high,"Based on Investiture of the Gods mythology; Indonesian release March 2025, already running"
+ANAK MEDAN: COCOK KO RASA???,Indonesia,1,live_action,0,,,,,,,original,"PIM Pictures, D'Ayu Pictures",,Anak Medan: Cocok Ko Rasa???,high,
+PERANG KOTA,Indonesia,1,live_action,0,,,,,,,novel,"Kharisma Starvision Plus, Cinesurya",This City Is a Battlefield,Perang Kota,high,Loose adaptation of Mochtar Lubis novel Jalan Tak Ada Ujung (1952)
+MATERIALISTS,United States,0,live_action,0,,,,,,,original,"A24, Killer Films",Materialists (film),Materialists (film),high,
+KELUARGA SUPER IRIT,Indonesia,1,live_action,0,,,,,,,comic,Falcon Pictures,,Keluarga Super Irit,high,Adapted from Korean comic by Yim Chang-ho
+THUNDERBOLTS* (IMAX 2D),United States,0,live_action,1,Marvel Cinematic Universe,Captain America: Brave New World,2025,,,,comic,Marvel Studios,Thunderbolts*,Thunderbolts*,high,Format version of THUNDERBOLTS*.
+THE LONG WALK,United States,0,live_action,0,,,,,,,novel,Lionsgate,The Long Walk (2025 film),The Long Walk (film 2025),high,Stephen King (Richard Bachman) novel
+THE LAST SUPPER,United States,0,live_action,0,,,,,,,other,Pinnacle Peak Pictures,The Last Supper (2025 film),The Last Supper (film 2025),medium,"Biblical drama; released before April, already running"
+DIA BUKAN IBU,Indonesia,1,live_action,0,,,,,,,viral_story,MVP Pictures,A Woman Called Mother,Dia Bukan Ibu,high,Based on viral X thread by Jeropoint
+MENJELANG MAGRIB 2: WANITA YANG DI RANTAI,Indonesia,1,live_action,1,Menjelang Magrib,Menjelang Magrib,2022,,,,original,Helroad Films,,Menjelang Magrib 2: Wanita yang Dirantai,medium,Release 2025-09-04; predecessor admissions not found (small film)
+BERTAUT RINDU: SEMUA IMPIAN BERHAK DIRAYAKAN,Indonesia,1,live_action,0,,,,,,,novel,SinemArt,,Bertaut Rindu,high,Novel by Tian Topandi
+HOW TO TRAIN YOUR DRAGON (IMAX 2D),United States,0,live_action,1,How to Train Your Dragon,How to Train Your Dragon (2010 animated),2010,,,,remake,"Universal Pictures, DreamWorks Animation",How to Train Your Dragon (2025 film),How to Train Your Dragon (film 2025),high,Format version of HOW TO TRAIN YOUR DRAGON. Live-action remake of the 2010 animated film (book series by Cressida Cowell)
+THE NAKED GUN,United States,0,live_action,1,The Naked Gun,Naked Gun 33 1/3: The Final Insult,1994,,,,other,"Paramount Pictures, Fuzzy Door Productions",The Naked Gun (2025 film),The Naked Gun (film 2025),high,Legacy sequel; franchise from TV series Police Squad!
+A MINECRAFT MOVIE (IMAX 2D),United States,0,live_action,0,,,,,,,game,"Warner Bros., Legendary Pictures, Mojang Studios",A Minecraft Movie,A Minecraft Movie,high,Format version of A MINECRAFT MOVIE.
+MANGKU POCONG,Indonesia,1,live_action,0,,,,,,,original,"Rumpi Entertainment, Virgo Putra Film, 786 Productions",,Mangku Pocong,medium,
+TABAYYUN,Indonesia,1,live_action,0,,,,,,,novel,"A&Z Films, Legacy Pictures, Beehave Pictures",,Tabayyun (film),high,Novel Tabayyun by Ilyas Bachtiar
+DRACULA: A LOVE TALE,France,0,live_action,0,,,,,,,novel,"LBP (Luc Besson Production), SND",Dracula (2025 French film),Dracula: A Love Tale,medium,Bram Stoker novel
+WARFARE,United States,0,live_action,0,,,,,,,true_story,A24,Warfare (film),Warfare (film),high,US-UK; Iraq war memories of Ray Mendoza
+M3GAN 2.0,United States,0,live_action,1,M3GAN,M3GAN,2022,,,,original,"Blumhouse, Atomic Monster, Universal",M3GAN 2.0,M3GAN 2.0,high,
+AGEN +62,Indonesia,1,live_action,0,,,,,,,original,,,Agen +62,medium,Comedy by Dinna Jasanti; production house not verified
+AFTERBURN,United States,0,live_action,0,,,,,,,comic,,Afterburn (2025 film),Afterburn (film 2025),medium,Based on Red 5 Comics graphic novel; production house not verified
+MARYAM: JANJI DAN JIWA YANG TERIKAT,Indonesia,1,live_action,0,,,,,,,viral_story,"Legacy Pictures, Visual Media Studio",,Maryam: Janji dan Jiwa yang Terikat,high,Based on story told in viral podcast Lentera Malam (Belenggu Jin Kafir)
+OMNISCIENT READER: THE PROPHECY,South Korea,0,live_action,0,,,,,,,novel,Realies Pictures,Omniscient Reader: The Prophecy,Omniscient Reader: The Prophet,medium,Based on web novel Omniscient Reader's Viewpoint (also webtoon); Indonesian actor Jisoo co-stars
+SAH! KATANYA...,Indonesia,1,live_action,0,,,,,,,original,MVP Pictures,,Sah! Katanya...,medium,
+SINNERS,United States,0,live_action,0,,,,,,,original,"Warner Bros., Proximity Media",Sinners (2025 film),Sinners (film 2025),high,
+CHAINSAW MAN - THE MOVIE: REZE ARC,Japan,0,anime,1,Chainsaw Man,Chainsaw Man (TV anime),2022,,,,comic,MAPPA,Chainsaw Man – The Movie: Reze Arc,Chainsaw Man – The Movie: Reze Arc,high,Continues TV anime season 1; manga by Tatsuki Fujimoto
+PANGGILAN DARI KUBUR,Indonesia,1,live_action,0,,,,,,,original,Maxima Pictures,,Panggilan dari Kubur,low,Production house inferred from producer Yoen K
+NOBODY 2,United States,0,live_action,1,Nobody,Nobody,2021,,,,original,"Universal Pictures, 87North",Nobody 2,Nobody 2,high,Directed by Indonesian Timo Tjahjanto
+DENDAM MALAM KELAM,Indonesia,1,live_action,0,,,,,,,remake,Falcon Pictures,,Dendam Malam Kelam,high,"Official remake of Spanish film The Body (El cuerpo, 2012)"
+DILANJUTKAN SALAH DISUDAHI PERIH,Indonesia,1,live_action,0,,,,,,,original,,,,low,"Romance by Benni Setiawan, producer Bambang Drias; source and production house not verified"
+GODAAN SETAN YANG TERKUTUK,Indonesia,1,live_action,0,,,,,,,original,Maxima Pictures,,Godaan Setan yang Terkutuk,low,Production house inferred from producer Yoen K
+THE KING OF KINGS,South Korea,0,animation,0,,,,,,,novel,Mofac Studio,The King of Kings (2025 film),The King of Kings (film 2025),high,Inspired by Charles Dickens The Life of Our Lord; Korean-made English-language animation
+PABRIK GULA UNCUT (IMAX 2D),Indonesia,1,live_action,0,,,,,,,viral_story,MD Pictures,Sugar Mill,Pabrik Gula (film),high,"Format version of PABRIK GULA UNCUT. Uncut (21+) version of PABRIK GULA, same film; viral story by SimpleMan; released 2025-03-31"
+FINAL DESTINATION: BLOODLINES (IMAX 2D),United States,0,live_action,1,Final Destination,Final Destination 5,2011,,,,original,New Line Cinema,Final Destination Bloodlines,Final Destination: Bloodlines,high,Format version of FINAL DESTINATION: BLOODLINES.
+I KNOW WHAT YOU DID LAST SUMMER,United States,0,live_action,1,I Know What You Did Last Summer,I Know What You Did Last Summer,1997,,,,novel,"Columbia Pictures, Original Film",I Know What You Did Last Summer (2025 film),I Know What You Did Last Summer (film 2025),high,Legacy sequel; novel by Lois Duncan
+GERBANG SETAN,Indonesia,1,live_action,0,,,,,,,original,Setia One Vision,,Gerbang Setan,medium,Horror comedy with many comedians
+GAZA,Indonesia,1,live_action,1,Hayya,"Hayya 2: Hope, Dream & Reality",2022,,,,original,"Warna Pictures, 786 Productions",Hayya 3: Gaza,Hayya 3: Gaza,medium,Title in data GAZA = Hayya 3: Gaza; religious family drama; predecessor admissions not found
+SMURFS,United States,0,animation,1,The Smurfs,Smurfs: The Lost Village,2017,,,,comic,Paramount Animation,Smurfs (film),Smurfs (film),high,Comic by Peyo
+WEAPONS (IMAX 2D),United States,0,live_action,0,,,,,,,original,New Line Cinema,Weapons (2025 film),Weapons (film 2025),high,Format version of WEAPONS.
+HANYA NAMAMU DALAM DOAKU,Indonesia,1,live_action,0,,,,,,,original,Sinemaku Pictures,,Hanya Namamu dalam Doaku,medium,Family drama about ALS
+ASSALAMUALAIKUM BEIJING 2: LOST IN NINGXIA,Indonesia,1,live_action,1,Assalamualaikum Beijing,Assalamualaikum Beijing,2014,,,,novel,"786 Production, Rumpi Entertainment, Imperial Pictures",,Assalamualaikum Beijing 2: Lost in Ningxia,medium,Sequel of 2014 film based on Asma Nadia novel; predecessor admissions not found with dated source
+SHADOW FORCE,United States,0,live_action,0,,,,,,,original,Lionsgate,,,medium,
+A MINECRAFT MOVIE (3D),United States,0,live_action,0,,,,,,,game,"Warner Bros., Legendary Pictures, Mojang Studios",A Minecraft Movie,A Minecraft Movie,high,Format version of A MINECRAFT MOVIE.
+BRING HER BACK,Australia,0,live_action,0,,,,,,,original,"Causeway Films, A24",Bring Her Back,Bring Her Back,high,Philippou brothers (Talk to Me)
+HOLY NIGHT: DEMON HUNTERS,South Korea,0,live_action,0,,,,,,,original,Big Punch Pictures,Holy Night: Demon Hunters,Holy Night: Demon Hunters,medium,Ma Dong-seok
+LEBIH DARI SELAMANYA,Indonesia,1,live_action,0,,,,,,,original,"FMM Studios, Golden Scene Pictures",,Lebih dari Selamanya,medium,
+JURASSIC WORLD: REBIRTH (3D),United States,0,live_action,1,Jurassic Park,Jurassic World Dominion,2022,,,,novel,"Universal Pictures, Amblin Entertainment",Jurassic World Rebirth,Jurassic World Rebirth,high,Format version of JURASSIC WORLD: REBIRTH.
+PABRIK GULA (IMAX 2D),Indonesia,1,live_action,0,,,,,,,viral_story,MD Pictures,Sugar Mill,Pabrik Gula (film),high,"Format version of PABRIK GULA. Viral story by SimpleMan (author of KKN di Desa Penari, 9,233,847 admissions per detik 2022-11-22) but not a sequel; released 2025-03-31; regular (17+) cut"
+ARWAH,Indonesia,1,live_action,0,,,,,,,original,,,,low,Horror by Ivan Bandhito; no article found; production house not verified
+THE BAD GUYS 2,United States,0,animation,1,The Bad Guys,The Bad Guys,2022,,,,novel,DreamWorks Animation,The Bad Guys 2,The Bad Guys 2,high,Book series by Aaron Blabey
+HOTEL SAKURA,Indonesia,1,live_action,0,,,,,,,original,,,Hotel Sakura,medium,Production house not verified
+SINNERS (IMAX 2D),United States,0,live_action,0,,,,,,,original,"Warner Bros., Proximity Media",Sinners (2025 film),Sinners (film 2025),high,Format version of SINNERS.
+THARAE: THE EXORCIST,Thailand,0,live_action,0,,,,,,,original,,,,low,Thai horror directed by Taweewat Wantha (Death Whisperer 1-2 director); franchise link not verified
+RED SONJA,United States,0,live_action,0,,,,,,,comic,Millennium Media,Red Sonja (2025 film),,high,Robert E. Howard character
+RELAY,United States,0,live_action,0,,,,,,,original,,Relay (film),Relay (film),medium,2024 film released in Indonesia 2025; production house not verified
+DROP,United States,0,live_action,0,,,,,,,original,"Blumhouse, Platinum Dunes, Universal",Drop (film),Drop (film),high,
+GAK NYANGKA..!!,Indonesia,1,live_action,0,,,,,,,original,iBuzz Entertainment,,Gak Nyangka..!!,medium,
+ANGEL POL,Indonesia,1,live_action,0,,,,,,,original,DHF Entertainment,,Angel Pol,medium,Musical comedy
+THE RITUAL,United States,0,live_action,0,,,,,,,true_story,XYZ Films,The Ritual (2025 film),The Ritual (film 2025),medium,1928 Emma Schmidt exorcism
+SYIRIK (DANYANG LAUT SELATAN),Indonesia,1,live_action,0,,,,,,,folklore,Ganesa Film,,Syirik: Danyang Laut Selatan,medium,South Sea (Laut Selatan) spirit lore
+HOME SWEET HOME: REBIRTH,Germany,0,live_action,0,,,,,,,game,,,,low,Based on Thai horror game Home Sweet Home (Yggdrazil Group); international co-production
+MUMU,China,0,live_action,0,,,,,,,other,,,,low,Chinese drama; source and production house not verified
+DOTI - TUMBAL ILMU HITAM,Indonesia,1,live_action,0,,,,,,,folklore,"Ruang Visual Production, Dream Picture",,Doti: Tumbal Ilmu Hitam,medium,Regional (South Sulawesi) black magic lore
+LOCKED,United States,0,live_action,0,,,,,,,remake,Raimi Productions,Locked (film),Locked (film),high,Remake of Argentine film 4x4 (2019)
+PINJAM 100 THE MOVIE,Indonesia,1,live_action,0,,,,,,,other,VBS Studio,,Pinjam 100 the Movie,medium,Built on Paris Pernandes social media comedy skits (Pinjam 100); regional (Binjai/Medan) comedy
+MUNGKIN KITA PERLU WAKTU,Indonesia,1,live_action,0,,,,,,,original,"Kathanika Films, Karuna Pictures, Adhya Pictures",All We Need Is Time,Mungkin Kita Perlu Waktu,high,Festival film (JAFF 2024 premiere)
+AGAPE THE UNCONDITIONAL LOVE,Indonesia,1,live_action,0,,,,,,,original,Holofa Pictures,,Agape: The Unconditional Love,medium,Christian family drama
+CONCLAVE,United States,0,live_action,0,,,,,,,novel,"Focus Features, FilmNation",Conclave (film),Conclave (film),high,"US-UK; Robert Harris novel; 2024 film, already running/re-screened in April 2025 (papal conclave news)"
+WARKOP DKI KARTUN,Indonesia,1,animation,1,Warkop DKI,Warkop DKI Reborn (film series),2019,,,,other,Falcon Pictures,,Warkop DKI Kartun,medium,"Animated Warkop DKI (Dono Kasino Indro); predecessor is the live-action Reborn series, admissions not used"
+GABBYS DOLLHOUSE: THE MOVIE,United States,0,live_action,1,Gabby's Dollhouse,Gabby's Dollhouse (TV series),2021,,,,other,"DreamWorks Animation, Universal",Gabby's Dollhouse: The Movie,,high,Live action and animation hybrid based on preschool TV series
+THE CONJURING (REISSUE),United States,0,rerelease,1,The Conjuring Universe,,,,,,true_story,New Line Cinema,The Conjuring,The Conjuring,high,2013 film re-released before The Conjuring: Last Rites
+ONE BATTLE AFTER ANOTHER (IMAX 2D),United States,0,live_action,0,,,,,,,novel,Warner Bros.,One Battle After Another,One Battle After Another,high,Format version of ONE BATTLE AFTER ANOTHER. Loosely based on Thomas Pynchon novel Vineland
+THUNDERBOLTS* (3D),United States,0,live_action,1,Marvel Cinematic Universe,Captain America: Brave New World,2025,,,,comic,Marvel Studios,Thunderbolts*,Thunderbolts*,high,Format version of THUNDERBOLTS*.
+KARUNRUNG 1995,Indonesia,1,live_action,0,,,,,,,original,,,Karunrung 1995,low,Regional Makassar film; production house not verified
+PANJI TENGKORAK,Indonesia,1,animation,0,,,,,,,comic,Falcon Pictures,,Panji Tengkorak (film 2025),high,Adult animation adapted from Hans Jaladara comic
+RABI JIWO,Indonesia,1,live_action,0,,,,,,,original,Tawang Khan Production,,Rabi Jiwo,medium,
+DETECTIVE CONAN THE MOVIE: ONE-EYED FLASHBACK,Japan,0,anime,1,Detective Conan,Detective Conan: The Million-dollar Pentagram,2024,,,,comic,TMS Entertainment,Detective Conan: One-eyed Flashback,,high,
+DETECTIVE CONAN THE MOVIE: ONE-EYED FLASHBACK (IMAX 2D),Japan,0,anime,1,Detective Conan,Detective Conan: The Million-dollar Pentagram,2024,,,,comic,TMS Entertainment,Detective Conan: One-eyed Flashback,,high,Format version of DETECTIVE CONAN THE MOVIE: ONE-EYED FLASHBACK.
+NOISE,South Korea,0,live_action,0,,,,,,,original,,Noise (2024 film),,medium,2024 Korean horror; production house not verified
+BRIDE HARD,United States,0,live_action,0,,,,,,,original,,Bride Hard,,medium,Rebel Wilson action comedy; production house not verified
+SIAPA DIA,Indonesia,1,live_action,0,,,,,,,original,"Fabis Entertainment, 909 Studio",Siapa Dia,Siapa Dia,high,Garin Nugroho musical
+A BIG BOLD BEAUTIFUL JOURNEY,United States,0,live_action,0,,,,,,,original,"Columbia Pictures, 30West",A Big Bold Beautiful Journey,A Big Bold Beautiful Journey,medium,
+BAD GENIUS,United States,0,live_action,0,,,,,,,remake,"Vertical, Picturestart",Bad Genius (2024 film),Bad Genius (film 2024),medium,Remake of Thai film Bad Genius (2017)
+THE CONJURING 2 (REISSUE),United States,0,rerelease,1,The Conjuring Universe,,,,,,true_story,New Line Cinema,The Conjuring 2,The Conjuring 2,high,2016 film re-released before The Conjuring: Last Rites
+THE SUN GAZER: CINTA DARI LANGIT,Indonesia,1,live_action,0,,,,,,,novel,Warna Pictures,,The Sun Gazer: Cinta dari Langit,high,Novel Sang Penatap Matahari by M. Gunawan Yasni
+GOWOK KAMASUTRA JAWA,Indonesia,1,live_action,0,,,,,,,original,"MVP Pictures, Dapur Films",Gowok: Javanese Kamasutra,Gowok: Kamasutra Jawa,high,Regular (17+) version; also released as uncut version; about Javanese gowok tradition
+ANGKARA MURKA,Indonesia,1,live_action,0,,,,,,,original,Forka Films,,Angkara Murka (film 2025),medium,
+JUJUTSU KAISEN: HIDDEN INVENTORY/PREMATURE DEATH - THE MOVIE,Japan,0,anime,1,Jujutsu Kaisen,Jujutsu Kaisen 0,2021,,,,comic,MAPPA,,,high,Compilation film of TV anime season 2 arc; manga by Gege Akutami
+LINTRIK,Indonesia,1,live_action,0,,,,,,,folklore,"Prama Gatra Film, Rumah Semut Film",,Lintrik: Ilmu Pemikat,medium,Lintrik love-charm lore
+FREAKIER FRIDAY,United States,0,live_action,1,Freaky Friday,Freaky Friday,2003,,,,novel,Walt Disney Pictures,Freakier Friday,Freakier Friday,high,Novel by Mary Rodgers
+CHAINSAW MAN - THE MOVIE: REZE ARC (IMAX 2D),Japan,0,anime,1,Chainsaw Man,Chainsaw Man (TV anime),2022,,,,comic,MAPPA,Chainsaw Man – The Movie: Reze Arc,Chainsaw Man – The Movie: Reze Arc,high,Format version of CHAINSAW MAN - THE MOVIE: REZE ARC. Continues TV anime season 1; manga by Tatsuki Fujimoto
+SERIBU BAYANG PURNAMA,Indonesia,1,live_action,0,,,,,,,original,Baraka Film,,Seribu Bayang Purnama,medium,
+PETAKA GUNUNG GEDE,Indonesia,1,live_action,0,,,,,,,viral_story,"Kharisma Starvision Plus, Legacy Pictures",,Petaka Gunung Gede,high,"True story of Maya Azka told on YouTube (viral); released Feb 2025, already running before April"
+THE CONJURING: THE DEVIL MADE ME DO IT (REISSUE),United States,0,rerelease,1,The Conjuring Universe,,,,,,true_story,New Line Cinema,The Conjuring: The Devil Made Me Do It,The Conjuring: The Devil Made Me Do It,high,2021 film re-released before The Conjuring: Last Rites
+THE RED ENVELOPE,Thailand,0,live_action,0,,,,,,,remake,GDH 559,,,medium,Thai remake of Taiwanese film Marry My Dead Body (2022)
+DARAH NYAI,Indonesia,1,live_action,0,,,,,,,original,Imaginarium Pictures,,Darah Nyai,medium,
+SAIYAARA,India,0,live_action,0,,,,,,,remake,Yash Raj Films,Saiyaara (film),,medium,Loosely based on Korean film A Moment to Remember (2004)
+HI-FIVE,South Korea,0,live_action,0,,,,,,,original,Annapurna Films (Korea),Hi-Five (film),Hi-Five (film),medium,
+NE ZHA 2 (IMAX 2D),China,0,animation,1,Ne Zha,Ne Zha,2019,,,,novel,"Chengdu Coco Cartoon, Beijing Enlight Pictures",Ne Zha 2,Ne Zha 2,high,"Format version of NE ZHA 2. Based on Investiture of the Gods mythology; Indonesian release March 2025, already running"
+WAR 2,India,0,live_action,1,YRF Spy Universe,War,2019,,,,original,Yash Raj Films,War 2 (film),,high,
+SICCIN 8,Turkey,0,live_action,1,Siccin,Siccin 7,2024,,,,original,,,,medium,Turkish horror franchise by Alper Mestci (Indonesian remake Sijjin exists)
+SITAARE ZAMEEN PAR,India,0,live_action,0,,,,,,,remake,Aamir Khan Productions,Sitaare Zameen Par,Sitaare Zameen Par,high,"Remake of Spanish film Champions (Campeones, 2018); spiritual sequel to Taare Zameen Par"
+SNOW WHITE,United States,0,live_action,1,Snow White,Snow White and the Seven Dwarfs,1937,,,,remake,Walt Disney Pictures,Snow White (2025 film),Snow White (film 2025),high,"Live-action remake; released March 2025, already running"
+ARTI CINTA,Indonesia,1,live_action,0,,,,,,,original,,,Arti Cinta (film),low,Romance by Monty Tiwa and Tepan Kobain; production house not verified
+INSYA ALLAH BERKAH,Indonesia,1,live_action,0,,,,,,,original,"Anugerah Pictures, Fine In Pro",,Insya Allah Berkah,medium,"Produced in 2017, released 2025; children religious film"
+SOMEBODY,South Korea,0,live_action,0,,,,,,,comic,,Somebody (film),Somebody (film),medium,2024 Korean thriller based on Naver webtoon (Korean title Chimbeom)
+LILO & STITCH (3D),United States,0,live_action,1,Lilo & Stitch,Lilo & Stitch (2002 animated),2002,,,,remake,Walt Disney Pictures,Lilo & Stitch (2025 film),Lilo & Stitch (film 2025),high,Format version of LILO & STITCH. Live-action remake
+RANGGA & CINTA,Indonesia,1,live_action,1,Ada Apa dengan Cinta?,Ada Apa dengan Cinta? 2,2016,,,,remake,Miles Films,Rangga & Cinta,Rangga & Cinta,medium,"Musical reimagining of AADC (2002), fourth film in AADC universe; release 2025-10-02, data from 2025-09-23 (previews); AADC 2 reported about 3.6 million admissions but no dated source verified"
+JAWS (IMAX 2D),United States,0,rerelease,0,,,,,,,novel,Universal Pictures,Jaws (film),Jaws,high,"1975 film, 50th anniversary IMAX re-release; Peter Benchley novel"
+MERAH PUTIH ONE FOR ALL,Indonesia,1,animation,0,,,,,,,original,Perfiki Kreasindo,Merah Putih: One for All,Merah Putih: One for All,high,Heavily criticised before release for animation quality
+PRINCESS MONONOKE (IMAX 2D),Japan,0,rerelease,0,,,,,,,original,Studio Ghibli,Princess Mononoke,Mononoke Hime,high,"1997 anime, IMAX re-release"
+PENGIN HIJRAH,Indonesia,1,live_action,0,,,,,,,original,,,Pengin Hijrah,medium,Religious drama by Jastis Arimba; production house not verified
+"SAMPAI JUMPA, SELAMAT TINGGAL",Indonesia,1,live_action,0,,,,,,,original,"Adhya Pictures, Relate Films","Goodbye, Farewell",Sampai Jumpa Selamat Tinggal,high,"Shot in Seoul; festival premiere 2024, cinema release 2025-06-05"
+DORAEMON THE MOVIE: NOBITAS ART WORLD TALES,Japan,0,anime,1,Doraemon,Doraemon: Nobita's Earth Symphony,2024,,,,comic,Shin-Ei Animation,Doraemon: Nobita's Art World Tales,Doraemon: Nobita's Art World Tales,high,
+REST AREA,Indonesia,1,live_action,0,,,,,,,original,Mahakarya Pictures,,Rest Area (film),high,"Release 2025-10, data from 2025-09-23 (previews)"
+THE DARK HOUSE,Indonesia,1,live_action,0,,,,,,,original,"Infinix One Pictures, Citrus Sinema",,The Dark House,medium,
+JANJI SENJA,Indonesia,1,live_action,0,,,,,,,original,,,,low,Family drama by Rendra Ahmad; no article found
+AIR MATA DI UJUNG SAJADAH 2,Indonesia,1,live_action,1,Air Mata di Ujung Sajadah,Air Mata di Ujung Sajadah,2023,3127671,https://www.ngopibareng.id/read/daftar-film-indonesia-dengan-jumlah-penonton-terbanyak-2023,2023-12-27,original,Beehave Pictures,,Air Mata di Ujung Sajadah 2,medium,Wide release 2025-10-23; data from 2025-09-26 is previews only; production house inferred from producer Ronny Irawan (Beehave made film 1)
+TUKAR TAKDIR,Indonesia,1,live_action,0,,,,,,,novel,"Kharisma Starvision Plus, Cinesurya, Legacy Pictures",,Tukar Takdir,high,"Loose adaptation of 2019 anthology Tukar Takdir by Valiant Budi Yogi; release 2025-10, data from 09-25 (previews)"
+RAID 2,India,0,live_action,1,Raid,Raid,2018,,,,true_story,"T-Series, Panorama Studios",Raid 2 (film),,high,
+DHADAK 2,India,0,live_action,1,Dhadak,Dhadak,2018,,,,remake,"Dharma Productions, Zee Studios",Dhadak 2,Dhadak 2,high,Remake of Tamil film Pariyerum Perumal (2018)
+THE PHOENICIAN SCHEME,United States,0,live_action,0,,,,,,,original,"Focus Features, American Empirical Pictures",The Phoenician Scheme,The Phoenician Scheme,high,
+KESARI CHAPTER 2,India,0,live_action,1,Kesari,Kesari,2019,,,,true_story,"Dharma Productions, Cape of Good Films",Kesari Chapter 2,Kesari Chapter 2,high,Based on book The Case That Shook the Empire
+PANOR,Thailand,0,live_action,0,,,,,,,original,,,,low,Thai horror; details not verified
+SIKANDAR,India,0,live_action,0,,,,,,,original,Nadiadwala Grandson Entertainment,Sikandar (2025 film),,high,"Salman Khan; released 2025-03-30, already running"
+TEGAR,Indonesia,1,rerelease,0,,,,,,,original,,,Tegar (film),medium,2022 drama (released 2022-11-24) re-screened in 2025; disabled child lead
+PARAM SUNDARI,India,0,live_action,0,,,,,,,original,Maddock Films,Param Sundari (film),,high,
+JOLLY LLB 3,India,0,live_action,1,Jolly LLB,Jolly LLB 2,2017,,,,original,"Star Studio18, Kangra Talkies",Jolly LLB 3,,high,
+HOW TO TRAIN YOUR DRAGON (3D),United States,0,live_action,1,How to Train Your Dragon,How to Train Your Dragon (2010 animated),2010,,,,remake,"Universal Pictures, DreamWorks Animation",How to Train Your Dragon (2025 film),How to Train Your Dragon (film 2025),high,Format version of HOW TO TRAIN YOUR DRAGON. Live-action remake of the 2010 animated film (book series by Cressida Cowell)
+MALAM JAHANAM,Indonesia,1,live_action,0,,,,,,,original,Bianglala Bikin Film Project,,Malam Jahanam,medium,
+CRAYON SHIN-CHAN THE MOVIE: OUR DINOSAUR STORY,Japan,0,anime,1,Crayon Shin-chan,Crayon Shin-chan: Battle of Supernatural Powers,2023,,,,comic,Shin-Ei Animation,Crayon Shin-chan the Movie: Our Dinosaur Diary,Crayon Shin-chan the Movie: Our Dinosaur Diary,medium,2024 Japanese film released in Indonesia 2025; manga by Yoshito Usui
+JANGAN PANGGIL MAMA KAFIR,Indonesia,1,live_action,0,,,,,,,original,Maxima Pictures,,Jangan Panggil Mama Kafir,low,Release 2025-10-16; data from 2025-09-16 is previews; production house inferred from producer Yoen K
+BAAGHI 4,India,0,live_action,1,Baaghi,Baaghi 3,2020,,,,original,Nadiadwala Grandson Entertainment,Baaghi 4,,high,
+EKSIL,Indonesia,1,documentary,0,,,,,,,true_story,Lola Amaria Production,The Exiles (2022 film),Eksil (film),high,"2022 documentary on 1965 exiles; theatrical release Feb 2024, 2025 is a re-screening"
+THE FANTASTIC FOUR: FIRST STEPS (3D),United States,0,live_action,1,Marvel Cinematic Universe,Thunderbolts*,2025,,,,comic,Marvel Studios,The Fantastic Four: First Steps,The Fantastic Four: First Steps,high,Format version of THE FANTASTIC FOUR: FIRST STEPS.
+HOUSEFULL 5,India,0,live_action,1,Housefull,Housefull 4,2019,,,,original,Nadiadwala Grandson Entertainment,Housefull 5,,high,
+SUPERMAN (3D),United States,0,live_action,1,DC Universe / Superman,Man of Steel,2013,,,,comic,"DC Studios, Warner Bros.",Superman (2025 film),Superman (film 2025),high,"Format version of SUPERMAN. Reboot, first DCU film"
+JAAT,India,0,live_action,0,,,,,,,original,"Mythri Movie Makers, People Media Factory",Jaat (film),,high,
+KAIJU NO. 8: MISSION RECON,Japan,0,anime,1,Kaiju No. 8,Kaiju No. 8 (TV anime),2024,,,,comic,Production I.G,,,high,Compilation of TV anime season 1 plus new short
+KEAJAIBAN AIR MATA WANITA,Indonesia,1,live_action,0,,,,,,,original,Bahagia Pictures,,Keajaiban Air Mata Wanita,medium,Released 2025-01-23; data starts 2025-05-17 (late or second run)
+MAA,India,0,live_action,1,Shaitaan universe,Shaitaan,2024,,,,folklore,"Devgn Films, Jio Studios",Maa (2025 film),,medium,"Mythological horror, Kajol"
+YAKIN NIKAH,Indonesia,1,live_action,0,,,,,,,original,Adhya Pictures,,Yakin Nikah,medium,Release 2025-10-09; data from 2025-08-26 is previews
+BHOOL CHUK MAAF,India,0,live_action,0,,,,,,,original,Maddock Films,Bhool Chuk Maaf,,high,
+SENYUM MANIES LOVE STORY,Indonesia,1,live_action,0,,,,,,,true_story,,,Senyum Manies Love Story,medium,Romance biopic of Anies Baswedan and wife
+INVINCIBLE SWORDSMAN,China,0,live_action,0,,,,,,,other,,,,low,Chinese wuxia (Wong Jing producer); source not verified; already running before April
+DEATH WHISPERER 3,Thailand,0,live_action,1,Death Whisperer (Tee Yod),Death Whisperer 2,2024,,,,novel,"Major Joint Film, BEC Film",Death Whisperer 3,,high,"Based on Krittanon Jitkham online horror story; release in Indonesia Oct 2025, data from 09-29 (previews)"
+ULTRAMAN ARC THE MOVIE: THE CLASH OF LIGHT AND EVIL,Japan,0,live_action,1,Ultraman,Ultraman Arc (TV series),2024,,,,other,Tsuburaya Productions,,,high,Tokusatsu film continuing TV series
+THE SNITCH,South Korea,0,live_action,0,,,,,,,original,,,,low,Korean crime action; details not verified
+DAN DA DAN: EVIL EYE,Japan,0,anime,1,Dandadan,Dandadan (TV anime season 1),2024,,,,comic,Science SARU,Dan Da Dan: Evil Eye,,high,Compilation of TV episodes
+PRETTY CRAZY,South Korea,0,live_action,0,,,,,,,original,,Pretty Crazy,Pretty Crazy,medium,Lim Yoona romantic comedy
+COLORFUL STAGE! THE MOVIE: A MIKU WHO CANT SING,Japan,0,anime,1,Project Sekai,,,,,,game,P.A. Works,Colorful Stage! The Movie: A Miku Who Can't Sing,Colorful Stage! The Movie: A Miku Who Can't Sing,high,Based on rhythm game Project Sekai: Colorful Stage
+BTS ARMY: FOREVER WE ARE YOUNG,United States,0,documentary,0,,,,,,,true_story,,,,medium,Documentary about BTS fans (ARMY)
+ELIO (3D),United States,0,animation,0,,,,,,,original,"Pixar Animation Studios, Disney",Elio (film),Elio (film),high,Format version of ELIO.
+YOU ARE THE APPLE OF MY EYE,South Korea,0,live_action,0,,,,,,,remake,,,,medium,Korean remake of 2011 Taiwanese film (novel by Giddens Ko)
+STOLEN GIRL,United Kingdom,0,live_action,0,,,,,,,original,Iervolino & Lady Bacardi Entertainment,,,low,Thriller; origin and source not verified
+THE STRANGERS: CHAPTER 2,United States,0,live_action,1,The Strangers,The Strangers: Chapter 1,2024,,,,remake,Lionsgate,The Strangers – Chapter 2,,high,Reboot trilogy of The Strangers (2008); release in Indonesia late Sep 2025
+IMAGINE DRAGONS: LIVE FROM THE HOLLYWOOD BOWL (WITH THE LA FILM ORCHESTRA),United States,0,concert,0,,,,,,,other,,,,high,Concert film
+SEVENTEEN [RIGHT HERE] WORLD TOUR IN CINEMAS,South Korea,0,concert,0,,,,,,,other,"HYBE, Pledis Entertainment",,,high,K-pop concert film
