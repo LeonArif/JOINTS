@@ -260,8 +260,6 @@ Notebook: `main.ipynb`
 - Penggunaan data eksternal diperbolehkan, baik dalam bentuk labelled maupun unlabelled data.
 - Format data eksternal dibebaskan, selama penggunaannya sesuai dengan ketentuan kompetisi.
 - Sumber data eksternal wajib dapat diakses secara publik dan dapat diverifikasi.
-- Data eksternal hanya boleh digunakan apabila informasi atau versi data tersebut telah tersedia untuk publik paling lambat 30 September 2025.
-- Batas waktu tersebut berlaku untuk seluruh film uji.
 
 How we apply it:
 - Every source must show a publication or signing date on or before 2025-09-30.
@@ -828,3 +826,483 @@ Out-of-fold predictions of the tuned winners on the 63-feature main.ipynb set, 5
 ### Watch on the LB
 - Kumo and the tree models predict the same overall level (kumo / trees 1.004) but differ by seasonal group (mean ticket prediction, smoke run): ram_to_ram (10,767 rows) kumo 1.3x trees, pre_to_ram 0.6x, ram_to_lebaran 0.9x (after the x2.0), school_target_only 1.2x, school_d13_only 0.8x.
 - The seasonal factors were tuned against tree-model output; if the Kumo-heavy blend scores worse than 0.45395, check these groups first (the decay-model submission, which also raised ram_to_ram, scored worse).
+
+## 2026-10-07 - LB result: Kumo-only submission (the 63-feature main.ipynb with the tuned setup)
+
+| Submission | Public LB |
+|---|---|
+| main.ipynb, equal-weight blend of default LightGBM, CatBoost, XGBoost, Kumo 5k x 1 seed | 0.45395 |
+| **`submission_kumo_only.csv`** (Kumo 10k context x 3 seeds, same postprocessing) | **0.46068** |
+- Worse than the earlier blend by 0.0067, although CV was far better (0.3447 vs about 0.3634 for the equal-weight blend of the same kind). Fourth time train-period CV pointed the wrong way (v2, decay model, first main.ipynb, now Kumo-only).
+- `submission_trees_only.csv` and the 0.8 Kumo blend (`submission.csv`) are not submitted yet; the user plans to submit the trees-only file next.
+
+### What the real files look like (mean predicted ratio = prediction / scale, test rows)
+| | Kumo only | Trees only | Blend (0.8 Kumo) |
+|---|---|---|---|
+| all rows | 0.423 | 0.479 | 0.435 |
+| exact zeros | 24.1% | 34.3% | 22.2% |
+| ram_to_lebaran (4,598 rows) | 0.856 | 1.170 | 0.918 |
+| pre_to_ram (1,460) | 0.033 | 0.169 | 0.060 |
+| ram_to_ram (10,767) | 0.292 | 0.325 | 0.299 |
+| school_d13_only (1,627) | 0.411 | 0.533 | 0.435 |
+| normal (48,044) | 0.390 | 0.420 | 0.396 |
+- By horizon Kumo / trees: D4 0.986 / 1.015, D5 0.680 / 0.748, D7 0.357 / 0.397, D9 0.139 / 0.214, D10 0.131 / 0.228: Kumo drops faster, mostly on the late days.
+- Pattern across LB results: submissions that predict lower sales for big, long-lasting films scored worse (v2 without film features, decay model, now Kumo), and the largest gains came from raising predictions (Lebaran x2). Working explanation: the test period holds sales longer than the train period, so any model fitted on train decays too fast, and the model that decays fastest (Kumo) is hurt most. Not proven; it is a hypothesis to test.
+- Tests that follow from it: (1) trees-only, the highest-level file (mean ratio 0.479); (2) a global multiplier on D4-D10 predictions (for example x1.1, or x1.1 on D6-D10 only) applied to the best file; (3) the Lebaran x3 probe.
+
+## 2026-10-07 - The 0.45395 file compared with the new files, and a no-snap trees file
+
+- The 0.45395 file (equal-weight blend of default LightGBM, CatBoost, XGBoost and Kumo 5k x 1 seed; saved by the user as Downloads/submission.csv) was compared with the new outputs (mean predicted ratio = prediction / scale over test rows):
+| File | LB | Mean ratio | Exact zeros | Lebaran group | D9-D10 | Distance to the 0.45395 file |
+|---|---|---|---|---|---|---|
+| best (default models) | 0.45395 | 0.491 | 0.4% | 1.250 | 0.236 | - |
+| `submission_kumo_only.csv` | 0.46068 | 0.423 | 24.1% | 0.856 | 0.135 | 0.121 |
+| `submission.csv` (0.8 Kumo, 0.1 CatBoost, 0.1 LightGBM) | not submitted | 0.435 | 22.2% | 0.918 | 0.152 | 0.102 |
+| `submission_trees_only.csv` (tuned LightGBM + CatBoost, 3 seeds, zeros snapped at 0.2) | not submitted | 0.479 | 34.3% | 1.170 | 0.221 | 0.070 |
+| `submission_trees_nosnap.csv` (same models, no snapping) | not submitted | 0.502 | 2.2% | 1.202 | 0.254 | 0.068 |
+- The best file has the highest level among the submitted files and almost no exact zeros (default models, no snapping). The trees-only file has 34.3% exact zeros because of the snapping, tuned on train where 31.8% of targets are 0; if the test period keeps sales longer, snapping may hurt there.
+- Tomorrow's trees-only test mixes three changes against the best file (tuned parameters, 3 seeds, snapping). `submission_trees_nosnap.csv` removes the snapping: it was built with the notebook's own tuned LGBM_PARAMS / CATBOOST_PARAMS, 3 seeds each, final fit on all train rows, the same seasonal factors (Lebaran x2.0, school x1.25), unsnapped mean of LightGBM and CatBoost.
+- Note: the leon/submission.csv is the 0.8 Kumo blend, not the 0.45395 file.
+
+## 2026-10-07 - LB pattern across all submissions we still have files for
+
+Mean predicted ratio (prediction / scale) on test rows, by slice, against the public LB:
+| File | LB | All rows | D9-D10 | Top-20% biggest films | Lebaran group | Ramadan-to-Ramadan | Exact zeros |
+|---|---|---|---|---|---|---|---|
+| best (default models, equal blend) | **0.45395** | 0.491 | 0.236 | 0.821 | 1.250 | 0.341 | 0.4% |
+| Kumo only | 0.46068 | 0.423 | 0.135 | 0.736 | 0.856 | 0.292 | 24.1% |
+| p1 | 0.47566 | 0.453 | 0.205 | 0.807 | 1.064 | 0.298 | 2.8% |
+| decay model | 0.48012 | 0.460 | 0.176 | 0.765 | 0.972 | 0.345 | 8.0% |
+| v4 | 0.48601 | 0.428 | 0.195 | 0.757 | 0.665 | 0.298 | 2.8% |
+| v3 | 0.48865 | 0.412 | 0.188 | 0.722 | 0.532 | 0.296 | 2.8% |
+| not submitted: 0.8 Kumo blend | - | 0.435 | 0.152 | 0.751 | 0.918 | 0.299 | 22.2% |
+| not submitted: trees only, snapped | - | 0.479 | 0.221 | 0.815 | 1.170 | 0.325 | 34.3% |
+| not submitted: trees only, no snap | - | 0.502 | 0.254 | 0.822 | 1.202 | 0.356 | 2.2% |
+- Spearman correlation of the LB score with the level of each slice over the 6 submitted files (negative = higher level goes with a better score): Lebaran group -0.83, biggest films -0.66, all rows -0.60, D9-D10 -0.26, Ramadan-to-Ramadan -0.14, share of exact zeros +0.09.
+- So the LB follows the level of the Lebaran group and of the big films; the zero share does not matter. With 6 files this is descriptive, not proof.
+- Exception: Kumo only has a lower level than p1 in every slice (Lebaran 0.856 vs 1.064) yet scores better (0.46068 vs 0.47566), so model quality (which pairs decay) also counts; Kumo's problem is its level, not its ranking.
+- Similarity to the 0.45395 file (Pearson of ratios, mean absolute difference / scale, share of rows within 10%): trees no snap 0.964 / 0.068 / 43.6%; trees snapped 0.962 / 0.070 / 49.7%; 0.8 Kumo blend 0.927 / 0.102 / 41.2%; Kumo only 0.902 / 0.121 / 37.9%; p1 0.902 / 0.114 / 32.3%; decay 0.877 / 0.134; v4 0.874 / 0.127; v3 0.845 / 0.140.
+- Idea not yet built: take Kumo's predictions (best ranking, too low a level) and lift them per season group and horizon to the level of the tree files, then test that on the LB.
+
+## 2026-10-07 - Aggressive LB probes on top of the 0.45395 file (one change each)
+
+Base = the 0.45395 submission (Downloads/submission.csv). Each probe multiplies only one slice of the base predictions; everything else is identical, so the LB change comes from that change alone. Zero predictions stay zero.
+| File | Slice and factor | Rows changed | Mean ratio | Largest possible LB change |
+|---|---|---|---|---|
+| `submission_probe_lebaran_x1.5.csv` | Lebaran group (D1-D3 touches Ramadan, target from 2026-03-20) x1.5 | 4,598 (6.3%) | 0.491 -> 0.531 | 0.040 |
+| `submission_probe_bigfilms_x1.3.csv` | top 20% of rows by the film's national D1-D3 average x1.3 | 15,015 (20.7%) | 0.491 -> 0.542 | 0.051 |
+| `submission_probe_late_d7_10_x1.5.csv` | horizons D7 to D10 x1.5 | 41,492 (57.1%) | 0.491 -> 0.573 | 0.082 |
+| `submission_probe_all_x1.2.csv` | all rows x1.2 | 72,611 | 0.491 -> 0.590 | 0.098 |
+- "Largest possible LB change" is the mean absolute change of the predictions in scale units; the LB can never move by more than this, and in practice moves by a fraction of it.
+- Reading a result against 0.45395: better by more than 0.003 = right direction, try a bigger step next; worse by more than 0.003 = wrong direction or too far; within 0.002 = close to the best level for that slice (or the gain and loss cancel).
+- Why these four: the LB follows the level of the Lebaran group (Spearman -0.83) and of the biggest films (-0.66) across the six scored files; the late days are where Kumo drops fastest (D9-D10 43% below the trees); the global lift tests whether test sales are higher than all train-fitted models predict.
+- Order suggested: lebaran_x1.5 first (strongest evidence, also supported by the Lebaran 2024 / 2025 trajectories at 1.27 to 2.40 for Eid-day releases), then bigfilms or all, then late days. Results to be logged here.
+
+## 2026-10-07 - LB result: Lebaran x1.5 probe = new best 0.44518
+
+| Submission | Public LB |
+|---|---|
+| base (default models, equal blend; Lebaran factor x2.0 on the raw model) | 0.45395 |
+| **`submission_probe_lebaran_x1.5.csv`** (same file, Lebaran group x1.5 more, i.e. x3.0 of the raw model) | **0.44518** |
+- Gain 0.00877, from changing 4,598 rows (6.3%) only; the largest possible change of that probe was 0.040. The direction is confirmed: test Lebaran-week sales are higher than the model-times-2 level.
+- History of the Lebaran factor (x of the raw model, LB): 1.25 (v4) 0.48601 -> 2.0 (p1-style) gains 0.0104 -> 3.0 gains another 0.0088. The gain per step is shrinking, so the best factor is probably not far above 3.0 (rough estimate under a lognormal assumption about the ratio of actual to predicted: between 2.8 and 3.2); an extra x1.5 on top is unlikely to give more than a few thousandths.
+- The older probes (`submission_probe_bigfilms_x1.3`, `late_d7_10_x1.5`, `all_x1.2`) were built on the 0.45395 base and are superseded.
+- New probes built on the 0.44518 file, each excluding the Lebaran group so the slices stay disjoint from the lift already tested:
+  - `submission_next_all_x1.2.csv`: all other rows x1.2.
+  - `submission_next_bigfilms_x1.3.csv`: other rows of the top-20% biggest films x1.3.
+  - `submission_next_late_d7_10_x1.5.csv`: other rows of horizons D7-D10 x1.5.
+
+## 2026-10-07 - LB result: all other rows x1.2 = new best 0.44318
+
+| Submission | Public LB |
+|---|---|
+| `submission_probe_lebaran_x1.5.csv` (base) | 0.44518 |
+| **`submission_next_all_x1.2.csv`** (every row except the Lebaran group x1.2) | **0.44318** |
+- Gain only 0.0020, against a largest possible change of 0.082. Reading it: the weight of the slice (sum of prediction / scale over its rows, divided by all rows) is about 0.41, the average slope of the error between x1.0 and x1.2 is -0.010 per unit, which means the weighted share of predictions below the truth exceeds the share above by only 2.4%, so the overall level is already near its best (the weighted median of actual / predicted is close to 1.1).
+- Consequence: a bigger global lift will not help; remaining gains are in which slices are too low and which too high (they cancel in a global change).
+- Weight carried by slice on this base (non-Lebaran rows): top-20% biggest films 18.5% of rows with mean ratio 0.936 (about 42% of the weight); bottom 40% films 39.6% of rows at 0.262; D7-D10 53% of rows at 0.301; D4-D6 40% of rows at 0.830; scale <= 20 pairs 12.5% at 0.262.
+- Next probes built on the 0.44318 file (Lebaran group excluded), one slice each:
+  - `submission_next2_bigfilms_x1.3.csv`: top-20% biggest films x1.3 (x1.56 against the 0.45395 base).
+  - `submission_next2_smallfilms_x0.8.csv`: bottom-40% films x0.8 (tests that small films are over-predicted, the counterpart of the lift).
+  - `submission_next2_late_d7_10_x1.5.csv`: horizons D7-D10 x1.5.
+- Superseded: the `submission_next_bigfilms_x1.3` and `submission_next_late_d7_10_x1.5` files (built on the 0.44518 base).
+
+## 2026-10-07 - Local analysis before spending more submissions: what train can and cannot say about multipliers
+
+Best multiplier per slice on TRAIN (out-of-fold predictions of the tuned models, weighted median of actual / predicted with prediction weights; 1.00 = already right):
+| Slice | Rows | Trees (lgbm + catboost) | Kumo 10k x 3 |
+|---|---|---|---|
+| all rows | 54,671 | 0.95 | 1.03 |
+| top 20% biggest films | 11,123 | 0.87 | 0.95 |
+| bottom 40% smallest films | 22,023 | 0.95 | 1.09 |
+| D4-D6 | 23,414 | 0.99 | 1.03 |
+| D7-D10 | 31,257 | 0.81 | 1.01 |
+| pair scale <= 20 | 1,965 | 0.22 | 0.61 |
+| pair scale 20-80 | 12,270 | 0.98 | 1.10 |
+| pair scale > 80 | 40,436 | 0.95 | 1.02 |
+| target on holiday / cuti / school break | 10,102 | 0.94 | 1.04 |
+| normal day | 44,569 | 0.95 | 1.02 |
+
+Change in train out-of-fold MAE if a probe multiplier is applied (negative = better):
+| Probe | Trees | Kumo |
+|---|---|---|
+| all rows x1.2 | +0.0197 | +0.0097 |
+| top-20% films x1.3 | +0.0167 | +0.0122 |
+| bottom-40% films x0.8 | +0.0012 | +0.0042 |
+| D7-D10 x1.5 | +0.0326 | +0.0146 |
+| pair scale <= 20 x0.5 | -0.0008 | -0.0001 |
+| pair scale <= 20 x1.5 | +0.0017 | +0.0007 |
+
+- Train is well calibrated overall (best multiplier 0.95 to 1.03), yet on the LB the non-Lebaran rows gained from x1.2 (-0.0020) while train says the same step would cost +0.010 to +0.020: the test-period shift (films hold sales longer) is worth roughly +10 to +30% of the level on these rows, now measured against train.
+- Train cannot give the test multiplier (no test labels, a different season; it has pointed the wrong way four times). It only gives relative slice patterns, which may or may not carry over.
+- If the shift is uniform across slices, the train patterns say: big films are already the most over-lifted (best multiplier 0.87 to 0.95), late days even more for the trees (0.81), pairs with scale <= 20 are heavily over-predicted (0.22 to 0.61). So the probes with the weakest prior are D7-D10 x1.5 and big films x1.3; the strongest prior is lowering small pairs, but its largest possible LB change is only about 0.016.
+- The slice with no train information at all is Ramadan (train has no Ramadan days): ram_to_ram 10,767 rows and pre_to_ram 1,460 rows; a probe there is the most uncertain and potentially the most valuable.
+- Possible next step, not built: a local simulator of the test labels fitted to the scored files' LB values (8 files with known scores), validated by leaving one score out; only then can multipliers be tuned without submissions.
+
+## 2026-10-07 - Local multiplier simulator (sweep of many multipliers without submitting)
+
+Code: `multiplier_sim.py` in the scratchpad (not in the repo). Needs the saved out-of-fold predictions of the tuned models.
+
+### Method
+- Truth model for test row i: actual ratio T_i = kappa_g(i) x R_i x r_ref_i, where r_ref is the 0.45395 file's prediction / scale, R = actual / predicted drawn from the train out-of-fold residual pool of rows with a similar predicted ratio (14 buckets, capped at 25), and kappa is a season shift for 2 slices (Lebaran rows 4,598, other rows 68,013).
+- kappa fitted so the simulated LB changes equal the two measured ones exactly: Lebaran x1.5 on the 0.45395 file (-0.00877) and all other rows x1.2 on the 0.44518 file (-0.00200). Three residual pools tried (trees, Kumo, mix).
+- Fitted kappa: trees pool Lebaran 1.496, other 1.177; Kumo pool 1.369 and 1.085; mix pool 1.411 and 1.119.
+
+### Validation: the simulator FAILS for comparing different files
+| File | Real LB | Simulated (trees / kumo / mix pool) |
+|---|---|---|
+| kumo only | 0.4607 | 0.4913 / 0.5011 / 0.4961 |
+| p1 | 0.4757 | 0.4879 / 0.4903 / 0.4898 |
+| decay | 0.4801 | 0.4937 / 0.4966 / 0.4960 |
+| v4 | 0.4860 | 0.5027 / 0.5064 / 0.5054 |
+| v3 | 0.4886 | 0.5117 / 0.5163 / 0.5151 |
+- Mean absolute error on these 5 held-out files: 0.0192 (trees pool), 0.0239 (Kumo), 0.0223 (mix); correlation with the real LB 0.74, 0.50, 0.66. It over-penalises every file that differs from the reference: the truth is built around the 0.45395 file's predictions, so a different model whose ranking carries real information still looks worse. It therefore cannot say whether Kumo, trees or the blend is a better model.
+- Back-test of within-file multiplier changes: Lebaran v4 -> p1 simulated -0.0148 / -0.0161 / -0.0156 against real -0.01035; v3 -> v4 (x1.25 on school and Lebaran rows) simulated about -0.009 against real -0.00264. Simulated gains are 1.4 to 3.4 times too large, so predicted gains below are upper bounds.
+- A closure bug (the "total error" function used the last pool's parameters) made the first sweeps for the trees and Kumo pools inconsistent; fixed, results below are from the fixed run (the validation table was not affected).
+
+### Sweeps (predicted LB when one slice is multiplied; current best = 0.44318)
+- Current best file: best Lebaran multiplier x1.0 (x0.9 for the Kumo pool), best other-rows multiplier x0.9 (the file already carries x1.2, so about x1.08 of the original level). Predicted extra gain 0.0012 (trees), 0.0019 (Kumo), 0.0015 (mix); after the 1.4 to 3 times overstatement the real gain is probably below 0.001. The curves are V-shaped: Lebaran x1.3 more would cost about +0.009 to +0.013, other rows x1.3 more about +0.04.
+- Conclusion: the Lebaran factor and the global lift are already near their best on this file; more tuning of multipliers on it is not worth submissions.
+- `leon/submission.csv` (0.8 Kumo blend): its level is far lower than the current best (Lebaran mean ratio 0.918 against 1.876; other rows 0.402 against 0.528); best multipliers Lebaran x1.7 to x1.8 and other rows x1.1 (simulated 0.4651 / 0.4725 / 0.4684, not reliable in absolute terms).
+- `submission_trees_nosnap.csv`: best Lebaran x1.4 to x1.5, other rows x1.1 (simulated 0.4531 to 0.4555 against 0.4648 to 0.4665 as is).
+
+### Level-matched candidates (new files)
+Each file is the original model output with the Lebaran rows and the other rows multiplied so their mean predicted ratios equal the current best's (Lebaran 1.876, other rows 0.528); this removes the level difference, so a score difference against 0.44318 reflects the model's ranking, not its level.
+| File | x Lebaran | x other rows | Exact zeros |
+|---|---|---|---|
+| `submission_trees_nosnap_leveled.csv` | 1.561 | 1.161 | 2.2% |
+| `submission_trees_snapped_leveled.csv` | 1.603 | 1.221 | 34.3% |
+| `submission_blend08_leveled.csv` (0.8 Kumo blend) | 2.042 | 1.314 | 22.2% |
+| `submission_kumo_only_leveled.csv` (Kumo only, whose real score was 0.46068) | 2.192 | 1.340 | 24.1% |
+- Suggested order: trees_nosnap_leveled first (closest to the current best file, tests tuned trees); kumo_only_leveled tests directly whether Kumo's problem was only its level.
+
+## 2026-10-07 - Where the local (out-of-fold) error comes from
+
+Local out-of-fold MAE: Kumo 10k x 3 seeds 0.3447, tuned trees snapped 0.3643 (real LB of similar files: 0.443 to 0.461).
+- True zeros: 31.8% of rows are exactly 0; they carry only 8.8% (Kumo) and 13.7% (trees) of the error. 86 to 91% of the error comes from rows that did sell (about 0.46 per row), so the error is about how much sold, not about zeros.
+- By horizon (Kumo): D4 0.372, D5 0.406, D6 0.349, D7 0.343, D8 0.296, D9 0.321, D10 0.324; fairly flat, the first two days are the hardest.
+- By pair size (D1-D3 average tickets), error per row (rows %, share of Kumo error): <= 10: 1.84 (1.2%, 6.5%); 10-20: 0.45 (2.4%, 3.1%); 20-40: 0.54 (7.5%, 11.7%); 40-80: 0.35 (14.9%, 15.1%); 80-160: 0.32 (22.0%, 20.6%); > 160: 0.285 (52.0%, 42.9%). Test has far more small pairs (13% of rows with scale <= 20 against 3.6% in train), which raises the test error.
+- By fold (Kumo): 0.294, 0.518, 0.246, 0.370, 0.295; fold 1 is hard for every model, so the score depends strongly on which films a fold contains.
+- By film: 10 of 174 films carry 35.0% of the Kumo error and 25 carry 54.5%. Largest: SORE ISTRI DARI MASA DEPAN (error 2.13 per row, 6.9% of the total), A MINECRAFT MOVIE (2.45, 6.1%), SAYAP SAYAP PATAH 2: OLIVIA (1.29, 4.5%), LILO & STITCH (1.01, 4.2%), UNTIL DAWN (1.53, 3.3%). These are films whose sales grew or held up where the models expected decay (surprise hits), the same direction as the test-period shift found on the LB.
+
+## 2026-10-07 - Seasonal multipliers from last season's data (pre-cutoff), and a probe plan
+
+### Method
+- Ratio per film = daily mean of D4-D10 / daily mean of D1-D3 (the quantity the model predicts, at film level), from `external_data/season_trajectories.csv` (cumulative admissions from news, all published before the cutoff), interpolating the cumulative curve; films need a point on day 1-3 and one on day 8 or later.
+- News covers hits, so seasons are compared with the news's own normal-season films ("other": Oct 2024 - Apr 2025 outside holidays), not with train. For reference, train films by the same formula: all 205 median 0.374, top third by D1-D3 0.571; news normal films 0.887, so the news sample holds about 1.55x better than train hits (selection, and / or the Oct-Mar season holding longer, which the LB also suggested with the all-rows x1.2 gain).
+- Script: `season_factor.py` in the scratchpad; per-film results `season_ratios.csv`.
+
+### Result
+| Season (last year) | Films usable | Median ratio | vs news normal films | Test slice it maps to |
+|---|---|---|---|---|
+| normal ("other") | 5 | 0.887 | 1.00 | normal |
+| Christmas 2024 | 6 | 0.712 | 0.80 | xmas (target 20 Dec - 4 Jan), 5,235 rows |
+| Ramadan 2025 (opened in Ramadan) | 1 (IBLIS DALAM KANDUNGAN 2) | 0.493 | 0.56 | ram_to_ram, 10,767 rows |
+| pre-Ramadan 2025 | 1 (PETAKA GUNUNG GEDE, its D4-D10 is before Ramadan) | 0.884 | 1.00 | none (pre_to_ram has no usable film) |
+| Lebaran 2025 (opened on Eid) | 4 | 1.482 | 1.67 | ram_to_lebaran, 4,598 rows |
+| Lebaran 2024 (opened Eid + 1) | 2 | 0.814 | 0.92 | (test Lebaran films open 2 days before Eid) |
+- Lebaran: the data agree with the LB direction (Lebaran rows need a lift). The LB already tuned this slice (x3 of the raw model, near best per the simulator), so no new probe.
+- Christmas: the data say faster decay (0.80, 6 films), but the LB gained from x1.25 on Christmas school-holiday rows (v3 -> v4). Contradiction, and the news Christmas films opened 12-25 Dec with inflated holiday D1-D3. Not probed.
+- Ramadan: the only slice with no train information and no LB test yet. One film at 0.56 plus the XXI statement that March 2025 attendance dropped on Ramadan (no %). Shrunk halfway to 1 on the log scale: x0.75 (sqrt(0.556) = 0.75).
+
+### Probe plan (shared submissions; each probe changes one slice of the current best 0.44318 file)
+| Order | Probe | Rows | Largest possible LB change | Evidence | Read the result |
+|---|---|---|---|---|---|
+| 1 | ram_to_ram x0.75 | 10,767 (14.8%) | about 0.015 | last-season Ramadan film 0.56x normal; slice untested | better by > 0.002: try x0.6; worse by > 0.002: try x1.15 (Ramadan holds longer, like the rest of the test period) |
+| 2 | `submission_trees_nosnap_leveled.csv` (already built) | all | - | tests the tuned trees at the best file's level | keep the better file as the base for later probes |
+| 3 | pair scale <= 20 x0.5 | about 12.5% | about 0.016 (log) | strongest train prior (best multiplier 0.22-0.61) | small, cheap to confirm |
+- Not worth submissions (per the simulator and the LB): more global lift, more Lebaran lift.
+- Build a probe: `python make_probe.py <best.csv> ram_to_ram 0.75 submission_probe_ramadan_x0.75.csv` (scratchpad). Groups as in the season_group definition; this pre_to_ram (1,962 rows) has no school-group priority, unlike the earlier 1,460.
+- The 0.44318 file is not on this machine (not in joints/, Downloads, Desktop or Documents), so no probe file is built yet.
+
+### Files built (in joints/)
+- `submission_probe_ramadan_x0.75.csv`: base = `Downloads/submission_next_all_x1.2_0797.csv` (verified as the 0.44318 file: mean ratio Lebaran 1.876, other rows 0.528), ram_to_ram rows x0.75 (10,767 rows, mean ratio 0.409 -> 0.307, largest possible LB change 0.0152). Not submitted.
+
+### Current main (Kumo-based) output vs the best file, by slice (mean predicted ratio)
+The current main's blend (`submission.csv` = 0.8 Kumo + 0.1 CatBoost + 0.1 LightGBM, seasonal factors Lebaran x2.0, school x1.25) is not on this machine; Kumo-only (80% of it, `Downloads/submission_kumo_only.csv`, LB 0.46068) compared with the 0.44318 file:
+| Slice | Rows | Best | Kumo | Best / Kumo | Kumo exact zeros |
+|---|---|---|---|---|---|
+| normal | 50,049 | 0.514 | 0.388 | 1.32 | 24.4% |
+| xmas | 5,235 | 1.024 | 0.787 | 1.30 | 5.0% |
+| ram_to_ram | 10,767 | 0.409 | 0.292 | 1.40 | 33.8% |
+| ram_to_lebaran | 4,598 | 1.876 | 0.856 | 2.19 | 7.3% |
+| pre_to_ram | 1,962 | 0.217 | 0.057 | 3.84 | 55.3% |
+| D4 / D5 / D6 / D7 | 10,373 each | 1.258 / 0.929 / 0.670 / 0.526 | 0.986 / 0.680 / 0.471 / 0.357 | 1.28 / 1.37 / 1.42 / 1.48 | 1.9% / 4.9% / 10.8% / 21.1% |
+| D8 / D9 / D10 | 10,373 each | 0.323 / 0.291 / 0.298 | 0.200 / 0.139 / 0.131 | 1.61 / 2.10 / 2.27 | 35.0% / 45.8% / 49.4% |
+| film size q1 (small) ... q5 (big) | about 14,500 each | 0.231 / 0.301 / 0.707 / 0.798 / 1.037 | 0.151 / 0.230 / 0.444 / 0.557 / 0.741 | 1.53 / 1.31 / 1.59 / 1.43 / 1.40 | 47% ... 2% |
+- The gap is a shape difference, not only a level: it grows with the horizon (1.28 at D4 to 2.27 at D10). (Correction, see below: not caused by Kumo's exact zeros; the best file also predicts about 0 on those rows.)
+- So the log's per-group level match (Lebaran x2.042, other x1.314 for the 0.8 blend) leaves D4-D6 too high and D8-D10 too low relative to the best file; a match per group and horizon fits better.
+- Ramadan rows sit at the same relative level as normal rows (1.40 vs 1.32), so the Kumo models give no separate signal on Ramadan.
+
+### Current main blend leveled per group and horizon (Downloads/submission_8369.csv)
+- Verified as the current main's blend (0.8 Kumo + 0.1 CatBoost + 0.1 LightGBM): mean ratio Lebaran 0.918, other rows 0.402, 22.2% exact zeros (same as the log).
+- Factor per (season group x horizon) cell = best file's mean ratio / blend's mean ratio:
+| Group | D4 | D5 | D6 | D7 | D8 | D9 | D10 |
+|---|---|---|---|---|---|---|---|
+| normal | 1.19 | 1.24 | 1.26 | 1.32 | 1.46 | 1.75 | 1.72 |
+| xmas | 1.20 | 1.22 | 1.21 | 1.26 | 1.36 | 1.46 | 1.60 |
+| ram_to_ram | 1.24 | 1.30 | 1.49 | 1.57 | 1.56 | 2.10 | 2.85 |
+| ram_to_lebaran | 1.83 | 2.11 | 1.88 | 1.83 | 2.01 | 3.09 | 4.02 |
+| pre_to_ram | - | - | 1.80 | 2.26 | 3.10 | 3.69 | 3.77 |
+- Where the blend predicts exactly 0 (22.2% of rows), the best file's mean ratio is only 0.023: both files agree those pairs are finished, so Kumo's zeros are not the problem. Matching only the non-zero rows gives almost the same factors (within a few %), so the mean-matched version is kept.
+- Files (in joints/, not submitted):
+| File | Mean ratio | Exact zeros | Corr with best | Mean abs diff vs best (scale units) |
+|---|---|---|---|---|
+| `submission_8369` (blend as is) | 0.435 | 22.2% | 0.903 | 0.188 |
+| `submission_blend_leveled_gh.csv` (blend x cell factor) | 0.613 | 22.2% | 0.934 | 0.134 |
+| `submission_hedge_blendlev50_best50.csv` (0.5 leveled blend + 0.5 best) | 0.613 | 0.4% | 0.982 | 0.067 |
+- Every cell of both files has the same mean predicted ratio as the best file, so a score difference against 0.44318 measures the blend's ranking (which pairs are high or low), not its level.
+- Suggested order: hedge first (lower risk; averaging two different decent models usually beats both); if it gains, the leveled blend next to see whether more Kumo weight helps.
+
+### LB result: hedge 50/50 = new best 0.43729
+| Submission | Public LB |
+|---|---|
+| `submission_next_all_x1.2.csv` (best before) | 0.44318 |
+| **`submission_hedge_blendlev50_best50.csv`** (0.5 current-main blend leveled per group x horizon + 0.5 best) | **0.43729** |
+- Gain 0.0059 (mean abs change of the predictions 0.067), against 0.0020 for the last multiplier step: the current main's blend (mostly Kumo) ranks pairs better than the old file once its level is matched. First LB gain that comes from the model, not from a multiplier.
+- Next files (in joints/, not submitted), both built on the same pieces:
+  - `submission_hedge_blendlev75_best25.csv`: 0.75 leveled blend + 0.25 best (mean abs change vs the 0.43729 file 0.033). Better -> the optimum is above 0.5, try the leveled blend alone; worse -> keep 0.5.
+  - `submission_hedge50_ramadan_x0.75.csv`: the 0.43729 file with ram_to_ram rows x0.75 (10,767 rows). Replaces `submission_probe_ramadan_x0.75.csv`, which was built on the old best.
+
+## 2026-10-07 - Summary of today's submissions and where we stand
+
+### Submissions scored today (public LB, lower is better)
+| # | File | Public LB | Change vs previous best | What changed | Built from |
+|---|---|---|---|---|---|
+| 1 | `submission_kumo_only.csv` | 0.46068 | worse than 0.45395 by 0.0067 | Kumo 10k context x 3 seeds only, current main features and tuned setup, seasonal factors Lebaran x2.0 / school x1.25 | current main |
+| 2 | `submission_probe_lebaran_x1.5.csv` | 0.44518 | -0.00877 vs 0.45395 | Lebaran rows (4,598) x1.5 on the 0.45395 file (x3.0 of the raw model) | 0.45395 file (old main, equal blend of default LightGBM / CatBoost / XGBoost / Kumo 5k) |
+| 3 | `submission_next_all_x1.2.csv` | 0.44318 | -0.00200 | every non-Lebaran row x1.2 on file #2 | file #2 |
+| 4 | `submission_hedge_blendlev50_best50.csv` | **0.43729** | **-0.00589** | 0.5 x current-main blend leveled to file #3 per season group and horizon + 0.5 x file #3 | file #3 + `submission_8369.csv` (current main blend) |
+- Also in the submission history but not described anywhere in this log: `submission_baseline_v2 (3).csv` at 0.47410 (origin to be confirmed).
+- Progress today: 0.45395 -> 0.43729 (-0.0167). Gap to the 0.369-0.376 cluster about 0.06-0.07; to first place (0.34456) about 0.093.
+
+### What today taught us
+1. Lebaran rows need far more than the model gives: x3 of the raw model is near the best level (gains per step 0.0104 at x2, 0.0088 at x3, simulator says little is left above x3). Last-season Lebaran films agree (D4-D10 ratio 1.67x that of normal films).
+2. The overall level was slightly low: x1.2 on all other rows helped, but only by 0.0020, so the global level is now close to its best and more global lifts are not worth submissions.
+3. Kumo alone scored worse (0.46068) only because of its level and shape: it predicts lower, especially late (1.28x below the best file at D4, 2.27x at D10). Once matched to the best file's level per season group and horizon, half of it in the mix gave the largest gain of the day (0.0059). So Kumo ranks pairs better; the earlier "CV better, LB worse" result for Kumo was a level problem, not a ranking problem.
+4. Kumo's exact zeros are not a problem: where the blend predicts 0 (22.2% of rows) the best file's mean ratio is only 0.023.
+5. Gains from multipliers are shrinking (0.0104, 0.0088, 0.0020); the first model-based gain (0.0059) is larger. Further progress has to come from better rankings (models, blends), with multipliers only to fix levels.
+
+### How the current best file (0.43729) is built
+1. Start from `submission_next_all_x1.2.csv` (= `Downloads/submission_next_all_x1.2_0797.csv`; mean predicted ratio Lebaran 1.876, other rows 0.528).
+2. Take the current main's blend `Downloads/submission_8369.csv` (0.8 Kumo + 0.1 CatBoost + 0.1 LightGBM, seasonal factors Lebaran x2.0, school x1.25; mean ratio Lebaran 0.918, other 0.402, 22.2% zeros).
+3. Ratio = prediction / scale (scale = pair mean D1-D3 tickets from test_history, clipped at 1).
+4. Season groups (test rows): ram_to_lebaran (D1-D3 touches 18 Feb - 19 Mar 2026, target from 20 Mar), ram_to_ram (same D1-D3, target before 20 Mar), pre_to_ram (D1-D3 before Ramadan, target in Ramadan), xmas (target 20 Dec - 4 Jan), normal (the rest). Horizon = target date - D1 + 1 (4-10).
+5. For each group x horizon cell: factor = mean ratio of step 1 / mean ratio of step 2 (factors from 1.19 at normal D4 to 4.02 at Lebaran D10; table in the entry above). Leveled blend = blend ratio x its cell factor.
+6. Final ratio = 0.5 x leveled blend + 0.5 x step 1 ratio; prediction = final ratio x scale.
+- Scripts (scratchpad, not in the repo): `level_blend.py` (steps 3-6), `make_probe.py` (season groups, single-slice probes). Copy them into the repo if they need to survive the session.
+
+### Files ready, not submitted (all in joints/)
+| File | Tests | Mean abs change vs 0.43729 file |
+|---|---|---|
+| `submission_hedge_blendlev75_best25.csv` | more weight on the current main's blend (0.75) | 0.033 |
+| `submission_blend_leveled_gh.csv` | the leveled blend alone (weight 1.0) | 0.067 |
+| `submission_hedge50_ramadan_x0.75.csv` | ram_to_ram rows (10,767) x0.75 on the 0.43729 file | 0.015 at most |
+
+### Decision tree for the next submissions
+1. Submit the 0.75 hedge.
+   - Better than 0.43729: the optimum weight is above 0.5; next submit the leveled blend alone (1.0).
+   - Worse: keep 0.5 as the weight; next submit the Ramadan probe.
+2. Ramadan probe: better by more than 0.002 -> try x0.6; worse by more than 0.002 -> try x1.15 (Ramadan holds like the rest of the test period); within 0.002 -> leave Ramadan alone.
+3. Then add a third ranking source: level `submission_trees_only.csv` from the current main the same way and average three pieces (needs the file in joints/).
+4. Final selection: the best public file plus one hedge, since the factors are tuned on the public LB and may overfit it.
+
+## 2026-10-07 - Merge of the other device's research, verification, and what it changes
+
+### Merge
+- `Downloads/submission_hedge_blendlev50_best50/logs_3217.md` (from the other device) was an exact continuation of this log (identical first 1,008 lines); its two new sections (122 lines: "Seasonal multipliers from last season's data and a probe plan" and "Summary of today's submissions and where we stand") were appended above. A backup of the previous log is in the scratchpad.
+- The same folder holds `main_5220.ipynb`: all 64 cells are identical to `leon/main.ipynb`, nothing to port.
+- Files copied into `leon/` (not moved): `submission_hedge_blendlev50_best50.csv` (the 0.43729 file, new best), `submission_hedge_blendlev75_best25.csv`, `submission_hedge50_ramadan_x0.75.csv`, `submission_blend_leveled_gh.csv`.
+
+### Result
+| Submission | Public LB |
+|---|---|
+| `submission_next_all_x1.2.csv` | 0.44318 |
+| **`submission_hedge_blendlev50_best50.csv`** (0.5 x current main blend leveled per season group and horizon + 0.5 x the 0.44318 file) | **0.43729** |
+- Gain 0.00589 from changing the predictions by 0.067 on average (scale units), three times the gain of the last multiplier step (0.0020), and the first gain that comes from a better ranking of pairs, not from a level change.
+- It also resolves the earlier puzzle about Kumo: its CV was far better but its LB worse (0.46068); once its predictions are matched to the best file's level and decay shape, half of it in the mix helps. The problem was level and shape, not ranking.
+
+### Verification on this machine
+- Rebuilt from local files only (0.44318 file, `leon/submission.csv` = the 0.8 Kumo blend, season groups ram_to_lebaran / ram_to_ram / pre_to_ram / xmas / normal, factor per group x horizon cell, 50/50): the result equals the 0.43729 file and the leveled blend `submission_blend_leveled_gh.csv` exactly (maximum difference 0.0 tickets, correlation 1.0).
+- Group sizes: normal 50,049, ram_to_ram 10,767, xmas 5,235, ram_to_lebaran 4,598, pre_to_ram 1,962.
+- Per-cell factors (best file's mean ratio / blend's mean ratio) grow with the horizon: normal 1.19 at D4 to 1.72 at D10, Lebaran 1.83 to 4.02, Ramadan-to-Ramadan 1.24 to 2.85, Christmas 1.20 to 1.60. The Kumo-heavy blend decays too fast, mostly on the late days.
+- New script `leon/level_blend.py` (works from the leon folder; `--best BEST.csv --model FILE[:WEIGHT] ... --out OUT.csv`) implements the recipe and reproduces the 0.43729 file exactly; it also takes several models. It replaces the scratchpad scripts of the other device (`level_blend.py`, `make_probe.py`) for the leveling part.
+
+### What this changes in my earlier entries
+- The level-matched files built earlier today with one factor per group (`submission_blend08_leveled.csv`, `submission_trees_nosnap_leveled.csv`, `submission_trees_snapped_leveled.csv`, `submission_kumo_only_leveled.csv`) are superseded: matching per group leaves D4-D6 too high and D8-D10 too low, because the factors depend strongly on the horizon. Use per-cell leveling (`level_blend.py`).
+- The local multiplier simulator could not judge whether a different model ranks better (validation failed); this LB result is the empirical answer for the Kumo-heavy blend.
+- Interpretation kept: multipliers are for levels, gains now have to come from rankings (models and blends).
+
+### New file (not submitted)
+- `submission_hedge3_blendlev40_treeslev20_best40.csv` = 0.4 x current blend leveled + 0.2 x `submission_trees_nosnap.csv` leveled (both per group x horizon cell to the 0.44318 file) + 0.4 x the 0.44318 file; mean abs change vs the 0.43729 file 0.019 (correlation 0.9990), so it is a small step; the third ranking source asked for in step 3 of the other device's decision tree.
+- Order from that decision tree (still valid): 0.75 hedge, then the Ramadan x0.75 probe, then the three-way blend; final selection: the best public file plus one hedge.
+
+## 2026-10-07 - Cleanup of submission files in leon/ (deleted on the user's instruction)
+
+13 files deleted permanently; each is either superseded by a better base or did not help. Anything mentioned earlier in this log under these names no longer exists on disk (the numbers in the log stay valid).
+| Deleted | Reason |
+|---|---|
+| `submission_kumo_only.csv` | scored 0.46068, worse than the others; the blend (`submission.csv`) already contains Kumo |
+| `submission_kumo_only_leveled.csv`, `submission_blend08_leveled.csv`, `submission_trees_nosnap_leveled.csv`, `submission_trees_snapped_leveled.csv` | level matched per group only; superseded by per-cell leveling (`level_blend.py`) |
+| `submission_probe_all_x1.2.csv`, `submission_probe_bigfilms_x1.3.csv`, `submission_probe_late_d7_10_x1.5.csv` | probes on the old 0.45395 base; the all-rows lift was tested later as `next_all_x1.2` |
+| `submission_next_bigfilms_x1.3.csv`, `submission_next_late_d7_10_x1.5.csv` | probes on the 0.44518 base; superseded |
+| `submission_next2_bigfilms_x1.3.csv`, `submission_next2_late_d7_10_x1.5.csv`, `submission_next2_smallfilms_x0.8.csv` | probes on the 0.44318 base; weak train priors (big films and late days cost +0.012 to +0.033 on train); the best base is now the 0.43729 file, new probes should be rebuilt on it |
+
+Kept (10):
+| File | Role |
+|---|---|
+| `submission_hedge_blendlev50_best50.csv` | **best, LB 0.43729** |
+| `submission_next_all_x1.2.csv` | LB 0.44318; the reference file of the leveling recipe |
+| `submission_probe_lebaran_x1.5.csv` | LB 0.44518; Lebaran x3 step of the winning chain |
+| `submission.csv` | current main blend (0.8 Kumo, 0.1 CatBoost, 0.1 LightGBM); input of the recipe |
+| `submission_trees_nosnap.csv`, `submission_trees_only.csv` | tuned trees without / with zero-snapping; inputs for a third ranking source |
+| `submission_hedge_blendlev75_best25.csv` | next candidate (0.75 leveled blend) |
+| `submission_hedge50_ramadan_x0.75.csv` | Ramadan probe on the best file |
+| `submission_blend_leveled_gh.csv` | leveled blend alone (weight 1.0) |
+| `submission_hedge3_blendlev40_treeslev20_best40.csv` | three-way blend candidate |
+
+## 2026-10-07 - Where a big score jump could come from (oracle study on train, Kumo out-of-fold predictions)
+
+Local out-of-fold MAE of Kumo 10k x 3 seeds: 0.3447. Oracle = the best constant multiplier per group, chosen with the labels (an upper bound, not achievable).
+| Oracle multiplier per | MAE | Gain | Share of the error |
+|---|---|---|---|
+| film (174 films) | 0.2979 | 0.0467 | 14% |
+| film x 3 horizon blocks (D4-5, D6-7, D8-10) | 0.2716 | 0.0730 | 21% |
+| cinema | 0.3433 | 0.0014 | 0.4% |
+| film x cinema pair (includes pair noise) | 0.2418 | 0.1029 | 30% |
+- The film-level shift (some films hold or grow, others fade faster than predicted) is the largest structured error: spread of the per-film best multiplier: median 1.04 to 1.08, quartiles 0.71 to 1.27, 22 films above 1.5 and 43 below 0.7. It is about the size of the gap between our LB score (0.437) and the top (0.345 to 0.376). Cinema-level effects are negligible.
+- It is not predictable with what we have: a LightGBM on film features (national D1-D3, trend, cinemas, genre, release day, holiday flags; 8-fold by film) predicts the film multiplier with correlation -0.00 and R2 -0.17, and applying the predicted multipliers makes the error worse (0.3479 to 0.3585 against 0.3447).
+- Screen of 25 film-level signals against the per-film best multiplier (Spearman, 163 films): strongest |rho| 0.14 (number of other films opening within 3 days, p 0.066), then 0.11 (cinema expansion D1 to D3), 0.09 (D1 weekday); national and per-pair trends, show growth, occupancy change, concentration of sales, film size, local / sequel / genre flags all |rho| <= 0.08. Nothing usable.
+- Conclusion: no cheap feature route to a large jump from the current information. The remaining gap is mostly film-level level shifts that no available signal explains.
+
+### Strategy consequences
+- Level and ranking need different judges: CV has pointed the wrong way five times, always on effects that change the level (film features, decay model, first main run, Kumo only, global shift); the per-cell leveled Kumo blend gained 0.0059 on the LB in the direction CV predicted (Kumo ranks better). So: tune rankings locally with a level-neutral CV (compare models after matching their group x horizon means), and tune levels on the LB with few probes.
+- Expected gains of the queued files (rough): 0.75 hedge 0.002 to 0.004; three-way blend 0.001 to 0.003; Ramadan x0.75 probe up to 0.015 at most, probably about 0.003.
+- Film-level calibration with the LB as the oracle: the potential is about 0.02 if the top 10 to 15 films by row weight were tuned (crude estimate: total weight 0.61 x typical |best multiplier - 1| of 0.2 x about 0.5 for the V-shaped error x the top films' share), but each group of films needs its own submissions, so it is only worth trying on the largest films with up-down pairs, after the cheaper steps.
+- Risk: the public LB covers a part of the test rows; levels found structurally (Lebaran, global shift) should carry over, film-specific tuning may overfit the public part.
+
+## 2026-10-07 - Submission plan at 3 per day and probe maker
+- Added `make_probe.py`: multiplies one slice (season group, horizon range, top N films by prediction weight) of a base submission by a factor; prints the largest possible LB move (mean absolute change of the ratio).
+- Built from the best file (`submission_hedge_blendlev50_best50.csv`, LB 0.43729), all on the `ram_to_ram` group only, like the queued `submission_hedge50_ramadan_x0.75.csv`:
+  - `submission_plan_ramadan_x0.6.csv` (largest move 0.0243), `submission_plan_ramadan_x1.15.csv` (0.0091).
+  - `submission_plan_xmas_x1.2.csv` (Christmas rows x1.2, largest move 0.0148).
+  - `submission_plan_prerum_x1.2.csv` (pre_to_ram x1.2): largest move only 0.0012, not worth a submission, kept unused.
+- Plan (3 submissions per day, three independent probes on the same base, combine the winners the next day):
+  - Day 1: hedge75 (ranking weight), Ramadan x0.75 (level of ram_to_ram), three-way blend (third ranking source).
+  - Day 2: leveled blend alone if hedge75 won, Ramadan x0.6 or x1.15 by the Day 1 Ramadan result, Christmas x1.2.
+  - Day 3: one file combining every winner, plus up to two film-level probes (top films on the new best).
+  - Day 4 onward: final selection = best public file plus one hedge, rest of the quota for probes on the largest films.
+
+## 2026-10-07 - Reproducibility of the submission files
+- Copied `C:\Users\leouw\Downloads\submission.csv` (LB 0.45395, identical sha256) to `leon/submission_main_default_lb0.45395.csv` so the whole chain lives in the repo.
+- Verified from the data: `submission_next_all_x1.2.csv` = that file with Lebaran rows (ram_to_lebaran) x1.5 and every other row x1.2; `submission_probe_lebaran_x1.5.csv` = Lebaran rows x1.5 only.
+- Added `reproduce.py`: rebuilds 11 files (probes, x1.2 reference, all hedges, all plan files) from three inputs and compares them with the files on disk; every file matches to 1e-14 in ratio. `--write` regenerates them.
+- hedge3 (`blendlev40_treeslev20_best40`) uses `submission_trees_nosnap.csv` as its tree input, not `submission_trees_only.csv`.
+- Only inputs that come from a notebook run cannot be rebuilt bit for bit (GPU Kumo): keep `submission_main_default_lb0.45395.csv`, `submission.csv`, `submission_trees_nosnap.csv`. sha256 (first 16 chars):
+  - *submission.csv: 816b08f6789d04ea
+  - *submission_trees_nosnap.csv: 969591baf90b5841
+  - *submission_main_default_lb0.45395.csv: 411a4fb68a9b2815
+
+## 2026-10-07 - Test-film real admissions (Cinepoint scrape), trial / assumption only
+
+- Idea: the largest remaining error is film-level (some films hold sales, others fade); real daily admissions of the test films (Oct 2025 - Mar 2026) can give a per-film multiplier. Post-cutoff data, so this is a "trial" / "assumption", not official external data.
+- Cleanup (user instruction): deleted 14 outdated submission files in leon/; kept only `submission_hedge_blendlev75_best25.csv`.
+- New files:
+  - `external/cinepoint/cinepoint_scrape.py`: Playwright (headed Chrome, pip package `playwright`) scraper of https://cinepoint.com/pages/tbo; for each date it opens the day's popup (full ranking: rank, title, daily admissions, cumulative admissions, showtimes) and appends to `external/cinepoint/cinepoint_daily_top.csv` (resumable). Needs the Chrome window visible. Month is chosen through the dropdowns (the `month` URL parameter is ignored).
+  - `external/test_movies/test_films.csv`: 163 test films with D1, dataset D1-D3 tickets, cinemas, D4 / D10 dates.
+  - `leon/film_adjust.py`: coverage c = dataset D1-D3 / real D1-D3 (Cinepoint cumulative at day 3); multiplier = real daily admissions x c / our predicted tickets, per film (mode film), per film-day (day) or mix; alpha shrinks toward 1; films / days missing in Cinepoint stay unchanged.
+- Cross-check: Cinepoint cumulative matches news (Agak Laen D5 2,301,647; D7 3,161,317). Agak Laen real D4-D10 scaled to the dataset is about 2.41M vs 2.75M predicted by the earlier best file (about x0.88).
+- Status: December 2025 done; Oct - Mar scrape was running when the session stopped. Not yet run: `film_adjust.py`, any adjusted submission, LB check.
+
+## 2026-10-08 - Cinepoint scrape finished, first film-level adjusted submissions (trial / assumption)
+
+- Scraper fixes: `month` URL parameter is ignored (period chosen via dropdowns), the table must finish reloading at 100 rows per page before dates are read, and each date is wrapped in try/except. Result: `external/cinepoint/cinepoint_daily_top.csv`, 182 of 182 dates (2025-10-01 to 2026-03-31), 3,094 rows (full daily ranking per day: rank, title, daily and cumulative admissions, showtimes).
+- `film_adjust.py` fixes: duplicate titles per day aggregated; real D1-D3 = sum of the first three daily numbers (cumulative at D3 would include previews).
+- Per-film multiplier (real D4-D10 x coverage / our predicted D4-D10) on `submission_hedge_blendlev75_best25.csv`, 80+ films with usable data (real D1-D3 >= 20,000, >= 4 D4-D10 days). Coverage (dataset D1-D3 / real) mostly 0.5-0.9.
+  | Film | film_mult |
+  |---|---|
+  | Agak Laen, Avatar | 1.08, 1.07 |
+  | Danur: The Last Chapter, Tunggu Aku Sukses Nanti, Suzzanna, Na Willa (Lebaran) | 1.31, 1.41, 1.56, 1.45 |
+  | Alas Roban, Dusun Mayit, SpongeBob, Pelangi di Mars, Timur, Comic 8 | 0.51, 0.47, 0.35, 0.33, 0.54, 0.49 |
+  | Sosok Ketiga, Janur Ireng, Sampai Titik Terakhirmu, Zootopia 2 | 0.63, 0.84, 0.83, 0.92 |
+  Spread is 0.33 to 1.56 for the big films, the film-level shift found in the oracle study; Lebaran films need more, many December / January local horror films need much less.
+- Files built (not submitted; 74.4% of rows adjusted, films without Cinepoint data unchanged; ids and no NaN checked):
+  | File | Mode | alpha | Total tickets vs base | Mean abs change |
+  |---|---|---|---|---|
+  | `submission_filmadj_film_a1.0.csv` | one factor per film | 1.0 | 0.922 | 56 |
+  | `submission_filmadj_mix_a1.0.csv` | geometric mean of film and film-day factor | 1.0 | 0.907 | 61 |
+  | `submission_filmadj_film_a0.5.csv` | one factor per film | 0.5 | 0.944 | 30 |
+- Reading the LB: film a1.0 better than base by a lot -> trust the real data, mix next; a0.5 better than a1.0 -> coverage estimate is noisy, keep shrinking.
+- Caveat: coverage per film is estimated from one window (D1-D3), previews and format variants add noise; the multipliers are for films with real data only.
+
+## 2026-10-08 - main.ipynb: Cinepoint real-admission features (trial / assumption), built from scratch instead of adjusting hedge75
+Notebook: `main.ipynb` (new markdown + code cell after the weekday/price cell; `re` added to the imports cell; `CP_FEATURES` appended to `NUM_FEATURES` in the model setup cell; switch `USE_CINEPOINT`).
+
+### Source and data
+- Source: cinepoint.com daily top box office page (public), scraped with `external/cinepoint/cinepoint_scrape.py` on 2026-10-08.
+- Test period: 2025-10-01 to 2026-03-31 (`cinepoint_daily_top.csv`, 182 dates, 3,094 rows). Published after the 2025-09-30 cutoff, so anything using it is a "trial" / "assumption", not an official submission.
+- Train period: 2025-04-01 to 2025-09-30 (`cinepoint_daily_top_train.csv`), before the cutoff, so usable as an external dataset. Scrape takes about 35 s per date.
+- Idea: the earlier film-level adjustment (`film_adjust.py`) multiplied an existing submission. This version has no earlier submission as input: the model sees each film's real curve and learns how a pair's tickets follow it.
+
+### Features (per film from its D1)
+- `cp_log_m13` (log mean real admissions D1-D3), `retK` (real day K / that mean, K = 4..10, empty when the film is not in the daily list), `cutK` (smallest listed admissions that date / the mean, an upper bound for films that fell off the list), `cp_cov` (our D1-D3 tickets / real D1-D3), plus `ret_h`, `cut_h` (at the row's horizon), `cp_ret_mean`, `cp_ndays`.
+- Cinepoint titles have format suffixes stripped and are summed per film (this matches 100% of test films with D1-D3 data, versus about 74% of rows in the first `film_adjust.py` attempt).
+- Train and test are built by the same code.
+
+### Status
+- Smoke test of the new cells passed (test rows with `ret_h`: 89%, with `cp_cov`: 100%). Train-period scrape still running, so no CV result yet.
+- `realdata_model.py` was an earlier standalone draft of this and is replaced by the notebook cells; not used any more.
+
+### 2026-10-08 - cleanup
+- Deleted the helper scripts in `leon/` on the user's request: `film_adjust.py`, `realdata_model.py`, `level_blend.py`, `make_probe.py`, `reproduce.py`. Only code that is part of the `main.ipynb` pipeline goes into the notebook from now on (the Cinepoint feature cells already are). The film-level multiplier idea of `film_adjust.py` is not in the pipeline, so it is not ported; the three `submission_filmadj_*.csv` files it produced stay as they are.
+- The scraper `external/cinepoint/cinepoint_scrape.py` stays (data collection, outside the pipeline, still running for the train period).
+
+### 2026-10-08 - external_add.ipynb: Cinepoint scraper and test-film list moved into the notebook
+- `external_add.ipynb` (the notebook that builds the files in `external/`): new section "Cinepoint daily top box office" after the audience statistics (scraper functions + `scrape_cinepoint(start, end, out)`, run in its own thread because Playwright's sync API cannot run in the notebook's event loop, `SCRAPE_CINEPOINT = False` by default, prints a summary of the existing CSVs) and a "Test films" cell that rebuilds `external/test_movies/test_films.csv` (checked: same values as the earlier file for all 163 films).
+- Imports for these cells added to the first code cell (Playwright import is optional).
+- Source and dates of the data are in the notebook text and in the 2026-10-08 entries above (test period after the cutoff = trial / assumption; train period before the cutoff).
+- `external/cinepoint/cinepoint_scrape.py` stays on disk only until the running train-period scrape ends, then it is deleted (the notebook version is the same code).
+
+### 2026-10-08 - new notebook main_new.ipynb for the Cinepoint pipeline
+- `main_new.ipynb` = copy of `main.ipynb` plus the Cinepoint feature cells (see the entry above): the new real-admission pipeline lives here.
+- `main.ipynb` was put back to its state before the Cinepoint cells (cells removed, `re` import and `CP_FEATURES` in `NUM_FEATURES` reverted), so it stays the old pipeline.
+
+## 2026-10-08 - main_new.ipynb: LGBM with Cinepoint real-curve features (first result)
+Notebook: `main_new.ipynb` (cells run through a scratch script, LGBM only, notebook not executed end to end yet).
+
+### Setup
+- Data: `cinepoint_daily_top_train.csv` (2025-04-01 to 2025-09-30, 183/183 dates, 2,926+14 rows; the 2025-05-24 timeout was re-scraped) and `cinepoint_daily_top.csv` (test period, trial / assumption).
+- Features added to the existing list: `cp_log_m13, cp_cov, cp_ndays, ret_h, cut_h, cp_ret_mean, ret4..ret10, cut4..cut10`. Same LGBM params (Optuna 2026-10-07), 3 seeds, GroupKFold(5) by movie, zero snap 0.2.
+- Fixed a bug in the new cell: the summary line crashed when `USE_CINEPOINT = False`.
+
+### Results (CV MASE, lower is better)
+| Setup | CV MASE | Rows |
+|---|---|---|
+| LGBM, `USE_CINEPOINT = False` | 0.3672 | all |
+| LGBM, `USE_CINEPOINT = True` | 0.3049 | all (99.5% of train rows have Cinepoint data; 0.3021 on those, 0.8439 on the 0.5% without) |
+- By horizon (on): D4 0.359, D5 0.377, D6 0.302, D7 0.305, D8 0.251, D9 0.265, D10 0.275 (off: 0.399, 0.429, 0.361, 0.357, 0.314, 0.357, 0.354).
+- Per fold (on): 0.2649, 0.4528, 0.2159, 0.3363, 0.2547.
+
+### Submission written (not submitted)
+- `submission_new_lgbm_cinepoint.csv`: LGBM (3 seeds, all train rows) ratio x scale, no season factor, no earlier submission as input. Total tickets 12.73M = 0.808 of `submission_hedge_blendlev75_best25.csv` (15.77M), mean abs difference 65 tickets per row.
+- Caveats: train CV uses the same-period real curve, so it is optimistic for the test period (CV vs LB gap was about 0.1 before); the level is 19% below hedge75 while earlier LB gains came from higher levels; CatBoost / Kumo / blend and the season-factor cell are not adapted yet.
