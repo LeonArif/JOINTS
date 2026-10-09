@@ -1306,3 +1306,313 @@ Notebook: `main_new.ipynb` (cells run through a scratch script, LGBM only, noteb
 ### Submission written (not submitted)
 - `submission_new_lgbm_cinepoint.csv`: LGBM (3 seeds, all train rows) ratio x scale, no season factor, no earlier submission as input. Total tickets 12.73M = 0.808 of `submission_hedge_blendlev75_best25.csv` (15.77M), mean abs difference 65 tickets per row.
 - Caveats: train CV uses the same-period real curve, so it is optimistic for the test period (CV vs LB gap was about 0.1 before); the level is 19% below hedge75 while earlier LB gains came from higher levels; CatBoost / Kumo / blend and the season-factor cell are not adapted yet.
+
+## 2026-10-08 - LB result of the Cinepoint pipeline (reported by the user)
+- `submission.csv` written by running `main_new.ipynb` (Cinepoint real-curve features, full model blend): public LB **0.36284**, previous best 0.43729. Big jump, in line with the oracle study (the missing information was film-level).
+- Not an official result: the test-period features come from Cinepoint data after 2025-09-30, which `leon/CLAUDE.md` allows only as a trial / assumption. The train-period features (Apr-Sep 2025) are within the cutoff. The score shows how much film-level information is worth; an official-eligible final submission must not rely on the post-cutoff Cinepoint columns.
+
+## 2026-10-08 - main_new.ipynb: rule-based real-sales multipliers instead of Cinepoint model features (trial / assumption)
+Notebook: `main_new.ipynb`. Reason: using post-2025-09-30 data to build model inputs is the part that may not be allowed; getting a few numbers (multipliers) per film from it is. So the models now only see data up to 2025-09-30 and the real sales only feed a post-processing rule.
+
+### Changes
+- `USE_CINEPOINT = False` by default (the learned variant with Cinepoint columns, LB 0.36284, stays available behind the switch).
+- New cells after the seasonal adjustment: `real_sales_multipliers` / `apply_real_sales` and a train back-test, then `test_submit` (used by the `submission.csv` cell). Adjusted rows no longer get the seasonal factor.
+- Rule: coverage = dataset D1-D3 / real D1-D3; film multiplier = real D4-D10 x coverage / predicted D4-D10; day multiplier likewise per day; used = day^0.75 x film^0.25, clipped 0.3-3, raised to a power by horizon (D4 0.5, D5 0.7, D6 0.85, D7-D10 1.0), zero snap 0.2. Films with real D1-D3 < 5,000 admissions or < 4 usable days are left unchanged.
+
+### Back-test on train (out-of-fold LGBM without Cinepoint features, base CV 0.3672; Cinepoint train file Apr-Sep 2025)
+| Rule | CV MASE |
+|---|---|
+| film multiplier, alpha 0.75 | 0.3306 |
+| mix (day^0.5 x film^0.5), alpha 0.75 | 0.3176 |
+| day multiplier, alpha 0.75 | 0.3146 |
+| day^0.75 x film^0.25, alpha 0.9, min real D1-D3 3,000, snap 0.2 (grid best, flat around it) | 0.3126 |
+| + per-horizon power (0.5, 0.7, 0.85, 1, 1, 1, 1), min 5,000 (final) | 0.3079 |
+| reference: learned model with Cinepoint columns (LGBM) | 0.3049 |
+- Rows adjusted: 82% of train rows. Parameter grid is flat (0.3126-0.3140 over most settings), so the result is not sensitive to the exact values; the per-horizon power gives the extra 0.005 (early days should follow our model more).
+- Per scale bucket powers were also tried (small cinemas want more, big cinemas 0.85), only 0.0004 gain, not used.
+
+### Test side
+- Notebook cells checked end to end with LGBM only: back-test 0.3672 -> 0.3079, 80.2% of test rows adjusted (median multiplier 1.16), total tickets 12.46M (`submission_rule_lgbm.csv`, same as the scratch build) vs 14.08M for `submission.csv` (LB 0.36284, full blend with the seasonal factor on every row).
+- Not submitted. The LB is the judge; the back-test suggests the rule keeps most (not all) of the gain of the learned variant.
+- Note: `submission_hedge_blendlev75_best25.csv` and the `submission_filmadj_*.csv` files are no longer in `leon/`.
+
+## 2026-10-08 - main_new.ipynb cleaned: no Cinepoint model features, rule only (reproduces 0.3079)
+Notebook: `main_new.ipynb`.
+- Removed the learned variant completely: no `USE_CINEPOINT`, no `CP_FEATURES`, no Cinepoint cells in Feature Engineering. The models see only data up to 2025-09-30.
+- The Cinepoint CSVs are now loaded in the Postprocessing section (`cp_key`, `CP_DAILY`) and only feed the per-film multipliers (`real_sales_multipliers`, `apply_real_sales`); `USE_REAL_MULT` removed, the rule is always applied to `submission.csv`.
+- `RUN_MODELS = ["lgbm"]` (CatBoost / Kumo can be added back, the numbers then change; the blend weights adapt automatically).
+- Whole notebook executed top to bottom (outputs redirected to a scratch folder, repo `submission.csv` untouched): LGBM CV 0.3672, rule back-test on the OOF 0.3672 -> 0.3079, 80.2% of test rows adjusted, no feature starting with ret/cut/cp_. Output equals `submission_rule_lgbm.csv`.
+- The learned variant (Cinepoint columns as features, LB 0.36284) is no longer in the notebook; its description stays in the entries above.
+
+## 2026-10-08 - main_new.ipynb: version with no Cinepoint data at all (independent pipeline)
+Notebook: `main_new.ipynb`.
+- New switch `USE_REAL_SALES = False` (default): the Cinepoint CSVs are not read, `CP_DAILY` is not even defined, `test_submit = test_blend`. `True` gives the rule of the entry above (trial / assumption, post-cutoff numbers).
+- `RUN_MODELS` back to LGBM + CatBoost + Kumo (the best independent models). For a quick run use `["lgbm"]` (CV 0.3672).
+- Levels (set on the public LB with no external data, see 2026-10-07 entries): Lebaran rows x3.0 (was 2.0 in the notebook; the LB probe on the old main gained 0.0088 from x2 to x3), school break x1.25, every other row x1.2 (probe gained 0.0020). These are guesses carried over from a different base blend (the old main: equal blend of LightGBM / CatBoost / XGBoost / Kumo 5k; the Kumo-heavy blend of today is lower at late horizons, so the real optimum differs).
+- Run end to end with LGBM only (outputs to a scratch folder): CV 0.3672, no Cinepoint object defined. File: `submission_independent_lgbm.csv`, total tickets 14.69M (the rule version: 12.46M; `submission.csv` of LB 0.36284: 14.08M).
+- No LB score for it yet. Expected range from the earlier results: 0.44-0.46 (main default 0.45395, Kumo-only 0.46068, best leveled 0.43729). Reason a big jump is unlikely without Cinepoint: the oracle study (2026-10-07) found the film-level level shift is the largest error (14% of error per film, 21% per film x horizon block) and none of 25 film-level signals or a LightGBM on film features predicts it (correlation -0.00).
+
+## 2026-10-08 - Competition rule re-read: Cinepoint test-period data cannot be used for a real submission
+- Files that used it, to be treated as trials only (ceiling measurements, never a final selection): `submission.csv` of LB 0.36284 (learned variant), `submission_new_lgbm_cinepoint.csv`, `submission_rule_lgbm.csv`, and anything built with `USE_REAL_SALES = True` in `main_new.ipynb`.
+- Clean path: `main_new.ipynb` with `USE_REAL_SALES = False` (default) and `submission_independent_lgbm.csv`. The levels in it (Lebaran x3.0, school x1.5, other x1.2) come from LB probes, not from external data.
+- Possibly still allowed: Cinepoint Apr-Sep 2025 (train period, public before the cutoff), but the rule also says versions must be verifiable, so a Wayback snapshot dated on or before 2025-09-30 would be needed first; and it has no test-period counterpart, so it would only help as past-season priors.
+- Note: `main_new.ipynb` was renamed to `main_legit.ipynb` (by the user); the entries above that mention `main_new.ipynb` mean this notebook. The rule warning was added to its "Real-sales film multipliers" markdown cell.
+
+## 2026-10-08 - main_legit.ipynb: leveling to the LB-tuned reference (clean, no post-cutoff data)
+Notebook: `main_legit.ipynb` (new markdown + code cell after the real-sales cell, switch `USE_LEVEL_REF = True`).
+- Method of the 0.43729 file ported into the notebook: season group (ram_to_lebaran / ram_to_ram / pre_to_ram / xmas / normal) x horizon cell factor = mean ratio of the reference / mean ratio of the blend; final ratio = `LEVEL_WEIGHT` (0.5) x leveled blend + 0.5 x reference ratio; `season_factor` set to 1.
+- Reference: `submission_ref_lb0.43729.csv` (copy of `Downloads/submission_hedge_blendlev50_best50.csv`, public LB 0.43729 on 2026-10-07, made of LB probes only, 72,611 rows, total 15.66M). Group sizes match the earlier log (ram_to_ram 10,767, ram_to_lebaran 4,598 rows).
+- Run end to end with LGBM only (scratch outputs): `submission_independent_leveled_lgbm.csv`, total 15.65M (reference 15.66M), mean abs change of the ratio vs the reference 0.050, mean abs diff in tickets 12.0. With only LGBM the ranking half is weaker than the Kumo-heavy blend of the 0.43729 file, so this file is a check of the step, not a candidate; the real run is LGBM + Kumo in the notebook.
+- Expected LB with Kumo + LGBM: around 0.43729 (same recipe, different model weights); gains from here are small steps (the log estimated 0.002-0.004 for the 0.75 weight).
+## 2026-10-08 - Can the Cinepoint submission be copied with movie/day multipliers? (analysis only, no notebook change)
+Question: reproduce `submission.csv` (LB 0.36284, Cinepoint) from a clean file with a multiplier formula per film and per day.
+Distance = mean abs difference of the ratio (tickets / D1-D3 average), same units as MASE, measured against the Cinepoint file.
+
+| Clean base x multiplier | Distance to Cinepoint file |
+|---|---|
+| `submission_ref_lb0.43729.csv`, no multiplier | 0.2223 |
+| x best factor per horizon x weekday (fit on the Cinepoint file) | 0.1929 |
+| x best factor per date | 0.1547 |
+| x best factor per film | 0.1647 |
+| x best factor per film x day | 0.0957 |
+| x LightGBM on our own features, scored on films it did not see (GroupKFold by film) | 0.1873 |
+| `submission_independent_lgbm.csv`, no multiplier / LightGBM on unseen films | 0.2439 / 0.2249 |
+
+- Most of the gap is per film; the film factor spreads from 0.46 (10th pct) to 1.21 (90th pct), median 0.83.
+- Our features close only about 16% of the gap on unseen films, about the same as a horizon x weekday table; the per-film part does not generalize (same finding as the oracle study of 2026-10-07).
+- A per-film or per-film-day table would get close, but its numbers are the Cinepoint test-period data in another form, so it is not allowed for a real submission. Any formula fit to the Cinepoint file also carries that information; nothing was added to `main_legit.ipynb`.
+- Found: the current `submission_kumo_only.csv` is only 0.0271 away from the Cinepoint file, so it was overwritten by the Cinepoint run and is no longer the clean Kumo-only file of LB 0.46068.
+
+## 2026-10-08 - Approaching the Cinepoint teacher without post-cutoff data (session paused)
+Goal (user): get a clean submission as close as possible to `submission.csv` (LB 0.36284, Cinepoint test-period columns), used only as a "teacher" scoreboard.
+Rule kept: Cinepoint data only up to 2025-09-30 as input; the teacher is never fitted on, only scored against.
+Score = distance to the teacher (mean abs difference of the ratio, MASE units).
+
+### Data and tools
+- `external/cinepoint/cinepoint_scrape.py`: standalone scraper restored from the compiled .pyc (the .py was never committed), with fixes: the popup's own "Rows per page" is set to its largest option, a day is only written when the rows read equal the popup's total, and the month table waits until every day is listed. The old paging code (also in `external_add.ipynb` cell 22) re-read stale pages and dropped films on days with more than 10 films; the existing train / test Cinepoint files are almost complete (6-7 days with gaps each).
+- `external/cinepoint/cinepoint_daily_top_prev.csv` (new, pre-cutoff): 282 dates, complete for 2024-09-20 to 2025-03-31 (14-21 films per day); 2023-09 to 2024-09 only partly scraped (scrape stopped, resumable with the same command). Cinepoint lists only about 5 films per day in 2023.
+- `submission_teacher_cinepoint_lb0.36284.csv`: copy of the teacher (sha256 826d98615ebd1b5a), because running `main_legit.ipynb` overwrites `submission.csv`.
+- `main_legit.ipynb`: markdown descriptions removed (headers kept), on user request. No code change.
+
+### Results (distance to teacher, lower = closer)
+| Clean file | Distance |
+|---|---|
+| ref (LB 0.43729) | 0.2223 |
+| Kumo 0.8 + LGBM 0.2 x season factor | 0.2231 |
+| same, leveled to ref (main_legit default) | 0.2215 |
+| leveled x national retention prior (rule with predicted instead of real Cinepoint), alpha 0.25 | 0.2171 |
+| leveled x per-horizon part of that prior only | 0.1988 |
+| leveled x 0.85 (plain global scale) | 0.1959 |
+| LGBM + prior retention as a feature (CV 0.3681 -> 0.3709) | worse |
+- National retention prior: linear model of log(real D_h / real D1-D3) on horizon x D1 weekday, calendar of D_h minus calendar of D1-D3 (weekend, holiday, Ramadan, days from Eid, Christmas window), D1-D3 shape and size; fit on 234 Cinepoint films (Oct 2024 - Sep 2025). Season holdout (train without Oct 2024 - Apr 2025, score on it): weighted MAE of log retention 0.497 vs 0.668 for the horizon median.
+- Against the teacher: its per-horizon pattern matches (D4 -0.16 vs -0.17 ... D10 +0.08 vs +0.05), film-level correlation only 0.22, within-film day shape 0.45; applying the film and shape parts adds noise and moves away from the teacher.
+- Conclusion so far: without post-cutoff data only the level / per-horizon level moves toward the teacher; the per-film legs that make the teacher good are not predictable from pre-cutoff data (same as the oracle study). Matching the teacher's level is not proof of a better LB: LB probes on clean files favored higher levels.
+- Also checked: test_history has only each film's own D1-D3 (format variants start on the same day), so no hidden test-period signal there.
+- Two-way fixed-effects market index (film + age + date) was tried first and dropped: age and date are not separable (the Lebaran effect came out with the wrong sign).
+
+### Next (when resumed)
+- Add a "teacher check" cell at the end of `main_legit.ipynb` (distance to the teacher overall / by horizon / by month) as the direction check.
+- Port the scraper paging fix into `external_add.ipynb` cell 22 and add the prev run to `CINEPOINT_RUNS`.
+- Optionally finish the 2023-2024 scrape and refit the prior (sparse data, low expectations).
+
+## 2026-10-08 (later) - main_legit.ipynb: timing shape from last year's films (pre-cutoff Cinepoint), teacher check
+Teacher = `submission_teacher_cinepoint_lb0.36284.csv`, used only as a scoreboard (distance = mean abs ratio difference).
+
+### Changes
+- New cell "Timing shape from last year's films (Cinepoint up to 2025-09-30)" after the level-to-reference cell, switch `USE_TIMING_SHAPE = True`, `TIMING_ALPHA = 0.5`.
+  - For each test film released within -40..+14 days of Eid or -14..+10 days of Christmas, the D4-D10 log shape of last years' films released at the same offset (+-4 days, widened to 10 if fewer than 3 films) is averaged per season group (ram_to_lebaran, ram_to_ram, pre_to_ram, xmas), converted to dataset scale (kappa per horizon from train films found in both), and compared with the model's shape in that group.
+  - Only the shape changes: each group's level stays as LB-tuned. An assert stops the cell if any Cinepoint date after 2025-09-30 is read. Eid dates used: 2024-04-10, 2025-03-31, 2026-03-21 (national holiday day 1).
+  - Factors (scratch run): Lebaran 0.78, 0.80, 0.83, 0.92, 1.41, 1.31, 1.13 (D4..D10, flatter curve); Christmas 0.82-1.27; Ramadan groups close to 1.
+- New cell "Teacher check" after the submission cell: distance to the teacher overall, by horizon, season group and month.
+- `CP_FORMAT` / `cp_key` moved out of the `USE_REAL_SALES` block (title cleaner only, no data read).
+- `external_add.ipynb`: the Cinepoint cell now imports `scrape_cinepoint` from `external/cinepoint/cinepoint_scrape.py` (one copy of the scraper, with the paging fix and a page reload when the period filter stops responding); `cinepoint_daily_top_prev.csv` added to `CINEPOINT_RUNS`.
+- Scrape: `cinepoint_daily_top_prev.csv` now also has Jan-Sep 2024 (Lebaran 2024); not yet used in the numbers below.
+
+### Results (cached Kumo 0.8 + LGBM 0.2, leveled base; distance to teacher)
+| Step | Distance |
+|---|---|
+| leveled (main_legit default before this) | 0.2215 |
+| + timing shape, alpha 0.5 | 0.2141 |
+| reference: teacher-fitted shape per group x horizon (best possible shape-only) | 0.2122 |
+| reference: teacher-fitted level and shape per group x horizon | 0.1708 |
+- Per group at alpha 0.5: Lebaran 0.2215 -> 0.2174, Christmas -> 0.2175, the two Ramadan groups about neutral.
+- Rejected on the way (all moved away from the teacher): retention prior per film and day, per film analog shapes (3-8 analogs, too noisy), timing per release week or calendar date, a fixed-effects market index (Eid effect not identifiable from one Lebaran cohort), the prior as an LGBM feature.
+
+### Open
+- Full end-to-end run of the notebook (isolated copy) was started and stopped before finishing; not verified end to end yet.
+- Refit the timing shape with the 2024 data (second Lebaran), then build the on / off pair of submission files for the LB.
+
+### LB result (2026-10-08)
+- `submission_legit.csv` (main_legit default: Kumo 0.8 + CatBoost 0.1 + LGBM 0.1, season factors, leveled to the 0.43729 reference at weight 0.5, timing shape alpha 0.5): public LB **0.43015**.
+- Best clean score so far (previous clean best 0.43729, -0.0071). Teacher (Cinepoint test-period leakage) 0.36284; the remaining gap is mostly per-film legs, not predictable from pre-cutoff data.
+
+## 2026-10-08 (evening) - where submission_legit (LB 0.43015) differs from the teacher (LB 0.36284)
+Scratch scripts gap.py / gap2.py / gap3.py; teacher used only as a scoreboard (distance = mean abs ratio difference, legit = 0.2141).
+
+| Season group | rows | share of distance | legit / teacher mean |
+|---|---|---|---|
+| normal | 50049 | 0.49 | 1.25 (legit too high, worst at D8-D9: 1.4-1.5) |
+| ram_to_lebaran | 4598 | 0.33 | 0.66 (legit too low at D5-D10: 0.5-0.7, D4 fine) |
+| ram_to_ram | 10767 | 0.09 | 0.91 |
+| xmas | 5235 | 0.08 | 1.26 |
+| pre_to_ram | 1962 | 0.02 | 1.39 |
+- Zeros are not the issue: teacher has 22% exact zeros, legit is about 0.001 on the same rows (2% of the distance).
+- Lebaran: the raw model decays the 2026-03-18 films to 0.12 / 0.06 at D9 / D10; the teacher keeps them at 2.5 / 1.7 (Eid week = D4-D10).
+- Per film: biggest film gaps are the Lebaran films (NA WILLA 0.41x) and local films that flopped (TIMUR, GETIH IRENG, SHUTTER, SENGKOLO about 2x too high), the second kind is per-film legs.
+- If legit had the teacher's mean per group x horizon: 0.1817; per film: 0.1649; per film x horizon: 0.1091.
+- Clean Lebaran idea checked: 2025 market total (pre-cutoff Cinepoint) went from about 179k / day on Eid-3..-1 to 500k-1,000k / day in Eid week (x2.8 to x5.8 by horizon). Market jump x raw model: 0.2186 (worse, the raw decay is too strong); market jump with no decay x0.5: 0.2046 vs 0.1889 for the variant below (shape off at D4 and D9-D10). Not adopted yet.
+- Note: the leveling step sets each group x horizon mean to the 0.43729 reference, so SEASON_FACTORS has no effect on the final level; a level change has to come after the leveling.
+
+### Probe file
+- `submission_legit_normal1.0.csv` = `submission_legit.csv` with the normal-group rows x 1/1.2 (other factor 1.2 -> 1.0, everything else unchanged). Distance 0.2141 -> 0.1889. Not submitted yet (LB to be checked by the user).
+
+## 2026-10-09 - CV experiments for the clean pipeline (scratch harness, not yet in main_legit.ipynb)
+Harness: LGBM with the main_legit Optuna params on the cached main_legit features, 1 seed, GroupKFold(5) by film, zero snap 0.2.
+Extra columns per run: dist_sf = distance to the teacher after the main_legit season factors; dist_lvl = same after matching each season group x horizon mean to the teacher (evaluation only, measures the row ranking inside a group); dist_lvl_nonleb = dist_lvl without the Lebaran group.
+Scripts: scratchpad `exp/` (lib.py, feat_*.py, e*.py), results table `exp/results.tsv`.
+
+| Run | CV | dist_sf | dist_lvl | dist_lvl_nonleb |
+|---|---|---|---|---|
+| base LGBM (63 features) | 0.3681 | 0.2436 | 0.2088 | 0.1490 |
+| + competition / date-strength features from other films' D1-D3 (8) | 0.3643 | 0.2401 | 0.1934 | 0.1417 |
+| + days off in the D1-D3 window vs the target day (win_off, tgt_off, off_rel) | **0.3577** | 0.2496 | 0.1919 | 0.1420 |
+| + more days-off detail (each D1-D3 day, eve / day after, days off between) | 0.3578 | 0.2635 | 0.1995 | 0.1415 |
+| + weekday-adjusted D1-D3 trends | 0.3581-0.3667 | - | 0.1907 | 0.1445 |
+| + out-of-fold cinema / city fade encodings | 0.3649 (on comp only) | 0.2427 | 0.1975 | 0.1476 |
+| + late-start pair features (first active day, effective age) | 0.3565 | 0.2551 | 0.1950 | 0.1405 |
+| + film-level show / occupancy trends | 0.3610 | 0.2473 | 0.1923 | 0.1431 |
+| params grid on comp + off (num_leaves, min_child_samples, lr, trees, colsample, reg) | 0.3559-0.3616 (best num_leaves 255 + mcs 40) | | | |
+| zero snap 0.1 / 0.3 / 0.4 | 0.3611 / 0.3580 / 0.3695 (0.2 stays) | | | |
+| **+ shifted-window extra rows, shifts 3 and 7, weight 0.5** | **0.3438** | 0.2512 | 0.1930 | 0.1365 |
+| Kumo base, 1 context seed | 0.3465 | 0.2377 | 0.2182 | 0.1346 |
+
+- Competition features: comp_n_cin / comp_size_cin / comp_fresh_cin (films that opened at the same cinema after our D1 and on or before the target day, count and size vs our scale), comp_n_nat / comp_size_nat (same nationally), date_idx / own_idx / date_idx_rel (how strong other films' D1-D3 days were on the target date and on our own D1-D3 dates, vs the usual D1-D3 shape for their release weekday). Built the same way in train and test from each side's own pairs, so no post-cutoff data.
+- Shifted-window extra rows: main_legit's data and feature cells re-run with every train film's D1 moved s days later (window D(1+s)-D(3+s), targets the 7 days after), column age_offset = s (0 for real rows and test). Only the fitting films' shifted rows are added in each fold; validation is on real rows only.
+- Time-split check of the shifted rows (fit only on target dates before the cut, validate on films released after it, so no shared calendar dates): cut 2025-07-15: 0.3146 -> 0.2995 (w0.5) / 0.2955 (w1); cut 2025-08-15: 0.3244 -> 0.3060 / 0.3079. The gain is real, not date leakage.
+- Error breakdown (LGBM comp + off): pairs with only 1-2 active days in D1-D3 are 8% of rows and 24% of the error; a known per film x horizon level would bring CV from 0.358 to 0.297 (film legs).
+
+### Later on 2026-10-09
+| Run | CV | dist_lvl | dist_lvl_nonleb |
+|---|---|---|---|
+| LGBM + extra rows, shifts 1, 2, 3, 5, 7 (w0.5) | 0.3354 | 0.1997 | 0.1411 |
+| LGBM + extra rows, all shifts 1, 2, 3, 5, 7, 10, 14 (w0.5) | 0.3333 | 0.2012 | 0.1395 |
+| same, n_estimators 1500 | **0.3304** | 0.2018 | 0.1390 |
+| same (883 trees) + late-start features | 0.3322 | 0.2010 | 0.1367 |
+| same (883 trees), num_leaves 255 + mcs 40 / mcs 50 / weight 0.3 | 0.3323 / 0.3329 / 0.3344 | | |
+| Kumo + comp + off, 1 context seed | 0.3359 | 0.2465 | 0.1356 |
+| Kumo + comp + off, context 6k real + 4k extra rows | **0.3293** | 0.2831 | 0.1407 |
+| Kumo + comp + off, context 4k real + 6k extra rows | 0.3321 | 0.2749 | 0.1454 |
+- Time split for all shifts (2 seeds): cut 2025-07-15: base 0.3146, shifts 3+7 0.2995, shifts 1-7 0.2977, all 0.2952; cut 2025-08-15: 0.3244, 0.3060, 0.2911, 0.2895.
+- The teacher distance moves away with the new features, partly expected (the teacher was the old feature set + Cinepoint columns), but the Lebaran group drifts a lot with the days-off features (holiday combinations never seen in train). Option: keep the old-feature model for the Lebaran rows.
+- Reference: the teacher pipeline's Kumo CV was 0.2904 (user), with the Cinepoint columns also in train.
+
+### Open (next session)
+- Results of the still-running runs: Kumo context 8k real + 2k extra rows (`exp/e12.log`), LGBM 1500 trees + late-start features with saved OOF / test (`exp/lgbm_final.pkl`).
+- Blend LGBM + Kumo on OOF, decide the Lebaran handling, then port to `main_legit.ipynb`: competition / date-strength features, days-off features, late-start features, shifted-window extra rows (rebuild with the notebook's own cells), Kumo context mix; then the leveling / postprocessing on top.
+
+## 2026-10-09 (later) - main_legit.ipynb: new features, shifted-window extra rows, new blend (ported from the scratch experiments)
+Backup of the notebook before this change: scratchpad `main_legit_backup_before_v2.ipynb`.
+
+### Changes
+- Data cells now define a function and apply it in the same cell (same headers and order): join_sources, join_external, drop_gap_rows, add_calendar_flags, add_genres, set_categories, drop_unused, add_target, add_off_block, add_pair_features, add_film_features, add_cinema_features, add_weekday_price. Needed so the extra rows go through exactly the same steps.
+- New feature cells (headers only, no description text): "Days off in the D1-D3 window" (win_off, tgt_off, off_rel; days off from the existing `cal["off"]`), "Late-start pairs" (first_active, eff_age, last_ratio, active_mean), "Competition from other films' openings" (comp_n_cin, comp_size_cin, comp_fresh_cin, comp_n_nat, comp_size_nat, date_idx, own_idx, date_idx_rel; train from train pairs, test from test pairs).
+- New cell "Extra training rows (shifted windows)": `AUG_SHIFTS = [1, 2, 3, 5, 7, 10, 14]`, 254,483 extra rows (4.7x), column age_offset (0 for real rows and test). Cinema features of the extra rows use the real windows (scratch version used the shifted windows; small difference).
+- Setup: `USE_EXTRA_ROWS = True`, `EXTRA_WEIGHT = 0.5`, `fit_rows()` adds the fitting films' extra rows in every fold and for the test fit; all fit_predict functions take `(X_tr, y_tr, is_extra, X_pred)`; tree models use the weight, `seed_average` passes `sample_weight`. 79 features.
+- LGBM `n_estimators` 883 -> 1500.
+- Kumo context: `KUMO_CONTEXT_ROWS = 8000` real + `KUMO_EXTRA_ROWS = 2000` extra rows (best of 10k+0 / 8k+2k / 6k+4k / 4k+6k: 0.3359 / 0.3232 / 0.3293 / 0.3321, 1 context seed).
+- Blend: `{"kumo": 0.7, "lgbm": 0.3}` (scratch OOF with Kumo 8k + 2k: kumo 0.5 / 0.6 / 0.7 / 0.8 = 0.3228 / 0.3220 / 0.3217 / 0.3220), `BLEND_SNAP = 0.1`, prints the CV for kumo 0.5-0.8.
+- Postprocessing (season factors, leveling, timing shape) and submission cells unchanged. All code outputs cleared.
+
+### Checks
+- Data + feature + setup cells run end to end (no model training, 40 s): train 54,671, test 72,611, extra rows 254,483; every new feature identical to the scratch experiment values on all train and test rows.
+- Expected CV from the scratch runs (1 seed / 1 context seed): LGBM about 0.330, Kumo 8k + 2k 0.3232, blend about 0.32. Not run in the notebook yet (the user runs it).
+
+## 2026-10-09 (later) - main.ipynb (Cinepoint teacher) brought to the same configuration as main_legit
+User request: same setup in main.ipynb to see its CV. Backup before the change: scratchpad `main_backup_before_v2.ipynb`.
+
+### Changes
+- Data cells: the main_legit function versions (code was identical to legit's old cells).
+- New cells "Days off in the D1-D3 window", "Late-start pairs", "Competition from other films' openings" (same code as main_legit, one-line description each to match main's style).
+- Cinepoint cell: same columns, now an `add_cinepoint(df)` function so the extra rows get them too (from their own shifted D1, Cinepoint train file + post-cutoff file as before).
+- New cell "Extra training rows (shifted windows)" after the Cinepoint cell, same as main_legit plus `add_cinepoint`.
+- Setup / LGBM / CatBoost / XGBoost / Kumo / blend cells: main_legit versions; feature list = main_legit's 79 + the 20 Cinepoint columns (99). LGBM 1500 trees, Kumo 8k + 2k context, blend Kumo 0.7 / LGBM 0.3, snap 0.1.
+- Markdown of LGBM / Kumo / Blend / Setup updated to the new settings; the "Days-off blocks" note now says D1-D3 days off are back; with the Cinepoint columns the old Lebaran drop does not apply in main (user).
+- Postprocessing unchanged (season factors only); output names unchanged (`submission_cine.csv` etc., user OK with overwriting since `submission_teacher_cinepoint_lb0.36284.csv` keeps the LB 0.36284 file).
+
+### Checks
+- Data + feature + setup cells run end to end (34 s): train 54,671, test 72,611, extra rows 254,483, 99 features; new features identical to main_legit; Cinepoint ret_h filled for 83% train / 86% extra / 89% test rows.
+- Model CV not run (the user runs it). Old teacher Kumo CV was 0.2904 (user).
+
+## 2026-10-09 (later) - LB result: main_legit with the new configuration
+- `submission_legit.csv` from the updated main_legit (new features, shifted-window extra rows, LGBM 1500 trees, Kumo 8k + 2k context, blend Kumo 0.7 / LGBM 0.3, same postprocessing / leveling as before): LB 0.42037 (previous main_legit LB 0.43015, -0.0098).
+- Reference LBs: leveling reference `submission_ref_lb0.43729.csv` 0.43729, Cinepoint teacher 0.36284.
+- Scratch CV went Kumo 0.3465 -> 0.3232 and LGBM 0.3681 -> 0.3298 (blend about 0.32), and the LB fell about 0.010, so a good part of the CV gain carried over; the CV-LB gap (about 0.10) is still there and is mostly the test-period level (Lebaran and season), not the model.
+
+## 2026-10-09 (later) - Older data: film profile features, national fade prior by film type, 2022-2023 Cinepoint scrape (scratch, CV only)
+User request: try the not-yet-tested ideas for using older years (genre / type / sequel patterns). Notebooks not changed.
+Baseline: LGBM with the current main_legit setup (79 features, shifted-window rows w 0.5, 1500 trees, 1 seed): CV 0.3298 (seed 42), 0.3302 (seed 7).
+
+### 1. Film profile features in the current pipeline
+- Scratch `exp/feat_profile.py`: from `external/film_profile.csv`: is_local, is_sequel (sequel / franchise), kind_code (live action / animation / anime / rerelease / concert / documentary), source_code (original / novel / comic / remake / true story / ...), origin_code (Indonesia / US / Korea / Japan / Thailand / other), pred_adm_log (log admissions of the predecessor film, only if published before the cutoff), local_horror (is_local x genre_Horror).
+- Strict cutoff kept: the 7 test films with a fact source after 2025-09-30 get NaN (coverage train 100%, test 96.4%; pred_adm 5% / 7.7%).
+
+| Run | CV | dist_sf | dist_lvl |
+|---|---|---|---|
+| base (seed 42) | 0.3298 | 0.2576 | 0.1993 |
+| + all profile features (seed 42) | 0.3254 | 0.2539 | 0.2031 |
+| + is_local, is_sequel, pred_adm_log, local_horror (seed 42) | 0.3258 | 0.2490 | 0.1955 |
+| base (seed 7) | 0.3302 | 0.2513 | 0.1975 |
+| + all profile features (seed 7) | 0.3262 | 0.2514 | 0.1957 |
+- About -0.004 in both seeds (noise about 0.002), so a real CV gain for LGBM. The old test (2026-10-07, old 63-feature setup) showed no gain; with the new features / extra rows it helps.
+- Kumo with the profile features: not finished (stopped after about 45 min because the user's notebook was using the GPU at the same time). To rerun: `exp/e19_kumo_extra.py 8000 2000 profile`.
+
+### 2. Average fade per film type from the national Cinepoint charts
+- Scratch `exp/feat_typeprior.py`: films from `cinepoint_daily_top_prev.csv` + `cinepoint_daily_top_train.csv` (D1 2024-01 to 2025-09, all D1-D10 dates <= 2025-09-30, D1-D3 mean >= 1,000 admissions): 392 films. Per film and horizon: log(D_h / D1-D3 mean) minus a calendar-only LGBM (weekday, days off, Eid / Christmas / Ramadan distance, size, D1-D3 shape, new competitors; out-of-fold by film). The residual is the film's "legs".
+- Type = local x horror x sequel. Labels: competition films from film_profile + movies genre; 241 older chart films labelled in `exp/old_film_labels.py` from general knowledge (static facts; about 10 unsure titles left out, a few labels may be wrong).
+- National pattern (residual, log): local horror fades fastest (about -0.4 to -0.47 average over D4-D10, D10 about -0.76), sequels fade faster than originals, local non-horror holds best late (slope +0.4).
+- Features tp_leg, tp_slope, tp_h (type's average residual, overall / late minus early / at the row's horizon).
+
+| Run | CV | dist_lvl |
+|---|---|---|
+| leave-one-film-out prior (all chart films) | 0.3263 | 0.2073 |
+| same, tp_h only | 0.3286 | 0.2035 |
+| prior from older films only (not competition films, one constant per type) | 0.3277 | 0.2096 |
+| profile + older-films prior | 0.3259 | 0.1978 |
+- The leave-one-out version leaks (a train film's value moves with its own result, test films never get that), so its 0.3263 is not trusted. The clean version is -0.002 (noise level) and adds nothing on top of the profile features (0.3254 -> 0.3259). Not adopted.
+
+### 3. Cinepoint before 2023-09
+- Scraped 2022-01 to 2022-06 into a scratch file (`cp_older.csv`, stopped by the 15 min limit): 3-7 films per listed day and 12-24 of 30 days listed per month. Not one film has a complete D1-D10 run with the week before it, so 0 usable films. Not continued.
+- The existing pre-cutoff files are complete as far as Cinepoint goes: 2023-09 to 2024-06 has about 5 films per day (43 usable films before 2024-07), 2024-07 onward 10-21 per day.
+
+### Takeaway
+- Worth porting: profile features (LGBM CV -0.004). Needs the Kumo check and an LB test (film-level features have disagreed between CV and LB before).
+- Not worth it: type fade prior, older scraping.
+
+## 2026-10-09 (later) - main_legit.ipynb cleanup: no post-cutoff traces, no dead cells
+User request. Backup before the change: scratchpad `main_legit_backup_before_cleanup.ipynb`. 81 -> 70 cells.
+
+### Removed
+- "Real-sales film multipliers (trial / assumption)" (2 code cells + header): read the post-cutoff Cinepoint file `cinepoint_daily_top.csv` when switched on (it was off). The Cinepoint title key `cp_key` moved into the timing-shape cell, which only reads pre-cutoff files (with its assert).
+- "Teacher check" (cell + header): compared with `submission_teacher_cinepoint_lb0.36284.csv`, which was built with post-cutoff Cinepoint. Teacher comparisons stay in the scratchpad only.
+- CatBoost and XGBoost cells (not in RUN_MODELS, so never ran) and their imports; also the unused imports matplotlib and tabfm. ZERO_SNAP only has lgbm.
+- "Seasonal adjustment" cell (SEASON_FACTORS): its output was overwritten by the leveling step (season_factor set to 1), so it had no effect. The leveling cell now starts from `test_submit = test_blend` and defines RAMADAN_START / LEBARAN_START itself; the season_factor column is gone (submission = ratio x scale).
+- Extra outputs `submission_kumo_only_legit.csv` and `submission_trees_only_legit.csv` (user: remove past / unhelpful submissions); the notebook writes only `submission_legit.csv`.
+
+### Kept (checked)
+- Leveling to `submission_ref_lb0.43729.csv`: built only from LB probes and pre-Cinepoint models (no post-cutoff data). It still helps a lot. Distance to the teacher with the current blend (scratch, Kumo 8k+2k 0.7 / LGBM 0.3): current 0.5 leveled + 0.5 reference 0.2210; leveled only 0.2528; leveled 0.75 0.2329; no reference, old season factors 0.2819; raw blend 0.2818. The Lebaran group is the main reason (1.17 vs 2.11 without it).
+- Calendar files that cover the test period (holidays, cuti bersama, Ramadan, school holidays, Eid 2026-03-20 / 21): published before the cutoff, not sales data.
+
+### Check
+- Whole notebook run end to end with a tiny LGBM (50 trees, 1 seed, no Kumo, output to the scratchpad): 57 s, 79 features, 72,611 submission rows; no errors.
+
+### main.ipynb CV (user run, new configuration with Cinepoint columns)
+- LGBM CV 0.2906 (folds 0.2482 / 0.4328 / 0.2074 / 0.3274 / 0.2372), 14 min (3 seeds x 6 fits x 1500 trees on about 300k rows, 99 features).
+
+## 2026-10-09 (later) - main.ipynb: leveling and timing-shape steps from main_legit added as switches (off)
+User request: test main_legit's postprocessing in main too. Backup: scratchpad `main_backup_before_post.ipynb`. 74 -> 78 cells.
+- Seasonal adjustment cell now keeps `final_ratio = test_blend x season_factor`.
+- New cells after it: "Level to a reference submission (test)" (`USE_LEVEL_REF = False`, same code as main_legit on final_ratio) and "Timing shape from last year's films (test)" (`USE_TIMING_SHAPE = False`, pre-cutoff Cinepoint only).
+- Submission cell writes `final_ratio`; the Kumo-only / trees-only files get the season factors explicitly (same values as before when both switches are off).
+- Smoke run with both switches on (tiny LGBM, outputs to the scratchpad): 42 s, 99 features, 72,611 rows, no errors.
+- Expectation: probably worse for main. The reference's group x horizon levels are far from the teacher's (reference / teacher: normal 1.09-1.51x, ram_to_lebaran D8-D10 0.38-0.43x, ram_to_ram D10 0.55x), and main's Cinepoint columns already carry each test film's real curve. LB test only.
+- Saved outputs: the edits to main_legit (cleanup) and main cleared the saved cell outputs on disk; outputs of every unchanged cell were copied back from the backups (main 28 / 28, main_legit 28 / 34; the 6 changed or removed cells keep their old outputs only in the backup).
