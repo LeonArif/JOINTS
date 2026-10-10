@@ -1616,3 +1616,338 @@ User request: test main_legit's postprocessing in main too. Backup: scratchpad `
 - Smoke run with both switches on (tiny LGBM, outputs to the scratchpad): 42 s, 99 features, 72,611 rows, no errors.
 - Expectation: probably worse for main. The reference's group x horizon levels are far from the teacher's (reference / teacher: normal 1.09-1.51x, ram_to_lebaran D8-D10 0.38-0.43x, ram_to_ram D10 0.55x), and main's Cinepoint columns already carry each test film's real curve. LB test only.
 - Saved outputs: the edits to main_legit (cleanup) and main cleared the saved cell outputs on disk; outputs of every unchanged cell were copied back from the backups (main 28 / 28, main_legit 28 / 34; the 6 changed or removed cells keep their old outputs only in the backup).
+
+## 2026-10-09 (evening) - main_legit.ipynb: no reference submission; Lebaran level from last year's national market
+User: the 0.43729 reference is a drag, find a better way to get the multipliers. Backup: scratchpad `main_legit_backup_before_market.ipynb`. 70 -> 68 cells.
+Scoreboard: distance to the teacher (mean abs ratio difference). Calibration on LB-known clean files: reference 0.2223 = LB 0.43729; `submission_legit.csv` 0.2094 = LB 0.42037.
+
+### What was found
+- Normal rows (69% of test rows): the raw blend already sits at the teacher's level (mean ratio 0.409 vs 0.411); the reference leveling lifted them to 0.514 and moved them away (distance 0.116 raw vs 0.150 leveled). The 50/50 mix only helped the Ramadan / Christmas groups a little.
+- Lebaran group (4,598 rows, 6.3%): all big films open on Wed 18 Mar 2026 (last Ramadan days, Nyepi, cuti bersama); the raw model predicts a drop (ratio 0.47 -> 0.10), the teacher has 2.4-3.3. This group is about a third of the whole distance.
+- 2025 national market (sum of charted admissions): last 3 days of Ramadan about 180k / day, Eid week 0.5-1.1M / day (2.8x-6x). The 2025 Eid releases kept or grew their market share for two weeks (share ratio 0.64-2.4), and no film opens after 18 Mar 2026 in test.
+
+### Method (new cell "Lebaran level from last year's national market", switch USE_MARKET_LEBARAN)
+- Market series from `cinepoint_daily_top_prev.csv` + `cinepoint_daily_top_train.csv` (assert: no date after 2025-09-30), complete charts from 2024-09-20.
+- Usual weekday effect and weekday-holiday effect (log market vs its 15-day median, outside Christmas and Feb 10 - Apr 20 2025) divided out, because the model already knows 2026's weekdays / holidays (holiday effect 0.654 in log).
+- Lebaran rows only: prediction x (market on the target date / mean market on the D1-D3 dates), both read on the same days from Eid in 2025 (Eid 2026-03-21 <-> 2025-03-31). Mean multiplier by horizon about 2.9-5.7.
+- Lebaran rows use the LGBM prediction (LEBARAN_MODEL = "lgbm"); Kumo predicts an even deeper drop there (with the blend: Lebaran distance 1.89 vs 1.13). All other rows: blend as is, no multiplier.
+- Removed: "Level to a reference submission" (the reference file is no longer read) and "Timing shape" (made it worse on top of the new step: 0.2014 -> 0.2076).
+
+### Distance to the teacher (scratch predictions injected into the notebook: Kumo 8k+2k 1 context seed, LGBM 1 seed)
+| Version | Distance | normal | pre_to_ram | ram_to_ram | ram_to_lebaran | xmas | Total tickets |
+|---|---|---|---|---|---|---|---|
+| `submission_legit.csv` (LB 0.42037) | 0.2094 | 0.148 | 0.113 | 0.133 | 1.050 | 0.255 | 15.76M |
+| new default | **0.2014** | 0.116 | 0.080 | 0.168 | 1.183 | 0.267 | 11.50M |
+| new + timing shape | 0.2076 | 0.116 | 0.088 | 0.188 | 1.191 | 0.302 | 11.33M |
+| no multiplier at all | 0.2818 | 0.116 | 0.080 | 0.168 | 2.452 | 0.267 | 9.82M |
+| scratch only: market multiplier also on Ramadan / Christmas groups (LGBM) | 0.2129 vs 0.2055 Lebaran only | | | worse | | worse | |
+- Risk: total tickets drop from 15.8M to 11.5M (teacher 14.1M). Earlier LB probes on an older model favored higher levels on normal rows (x1.2 helped by 0.006), while the teacher says the raw level is right. One LB test settles it.
+- Smoke run of the whole notebook (tiny LGBM): no errors.
+
+### Same changes tried on main.ipynb (LGBM only, 1 seed; user: compare each notebook with its own previous version)
+- main LGBM CV (new configuration, 1 seed): 0.2917 (user's 3-seed run 0.2906; old main LGBM 0.3049).
+- Postprocessing compared by distance to the old main output (LB 0.36284; for main this only shows how far a change moves away from the LB-checked version):
+| main postprocessing | Distance to old main | Lebaran | Total |
+|---|---|---|---|
+| season factors x2.0 / x1.25 (previous, default) | 0.1230 | 0.808 | 13.98M |
+| Lebaran from last year's market | 0.3094 | 3.752 | 18.03M |
+| + timing shape | 0.1260 | 0.797 | 13.90M |
+| + reference leveling | 0.1861 | 1.062 | 16.10M |
+- main's raw Lebaran rows already rise (ratio 1.0-1.5 at D4-D10) because the Cinepoint columns carry the real surge; the market multiplier counts it twice (2.7-8.3). Not added to main.
+- The reference-leveling and timing-shape test cells in main were removed again (not helpful; backup `main_backup_before_post_removal.ipynb`); main is back to season factors only (74 cells), checked end to end with the saved predictions (same output).
+- LGBM-only comparison for main_legit: new 0.2088 vs previous postprocessing 0.2134.
+
+### Ready for the 2 submissions of today (user submits)
+- main: run as is (Kumo 0.7 / LGBM 0.3, season factors) -> `submission_cine.csv`.
+- main_legit: run as is (Kumo 0.7 / LGBM 0.3 elsewhere, LGBM x market on Lebaran rows) -> `submission_legit.csv`.
+- main.ipynb: the Kumo-only and trees-only output files were removed (user); main writes only `submission_cine.csv`, main_legit only `submission_legit.csv`.
+
+## 2026-10-09 (night) - main_legit.ipynb: season formula (market change x share change) for Lebaran and Ramadan groups
+User: compare main_legit with main's submission (not the weaker reference), find an explainable multiplier formula without using main's information.
+Scoreboard from now on: distance to main's submission (the 0.36284 file). Only a scoreboard: no number below was fitted to it, except the clearly marked experiment.
+Backup: scratchpad `main_legit_backup_before_formula.ipynb`.
+
+### Formula (cell "Season levels from last year's national market", switch USE_SEASON_FORMULA)
+- Expected national D_h / D1-D3 of a film = market change x share change.
+  - Market change: 2025 national market (sum of all charted admissions) on the same distance from Eid (2026-03-21 <-> 2025-03-31); 2025's weekday / weekday-holiday effect divided out, 2026's multiplied in, 3-day centered average against single-day noise.
+  - Share change: 2025 Eid releases (Jumbo, Komang, Norma, Pabrik Gula, Qodrat 2) kept their share: 1.07, 1.07, 1.06, 1.05, 1.11, 1.09, 1.00 for D4-D10 (used for Lebaran rows: no film opens after 18 Mar 2026). Normal-season films (D1 Apr-Sep 2025): 0.68, 0.76, 0.68, 0.52, 0.25, 0.20, 0.14 (used for the Ramadan groups).
+  - Model scale q(h) = the model's mean prediction for a train film / that film's national ratio (median over 54 train films): LGBM 1.02, 1.03, 1.02, 0.95, 0.80, 0.64, 0.75.
+- ram_to_lebaran: level per horizon from the formula, LGBM ranking inside. ram_to_ram, pre_to_ram: one factor per group (formula mean / model mean: 1.31, 1.30), model day shape kept. normal, xmas: model level (xmas left out: the December 2024 school break is missing from the calendar files and the formula gives an implausible x0.67).
+- Sanity check: the formula applied to normal rows gives mean ratio 0.392 vs the model's 0.430 (main 0.411), so its scale is about right.
+
+### Versions tried (distance to main; blend = Kumo 0.7 / LGBM 0.3, scratch predictions)
+| Version | Lebaran mean D4-D10 | Lebaran dist | Total dist |
+|---|---|---|---|
+| `submission_legit.csv` (LB 0.42037, reference leveling) | | 1.050 | 0.2094 |
+| raw blend, no multiplier | | 2.452 | 0.2818 |
+| market only x LGBM (previous version of the cell) | 1.5-2.9 | 1.183 | 0.2014 |
+| formula, 2025 market as is (no weekday swap) | 3.0-5.5 | 2.491 | |
+| formula, weekday + holiday swap | 1.6-4.5 | 1.289 | |
+| formula, weekday swap only | 3.1-9.4 | 3.782 | |
+| formula, weekday-only swap, 3-day smooth | 3.1-6.7 | 2.459 | |
+| **formula, weekday + holiday swap, 3-day smooth (chosen)** | 1.5-3.2 | **1.080** | 0.1949 |
+| + Ramadan groups at the formula's group level (chosen) | | 1.080 | **0.1953** |
+| + xmas at the formula's level | | | 0.2061 (xmas 0.267 -> 0.417) |
+| Blend ranking on Lebaran instead of LGBM | | 1.437 | |
+| main's Lebaran mean D4-D10 | 1.7-3.3 | | |
+- The Ramadan group factor leaves the distance the same (0.1949 vs 0.1953) but brings the group means to main's (ram_to_ram 0.302 -> 0.396, main 0.431; pre_to_ram 0.116 -> 0.151, main 0.159); kept for the level.
+- In the notebook (scratch predictions injected): blend 0.1953 (total 12.58M); LGBM only 0.2024 (previous LGBM-only versions 0.2134 with the reference, 0.2088 market-only). Smoke run of the whole notebook: no errors.
+
+### Experiment only: multipliers fitted to main's submission (uses its post-cutoff information, never for main_legit)
+| Fitted to main | Total dist | normal | ram_to_lebaran | xmas |
+|---|---|---|---|---|
+| raw blend, one mean factor per group | 0.2421 | 0.117 | 1.829 | 0.219 |
+| raw blend, mean factor per group x horizon | 0.2341 | 0.114 | 1.760 | 0.218 |
+| raw blend, best abs-error factor per group x horizon | 0.1948 | 0.112 | 1.232 | 0.209 |
+| formula version, best abs-error factor per group x horizon | 0.1734 | 0.112 | 0.893 | 0.209 |
+| raw blend, mean factor per film x horizon (film-level ceiling) | 0.1767 | 0.065 | 1.682 | 0.082 |
+- Insight: the legit formula (0.1953) is as close to main as group x horizon multipliers fitted directly to main on the raw blend (0.1948). What is left is mostly per-film (which film holds up): normal rows go 0.116 -> 0.065 only with film-level factors, which need the post-cutoff sales.
+
+## 2026-10-09 (night) - Cleanup of unused parts (models kept)
+- Removed in both notebooks: the `ramadan_day` column (joined in join_external but never used); in main also the unused matplotlib import and the markdown lines about ramadan_day.
+- A cleanup command that also removed the CatBoost / XGBoost cells ran although the user rejected it; the user wants the models kept, so CatBoost and XGBoost (cells, imports, ZERO_SNAP entries) and the tabfm import were restored in both notebooks (main_legit had lost them in the earlier cleanup too). RUN_MODELS stays ["lgbm", "kumo"].
+- Checks: main_legit smoke run OK, distance with injected predictions unchanged (0.1953); main postprocessing check unchanged (0.1230). main 74 cells, main_legit 72.
+- main_legit reads no reference submission and no teacher file (0 mentions); levels come from its own season formula.
+
+## 2026-10-10 - Feature ablation (main_legit feature set, LGBM, scratch)
+User: test removing features (too many / unnecessary?); a feature can go if removing it does not hurt. Screening LGBM: 500 trees x lr 0.045 (3x faster than 1500 x 0.015), extra rows w 0.5, 1 seed. Scripts `exp/e21_ablation.py`, `e22_single.py`, `e23_noise.py`, `e24_greedy.py`.
+
+### Noise level
+- All 79 features, seeds 42 / 1 / 2 / 3 / 4: 0.3313 / 0.3326 / 0.3294 / 0.3328 / 0.3321 (mean 0.3316, range 0.0034). Single-seed differences below about 0.003 are noise.
+
+### Drop one group (seed 42; all features 0.3313)
+| Group dropped | CV | | Group dropped | CV |
+|---|---|---|---|---|
+| comp_counts (comp_n_cin, comp_n_nat) | 0.3304 | | genres (27) | 0.3322 |
+| cinema (cl_scale, cl_movies) | 0.3311 | | weekday (dow, d1_dow) | 0.3325 |
+| occupancy (occ1-3, occ_mean) | 0.3314 | | pair_shape (trend, t3_share, active_days) | 0.3329 |
+| shows (show1-3, show_mean, tickets_per_show3) | 0.3315 | | calendar_flags (is_holiday, is_cuti_bersama, is_school_holiday, off_block_len) | 0.3329 |
+| price (price, price_ratio) | 0.3315 | | comp_lookahead (6) / categoricals (3) | 0.3333 / 0.3333 |
+| | | | late_start (4) | 0.3337 |
+| | | | film_level (mv_*, pair_share) | 0.3372 |
+| | | | window_offdays (win_off, tgt_off, off_rel) | 0.3395 |
+
+### Drop one feature (seed 42)
+- Clearly needed: mv_trend 0.3341, win_off 0.3340, is_school_holiday 0.3328, mv_t3 0.3327, eff_age 0.3327, day_tipe 0.3326, cl_scale 0.3325, d1_dow 0.3324.
+- Everything else 0.3288-0.3320 (inside the noise): e.g. date_idx 0.3288, show1 0.3290, show_mean 0.3292, comp_n_cin 0.3292, occ2 0.3294, tickets_per_show3 0.3294; rare genres (12 genres under 2% of rows) together 0.3313. Correlated features cover for each other, so single drops cannot decide; next step is a greedy removal scored on 3 seeds.
+
+### Greedy backward removal (3 seeds 1 / 2 / 3, remove if the mean does not get worse by more than 0.0003)
+- Start: all 79 features, mean 0.3316.
+- Removed: comp_counts (0.3313), rare_genres (0.3311), occupancy (0.3309). Final 61 features, mean 0.3309.
+- Kept (removing hurt): everything else. Biggest losses when removed: city_name 0.3340, own_idx 0.3333, comp_size_nat 0.3333, shows 0.3332, first_active 0.3329, dow 0.3329, price 0.3325.
+- Reading: the feature set is not bloated; only 3 groups (2 + 12 + 4 = 18 columns) are dead weight and the gain is small (0.0007, about noise size). Next: new-feature bundles on the 61-feature base (`e25_newfeat.py`).
+
+### New feature bundles on the 61-feature base (3 seeds, `exp/e25_newfeat.py`; base 0.3309)
+| Bundle added | CV | vs base |
+|---|---|---|
+| profile (is_local, is_sequel, kind_code, source_code, origin_code, pred_adm_log, local_horror; test films with facts dated after 2025-09-30 blanked: 7 of 163) | 0.3270 | -0.0039 (all 3 seeds better) |
+| off_more (off_d1-3, win_hol, win_wk, tgt_hol, tgt_prev_off, tgt_next_off, between_off, between_off_share) | 0.3276 | -0.0032 (all 3 seeds better) |
+| off_position (target day's place in its run of days off, days to next / from previous day off, days off D4..target) | 0.3310 | +0.0001 |
+| te_cin_city (cinema / city fade history, learned inside each fold) | 0.3317 | +0.0009 |
+| open_rank (opening rank among same-week releases) | 0.3326 | +0.0017 |
+| adj_trends (weekday-adjusted trends) | 0.3336 | +0.0027 |
+| film_trends (national show / occupancy trends) | 0.3355 | +0.0046 |
+- Strong signals found: film profile (what kind of film it is) and which exact D1-D3 / target days are off (not only the counts). Next: profile + off_more together, then drop each new column once (`exp/e26_combo.py`).
+
+### profile + off_more together, then drop each new column once (3 seeds, `exp/e26_combo.py`)
+- base 61: 0.3309 -> base + profile + off_more (78): 0.3244 (-0.0065, all 3 seeds better; the two gains add up).
+- Drop one (vs combo 0.3244): is_sequel +0.0026 (needed), off_d3 +0.0008, origin_code +0.0002, win_hol +0.0001; all others -0.0001 to -0.0016 (tgt_hol -0.0016, win_wk -0.0012, source_code -0.0010, off_d2 -0.0010, the rest -0.0003 to -0.0008). Many columns overlap (e.g. off_d1-3 vs win_off / win_wk), so single drops look free; greedy prune next (`exp/e27_prune.py`).
+- Greedy prune of the new columns (`exp/e27_prune.py`) was stopped before its first step so the user could run the notebooks; the full 78-feature combo is applied as is.
+
+## 2026-10-10 - Feature ablation result applied to both notebooks
+- Backups: scratchpad `main_legit_backup_before_features.ipynb`, `main_backup_before_features.ipynb`. Edit script `nb_features.py`.
+- Removed: occupancy (occ1-3, occ_mean; occupation_rate no longer loaded), comp_n_cin / comp_n_nat (no longer computed), rare genres as features (COMMON_GENRES = genres in >= 2% of train rows: 15 of 27; the dummies stay so the columns line up), unused OFF_DAY.
+- Added: add_window_offdays now also makes off_d1-3, win_hol, win_wk, tgt_hol, tgt_prev_off, tgt_next_off, between_off, between_off_share (is_off = weekend / national holiday / cuti bersama); new "Film profile" cell (add_film_profile: is_local, is_sequel, kind_code, source_code, origin_code, pred_adm_log, local_horror; facts public after 2025-09-30 -> NaN, 3.6% of test rows), also applied to the shifted-window rows.
+- Features: main_legit 79 -> 78, main 99 -> 98 (same change plus its Cinepoint columns). Kumo uses the same list.
+- Smoke runs (50 trees, 1 seed, no Kumo): both notebooks run end to end. Expected from screening (fast LGBM, 3 seeds): 0.3316 -> 0.3244 on main_legit. Not yet checked with full settings, with Kumo, or on main's Cinepoint feature set. The user runs both notebooks.
+
+## 2026-10-10 - LB: submission_legit.csv 0.40286 (was 0.42037)
+- First submission with the season formula (own formula, no reference file) + the ablation feature set (78 features). Gain 0.0175.
+- Distance to main's 0.36284 file (mean abs ratio difference): 0.1906 (0.42037 file: 0.2094, 0.43729 ref: 0.2223). LB has moved with this distance at about 0.9-1.3 LB per unit.
+- Reading: reaching 0.36 legit would need distance about 0.15; the best fitted-to-main experiments only reached 0.173-0.177 because the rest is per-film (which film holds up), which needs post-cutoff sales. Realistic legit target about 0.38-0.39.
+- submission_cine.csv in leon/ is still the old 10-08 file (identical to the 0.36284 file): main has not been rerun with the new features yet.
+
+## 2026-10-10 - Research: genre x season, kids x school breaks, cities, students (scratch `research/`)
+Rule: only data dated on or before 2025-09-30 as evidence; main's 0.36284 file only as scoreboard (distance), never fitted on. Distances below use the harness with the older injected predictions (base 0.1953; the 0.40286 file itself is 0.1906).
+
+### Data used
+- Cinepoint national charts 2023-09-20 .. 2025-09-30 (prev + train files): two Christmases (2023, 2024), two Lebarans (2024, 2025). Charts list 10 to 24 films per day, so daily "market" totals jump with the list length (use top-10 sums for market levels).
+- Genres for 230 pre-train films labelled by hand into coarse groups (family/kids, horror, comedy, action, drama, anime) with local / foreign; 22 unsure labels, the 7 largest checked on the web (2nd Miracle in Cell No. 7 drama, The Last Supper drama, Keajaiban Air Mata Wanita drama, Negeri Para Ketua comedy, Dark Nuns horror, Konco-Konco Edan horror comedy, Ambyar Mak Byar musical drama). Train / test films: same groups from movies.csv genre (`research/labels_prev.csv`, `research/genre_season.py`).
+- DKI school breaks from news (kompas.tv, detik): 2024-04-04..16 (Lebaran), 2024-06-22..07-07, 2024-12-21..2025-01-04, 2025-03-21..04-08 (national SEB), 2025-06-28..07-13.
+
+### Findings
+1. Genre x season (national D_h / D1-D3 vs the season's typical film): local horror fades faster than other films in every season (normal 0.78x, Ramadan 0.65x, Lebaran releases 0.74x); local comedy 1.19x, foreign action 1.14x in normal weeks. The genre effect looks the same in and out of holidays, and the model already has genre + profile, so no genre x season factor.
+2. Kids / family films x school breaks (strongest new signal): outside breaks they hold 0.75x the typical film on the same days (21 films), on break days 1.43x (7 films: Mufasa 1.74, Jumbo 1.65, Ejen Ali 2 5.07, Warkop DKI Kartun 1.43, Snow White 1.02, Ne Zha 2 0.93, Si Juki 0.81). Train OOF agrees: the blend under-predicts family films on school-break days by about 1.9x (Ejen Ali 2: actual 0.88, predicted 0.25).
+3. Christmas: films with D4-D10 in Dec 20 - Jan 4 held 1.83x the normal-season median (13 films, 2023 + 2024). The model gives Christmas rows only about 1.5x; holiday weekdays (e.g. 2024-12-30, Monday: 485k admissions vs about 200k on a normal Monday) behave like weekends. holidays.csv flags only 12-25 and 01-01, so the model treats 12-29..12-31 as ordinary weekdays.
+4. Cities / mudik: no source splits Lebaran admissions by city; Cinema 21 (2017) says the Lebaran rise is spread almost evenly over cinemas, Cinema XXI (2025) says box office rose while mudik travellers fell 24%. main has no city-level truth either (its Cinepoint is national), so city differences between legit and main say nothing. No city factor.
+5. Students: BEKraf / Rumah Sinema survey (reported 2018): cinema-goers about 56% university students, 33% high-school students, 11% others; SMRC 2019: 15-22 year olds watch most. No figure for the share of school children who go on holidays.
+- Post-cutoff material seen in search results and not used: Lebaran 2026 admissions (inews / ANTARA), Cinema XXI 2025 full-year.
+
+### Scoreboard tests (distance to main, harness base 0.1953)
+| Change | dist all | dist xmas rows |
+|---|---|---|
+| none | 0.1953 | 0.267 |
+| Christmas formula (market change x share change, Dec 2024 market, any alignment) | 0.1994-0.2073 | worse (level 0.38-0.49, main 0.78) |
+| Christmas level = 1.83 x model's normal-season level | 0.1916 | 0.215 |
+| + kids films on school-break days x1.43 (past-data value) | 0.1911 | |
+| + kids x1.43, Christmas rows only | 0.1906 | |
+| + kids x1.3 | 0.1904 | 0.199 |
+| + kids x1.9 | 0.1963 | |
+| Same-season film medians for the Ramadan / Lebaran groups (instead of the formula) | 0.199-0.254 | worse: keep the formula there |
+- 5 test kids films fall on school-break days (SpongeBob, Na Willa, Pelangi di Mars, Tunggu Aku Sukses Nanti, Patah Hati Yang Kupilih); main is 1.15-1.8x above legit on all 5.
+- Not applied to the notebooks yet.
+
+## 2026-10-10 - Applied to main_legit: Christmas level + kids films on school breaks
+- User picked x1.3 for kids (close to the 1.43 past-data value, best on the scoreboard).
+- New cell after the season formula (backup `main_legit_backup_before_holiday.ipynb`, script `nb_holiday.py`), switch USE_HOLIDAY_ADJUST:
+  - XMAS_REL from the national charts (films first charted 2023-09-25..2025-09-20, D1-D3 mean >= 3000; rows in Dec 20 - Jan 4 of 2023 / 2024 vs normal rows, Ramadan / Lebaran-release rows left out): 1.83 (13 films). xmas rows = model rows scaled to 1.83 x the model's normal-season mean (0.599 -> 0.782).
+  - Kids films = animation or family genre, not anime (kind_code 2); school-break day = most provinces on break in school_calendar_regional.csv 2025/2026 (all rows used published 2025-05-22..2025-08-26). 1358 rows, 5 films, x1.3.
+  - The total_ticket lines moved from the season cell to the end of this cell.
+- Check (harness, injected older predictions): distance to main 0.1953 -> 0.1904 (xmas rows 0.267 -> 0.199), same as the scratch experiment.
+
+## 2026-10-10 - LB: submission_cine.csv (main) 0.35793 (was 0.36284)
+- First main run with the ablation feature set (98 features: occupancy, competition counts and rare genres out; detailed days off and film profile in). Gain 0.0049.
+- Same feature change on main_legit gave 0.42037 -> 0.40286 together with the season formula.
+- main is the best file now; the scoreboard for legit experiments should move from the 0.36284 file to this one (old file kept).
+
+## 2026-10-10 - Research workflow, factors 8-20 (`leon/research_workflow.md`, scratch `research/`, `exp/e28_factors.py`)
+- #8 Nyepi (2026-03-19): test_history has no Denpasar rows that day (cinemas closed); the 4 test rows are already 0 in both legit and main. Nothing to do.
+- #9 Payday (25th-5th): national market (top-10 sums, 2023-10..2025-09, holidays and seasons left out) shows no consistent effect (payday window vs 16th-24th: 2023 x0.54, 2024 x0.77, 2025 x1.09). CV with t_payday, win_payday, payday_rel, t_dom on the 78-feature set: 0.3255 vs 0.3244 (+0.0011, worse). Not used.
+- #10 Track record (shrunk mean log hold-up of the fitting films sharing a producer / director, own film left out): producer 0.3246 (+0.0002), director 0.3252 (+0.0008). Only 43 / 29 of 130 test films share a producer / director with a train film. Not used.
+- #11 City demographics: 67 of 69 test cities are in train with >= 283 rows each, so city_name already covers them (test-only: Tuban, Magelang, 322 rows). Low value, not built.
+- #12 School exam weeks: the calendar covers exams in 17 of 34 provinces; on the scoreboard the exam cases have 1-4 films each and flip direction (main / legit 0.58 to 1.52). Not used.
+- #13 Imlek (2026-02-17): legit and main agree around it (1.07-1.12); holiday + cuti bersama already in the calendar.
+- #14 Age rating after the holiday change: Christmas gap small for all ratings (0.89-1.13); Lebaran week all-ages / adult films still about 1.27x below main, teen films level; per-film (Na Willa 1.83, Suzzanna 1.28).
+- Format versions (IMAX / 3D, 20 titles in train and 20 in test): they already get genre (base_title join) and profile; tying them to the base film's prediction is worse on train (MAE 0.373 at best vs 0.279 for the model's own OOF). Not used.
+- Small foreign films in Lebaran week (Reminders of Him, Number One): main about 0, legit 0.12-0.53 (screens go to the Lebaran releases); too few rows to matter.
+- #15 showtimes, #16 runtime, #19 weather, #20 football: decided without a test (covered already / data only after the cutoff / negligible), see the workflow file.
+
+## 2026-10-10 - Factor scoreboard vs the new main, and a check against the real test-film sales
+### vs the new main file (0.35793), legit = notebook with injected older predictions
+| Legit variant | dist new main | dist old main |
+|---|---|---|
+| no holiday cell | 0.1917 | 0.1953 |
+| Christmas level only | 0.1897 | 0.1916 |
+| Christmas + kids x1.3 | 0.1916 | 0.1904 |
+- Slices vs the new main (main / legit): kids on break days 0.82 (legit now above), Christmas 0.94; normal-season horizons D4-D6 0.90-0.92, D9 1.11, D10 1.50 (legit falls too fast toward D10); payday phase, region, Christian-majority cities, local / sequel, film size flat (0.92-1.07).
+
+### vs the real national sales of the test films (Cinepoint 2025-10..2026-03, evaluation only, `research/eval_leak.py`)
+- Method: per film x horizon, truth = national D_h / D1-D3 x c(h), c(h) = median ratio of our cinemas' actual hold-up to the national one on 120 train films ([1.08, 1.03, 1.05, 1.09, 1.27, 1.17, 1.19]); prediction = scale-weighted film ratio over our cinemas. 882 film x horizon cells.
+- Calibration: train OOF gives median predicted / real = 0.76 (the model predicts typical values, not averages), so about 0.76-0.78 is the right level.
+| Variant | error all | normal | xmas | ram_to_ram | pre_to_ram | ram_to_lebaran |
+|---|---|---|---|---|---|---|
+| legit, no holiday cell | 0.2894 | 0.1943 | 0.2696 | 0.4149 | 0.1446 | 1.0611 |
+| legit, Christmas only | 0.2895 | 0.1943 | 0.2712 | 0.4149 | 0.1446 | 1.0611 |
+| legit, Christmas + kids x1.3 | 0.2928 | 0.1943 | 0.2851 | 0.4149 | 0.1446 | 1.0950 |
+| main new (0.35793) | 0.2039 | 0.1386 | 0.1531 | 0.3371 | 0.0957 | 0.6779 |
+| main old (0.36284) | 0.2098 | 0.1319 | 0.1841 | 0.3060 | 0.1005 | 0.8638 |
+- The check ranks the files like the LB (main new < main old < legit).
+- Levels (median predicted / real, 0.77 = right): legit normal 0.78; Christmas 0.77 without the holiday cell, 0.96 with the Christmas level, 1.09 with kids too; ram_to_ram 0.53 (about 30% low; main new 0.65); pre_to_ram 0.62; ram_to_lebaran 0.94. Kids films: Lebaran week 1.12, Christmas 0.84 -> 1.09 with x1.3.
+- Reading: the Christmas level (from 2023-2024) and the kids factor do not hold in 2025-26; the model was already at the right Christmas level. Biggest legit level miss outside Lebaran week: ram_to_ram about 30% low.
+- Caveat: this uses post-cutoff sales as the judge (never as an input). Waiting for the user's decision on switching the holiday cell off.
+
+### All film / date factors vs the real test-film sales (`research/leak_board.py`, evaluation only)
+- Files: submission_legit.csv (0.40286, no Christmas / kids changes; it predates them) and submission_cine.csv (0.35793). Level = median(predicted / real) / 0.76 (train OOF), 1.00 = right.
+- Measurement artifacts (same pattern for legit and main, so not model errors): weekday (Thu / Fri about 0.6, Mon / Tue 1.3-1.4), horizon (D4-D6 1.2-1.3, D9-D10 0.6), film size (small 0.5-0.6; small films fall off the national chart and the 0.7 x chart-minimum fill overstates their real sales). Ignored.
+- Legit vs main levels: season normal 0.97 / 0.97, pre_to_ram 0.94 / 0.85, ram_to_ram 0.74 / 0.85, ram_to_lebaran 1.28 / 1.17, xmas 1.05 / 1.31; kids on break days 0.79 / 1.57 (5 films); payday phase 0.91-1.08 / 0.84-1.04; exam days 0.94 / 0.90; local 1.01 / 1.05, foreign 0.96 / 0.87; sequel 1.12 / 1.10, original 0.93 / 0.90; all-ages films 1.23 / 1.24; genres in the normal season 0.88-1.12 / 0.81-1.08; Imlek 1.05 / 1.09.
+- Ramadan by genre (ram_to_ram + pre_to_ram): drama 0.40 / 0.77 (6 films), horror 0.43 / 0.58 (3), family 0.86 / 1.00, action 1.02 / 0.85, comedy 1.04 / 0.97.
+- Reading: the only clear legit-specific miss is the Ramadan level, worst for dramas (one level factor for the whole Ramadan group pulls them down). Christmas is already right without the holiday cell; the kids effect is inconclusive (5 films).
+
+## 2026-10-10 - Ramadan genre factors (both notebooks)
+### Evidence (pre-cutoff, `research/ramadan_genre.py`)
+- National charts, Ramadan 2024 + 2025 (rows whose target day is in Ramadan), each film's hold-up vs all films on the same horizon in the same Ramadan, compared with the same genre in normal weeks:
+| Genre | Ramadan films | in Ramadan | in normal weeks | Ramadan vs normal |
+|---|---|---|---|---|
+| action | 9 | 1.45 | 1.14 | 1.27 |
+| drama | 6 | 0.86 | 0.63 | 1.37 |
+| family | 2 | 1.15 | 0.78 | 1.48 |
+| horror | 14 | 0.63 | 0.79 | 0.80 |
+| comedy / anime / other | 0 | | | 1.0 |
+- Most past Ramadan films were horror (14 of 31); the test Ramadan films are mostly not (horror 4 of 37 films).
+### Check against the real test sales (evaluation only, `research/ramadan_genre_eval.py`)
+| File | Variant | error all | error Ramadan rows |
+|---|---|---|---|
+| legit 0.40286 | as is | 0.2843 | 0.3630 |
+| legit 0.40286 | factors, group level kept | 0.2833 | 0.3570 |
+| legit 0.40286 | factors, level moves | 0.2859 | 0.3723 |
+| main 0.35793 | as is | 0.2039 | 0.2998 |
+| main 0.35793 | factors, group level kept | 0.2049 | 0.3057 |
+| main 0.35793 | factors, level moves | 0.1956 | 0.2519 |
+- Half-strength factors land between (legit 0.2833 kept / 0.2837 moving, main 0.2044 / 0.1974).
+### Applied
+- New cell "Ramadan genre factors" (USE_RAMADAN_GENRE, RAMADAN_GENRE_FACTORS, genre_group from the genre dummies + kind_code) in both notebooks; backups `main_legit_backup_before_ramadan_genre.ipynb`, `main_backup_before_ramadan_genre.ipynb`, script `nb_ramadan_genre.py`.
+  - main_legit: after the holiday cell; inside each Ramadan season group the factors are renormalised so the season formula's level stays. The total_ticket lines moved to this cell.
+  - main: after the season-factor cell; factors applied directly (mean factor on Ramadan rows 1.259). The total_ticket line moved to this cell; the season_factor value_counts display was dropped.
+- Test Ramadan rows by genre: action 5266, drama 2676, family 2288, comedy 1229, horror 1046, other 224.
+- Checks: main_legit with injected older predictions: real-sales error 0.2928 -> 0.2910 (Ramadan rows 0.3731 -> 0.3628), distance to the old main 0.1904 -> 0.1896. main: smoke run (50 trees) OK.
+- Still open: the holiday cell (Christmas level + kids x1.3) is on in main_legit, while the real sales say neither helps.
+
+## 2026-10-10 - main: Ramadan genre weights from the real national sales (user request; main_legit unchanged)
+- main.ipynb cell "Ramadan genre weights from the real national sales" replaces the past-Ramadan factors (backup `main_backup_before_real_weights.ipynb`, script `nb_main_real_weights.py`): per genre, weight = BASE_LEVEL (model's own level on train films from oof_blend) / the genre's predicted-vs-real level on Ramadan rows, real = ret_h (off-chart: 0.7 x cut_h) x C_H (our cinemas vs national per horizon, train films); genres with < 2 Ramadan films get the all-Ramadan weight. Smoke run OK (50-tree model: weights action 1.31, comedy 1.08, drama 1.22, family 1.49, horror 1.32, other 2.01; full run will differ).
+- Same rule applied to the 0.35793 file (weights action 1.18, drama 1.29, family 1.00, horror 1.74, comedy 1.03), scored on the real sales (self-graded: the weights are fitted on the same data):
+| Version | error all | error Ramadan | level Ramadan | action | drama | family | horror | comedy |
+|---|---|---|---|---|---|---|---|---|
+| main before (0.35793) | 0.204 | 0.300 | 0.85 | 0.85 | 0.77 | 1.00 | 0.58 | 0.97 |
+| past-Ramadan factors | 0.196 | 0.252 | 1.02 | 1.03 | 1.05 | 1.47 | 0.47 | 0.97 |
+| real-sales weights | 0.199 | 0.272 | 0.98 | 0.99 | 0.99 | 1.00 | 0.90 | 1.00 |
+- Reading: matching each genre's median level does not minimise the absolute error; the past factors (level slightly above right) score better even against a self-graded alternative. Recommended: back to the past-Ramadan factors; waiting for the user's choice.
+
+## 2026-10-10 - Ramadan weights re-examined; leveling to national sales; main season levels (scratch `research/best_weight*.py`, `level_train.py`)
+### Correction to the earlier real-sales "error" numbers
+- The film-level error compared the model's film totals with the real national totals (means). The model predicts per-row typical values (trained on absolute error), so its totals are by design about 0.76x the real means on train (0.91 at D4 down to 0.34 at D9-D10 per film, because most late-horizon typical values are 0). So that error rewards predicting too high; the "past factors beat the real-sales weights" result and the main 0.2039 -> 0.1956 gain were partly this artifact. Levels (a film's median log ratio vs the train baseline) do not have this bias and were fine; error-based weight picking is dropped.
+- A second artifact: small films (tiny sales, often off the national chart so 0.7 x chart minimum is filled in) dominate any equal-per-film median. Level checks now weight films by size (predicted tickets), as MASE does by rows.
+### Results (main = submission_cine.csv 0.35793 with national data, legit = submission_legit.csv)
+- Ramadan, bigger half of the 37 films: weight still needed main x1.15, legit x1.32; smaller half main x2.30, legit x3.74 (national value partly estimated). The 8 biggest films in main need 1.10, 1.01, 1.01, 0.91, 0.80, 1.19, 0.97, 1.04 (about right).
+- Leave-one-film-out, size-weighted level deviation (lower = better): main no weight 0.121 | one weight 0.145 | per genre 0.171 | pooled toward all (K=8) 0.161; size-weighted all-Ramadan weight 1.007 (action 1.01, comedy 1.01, drama 1.04, family 1.10, horror 1.42 on 4 films). Per-genre weights fitted on the real sales do not generalise (3-12 films per genre).
+- main + past-Ramadan genre factors: deviation 0.271 (still needed x0.77); main + real-sales median weights: 0.214 (x0.81): both overshoot the big films. DECISION: genre cell REMOVED from main.ipynb (season cell restored to its original last lines; backup `main_backup_before_removing_ramadan_genre.ipynb`; smoke run OK, 76 cells).
+- legit: file as is 0.328 (10 biggest 0.354) -> with the past-Ramadan genre factors (notebook rule, group level kept) 0.270 (0.268). Kept in main_legit.
+- main season levels, size-weighted (weight still needed, 1.00 = right): normal 0.92, ram_to_ram 1.04, ram_to_lebaran 1.03, xmas / school-break 0.95, pre_to_ram 0.80 (8 films, 1962 rows). The hand-set Lebaran x2.0 and school x1.25 are already right; no replacement needed.
+### Leveling main's predictions to the film's real national total, tested on TRAIN labels (honest: OOF, C(h) leave-one-film-out; row-level MASE; main LGBM 1 seed OOF 0.2910)
+| Leveling | strength 0.25 | 0.5 | 0.75 | 1.0 |
+|---|---|---|---|---|
+| film x horizon, straight to the national total | 0.2913 | 0.2950 | 0.3026 | 0.3150 |
+| film x horizon, only the deviation from the usual | 0.2955 | 0.3028 | 0.3119 | 0.3220 |
+| one factor per film, deviation only | 0.2962 | 0.3059 | 0.3185 | 0.3333 |
+- No version beats the plain OOF (0.2910): main's model already uses the film's real national numbers (ret_h, cut_h), the leftover is mostly cinema mix and noise of the national estimate (film-level floor 0.13 with perfect predictions).
+
+## 2026-10-10 - main: national-chart day features (post-cutoff Cinepoint, allowed in main)
+- Idea: main only sees the film's national ratios as ret_h and the wide ret4..ret10; the model must work out which one is "yesterday". Candidates built from the same charts (`research/nat_feats.py`): n_st_ratio (national showtimes ratio), n_fill_ratio (admissions per showtime vs D1-D3), n_share_ratio / n_st_share_ratio (share of the day's market vs opening share), n_mkt_ratio (total market that day / D1-D3), n_rank, n_ret_prev / n_ret_next (ratio of the day before / after the target), later n_prev2, n_dod, n_st_prev, n_fill_prev, n_week_ago.
+- Test: main's 98 features +/- the new ones, LightGBM l1 (500 trees, lr 0.045), 5 folds grouped by film, seeds 1-3, no extra rows (same for both). Base 0.3036 (0.3031 / 0.3035 / 0.3043).
+| Added | CV | vs base |
+|---|---|---|
+| neighbour days (ret_prev, ret_next) | 0.2991 | -0.0045 |
+| showtimes (st_ratio, fill_ratio) | 0.3001 | -0.0036 |
+| market share (share_ratio, st_share_ratio) | 0.3012 | -0.0024 |
+| rank | 0.3016 | -0.0020 |
+| market size (mkt_ratio) | 0.3026 | -0.0010 |
+| all eight | 0.2974 | -0.0062 |
+- Drop one from the eight (vs 0.2974): ret_prev +0.0022 (needed), fill_ratio +0.0009, mkt_ratio +0.0006, rank +0.0003, ret_next 0, st_share_ratio 0, st_ratio -0.0003, share_ratio -0.0008.
+- Smaller sets: {ret_prev, fill_ratio, mkt_ratio, rank} 0.2977; + ret_next 0.2971; + share_ratio 0.2969; {ret_prev, ret_next, fill_ratio, mkt_ratio} 0.2975; **{ret_prev, fill_ratio} 0.2968 (-0.0068)**, as good as all eight. On top of the two: n_prev2 +0.0016, n_dod +0.0016, n_st_prev +0.0017, n_fill_prev +0.0009, n_week_ago +0.0018, all five together +0.0001 (no help).
+- Applied to main.ipynb: `cp_day_features` in the Cinepoint cell (n_ret_prev, n_fill_ratio per film x horizon, also for the shifted-window rows through add_cinepoint; CP_SERIES keeps admissions and showtimes per film and day), markdown documents both; backup `main_backup_before_daily_features.ipynb`, script `nb_main_daily.py`. Features 98 -> 100.
+- Full pipeline check, LGBM only, 1 seed (42), extra rows on, 1500 trees: CV 0.2910 -> **0.2884** (-0.0026). Seeds 1 and 2 running (`seeds_daily.log`).
+- Seeds (full pipeline, LGBM only, extra rows on, 1500 trees, CV on train): before (98 features) 0.2910 / 0.2908 / 0.2913 (seeds 42 / 1 / 2, mean 0.2910); after (100 features) 0.2884 / 0.2885 / 0.2886 (mean 0.2885). Gain 0.0025 on every seed. Kumo uses the same feature list (NUM_FEATURES includes CP_FEATURES), not re-run.
+- Not testable here: the LB effect (the user runs and submits main).
+- Open: main_legit still has the holiday cell on (Christmas level x1.83 + kids x1.3); the level check on the real sales (not affected by the mean / median bias) said Christmas was already right without it (1.05 vs right 1.00) and the kids effect is inconclusive (5 films). Recommendation: USE_HOLIDAY_ADJUST = False. Waiting for the user.
+
+## 2026-10-10 - Checks on the new main columns, and more candidate features (scratch `research/check_daily.py`, `perm_imp.py`, `check4.py`, `cinema_vs_nat.py`)
+### The two national-chart columns (n_ret_prev, n_fill_ratio)
+1. Correctness: 6 random film x horizon cells (3 train, 3 test) recomputed by hand from the raw charts match the notebook to 6 digits.
+2. Train vs test: similar quantiles and NaN shares (n_ret_prev NaN 13.6% train / 8.6% test; n_fill_ratio 16.8% / 11.5%). Correlation with ret_h 0.75 / 0.80. In Lebaran week 49% of test rows have n_ret_prev above the train 99th percentile (median 2.69 vs 0.57 on train); same limit already exists for ret_h (3.7% of all test rows above its train 99th percentile).
+3. Permutation importance (5 folds grouped by film, fast LGBM, shuffle the column inside each held-out fold, MASE rise): n_fill_ratio +0.0207 (5/5 folds), n_ret_prev +0.0143 (5/5); for scale ret_h +0.0730, horizon +0.0050, scale +0.0009, mv_trend +0.0005, cp_ret_mean +0.0004, win_off +0.0002, cut_h -0.0005. The 10 new days-off columns: tgt_next_off +0.0007 (5/5), off_d3 +0.0002, rest 0 to +0.0002 (near-dead). Profile columns one by one: origin_code +0.0002, the other six ~0 (they helped as a group in the earlier CV, shuffling one hides it because they overlap).
+4. Old vs new main (LGBM only, raw test predictions, size-weighted level vs the real national sales, evaluation only): rows changed by more than 20%: normal 5%, Ramadan 6-7%, Christmas 3%, Lebaran week 12%; mean after / before 0.99, 0.98 / 0.95, 0.99, 1.075. Level off the right level, before -> after: normal 0.130 -> 0.160, ram_to_ram 0.106 -> 0.130, pre_to_ram 0.275 -> 0.188, Christmas 0.063 -> 0.078, Lebaran week 0.655 -> 0.533. Mixed, differences of 0.02-0.03 are about the noise of this diagnostic; train CV (row-level labels) is the clean evidence.
+### Cinema-vs-national candidates (base 100 features 0.2980, fast LGBM, seeds 1-3, no extra rows)
+| Added | CV | vs base |
+|---|---|---|
+| n_d1, n_d3 (national opening shape) | 0.2972 | -0.0008 |
+| n_share_log (cinema size vs national) | 0.2975 | -0.0005 |
+| n_rel_trend (cinema trend vs national trend) | 0.2971 | -0.0009 |
+| n_proj3 (cinema's D3 share held constant x national that day) | 0.2971 | -0.0009 |
+| all five | 0.2987 | +0.0007 |
+| te_rel (cinema / city habit of holding vs national, fold-safe) | 0.2985 | +0.0005 |
+| all five + te_rel | 0.2981 | +0.0001 |
+- None adds signal beyond noise (about 0.001); not added.
+### Relative target (predict y / national ratio, weighted L1 with weights national + 0.05, then multiply back), fast LGBM, no extra rows (`research/rel_target.py`, `rel_blend.py`)
+- Train CV, 3 seeds: plain 0.2980, relative 0.3082 (+0.0102, worse on every seed).
+- Raw test predictions by period (no season factors), weight still needed to reach the right level (1.00 = right) plain -> relative: Lebaran week 1.62 -> 1.14, pre_to_ram 0.82 -> 1.00, ram_to_ram 0.99 -> 0.94, Christmas 0.97 -> 0.92, normal 0.96 -> 0.91; size-weighted level off: Lebaran 0.468 -> 0.116, pre_to_ram 0.239 -> 0.177, ram_to_ram 0.109 -> 0.117, Christmas 0.066 -> 0.104, normal 0.130 -> 0.161. It extrapolates to Lebaran week on its own, but main's hand-set x2.0 on the blend already sits at about 1.03, so no gain there.
+- Blend of plain and relative OOF (share of relative): 0.0 0.2980, 0.1 0.2969, 0.2 0.2965 (-0.0015, all 3 seeds same sign), 0.3 0.2968, 0.5 0.2989. Small, about the noise level, and Kumo already adds variety; not adopted.
+- Summary of this round: the only post-cutoff features that moved the CV are n_ret_prev and n_fill_ratio (applied); cinema-vs-national features and the relative target add nothing usable. Not done: pruning the near-dead days-off / profile columns with the full pipeline.

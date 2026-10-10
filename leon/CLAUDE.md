@@ -5,7 +5,7 @@ Everytime there are changes in any notebook write the changes in logs.md so we c
 When importing a library/modules do it or add it in the 1st cell
 
 # Testing
-When testing for comparison of enabling/disabling features, tweaking, etc use the main.ipynb (or the notebook we are currently focusing) pipeline as the pipeline
+When testing for comparison of enabling/disabling features, tweaking, etc use the main.ipynb/main_legit.ipynb (or the notebook we are currently focusing) pipeline as the pipeline
 
 # External Dataset
 Note that in this competition external dataset usage is allowed
