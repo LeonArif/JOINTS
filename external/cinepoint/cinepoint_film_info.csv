@@ -1,0 +1,2383 @@
+date,rank,title,genre,runtime_min,year,score,daily_admission,total_admission,showtimes
+2023-11-05,1,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,200770,700889,15860
+2023-11-05,2,Kultus Iblis,Horror / Adventure,98,2023,6.1,137096,180145,5132
+2023-11-05,3,Budi Pekerti,Drama,111,2023,8.9,134024,165461,4825
+2023-11-05,4,Five Nights at Freddy's,Horror / Thriller,109,2023,7.0,115200,421737,15297
+2023-11-05,5,Di Ambang Kematian,Thriller / Horror,97,2023,7.2,103591,3281581,58256
+2023-11-05,6,Indigo,Horror,118,2023,7.0,103330,928090,26122
+2023-11-05,7,Pamali: Dusun Pocong,Horror,99,2023,6.9,79017,1543702,34860
+2023-11-05,8,Freelance,Action / Comedy,108,2023,7.0,52778,145666,9338
+2023-11-05,9,Taylor Swift: The Eras Tour,Music,165,2023,0.0,52232,192535,3169
+2023-11-05,10,Killers of The Flower Moon,Crime / Drama / History,206,2023,8.8,47634,178997,8043
+2023-11-05,11,Petualangan Sherina 2,Drama / Musical / Adventure,126,2023,8.4,31875,2405516,54231
+2023-11-05,12,Fear The Night,Action / Thriller,92,2023,6.1,4861,29598,2683
+2023-11-05,13,Mohon Doa Restu,Romance / Comedy / Drama / Family,106,2023,7.4,4418,98547,5790
+2023-11-05,14,Love Reset <30 Days>,Comedy / Romance,119,2023,8.1,4218,17432,0
+2023-11-05,15,Nona Manis Sayange,Drama / Comedy,102,2023,6.0,3925,8270,765
+2023-11-05,16,Air Mata Di Ujung Sajadah,Drama,105,2023,7.2,1928,3126326,58452
+2023-11-05,17,The Creator,Adventure / Science Fiction / Action,133,2023,8.1,1127,305581,9906
+2023-11-05,18,A Haunting in Venice,Drama / Crime,103,2023,7.7,378,432377,13546
+2023-11-05,19,The Exorcist: Believer,Horror,111,2023,6.7,93,491296,19067
+2023-11-06,1,Fear The Night,Action / Thriller,92,2023,6.1,4613,34211,3176
+2023-11-06,2,Love Reset <30 Days>,Comedy / Romance,119,2023,8.1,2715,20147,0
+2023-11-07,1,Fear The Night,Action / Thriller,92,2023,6.1,3660,37871,3498
+2023-11-07,2,Love Reset <30 Days>,Comedy / Romance,119,2023,8.1,2515,22662,0
+2023-11-08,1,Love Reset <30 Days>,Comedy / Romance,119,2023,8.1,1617,24279,0
+2023-11-08,2,Fear The Night,Action / Thriller,92,2023,6.1,252,38123,3534
+2023-11-09,1,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,207110,907999,20946
+2023-11-09,2,Budi Pekerti,Drama,111,2023,8.9,146755,312216,10100
+2023-11-09,3,Sijjin,Horror,100,2023,7.0,106112,106112,1492
+2023-11-09,4,Kultus Iblis,Horror / Adventure,98,2023,6.1,103331,283476,9459
+2023-11-09,5,Indigo,Horror,118,2023,7.0,67928,996018,28743
+2023-11-09,6,Pamali: Dusun Pocong,Horror,99,2023,6.9,43930,1587632,36335
+2023-11-09,7,Di Ambang Kematian,Thriller / Horror,97,2023,7.2,18444,3300025,59576
+2023-11-09,8,Petualangan Sherina 2,Drama / Musical / Adventure,126,2023,8.4,8417,2413933,54756
+2023-11-09,9,Air Mata Di Ujung Sajadah,Drama,105,2023,7.2,1345,3127671,58480
+2023-11-09,10,Nona Manis Sayange,Drama / Comedy,102,2023,6.0,707,8977,900
+2023-11-12,1,The Marvels,Adventure / Action / Superhero,105,2023,7.6,1371436,1371436,24248
+2023-11-12,2,Sijjin,Horror,100,2023,7.0,476180,582292,9986
+2023-11-12,3,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,139001,1047000,23441
+2023-11-12,4,Budi Pekerti,Drama,111,2023,8.9,98369,410585,12514
+2023-11-12,5,Aku Rindu,Drama,104,2023,7.3,26235,26235,740
+2023-11-12,6,Five Nights at Freddy's,Horror / Thriller,109,2023,7.0,17887,439624,17493
+2023-11-12,7,Pamali: Dusun Pocong,Horror,99,2023,6.9,14629,1602261,36500
+2023-11-12,8,Kultus Iblis,Horror / Adventure,98,2023,6.1,14408,297884,10143
+2023-11-12,9,Indigo,Horror,118,2023,7.0,12384,1008402,28995
+2023-11-12,10,Petualangan Sherina 2,Drama / Musical / Adventure,126,2023,8.4,571,2414504,54767
+2023-11-12,11,A Haunting in Venice,Drama / Crime,103,2023,7.7,235,432612,13557
+2023-11-12,12,Air Mata Di Ujung Sajadah,Drama,105,2023,7.2,190,3127861,58480
+2023-11-12,13,The Exorcist: Believer,Horror,111,2023,6.7,90,491386,19067
+2023-11-13,1,Sijjin,Horror,100,2023,7.0,130711,713003,12947
+2023-11-13,2,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,40997,1087997,24323
+2023-11-13,3,Budi Pekerti,Drama,111,2023,8.9,23262,433847,13423
+2023-11-14,1,The Marvels,Adventure / Action / Superhero,105,2023,7.6,217609,1589045,33613
+2023-11-14,2,Sijjin,Horror,100,2023,7.0,120745,833748,16128
+2023-11-14,3,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,21372,1109369,25128
+2023-11-14,4,Budi Pekerti,Drama,111,2023,8.9,21269,455116,14252
+2023-11-14,5,Kultus Iblis,Horror / Adventure,98,2023,6.1,4004,301888,10418
+2023-11-15,1,Sijjin,Horror,100,2023,7.0,108185,941933,18992
+2023-11-15,2,The Marvels,Adventure / Action / Superhero,105,2023,7.6,66930,1655975,36960
+2023-11-15,3,The Hunger Games: The Ballad of Songbirds & Snakes,Drama / Action / Adventure,157,2023,8.0,53762,53762,0
+2023-11-15,4,Saranjana: Kota Ghaib,Horror / Adventure,98,2023,6.2,25740,1135109,25775
+2023-11-15,5,Budi Pekerti,Drama,111,2023,8.9,18262,473378,14918
+2023-11-15,6,Past Lives,Drama,106,2023,8.5,1611,1611,186
+2023-11-15,7,Kultus Iblis,Horror / Adventure,98,2023,6.1,668,302556,10495
+2024-03-28,1,Godzilla x Kong: The New Empire,Action / Science Fiction / Adventure,115,2024,7.8,169608,337810,8611
+2024-03-28,2,Ronggeng Kematian,Horror / Drama / Thriller,98,2024,6.7,39969,39969,1218
+2024-03-28,3,Para Betina Pengikut Iblis Part 2,Thriller / Horror,90,2024,5.3,7777,7777,1136
+2024-03-28,4,Keluar Main 1994,Drama / Comedy,112,2024,7.3,3186,3186,354
+2024-03-29,1,Godzilla x Kong: The New Empire,Action / Science Fiction / Adventure,115,2024,7.8,250159,587969,13561
+2024-03-29,2,Ronggeng Kematian,Horror / Drama / Thriller,98,2024,6.7,22765,62734,2628
+2024-03-29,3,Para Betina Pengikut Iblis Part 2,Thriller / Horror,90,2024,5.3,3894,11671,1680
+2024-03-29,4,Keluar Main 1994,Drama / Comedy,112,2024,7.3,1885,5071,602
+2024-06-30,1,Inside Out 2,Animation / Adventure / Comedy,96,2024,8.5,528880,1764123,38047
+2024-06-30,2,A Quiet Place: Day One,Horror / Thriller / Science Fiction / Drama,99,2024,7.6,387670,563690,12894
+2024-06-30,3,Sengkolo Malam Satu Suro,Horror,100,2024,5.7,115123,452067,11855
+2024-06-30,4,How To Make Millions Before Grandma Dies,Drama,125,2024,8.9,82311,3350000,65154
+2024-06-30,5,Bad Boys: Ride or Die,Thriller / Action / Crime,115,2024,7.9,58197,745757,28571
+2024-06-30,6,Twilight of the Warriors: Walled In,Thriller / Action / Crime,125,2024,8.7,50983,114229,3478
+2024-06-30,7,Si Juki the Movie: Harta Pulau Monyet,Adventure / Animation / Comedy,107,2024,7.5,47459,171134,4445
+2024-06-30,8,Marni: The Story of Wewe Gombel,Horror / Thriller / Action,120,2024,7.1,40484,216899,454
+2024-06-30,9,Lafran,Drama / History,99,2024,7.6,30000,30000,1150
+2024-06-30,10,Dilan Wo Ai Ni,Drama / Romance / Family,116,2024,7.4,10486,176456,8681
+2024-06-30,11,The Bikeriders,Crime / Drama,116,2024,7.2,8375,9214,1151
+2024-06-30,12,The Last Breath,Thriller / Adventure,96,2024,6.8,4625,6218,525
+2024-07-01,1,Si Juki the Movie: Harta Pulau Monyet,Adventure / Animation / Comedy,107,2024,7.5,37197,208331,5538
+2024-07-01,2,Marni: The Story of Wewe Gombel,Horror / Thriller / Action,120,2024,7.1,35629,252528,564
+2024-07-02,1,Si Juki the Movie: Harta Pulau Monyet,Adventure / Animation / Comedy,107,2024,7.5,33151,241482,6642
+2024-07-03,1,Marni: The Story of Wewe Gombel,Horror / Thriller / Action,120,2024,7.1,73234,325762,815
+2024-07-03,2,Sengkolo Malam Satu Suro,Horror,100,2024,5.7,48396,500463,13267
+2024-07-03,3,Si Juki the Movie: Harta Pulau Monyet,Adventure / Animation / Comedy,107,2024,7.5,28074,269556,7459
+2024-07-03,4,Winnie The Pooh: Blood and Honey 2,Horror / Thriller,93,2024,6.5,644,644,85
+2025-03-02,1,Legends of the Condor Heroes: The Gallants,Action / War,146,2025,8.0,43424,123502,5185
+2025-03-02,2,Petaka Gunung Gede,Horror,98,2025,7.0,37682,2786594,52997
+2025-03-02,3,Conclave,Drama / History,120,2025,8.6,31326,103143,5458
+2025-03-02,4,Captain America: Brave New World,Superhero,118,2025,7.3,30757,1549479,38216
+2025-03-02,5,Iblis Dalam Kandungan 2: Deception,Horror,113,2025,6.4,15334,106983,3440
+2025-03-02,6,Interstellar (2025 Re-Release),Mystery / Science Fiction / Adventure,169,2025,9.6,13863,52387,314
+2025-03-02,7,Pernikahan Arwah (The Butterfly House),Horror,101,2025,7.3,7851,33051,1165
+2025-03-02,8,Perayaan Mati Rasa,Music / Drama,124,2025,7.8,4934,1344894,31015
+2025-03-02,9,Anak Kunti,Horror,95,2025,6.0,3625,277368,9436
+2025-03-02,10,ATTACK ON TITAN: THE LAST ATTACK,Animation,144,2025,8.5,3085,189665,1186
+2025-03-02,11,Pengantin Iblis,Horror,102,2025,6.7,2591,667924,13734
+2025-03-02,12,Cleaner,Action,97,2025,7.3,2170,69483,7085
+2025-03-02,13,Jagal Teluh,Horror,85,2025,6.6,1711,30184,1398
+2025-03-02,14,Cinta Tak Pernah Tepat Waktu,Romance / Drama,110,2025,8.0,1503,147535,6439
+2025-03-02,15,1 Kakak 7 Ponakan,Drama,131,2025,8.7,1294,1233083,31836
+2025-03-02,16,You Are The Apple of My Eye,Romance / Drama / Teen,102,2025,7.9,826,39919,3269
+2025-03-02,17,The Unbreakable Boy,Drama / Family,109,2025,7.2,801,3258,808
+2025-03-02,18,A Complete Unknown,Drama / Biography,141,2025,8.3,514,2529,396
+2025-03-02,19,IVE The 1st World Tour in Cinema,Music / Documentary,112,2025,0.0,232,1374,7
+2025-03-02,20,Samawa,Drama / Religious,100,2025,4.6,213,4170,639
+2025-03-03,1,Petaka Gunung Gede,Horror,98,2025,7.0,29571,2816165,54187
+2025-03-03,2,Legends of the Condor Heroes: The Gallants,Action / War,146,2025,8.0,19376,142878,6218
+2025-03-03,3,Conclave,Drama / History,120,2025,8.6,16638,119781,6417
+2025-03-03,4,Iblis Dalam Kandungan 2: Deception,Horror,113,2025,6.4,14489,121472,4392
+2025-03-03,5,Captain America: Brave New World,Superhero,118,2025,7.3,14169,1563648,39020
+2025-03-03,6,Interstellar (2025 Re-Release),Mystery / Science Fiction / Adventure,169,2025,9.6,9379,61766,367
+2025-03-03,7,Pernikahan Arwah (The Butterfly House),Horror,101,2025,7.3,4306,37357,1411
+2025-03-03,8,Perayaan Mati Rasa,Music / Drama,124,2025,7.8,3932,1348826,31196
+2025-03-03,9,Anak Kunti,Horror,95,2025,6.0,1689,279057,9700
+2025-03-03,10,ATTACK ON TITAN: THE LAST ATTACK,Animation,144,2025,8.5,1529,191194,1195
+2025-03-03,11,Cinta Tak Pernah Tepat Waktu,Romance / Drama,110,2025,8.0,1483,149018,6545
+2025-03-03,12,Jagal Teluh,Horror,85,2025,6.6,916,31100,1573
+2025-03-03,13,1 Kakak 7 Ponakan,Drama,131,2025,8.7,825,1233908,31931
+2025-03-03,14,Cleaner,Action,97,2025,7.3,743,70226,7237
+2025-03-03,15,You Are The Apple of My Eye,Romance / Drama / Teen,102,2025,7.9,274,40193,3311
+2025-03-04,1,Petaka Gunung Gede,Horror,98,2025,7.0,23543,2839708,55353
+2025-03-04,2,Legends of the Condor Heroes: The Gallants,Action / War,146,2025,8.0,14173,157051,7216
+2025-03-04,3,Conclave,Drama / History,120,2025,8.6,12679,132460,7315
+2025-03-04,4,Iblis Dalam Kandungan 2: Deception,Horror,113,2025,6.4,11998,133470,5225
+2025-03-04,5,Captain America: Brave New World,Superhero,118,2025,7.3,10785,1574433,39829
+2025-03-04,6,Interstellar (2025 Re-Release),Mystery / Science Fiction / Adventure,169,2025,9.6,7904,69670,421
+2025-03-04,7,Pernikahan Arwah (The Butterfly House),Horror,101,2025,7.3,5277,42634,1581
+2025-03-04,8,Perayaan Mati Rasa,Music / Drama,124,2025,7.8,2446,1351272,31394
+2025-03-04,9,Anak Kunti,Horror,95,2025,6.0,1416,280473,9939
+2025-03-04,10,ATTACK ON TITAN: THE LAST ATTACK,Animation,144,2025,8.5,1308,192502,1246
+2025-03-04,11,You Are The Apple of My Eye,Romance / Drama / Teen,102,2025,7.9,850,41043,3498
+2025-03-04,12,Cinta Tak Pernah Tepat Waktu,Romance / Drama,110,2025,8.0,806,149824,6634
+2025-03-04,13,1 Kakak 7 Ponakan,Drama,131,2025,8.7,659,1234567,32024
+2025-03-04,14,Cleaner,Action,97,2025,7.3,618,70844,7373
+2025-03-04,15,Jagal Teluh,Horror,85,2025,6.6,534,31634,1706
+2025-04-01,1,Pabrik Gula,Horror,132,2025,6.9,303572,507371,1907
+2025-04-01,2,Qodrat 2,Religious / Horror,115,2025,7.9,123973,196350,2579
+2025-04-01,3,Jumbo,Adventure / Family / Animation,102,2025,8.7,79721,140179,2119
+2025-04-01,4,Komang,Biography / Romance,107,2025,7.7,74937,135155,2604
+2025-04-01,5,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,37020,68496,1748
+2025-04-01,6,A Working Man,Action / Thriller,116,2025,7.4,32013,236349,8917
+2025-04-01,7,The Last Supper,Religious / Drama,114,2025,7.8,25580,588295,6325
+2025-04-01,8,Ne Zha 2,Animation / Fantasy,145,2025,8.9,15430,361635,12631
+2025-04-01,9,Sikandar,Action,150,2025,7.6,676,1985,45
+2025-04-04,1,Pabrik Gula,Horror,132,2025,6.9,318457,1652077,4755
+2025-04-04,2,Jumbo,Adventure / Family / Animation,102,2025,8.7,163703,572893,5591
+2025-04-04,3,Qodrat 2,Religious / Horror,115,2025,7.9,157380,657732,6652
+2025-04-04,4,Komang,Biography / Romance,107,2025,7.7,125512,459953,5966
+2025-04-04,5,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,67651,258294,3704
+2025-04-04,6,A Working Man,Action / Thriller,116,2025,7.4,27913,323903,10884
+2025-04-04,7,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,16993,16993,150
+2025-04-04,8,The Last Supper,Religious / Drama,114,2025,7.8,16175,649356,6966
+2025-04-04,9,Ne Zha 2,Animation / Fantasy,145,2025,8.9,14289,410241,13208
+2025-04-04,10,Sikandar,Action,150,2025,7.6,272,3211,77
+2025-04-07,1,Pabrik Gula,Horror,132,2025,6.9,352512,2638881,6844
+2025-04-07,2,Jumbo,Adventure / Family / Animation,102,2025,8.7,297365,1302617,9618
+2025-04-07,3,Qodrat 2,Religious / Horror,115,2025,7.9,189329,1202399,10710
+2025-04-07,4,Komang,Biography / Romance,107,2025,7.7,180493,937810,9551
+2025-04-07,5,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,75178,455755,5676
+2025-04-07,6,A Working Man,Action / Thriller,116,2025,7.4,21797,396360,12699
+2025-04-07,7,Ne Zha 2,Animation / Fantasy,145,2025,8.9,10318,446669,13787
+2025-04-07,8,The Last Supper,Religious / Drama,114,2025,7.8,4516,674850,7573
+2025-04-10,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,231503,2089652,14251
+2025-04-10,2,Pabrik Gula,Horror,132,2025,6.9,231193,3412985,7943
+2025-04-10,3,Komang,Biography / Romance,107,2025,7.7,147093,1436046,13408
+2025-04-10,4,Qodrat 2,Religious / Horror,115,2025,7.9,96900,1571192,14629
+2025-04-10,5,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,37595,195194,2848
+2025-04-10,6,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,32693,593798,7251
+2025-04-10,7,Pinjam 100 The Movie,Action / Comedy,98,2025,7.0,6148,6148,439
+2025-04-10,8,Petaka Gunung Gede,Horror,98,2025,7.0,5802,3242027,67769
+2025-04-10,9,A Working Man,Action / Thriller,116,2025,7.4,3286,419357,13805
+2025-04-10,10,Ne Zha 2,Animation / Fantasy,145,2025,8.9,1266,454567,14206
+2025-04-10,11,The Last Supper,Religious / Drama,114,2025,7.8,888,679245,7865
+2025-04-10,12,IMAGINE DRAGONS: LIVE FROM THE HOLLYWOOD BOWL (WITH THE LA FILM ORCHESTRA),Music / Documentary,135,2025,9.3,65,249,20
+2025-04-13,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,480532,3275697,19418
+2025-04-13,2,Komang,Biography / Romance,107,2025,7.7,165784,1956226,17248
+2025-04-13,3,Pabrik Gula,Horror,132,2025,6.9,149916,3956506,8201
+2025-04-13,4,Qodrat 2,Religious / Horror,115,2025,7.9,87659,1868508,18106
+2025-04-13,5,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,83244,444549,5569
+2025-04-13,6,The Amateur,Action / Thriller / Spy,123,2025,7.8,19751,58569,1386
+2025-04-13,7,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,13102,654986,8362
+2025-04-13,8,A Working Man,Action / Thriller,116,2025,7.4,4538,433235,14276
+2025-04-13,9,The Last Supper,Religious / Drama,114,2025,7.8,4178,683423,7998
+2025-04-13,10,Soffie: Dendam Dalam Dosa,Horror / Thriller,87,2025,0.0,3026,3026,28
+2025-04-13,11,Ne Zha 2,Animation / Fantasy,145,2025,8.9,2832,462418,14375
+2025-04-13,12,Pinjam 100 The Movie,Action / Comedy,98,2025,7.0,1857,12593,883
+2025-04-13,13,"Ado SPECIAL LIVE ""Shinzou"" in Cinema",Music / Documentary,141,2025,7.0,753,2118,12
+2025-04-13,14,Jaat,Action,152,2025,8.0,270,715,42
+2025-04-13,15,IMAGINE DRAGONS: LIVE FROM THE HOLLYWOOD BOWL (WITH THE LA FILM ORCHESTRA),Music / Documentary,135,2025,9.3,48,639,20
+2025-04-16,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,264667,4089194,25880
+2025-04-16,2,Komang,Biography / Romance,107,2025,7.7,92636,2261415,20817
+2025-04-16,3,Pabrik Gula,Horror,132,2025,6.9,86978,4210839,8289
+2025-04-16,4,Qodrat 2,Religious / Horror,115,2025,7.9,61878,2061992,21161
+2025-04-16,5,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,19738,502575,7586
+2025-04-16,6,The Amateur,Action / Thriller / Spy,123,2025,7.8,6551,80657,2414
+2025-04-16,7,Norma: Antara Mertua dan Menantu,Drama / Religious / Romance,134,2025,6.6,6489,679610,8991
+2025-04-16,8,Sinners,Thriller / Horror,137,2025,8.4,5143,5143,506
+2025-04-16,9,Seventeen [Right Here] World Tour in Cinemas,Music / Documentary,130,2025,0.0,4395,4395,5
+2025-04-16,10,A Working Man,Action / Thriller,116,2025,7.4,1162,437739,14705
+2025-04-16,11,Petaka Gunung Gede,Horror,98,2025,7.0,816,3242843,67793
+2025-04-16,12,Streaming,Thriller,91,2025,7.1,156,156,8
+2025-04-19,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,523747,5472439,32965
+2025-04-19,2,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,107735,272092,2300
+2025-04-19,3,Komang,Biography / Romance,107,2025,7.7,92000,2559952,23766
+2025-04-19,4,Rumah Untuk Alie,Drama,95,2025,6.9,72895,230687,2308
+2025-04-19,5,Pabrik Gula,Horror,132,2025,6.9,59273,4417690,8353
+2025-04-19,6,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,43222,617122,8553
+2025-04-19,7,Qodrat 2,Religious / Horror,115,2025,7.9,28990,2151358,22693
+2025-04-19,8,Muslihat,Horror,90,2025,4.4,22132,80503,1145
+2025-04-19,9,The Amateur,Action / Thriller / Spy,123,2025,7.8,9415,106406,2969
+2025-04-19,10,The King of Kings,Animation / Religious,104,2025,8.3,8323,23210,741
+2025-04-19,11,Sinners,Thriller / Horror,137,2025,8.4,8122,26100,1124
+2025-04-19,12,Seventeen [Right Here] World Tour in Cinemas,Music / Documentary,130,2025,0.0,7726,16206,5
+2025-04-19,13,A Working Man,Action / Thriller,116,2025,7.4,2566,444872,14923
+2025-04-19,14,Kesari Chapter 2,History / Drama,135,2025,8.0,360,678,22
+2025-04-19,15,Streaming,Thriller,91,2025,7.1,175,643,17
+2025-04-22,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,165674,6322482,40865
+2025-04-22,2,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,101899,576598,5158
+2025-04-22,3,Komang,Biography / Romance,107,2025,7.7,31569,2706982,26680
+2025-04-22,4,Pabrik Gula,Horror,132,2025,6.9,30678,4544180,8397
+2025-04-22,5,Rumah Untuk Alie,Drama,95,2025,6.9,30082,351961,4685
+2025-04-22,6,Muslihat,Horror,90,2025,4.4,19183,141315,2252
+2025-04-22,7,Qodrat 2,Religious / Horror,115,2025,7.9,9951,2197940,23793
+2025-04-22,8,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,4786,665453,9566
+2025-04-22,9,Sinners,Thriller / Horror,137,2025,8.4,3113,41029,1553
+2025-04-22,10,The Amateur,Action / Thriller / Spy,123,2025,7.8,2610,119090,3471
+2025-04-22,11,A Working Man,Action / Thriller,116,2025,7.4,1867,450460,15172
+2025-04-22,12,The King of Kings,Animation / Religious,104,2025,8.3,1500,36760,1341
+2025-04-25,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,188161,6809662,46886
+2025-04-25,2,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,107599,881161,9393
+2025-04-25,3,Rumah Untuk Alie,Drama,95,2025,6.9,32302,425554,6315
+2025-04-25,4,The Accountant 2,Drama / Crime,132,2025,7.8,31356,31356,704
+2025-04-25,5,Komang,Biography / Romance,107,2025,7.7,27032,2797756,28292
+2025-04-25,6,Pabrik Gula,Horror,132,2025,6.9,24351,4614675,8407
+2025-04-25,7,Mangku Pocong,Horror,99,2025,5.2,19004,42261,833
+2025-04-25,8,Sah! Katanya...,Romance / Comedy,124,2025,7.1,17200,44218,1136
+2025-04-25,9,Until Dawn,Horror,103,2025,7.3,9288,34080,1845
+2025-04-25,10,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,8560,19938,373
+2025-04-25,11,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,5383,678822,9899
+2025-04-25,12,Muslihat,Horror,90,2025,4.4,3423,168221,3025
+2025-04-25,13,Sinners,Thriller / Horror,137,2025,8.4,2324,47472,1802
+2025-04-25,14,Drop,Thriller / Mystery,95,2025,7.7,1666,11208,1255
+2025-04-25,15,Qodrat 2,Religious / Horror,115,2025,7.9,1586,2209419,24097
+2025-04-25,16,The Amateur,Action / Thriller / Spy,123,2025,7.8,1103,123000,3735
+2025-04-25,17,The Snitch,Crime,123,2025,7.4,437,1862,39
+2025-04-28,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,137508,7630857,54365
+2025-04-28,2,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,82690,1218196,13608
+2025-04-28,3,Komang,Biography / Romance,107,2025,7.7,23245,2893629,29732
+2025-04-28,4,The Accountant 2,Drama / Crime,132,2025,7.8,19022,110379,2757
+2025-04-28,5,Rumah Untuk Alie,Drama,95,2025,6.9,14208,498002,8028
+2025-04-28,6,Pabrik Gula,Horror,132,2025,6.9,11965,4664802,8410
+2025-04-28,7,Mangku Pocong,Horror,99,2025,5.2,8229,80272,1858
+2025-04-28,8,Until Dawn,Horror,103,2025,7.3,7420,71057,3116
+2025-04-28,9,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,6073,54184,711
+2025-04-28,10,A Minecraft Movie,Comedy / Fantasy / Adventure,100,2025,7.2,2254,710325,10240
+2025-04-28,11,Sah! Katanya...,Romance / Comedy,124,2025,7.1,2082,64095,1846
+2025-04-28,12,Sinners,Thriller / Horror,137,2025,8.4,2080,57734,2069
+2025-04-28,13,Muslihat,Horror,90,2025,4.4,995,172817,3218
+2025-04-28,14,Drop,Thriller / Mystery,95,2025,7.7,874,18162,1563
+2025-04-28,15,Qodrat 2,Religious / Horror,115,2025,7.9,823,2213936,24199
+2025-04-28,16,The Amateur,Action / Thriller / Spy,123,2025,7.8,514,127183,3900
+2025-04-28,17,The Snitch,Crime,123,2025,7.4,267,3555,51
+2025-05-01,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,335236,8172009,59854
+2025-05-01,2,Thunderbolts*,Action / Superhero,126,2025,8.1,218881,395034,3365
+2025-05-01,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,103253,1474004,17033
+2025-05-01,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,70200,128929,1447
+2025-05-01,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,49797,116447,1173
+2025-05-01,6,Perang Kota,Drama / War,118,2025,7.4,32298,72659,1650
+2025-05-01,7,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,10844,74609,917
+2025-05-01,8,Komang,Biography / Romance,107,2025,7.7,10646,2926386,30595
+2025-05-01,9,Pabrik Gula,Horror,132,2025,6.9,9157,4691454,8411
+2025-05-01,10,Rumah Untuk Alie,Drama,95,2025,6.9,6406,519638,8701
+2025-05-01,11,The Accountant 2,Drama / Crime,132,2025,7.8,5631,133331,3647
+2025-05-01,12,Until Dawn,Horror,103,2025,7.3,4101,84136,3779
+2025-05-01,13,Panor,Horror,123,2025,7.1,1424,2309,76
+2025-05-01,14,Raid 2,Action / Crime / Thriller,137,2025,8.0,503,503,13
+2025-05-01,15,Muslihat,Horror,90,2025,4.4,413,174120,3273
+2025-05-02,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,122198,8294207,61483
+2025-05-02,2,Thunderbolts*,Action / Superhero,126,2025,8.1,97210,492244,5054
+2025-05-02,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,54154,1528158,17998
+2025-05-02,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,42517,171446,2142
+2025-05-02,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,35088,151535,1652
+2025-05-02,6,Perang Kota,Drama / War,118,2025,7.4,14513,87172,2274
+2025-05-02,7,Pabrik Gula,Horror,132,2025,6.9,6357,4697811,8411
+2025-05-02,8,Komang,Biography / Romance,107,2025,7.7,5165,2931551,30760
+2025-05-02,9,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,3687,78296,973
+2025-05-02,10,Rumah Untuk Alie,Drama,95,2025,6.9,3388,523026,8777
+2025-05-02,11,The Accountant 2,Drama / Crime,132,2025,7.8,2227,135558,3727
+2025-05-02,12,Until Dawn,Horror,103,2025,7.3,1447,85583,3850
+2025-05-02,13,Somebody,Thriller / Mystery,112,2025,7.6,1053,1053,241
+2025-05-02,14,Panor,Horror,123,2025,7.1,444,2753,90
+2025-05-02,15,Raid 2,Action / Crime / Thriller,137,2025,8.0,269,772,25
+2025-05-03,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,195431,8489638,63722
+2025-05-03,2,Thunderbolts*,Action / Superhero,126,2025,8.1,157817,650061,6756
+2025-05-03,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,62624,1590782,18974
+2025-05-03,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,37181,208627,2823
+2025-05-03,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,19886,171421,2067
+2025-05-03,6,Perang Kota,Drama / War,118,2025,7.4,14531,101703,2702
+2025-05-03,7,Komang,Biography / Romance,107,2025,7.7,9884,2941435,30906
+2025-05-03,8,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,5157,83453,1034
+2025-05-03,9,Pabrik Gula,Horror,132,2025,6.9,4834,4702645,8411
+2025-05-03,10,Mangku Pocong,Horror,99,2025,5.2,4743,96000,2260
+2025-05-04,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,200038,8689676,66046
+2025-05-04,2,Thunderbolts*,Action / Superhero,126,2025,8.1,117629,767690,8540
+2025-05-04,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,55362,1646144,19954
+2025-05-04,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,42572,251199,3506
+2025-05-04,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,22704,194125,2380
+2025-05-04,6,Perang Kota,Drama / War,118,2025,7.4,12316,114019,3071
+2025-05-04,7,Komang,Biography / Romance,107,2025,7.7,9877,2951312,31062
+2025-05-04,8,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,7944,91397,1096
+2025-05-04,9,Pabrik Gula,Horror,132,2025,6.9,4770,4707415,8411
+2025-05-04,10,Rumah Untuk Alie,Drama,95,2025,6.9,3278,529516,8906
+2025-05-04,11,The Accountant 2,Drama / Crime,132,2025,7.8,3162,142707,3878
+2025-05-04,12,Until Dawn,Horror,103,2025,7.3,2252,90328,3995
+2025-05-04,13,Raid 2,Action / Crime / Thriller,137,2025,8.0,436,1760,55
+2025-05-04,14,Somebody,Thriller / Mystery,112,2025,7.6,396,2339,346
+2025-05-04,15,Panor,Horror,123,2025,7.1,347,3402,106
+2025-05-05,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,86724,8776400,68291
+2025-05-05,2,Thunderbolts*,Action / Superhero,126,2025,8.1,67020,834710,10320
+2025-05-05,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,37462,1683606,20928
+2025-05-05,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,28956,280155,4259
+2025-05-05,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,22566,216691,2678
+2025-05-05,6,Komang,Biography / Romance,107,2025,7.7,6088,2957400,31228
+2025-05-05,7,Rumah Untuk Alie,Drama,95,2025,6.9,6027,535543,8969
+2025-05-05,8,Perang Kota,Drama / War,118,2025,7.4,4348,118367,3401
+2025-05-05,9,Pabrik Gula,Horror,132,2025,6.9,3479,4710894,8411
+2025-05-05,10,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,3164,94561,1162
+2025-05-05,11,The Accountant 2,Drama / Crime,132,2025,7.8,1286,143993,3961
+2025-05-05,12,Until Dawn,Horror,103,2025,7.3,1029,91357,4077
+2025-05-05,13,Raid 2,Action / Crime / Thriller,137,2025,8.0,249,2009,70
+2025-05-05,14,Somebody,Thriller / Mystery,112,2025,7.6,218,2557,372
+2025-05-05,15,Panor,Horror,123,2025,7.1,166,3568,112
+2025-05-07,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,61500,8906224,72288
+2025-05-07,2,Thunderbolts*,Action / Superhero,126,2025,8.1,47452,936702,13628
+2025-05-07,3,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,27135,1741431,22856
+2025-05-07,4,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,26949,334543,5665
+2025-05-07,5,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,20620,259439,3436
+2025-05-07,6,Holy Night: Demon Hunters,Action,92,2025,7.2,7794,7794,100
+2025-05-07,7,Komang,Biography / Romance,107,2025,7.7,6198,2969480,31572
+2025-05-07,8,Shadow Force,Action,104,2025,7.0,3802,3802,670
+2025-05-07,9,Pabrik Gula,Horror,132,2025,6.9,3010,4716612,8411
+2025-05-07,10,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,2606,99845,1290
+2025-05-07,11,Perang Kota,Drama / War,118,2025,7.4,2561,124465,3792
+2025-05-07,12,Mumu,Drama,111,2025,8.6,1781,1781,65
+2025-05-07,13,Rumah Untuk Alie,Drama,95,2025,6.9,1393,538485,9081
+2025-05-07,14,Until Dawn,Horror,103,2025,7.3,1353,94538,4277
+2025-05-07,15,The Accountant 2,Drama / Crime,132,2025,7.8,990,146393,4175
+2025-05-07,16,Parah Bener,Comedy,83,2025,0.0,400,400,0
+2025-05-10,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,113844,9127865,76208
+2025-05-10,2,Thunderbolts*,Action / Superhero,126,2025,8.1,91794,1112951,17096
+2025-05-10,3,Pembantaian Dukun Santet,Horror,92,2025,6.2,86561,259936,3964
+2025-05-10,4,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,50711,86394,490
+2025-05-10,5,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,19842,1797300,24405
+2025-05-10,6,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,13745,85643,2095
+2025-05-10,7,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,12220,22736,7
+2025-05-10,8,Tabayyun,Religious / Drama,112,2025,7.6,9844,45739,1927
+2025-05-10,9,Warfare,Action / War,95,2025,8.0,8591,14922,1406
+2025-05-10,10,Holy Night: Demon Hunters,Action,92,2025,7.2,8354,26931,389
+2025-05-10,11,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,7719,285622,4227
+2025-05-10,12,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,2500,351454,6311
+2025-05-10,13,Shadow Force,Action,104,2025,7.0,2084,10427,1459
+2025-05-10,14,Mumu,Drama,111,2025,8.6,2025,5759,159
+2025-05-10,15,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,1810,105150,1412
+2025-05-10,16,Komang,Biography / Romance,107,2025,7.7,1711,2974570,31758
+2025-05-10,17,The Accountant 2,Drama / Crime,132,2025,7.8,1683,149638,4303
+2025-05-10,18,Rannu (Cinta Bugis Makassar),Romance / Drama / Regional Film,80,2025,0.0,948,948,0
+2025-05-10,19,Until Dawn,Horror,103,2025,7.3,898,96319,4399
+2025-05-13,1,Jumbo,Adventure / Family / Animation,102,2025,8.7,93625,9568290,81134
+2025-05-13,2,Pembantaian Dukun Santet,Horror,92,2025,6.2,66290,527264,8278
+2025-05-13,3,Thunderbolts*,Action / Superhero,126,2025,8.1,55740,1393217,21281
+2025-05-13,4,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,30317,171703,3483
+2025-05-13,5,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,17183,1868498,25719
+2025-05-13,6,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,6857,314989,4992
+2025-05-13,7,Warfare,Action / War,95,2025,8.0,5348,38949,2841
+2025-05-13,8,Tabayyun,Religious / Drama,112,2025,7.6,5335,74655,2780
+2025-05-13,9,Holy Night: Demon Hunters,Action,92,2025,7.2,5060,56860,791
+2025-05-13,10,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,3659,48676,17
+2025-05-13,11,Anak Medan: Cocok Ko Rasa???,Drama,111,2025,0.0,2489,114970,1542
+2025-05-13,12,Penjagal Iblis Dosa Turunan,Horror,99,2025,6.8,2073,360831,6516
+2025-05-13,13,Mumu,Drama,111,2025,8.6,1335,12709,264
+2025-05-13,14,Shadow Force,Action,104,2025,7.0,1149,16765,2013
+2025-05-13,15,Komang,Biography / Romance,107,2025,7.7,1091,2980040,31872
+2025-05-13,16,The Accountant 2,Drama / Crime,132,2025,7.8,877,154146,4413
+2025-05-13,17,Rannu (Cinta Bugis Makassar),Romance / Drama / Regional Film,80,2025,0.0,714,3052,0
+2025-05-13,18,Until Dawn,Horror,103,2025,7.3,621,99497,4516
+2025-05-16,1,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,157740,653201,8852
+2025-05-16,2,Dasim,Horror,99,2025,6.9,26421,77125,2247
+2025-05-16,3,Jumbo,Adventure / Family / Animation,102,2025,8.7,25422,9655610,84236
+2025-05-16,4,Pembantaian Dukun Santet,Horror,92,2025,6.2,22066,618330,11290
+2025-05-16,5,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,20504,231931,4760
+2025-05-16,6,Cocote Tonggo,Comedy,117,2025,7.1,18198,37304,1324
+2025-05-16,7,Godaan Setan Yang Terkutuk,Horror,88,2025,6.4,10240,24420,1091
+2025-05-16,8,Thunderbolts*,Action / Superhero,126,2025,8.1,9199,1424539,22710
+2025-05-16,9,Mungkin Kita Perlu Waktu,Drama,98,2025,7.4,7258,13291,1101
+2025-05-16,10,Home Sweet Home: Rebirth,Horror / Action,93,2025,6.2,2969,2969,626
+2025-05-16,11,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,2654,1881291,26333
+2025-05-16,12,The Red Envelope,Comedy,128,2025,8.0,1284,7887,367
+2025-05-16,13,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,1037,51873,18
+2025-05-16,14,Warfare,Action / War,95,2025,8.0,1029,42556,3321
+2025-05-16,15,Holy Night: Demon Hunters,Action,92,2025,7.2,965,60406,1105
+2025-05-16,16,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,520,319032,5260
+2025-05-16,17,ATEEZ World Tour [TOWARDS THE LIGHT WILL TO POWER] In Cinemas,Music / Documentary,126,2025,0.0,426,1689,0
+2025-05-19,1,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,79519,1104362,19387
+2025-05-19,2,Jumbo,Adventure / Family / Animation,102,2025,8.7,25929,9803918,88122
+2025-05-19,3,Dasim,Horror,99,2025,6.9,22955,162355,5004
+2025-05-19,4,Cocote Tonggo,Comedy,117,2025,7.1,19821,119880,3202
+2025-05-19,5,Pembantaian Dukun Santet,Horror,92,2025,6.2,19116,684820,12769
+2025-05-19,6,Thunderbolts*,Action / Superhero,126,2025,8.1,8407,1472277,24020
+2025-05-19,7,Godaan Setan Yang Terkutuk,Horror,88,2025,6.4,4454,46918,2311
+2025-05-19,8,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,4229,60753,18
+2025-05-19,9,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,3460,247687,5673
+2025-05-19,10,Mungkin Kita Perlu Waktu,Drama,98,2025,7.4,2050,22596,1525
+2025-05-19,11,Pengepungan di Bukit Duri,Crime / Action / Thriller,118,2025,8.2,1759,1889310,26578
+2025-05-19,12,Home Sweet Home: Rebirth,Horror / Action,93,2025,6.2,927,9372,1196
+2025-05-19,13,Holy Night: Demon Hunters,Action,92,2025,7.2,848,65466,1301
+2025-05-19,14,Warfare,Action / War,95,2025,8.0,668,46044,3581
+2025-05-19,15,The Red Envelope,Comedy,128,2025,8.0,458,11710,535
+2025-05-19,16,Mendadak Dangdut,Comedy / Musical / Drama,109,2025,7.1,303,320421,5320
+2025-05-22,1,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,104299,432308,5694
+2025-05-22,2,Gundik,Horror / Comedy / Heist,112,2025,6.2,63351,63351,851
+2025-05-22,3,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,45541,1276737,26084
+2025-05-22,4,Lilo & Stitch,Adventure / Family,108,2025,7.8,39666,87166,2620
+2025-05-22,5,Jumbo,Adventure / Family / Animation,102,2025,8.7,12088,9856163,90500
+2025-05-22,6,Cocote Tonggo,Comedy,117,2025,7.1,11460,172724,4681
+2025-05-22,7,Angkara Murka,Horror / Mystery,88,2025,7.0,4379,4379,374
+2025-05-22,8,Insya Allah Berkah,Religious / Drama,83,2025,6.0,3861,3861,312
+2025-05-22,9,Dasim,Horror,99,2025,6.9,3743,195003,6698
+2025-05-22,10,Pembantaian Dukun Santet,Horror,92,2025,6.2,3176,715212,13690
+2025-05-22,11,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,868,255218,6056
+2025-05-22,12,Thunderbolts*,Action / Superhero,126,2025,8.1,711,1481259,24578
+2025-05-22,13,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,381,64677,18
+2025-05-25,1,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,200013,1046066,13279
+2025-05-25,2,Lilo & Stitch,Adventure / Family,108,2025,7.8,65240,312470,7269
+2025-05-25,3,Gundik,Horror / Comedy / Heist,112,2025,6.2,64061,250293,5534
+2025-05-25,4,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,62808,1467760,29601
+2025-05-25,5,Jumbo,Adventure / Family / Animation,102,2025,8.7,32340,9929659,92128
+2025-05-25,6,Cocote Tonggo,Comedy,117,2025,7.1,14221,209420,5460
+2025-05-25,7,Buku Harianku,Drama / Adventure / Children,94,2020,7.0,8044,240616,65
+2025-05-25,8,Pembantaian Dukun Santet,Horror,92,2025,6.2,3889,725091,13914
+2025-05-25,9,Komang,Biography / Romance,107,2025,7.7,1764,2982770,31918
+2025-05-25,10,Dasim,Horror,99,2025,6.9,1346,198342,6906
+2025-05-25,11,Thunderbolts*,Action / Superhero,126,2025,8.1,1149,1484971,24713
+2025-05-25,12,Angkara Murka,Horror / Mystery,88,2025,7.0,1087,8232,612
+2025-05-25,13,COLORFUL STAGE! The Movie: A Miku Who Cant Sing,Musical / Animation,112,2025,8.3,598,66352,18
+2025-05-25,14,Insya Allah Berkah,Religious / Drama,83,2025,6.0,487,5492,567
+2025-05-25,15,Sayap Sayap Patah 2: Olivia,Action / Drama,114,2025,7.4,398,256602,6109
+2025-05-25,16,Bhool Chuk Maaf,Romance / Comedy,140,2025,7.0,301,641,45
+2025-05-28,1,Waktu Maghrib 2,Horror,107,2025,7.0,92085,92085,1581
+2025-05-28,2,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,83068,1276496,20349
+2025-05-28,3,Karate Kid: Legends,Action,94,2025,7.6,56898,56898,1410
+2025-05-28,4,Lilo & Stitch,Adventure / Family,108,2025,7.8,32833,428435,10619
+2025-05-28,5,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,24652,1547154,32602
+2025-05-28,6,Gundik,Horror / Comedy / Heist,112,2025,6.2,23412,355504,9338
+2025-05-28,7,Dendam Malam Kelam,Mystery / Thriller,103,2025,8.1,16031,16031,1112
+2025-05-28,8,Jumbo,Adventure / Family / Animation,102,2025,8.7,15368,9972198,93650
+2025-05-28,9,Cocote Tonggo,Comedy,117,2025,7.1,4767,224994,6176
+2025-05-28,10,Komang,Biography / Romance,107,2025,7.7,2127,2984897,31920
+2025-05-28,11,Pembantaian Dukun Santet,Horror,92,2025,6.2,858,729473,14120
+2025-05-28,12,The Ugly Stepsister,Horror,109,2025,8.1,395,395,0
+2025-05-28,13,Dasim,Horror,99,2025,6.9,145,200179,7049
+2025-05-28,14,Hala Bala,Horror,99,2025,6.7,100,100,0
+2025-05-31,1,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,142159,1719104,25270
+2025-05-31,2,Waktu Maghrib 2,Horror,107,2025,7.0,74065,340019,6142
+2025-05-31,3,Lilo & Stitch,Adventure / Family,108,2025,7.8,65484,616908,13329
+2025-05-31,4,Karate Kid: Legends,Action,94,2025,7.6,54148,231832,4822
+2025-05-31,5,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,32244,1653916,34419
+2025-05-31,6,Jumbo,Adventure / Family / Animation,102,2025,8.7,23928,10052249,95319
+2025-05-31,7,Gundik,Horror / Comedy / Heist,112,2025,6.2,18172,409993,11035
+2025-05-31,8,Dendam Malam Kelam,Mystery / Thriller,103,2025,8.1,11783,56094,2662
+2025-05-31,9,Cocote Tonggo,Comedy,117,2025,7.1,6234,248066,6614
+2025-05-31,10,The Ritual,Horror,98,2025,7.0,3377,15328,891
+2025-05-31,11,J-Hope Tour 'HOPE ON THE STAGE' in JAPAN: LIVE VIEWING,Live in Cinema / Music,180,2025,0.0,1422,1422,0
+2025-05-31,12,Dasim,Horror,99,2025,6.9,748,200927,7050
+2025-05-31,13,The Ugly Stepsister,Horror,109,2025,8.1,437,1734,10
+2025-05-31,14,Hala Bala,Horror,99,2025,6.7,150,510,0
+2025-06-03,1,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,142159,1719104,25270
+2025-06-03,2,Waktu Maghrib 2,Horror,107,2025,7.0,74065,340019,6142
+2025-06-03,3,Lilo & Stitch,Adventure / Family,108,2025,7.8,65484,616908,13329
+2025-06-03,4,Karate Kid: Legends,Action,94,2025,7.6,54148,231832,4822
+2025-06-03,5,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,32244,1653916,34419
+2025-06-03,6,Jumbo,Adventure / Family / Animation,102,2025,8.7,23928,10052249,95319
+2025-06-03,7,Gundik,Horror / Comedy / Heist,112,2025,6.2,18172,409993,11035
+2025-06-03,8,Dendam Malam Kelam,Mystery / Thriller,103,2025,8.1,11783,56094,2662
+2025-06-03,9,Cocote Tonggo,Comedy,117,2025,7.1,6234,248066,6614
+2025-06-03,10,The Ritual,Horror,98,2025,7.0,3377,15328,891
+2025-06-03,11,J-Hope Tour 'HOPE ON THE STAGE' in JAPAN: LIVE VIEWING,Live in Cinema / Music,180,2025,0.0,1422,1422,0
+2025-06-03,12,Dasim,Horror,99,2025,6.9,748,200927,7050
+2025-06-03,13,The Ugly Stepsister,Horror,109,2025,8.1,437,1734,10
+2025-06-03,14,Hala Bala,Horror,99,2025,6.7,150,510,0
+2025-06-06,1,Ballerina,Action / Thriller,124,2025,8.1,84597,178879,4613
+2025-06-06,2,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,84187,2077354,34560
+2025-06-06,3,Tenung By Risa Saraswati & Dimasta,Horror,92,2025,5.5,58779,117513,2533
+2025-06-06,4,Gowok Kamasutra Jawa,Drama,125,2025,7.9,55504,106301,376
+2025-06-06,5,Waktu Maghrib 2,Horror,107,2025,7.0,46572,637621,13554
+2025-06-06,6,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,33095,64320,1378
+2025-06-06,7,Lilo & Stitch,Adventure / Family,108,2025,7.8,32452,760974,18025
+2025-06-06,8,Karate Kid: Legends,Action,94,2025,7.6,26631,361156,9305
+2025-06-06,9,Bring Her Back,Horror,104,2025,8.2,13078,13078,571
+2025-06-06,10,Jumbo,Adventure / Family / Animation,102,2025,8.7,12077,10121638,98192
+2025-06-06,11,Final Destination: Bloodlines,Horror / Thriller,110,2025,8.0,8375,1731306,37607
+2025-06-06,12,"Sampai Jumpa, Selamat Tinggal",Drama / Romance,109,2025,6.8,4015,9755,509
+2025-06-06,13,Gundik,Horror / Comedy / Heist,112,2025,6.2,3535,481366,13037
+2025-06-06,14,The Phoenician Scheme,Crime / Drama,101,2025,7.7,1806,1806,96
+2025-06-06,15,Housefull 5,Drama / Comedy / Mystery,162,2025,7.0,625,625,11
+2025-06-09,1,Ballerina,Action / Thriller,124,2025,8.1,52981,368961,8732
+2025-06-09,2,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,45412,2280679,37881
+2025-06-09,3,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,40602,192890,3846
+2025-06-09,4,Gowok Kamasutra Jawa,Drama,125,2025,7.9,38369,250410,412
+2025-06-09,5,Waktu Maghrib 2,Horror,107,2025,7.0,31500,751969,15966
+2025-06-09,6,Tenung By Risa Saraswati & Dimasta,Horror,92,2025,5.5,24038,230845,5342
+2025-06-09,7,Lilo & Stitch,Adventure / Family,108,2025,7.8,19293,844155,19444
+2025-06-09,8,Karate Kid: Legends,Action,94,2025,7.6,11585,413547,10171
+2025-06-09,9,Bring Her Back,Horror,104,2025,8.2,11567,52882,1588
+2025-06-09,10,Jumbo,Adventure / Family / Animation,102,2025,8.7,10997,10162551,98925
+2025-06-12,1,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,62380,141359,3563
+2025-06-12,2,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,55000,55000,767
+2025-06-12,3,Gaza,Religious / Drama,96,2025,4.0,40630,40630,622
+2025-06-12,4,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,25293,282681,6388
+2025-06-12,5,Ballerina,Action / Thriller,124,2025,8.1,21733,437673,11659
+2025-06-12,6,Gowok Kamasutra Jawa,Drama,125,2025,7.9,20431,321997,437
+2025-06-12,7,Keluarga Super Irit,Family / Comedy,116,2025,7.5,17801,17801,929
+2025-06-12,8,Waktu Maghrib 2,Horror,107,2025,7.0,15813,805362,17921
+2025-06-12,9,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,13788,2332475,39709
+2025-06-12,10,Tenung By Risa Saraswati & Dimasta,Horror,92,2025,5.5,6109,265095,6705
+2025-06-12,11,Lilo & Stitch,Adventure / Family,108,2025,7.8,4214,862740,20356
+2025-06-12,12,Bring Her Back,Horror,104,2025,8.2,3442,67377,2365
+2025-06-12,13,The Dark House,Horror,102,2025,7.7,3153,3153,303
+2025-06-12,14,Karate Kid: Legends,Action,94,2025,7.6,2660,424246,10775
+2025-06-12,15,Komang,Biography / Romance,107,2025,7.7,1530,2991098,31961
+2025-06-12,16,Senyum Manies Love Story,Romance / Biography,95,2025,3.6,1512,1512,322
+2025-06-12,17,Dendam Malam Kelam,Mystery / Thriller,103,2025,8.1,691,94882,4508
+2025-06-12,18,Blood Brothers: Bara Naga,Action,130,2025,8.0,234,503,17
+2025-06-15,1,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,120991,477757,9175
+2025-06-15,2,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,75456,262628,3809
+2025-06-15,3,Ballerina,Action / Thriller,124,2025,8.1,26677,513508,14000
+2025-06-15,4,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,24293,355568,8265
+2025-06-15,5,Waktu Maghrib 2,Horror,107,2025,7.0,23231,860891,19314
+2025-06-15,6,Gowok Kamasutra Jawa,Drama,125,2025,7.9,23000,392921,437
+2025-06-15,7,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,22937,2392552,41011
+2025-06-15,8,Keluarga Super Irit,Family / Comedy,116,2025,7.5,20649,70025,2793
+2025-06-15,9,Gaza,Religious / Drama,96,2025,4.0,12118,82328,2175
+2025-06-15,10,Lilo & Stitch,Adventure / Family,108,2025,7.8,11907,888954,20938
+2025-06-15,11,Jumbo,Adventure / Family / Animation,102,2025,8.7,11164,10182536,99769
+2025-06-15,12,Gundik,Horror / Comedy / Heist,112,2025,6.2,6154,493371,13231
+2025-06-15,13,Tenung By Risa Saraswati & Dimasta,Horror,92,2025,5.5,5892,281184,7341
+2025-06-15,14,Karate Kid: Legends,Action,94,2025,7.6,3994,434361,11099
+2025-06-15,15,Bring Her Back,Horror,104,2025,8.2,3960,79766,2724
+2025-06-15,16,Dan Da Dan: Evil Eye,Mystery / Animation / Comedy,94,2025,8.3,3481,11679,237
+2025-06-15,17,HI-FIVE,Superhero / Action,119,2025,8.1,3332,11308,1025
+2025-06-15,18,The Ugly Stepsister,Horror,109,2025,8.1,1429,4483,48
+2025-06-15,19,Komang,Biography / Romance,107,2025,7.7,673,2991771,31969
+2025-06-15,20,The Dark House,Horror,102,2025,7.7,453,6470,581
+2025-06-15,21,Senyum Manies Love Story,Romance / Biography,95,2025,3.6,398,5447,543
+2025-06-15,22,Blood Brothers: Bara Naga,Action,130,2025,8.0,228,1391,35
+2025-06-18,1,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,54134,665871,14633
+2025-06-18,2,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,42753,405841,6939
+2025-06-18,3,28 Years Later,Thriller,115,2025,7.8,30485,30485,1147
+2025-06-18,4,Elio,Animation / Science Fiction,98,2025,8.0,18287,18287,1352
+2025-06-18,5,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,14556,407164,10014
+2025-06-18,6,Waktu Maghrib 2,Horror,107,2025,7.0,14069,905418,20822
+2025-06-18,7,Gaza,Religious / Drama,96,2025,4.0,12920,112966,3214
+2025-06-18,8,Keluarga Super Irit,Family / Comedy,116,2025,7.5,11058,101693,4378
+2025-06-18,9,Ballerina,Action / Thriller,124,2025,8.1,11056,551828,16059
+2025-06-18,10,Gowok Kamasutra Jawa,Drama,125,2025,7.9,7670,425621,437
+2025-06-21,1,Jalan Pulang,Horror,97,2025,6.2,193157,562577,7552
+2025-06-21,2,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,103718,869656,18647
+2025-06-21,3,28 Years Later,Thriller,115,2025,7.8,29469,92252,3452
+2025-06-21,4,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,22873,480684,8863
+2025-06-21,5,Elio,Animation / Science Fiction,98,2025,8.0,22746,73534,3453
+2025-06-21,6,Assalamualaikum Beijing 2: Lost in Ningxia,Romance / Religious / Drama,109,2025,8.0,16300,48844,1784
+2025-06-21,7,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,14022,438109,10757
+2025-06-21,8,Ballerina,Action / Thriller,124,2025,8.1,10858,575812,16739
+2025-06-21,9,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,8908,2442299,42671
+2025-06-21,10,Keluarga Super Irit,Family / Comedy,116,2025,7.5,4512,111610,4724
+2025-06-24,1,Jalan Pulang,Horror,97,2025,6.2,140478,1060567,17086
+2025-06-24,2,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,40045,1052096,23384
+2025-06-24,3,28 Years Later,Thriller,115,2025,7.8,12877,143302,5562
+2025-06-24,4,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,12769,533154,10795
+2025-06-24,5,Elio,Animation / Science Fiction,98,2025,8.0,11384,116396,5469
+2025-06-24,6,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,8835,471415,11578
+2025-06-24,7,Ballerina,Action / Thriller,124,2025,8.1,5438,597208,17657
+2025-06-24,8,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,4462,2460877,43309
+2025-06-24,9,Keluarga Super Irit,Family / Comedy,116,2025,7.5,2330,120877,5114
+2025-06-24,10,Gaza,Religious / Drama,96,2025,4.0,2106,132118,3733
+2025-06-24,11,Assalamualaikum Beijing 2: Lost in Ningxia,Romance / Religious / Drama,109,2025,8.0,1705,53660,2169
+2025-06-24,12,Gowok Kamasutra Jawa,Drama,125,2025,7.9,1564,454361,437
+2025-06-24,13,Syirik (Danyang Laut Selatan),Horror,102,2025,6.4,1120,23268,887
+2025-06-24,14,Lilo & Stitch,Adventure / Family,108,2025,7.8,1088,904897,21952
+2025-06-24,15,Sitaare Zameen Par,Comedy / Drama,156,2025,8.3,1048,4789,223
+2025-06-24,16,Locked,Thriller,95,2025,7.4,831,9145,1028
+2025-06-24,17,Karate Kid: Legends,Action,94,2025,7.6,557,444624,11631
+2025-06-24,18,Kaiju No. 8: Mission Recon,Animation / Action,120,2025,7.8,471,4190,171
+2025-06-24,19,Dan Da Dan: Evil Eye,Mystery / Animation / Comedy,94,2025,8.3,192,17771,393
+2025-06-27,1,Jalan Pulang,Horror,97,2025,6.2,120360,1420369,24057
+2025-06-27,2,F1 The Movie,Sport / Action / Drama,155,2025,8.9,73041,162395,3369
+2025-06-27,3,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,71549,1196759,26421
+2025-06-27,4,Jodoh 3 Bujang,Drama,107,2025,7.6,50090,105125,2178
+2025-06-27,5,Ejen Ali: The Movie 2,Animation,115,2025,8.2,41223,49387,432
+2025-06-27,6,Lorong Kost,Horror,97,2025,5.5,17721,31833,724
+2025-06-27,7,M3GAN 2.0,Science Fiction / Thriller,120,2025,7.6,13886,43903,2681
+2025-06-27,8,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,11178,564040,11722
+2025-06-27,9,Elio,Animation / Science Fiction,98,2025,8.0,10662,142156,6360
+2025-06-27,10,28 Years Later,Thriller,115,2025,7.8,6894,160545,6225
+2025-06-27,11,Warkop DKI Kartun,Animation,79,2025,7.1,5960,9838,1154
+2025-06-27,12,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,4062,2469130,43548
+2025-06-27,13,Noise,Thriller / Horror,93,2025,7.0,3696,3696,424
+2025-06-27,14,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,3228,490220,11926
+2025-06-27,15,Ballerina,Action / Thriller,124,2025,8.1,3037,605304,17927
+2025-06-27,16,Keluarga Super Irit,Family / Comedy,116,2025,7.5,2677,126844,5328
+2025-06-27,17,Rabi Jiwo,Horror,92,2025,6.2,2317,5992,547
+2025-06-27,18,Gaza,Religious / Drama,96,2025,4.0,2275,139280,3835
+2025-06-27,19,Lilo & Stitch,Adventure / Family,108,2025,7.8,1759,908538,22111
+2025-06-27,20,Dangerous Animals,Thriller,98,2025,7.5,319,1287,111
+2025-06-27,21,Maa,Horror,133,2025,8.0,300,300,15
+2025-06-28,1,Jalan Pulang,Horror,97,2025,6.2,129310,1549679,26249
+2025-06-28,2,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,61806,1258565,27565
+2025-06-28,3,F1 The Movie,Sport / Action / Drama,155,2025,8.9,55363,217758,4602
+2025-06-28,4,Jodoh 3 Bujang,Drama,107,2025,7.6,39591,144716,3209
+2025-06-28,5,Ejen Ali: The Movie 2,Animation,115,2025,8.2,32257,81644,1144
+2025-06-28,6,Lorong Kost,Horror,97,2025,5.5,15976,47809,1126
+2025-06-28,7,M3GAN 2.0,Science Fiction / Thriller,120,2025,7.6,9556,53459,3146
+2025-06-28,8,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,8584,572624,11947
+2025-06-28,9,Elio,Animation / Science Fiction,98,2025,8.0,7492,149648,6592
+2025-06-28,10,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,5767,495987,12023
+2025-06-28,11,28 Years Later,Thriller,115,2025,7.8,5681,166226,6393
+2025-06-28,12,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,4009,2473139,43628
+2025-06-28,13,Ballerina,Action / Thriller,124,2025,8.1,3221,608525,17994
+2025-06-28,14,Gaza,Religious / Drama,96,2025,4.0,2107,141387,3854
+2025-06-28,15,Keluarga Super Irit,Family / Comedy,116,2025,7.5,1846,128690,5394
+2025-06-28,16,Rabi Jiwo,Horror,92,2025,6.2,1425,7417,673
+2025-06-28,17,Noise,Thriller / Horror,93,2025,7.0,1176,4872,609
+2025-06-28,18,Lilo & Stitch,Adventure / Family,108,2025,7.8,1103,909641,22162
+2025-06-28,19,Warkop DKI Kartun,Animation,79,2025,7.1,570,10408,1419
+2025-06-28,20,Maa,Horror,133,2025,8.0,300,600,32
+2025-06-28,21,Dangerous Animals,Thriller,98,2025,7.5,259,1546,129
+2025-06-29,1,Jalan Pulang,Horror,97,2025,6.2,132577,1682256,28463
+2025-06-29,2,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,52846,1311411,28735
+2025-06-29,3,F1 The Movie,Sport / Action / Drama,155,2025,8.9,46078,263836,5844
+2025-06-29,4,Jodoh 3 Bujang,Drama,107,2025,7.6,35399,180115,4178
+2025-06-29,5,Ejen Ali: The Movie 2,Animation,115,2025,8.2,30972,112616,1934
+2025-06-29,6,Lorong Kost,Horror,97,2025,5.5,16846,64655,1522
+2025-06-29,7,Jumbo,Adventure / Family / Animation,102,2025,8.7,10592,10193128,100363
+2025-06-29,8,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,7884,580508,12176
+2025-06-29,9,M3GAN 2.0,Science Fiction / Thriller,120,2025,7.6,7842,61301,3613
+2025-06-29,10,Warkop DKI Kartun,Animation,79,2025,7.1,6294,16702,1646
+2025-06-29,11,Elio,Animation / Science Fiction,98,2025,8.0,5436,155084,6820
+2025-06-29,12,28 Years Later,Thriller,115,2025,7.8,4470,170696,6569
+2025-06-29,13,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,3365,2476504,43718
+2025-06-29,14,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,3050,499037,12120
+2025-06-29,15,Ballerina,Action / Thriller,124,2025,8.1,2919,611444,18068
+2025-06-29,16,Keluarga Super Irit,Family / Comedy,116,2025,7.5,1871,130561,5461
+2025-06-29,17,Rabi Jiwo,Horror,92,2025,6.2,1649,9066,786
+2025-06-29,18,Noise,Thriller / Horror,93,2025,7.0,1616,6488,734
+2025-06-29,19,Gaza,Religious / Drama,96,2025,4.0,1615,143002,3870
+2025-06-29,20,Lilo & Stitch,Adventure / Family,108,2025,7.8,959,910600,22217
+2025-06-29,21,Maa,Horror,133,2025,8.0,300,900,52
+2025-06-29,22,Dangerous Animals,Thriller,98,2025,7.5,150,1696,147
+2025-06-30,1,Jalan Pulang,Horror,97,2025,6.2,108480,1790736,30714
+2025-06-30,2,F1 The Movie,Sport / Action / Drama,155,2025,8.9,36210,300046,7048
+2025-06-30,3,Jodoh 3 Bujang,Drama,107,2025,7.6,36014,216129,5089
+2025-06-30,4,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,32689,1344100,29886
+2025-06-30,5,Ejen Ali: The Movie 2,Animation,115,2025,8.2,31433,144049,2700
+2025-06-30,6,Lorong Kost,Horror,97,2025,5.5,5927,70582,1959
+2025-06-30,7,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,5638,586146,12449
+2025-06-30,8,M3GAN 2.0,Science Fiction / Thriller,120,2025,7.6,4239,65540,4050
+2025-06-30,9,Elio,Animation / Science Fiction,98,2025,8.0,3832,158916,7031
+2025-06-30,10,28 Years Later,Thriller,115,2025,7.8,2772,173468,6750
+2025-06-30,11,Warkop DKI Kartun,Animation,79,2025,7.1,2737,19439,1834
+2025-06-30,12,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,2471,501508,12218
+2025-06-30,13,Mission: Impossible - The Final Reckoning,Action,169,2025,8.6,2290,2478794,43819
+2025-06-30,14,Ballerina,Action / Thriller,124,2025,8.1,2097,613541,18177
+2025-06-30,15,Gaza,Religious / Drama,96,2025,4.0,1448,144450,3891
+2025-06-30,16,Rabi Jiwo,Horror,92,2025,6.2,1288,10354,886
+2025-06-30,17,Keluarga Super Irit,Family / Comedy,116,2025,7.5,977,131538,5534
+2025-06-30,18,Noise,Thriller / Horror,93,2025,7.0,930,7418,822
+2025-06-30,19,Lilo & Stitch,Adventure / Family,108,2025,7.8,697,911297,22265
+2025-06-30,20,Maa,Horror,133,2025,8.0,160,1060,73
+2025-06-30,21,Dangerous Animals,Thriller,98,2025,7.5,135,1831,161
+2025-07-03,1,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,198647,506635,4667
+2025-07-03,2,Jalan Pulang,Horror,97,2025,6.2,141054,2039146,36283
+2025-07-03,3,Narik Sukmo,Horror,95,2025,6.2,28206,28206,639
+2025-07-03,4,Jodoh 3 Bujang,Drama,107,2025,7.6,26937,312205,6998
+2025-07-03,5,Ejen Ali: The Movie 2,Animation,115,2025,8.2,21034,214634,4414
+2025-07-03,6,Agen +62,Comedy,115,2025,7.3,18249,18249,519
+2025-07-03,7,F1 The Movie,Sport / Action / Drama,155,2025,8.9,14562,375235,9256
+2025-07-03,8,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,9438,1399776,31999
+2025-07-03,9,Arwah,Horror,87,2025,6.5,7354,7354,264
+2025-07-03,10,Seribu Bayang Purnama,Romance / Drama,128,2025,7.8,2398,2398,441
+2025-07-03,11,Lorong Kost,Horror,97,2025,5.5,2052,88104,2786
+2025-07-03,12,Komang,Biography / Romance,107,2025,7.7,1162,2997203,32004
+2025-07-03,13,Elio,Animation / Science Fiction,98,2025,8.0,1097,166511,7398
+2025-07-03,14,Gaza,Religious / Drama,96,2025,4.0,932,146038,3918
+2025-07-03,15,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,789,594684,12889
+2025-07-03,16,Jumbo,Adventure / Family / Animation,102,2025,8.7,745,10193873,100464
+2025-07-03,17,Keluarga Super Irit,Family / Comedy,116,2025,7.5,620,134214,5692
+2025-07-03,18,Fox Hunt,Action,105,2025,7.0,502,935,89
+2025-07-03,19,28 Years Later,Thriller,115,2025,7.8,483,178053,7102
+2025-07-03,20,Tak Ingin Usai Di Sini,Romance / Drama,108,2025,7.8,360,504317,12371
+2025-07-06,1,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,251231,1261537,12810
+2025-07-06,2,Jalan Pulang,Horror,97,2025,6.2,105671,2300831,40820
+2025-07-06,3,Jodoh 3 Bujang,Drama,107,2025,7.6,31836,400029,8302
+2025-07-06,4,Narik Sukmo,Horror,95,2025,6.2,26698,99086,2399
+2025-07-06,5,F1 The Movie,Sport / Action / Drama,155,2025,8.9,19531,433711,10386
+2025-07-06,6,Ejen Ali: The Movie 2,Animation,115,2025,8.2,19496,272359,5417
+2025-07-06,7,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,10781,1434097,32711
+2025-07-06,8,Agen +62,Comedy,115,2025,7.3,9170,44175,1695
+2025-07-06,9,Arwah,Horror,87,2025,6.5,4190,19418,756
+2025-07-06,10,Elio,Animation / Science Fiction,98,2025,8.0,1592,170545,7507
+2025-07-06,11,Jumbo,Adventure / Family / Animation,102,2025,8.7,1539,10195412,100525
+2025-07-06,12,Crayon Shinchan The Movie: Our Dinosaur Diary,Animation / Adventure,106,2025,7.9,1267,4042,47
+2025-07-06,13,Bad Genius (2024),Thriller,96,2025,7.9,1233,3683,379
+2025-07-06,14,Komang,Biography / Romance,107,2025,7.7,851,2998054,32010
+2025-07-06,15,Lorong Kost,Horror,97,2025,5.5,623,90553,3008
+2025-07-06,16,GJLS: Ibuku Ibu Ibu,Family / Comedy,95,2025,7.6,583,596631,12975
+2025-07-06,17,Fox Hunt,Action,105,2025,7.0,350,1893,145
+2025-07-06,18,Seribu Bayang Purnama,Romance / Drama,128,2025,7.8,190,3271,721
+2025-07-09,1,Superman,Superhero,129,2025,8.6,176000,176000,2124
+2025-07-09,2,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,98904,1649885,20212
+2025-07-09,3,Jalan Pulang,Horror,97,2025,6.2,67041,2538829,45233
+2025-07-09,4,Jodoh 3 Bujang,Drama,107,2025,7.6,15305,459499,9576
+2025-07-09,5,Narik Sukmo,Horror,95,2025,6.2,11343,141583,3964
+2025-07-09,6,Ejen Ali: The Movie 2,Animation,115,2025,8.2,9246,306517,6331
+2025-07-09,7,F1 The Movie,Sport / Action / Drama,155,2025,8.9,6119,462289,11337
+2025-07-09,8,Agen +62,Comedy,115,2025,7.3,4416,63736,2425
+2025-07-09,9,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,2853,1450621,33308
+2025-07-09,10,Arwah,Horror,87,2025,6.5,1517,25589,1099
+2025-07-09,11,Bad Genius (2024),Thriller,96,2025,7.9,192,5170,567
+2025-07-09,12,Crayon Shinchan The Movie: Our Dinosaur Diary,Animation / Adventure,106,2025,7.9,152,5136,67
+2025-07-09,13,Nintama Rantaro: Invincible Master of the Dokutake Ninja,Adventure / Animation,90,2025,7.3,143,143,2
+2025-07-10,1,Superman,Superhero,129,2025,8.6,128165,304165,4173
+2025-07-10,2,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,91722,1741607,21674
+2025-07-10,3,Jalan Pulang,Horror,97,2025,6.2,44738,2583567,46250
+2025-07-10,4,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,44090,44090,549
+2025-07-10,5,Selepas Tahlil,Horror,93,2025,7.0,32898,32898,666
+2025-07-10,6,Jodoh 3 Bujang,Drama,107,2025,7.6,13631,473130,9803
+2025-07-10,7,Hotel Sakura,Horror,100,2025,6.8,11377,11377,412
+2025-07-10,8,Narik Sukmo,Horror,95,2025,6.2,8911,150494,4177
+2025-07-10,9,Ejen Ali: The Movie 2,Animation,115,2025,8.2,7732,314249,6484
+2025-07-10,10,F1 The Movie,Sport / Action / Drama,155,2025,8.9,5802,468091,11477
+2025-07-11,1,Superman,Superhero,129,2025,8.6,125211,429376,6153
+2025-07-11,2,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,82011,1823618,23143
+2025-07-11,3,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,47200,91290,1207
+2025-07-11,4,Jalan Pulang,Horror,97,2025,6.2,39412,2622979,47234
+2025-07-11,5,Selepas Tahlil,Horror,93,2025,7.0,28804,61702,1462
+2025-07-11,6,Jodoh 3 Bujang,Drama,107,2025,7.6,12585,485715,10065
+2025-07-11,7,Ejen Ali: The Movie 2,Animation,115,2025,8.2,6824,321073,6655
+2025-07-11,8,F1 The Movie,Sport / Action / Drama,155,2025,8.9,6032,474123,11616
+2025-07-11,9,Hotel Sakura,Horror,100,2025,6.8,5134,16511,796
+2025-07-11,10,Narik Sukmo,Horror,95,2025,6.2,4038,154532,4374
+2025-07-11,11,BTS MAP OF THE SOUL ON:E (HYBE CINE FEST IN ASIA 2025),Documentary / Music,77,2025,10.0,3354,8467,0
+2025-07-11,12,ENHYPEN WORLD TOUR [FATE] (HYBE CINE FEST IN ASIA 2025),Music / Documentary,74,2025,10.0,2674,7017,0
+2025-07-11,13,SEVENTEEN WORLD TOUR [BE THE SUN] (HYBE CINE FEST IN ASIA 2025),Documentary / Music,80,2025,10.0,2374,5074,0
+2025-07-11,14,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,2000,1455294,33469
+2025-07-11,15,Karunrung 1995,Thriller / Regional Film,84,2025,2.5,1040,4135,155
+2025-07-11,16,HYBE CINEMA NORAEBANG (HYBE CINE FEST IN ASIA 2025),Documentary / Music,80,2025,10.0,924,2942,0
+2025-07-11,17,Agen +62,Comedy,115,2025,7.3,823,66139,2585
+2025-07-11,18,TOMORROW X TOGETHER WORLD TOUR [ACT : SWEET MIRAGE] (HYBE CINE FEST IN ASIA 2025),Music / Documentary,78,2025,10.0,790,2050,0
+2025-07-11,19,Nintama Rantaro: Invincible Master of the Dokutake Ninja,Adventure / Animation,90,2025,7.3,82,280,2
+2025-07-12,1,Superman,Superhero,129,2025,8.6,212778,642154,8176
+2025-07-12,2,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,142923,1966541,24697
+2025-07-12,3,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,88395,179685,1967
+2025-07-12,4,Jalan Pulang,Horror,97,2025,6.2,52175,2675154,48247
+2025-07-12,5,Selepas Tahlil,Horror,93,2025,7.0,35548,97250,2303
+2025-07-12,6,Jodoh 3 Bujang,Drama,107,2025,7.6,15030,500745,10287
+2025-07-12,7,Ejen Ali: The Movie 2,Animation,115,2025,8.2,12195,333268,6844
+2025-07-12,8,Narik Sukmo,Horror,95,2025,6.2,11218,165750,4540
+2025-07-12,9,F1 The Movie,Sport / Action / Drama,155,2025,8.9,9306,483429,11753
+2025-07-12,10,SEVENTEEN WORLD TOUR [BE THE SUN] (HYBE CINE FEST IN ASIA 2025),Documentary / Music,80,2025,10.0,5168,10242,0
+2025-07-15,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,127168,522206,5242
+2025-07-15,2,Superman,Superhero,129,2025,8.6,69939,941728,14454
+2025-07-15,3,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,34140,2157039,29023
+2025-07-15,4,Jalan Pulang,Horror,97,2025,6.2,20987,2776505,50861
+2025-07-15,5,Selepas Tahlil,Horror,93,2025,7.0,14609,156975,4419
+2025-07-15,6,Narik Sukmo,Horror,95,2025,6.2,6198,188090,5108
+2025-07-15,7,Jodoh 3 Bujang,Drama,107,2025,7.6,4340,525397,10971
+2025-07-15,8,F1 The Movie,Sport / Action / Drama,155,2025,8.9,1909,496840,12152
+2025-07-15,9,Ejen Ali: The Movie 2,Animation,115,2025,8.2,1469,343851,7199
+2025-07-15,10,Hotel Sakura,Horror,100,2025,6.8,1071,27106,1462
+2025-07-16,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,146205,668411,6795
+2025-07-16,2,Superman,Superhero,129,2025,8.6,53837,995565,16009
+2025-07-16,3,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,29989,2187028,29967
+2025-07-16,4,Jalan Pulang,Horror,97,2025,6.2,14364,2790869,51464
+2025-07-16,5,I Know What You Did Last Summer,Thriller,111,2025,7.3,11200,11200,831
+2025-07-16,6,Selepas Tahlil,Horror,93,2025,7.0,10829,167804,4877
+2025-07-16,7,Narik Sukmo,Horror,95,2025,6.2,4699,192789,5311
+2025-07-16,8,Jodoh 3 Bujang,Drama,107,2025,7.6,4556,529953,11106
+2025-07-16,9,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,4427,4427,110
+2025-07-16,10,F1 The Movie,Sport / Action / Drama,155,2025,8.9,1657,498497,12258
+2025-07-16,11,Hotel Sakura,Horror,100,2025,6.8,606,27712,1501
+2025-07-16,12,Ejen Ali: The Movie 2,Animation,115,2025,8.2,599,344450,7217
+2025-07-16,13,How To Train Your Dragon,Fantasy / Adventure,125,2025,8.7,413,1462720,33758
+2025-07-16,14,"Sorry, Baby",Drama,103,2025,7.5,180,180,7
+2025-07-17,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,145116,813527,8293
+2025-07-17,2,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,82642,82642,1267
+2025-07-17,3,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,54801,54801,1030
+2025-07-17,4,Superman,Superhero,129,2025,8.6,49919,1045484,17128
+2025-07-17,5,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,24931,2211959,30481
+2025-07-17,6,Gerbang Setan,Comedy / Horror,88,2025,5.6,6666,6666,322
+2025-07-17,7,I Know What You Did Last Summer,Thriller,111,2025,7.3,5628,16828,1304
+2025-07-17,8,Selepas Tahlil,Horror,93,2025,7.0,5396,173200,5076
+2025-07-17,9,Jalan Pulang,Horror,97,2025,6.2,4910,2795779,51765
+2025-07-17,10,Narik Sukmo,Horror,95,2025,6.2,3063,195852,5446
+2025-07-17,11,Jodoh 3 Bujang,Drama,107,2025,7.6,2643,532596,11183
+2025-07-17,12,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,2547,6974,147
+2025-07-17,13,Arti Cinta,Romance / Drama,95,2025,6.5,2453,2453,460
+2025-07-17,14,Jumbo,Adventure / Family / Animation,102,2025,8.7,2378,10197790,100676
+2025-07-17,15,F1 The Movie,Sport / Action / Drama,155,2025,8.9,1534,500031,12329
+2025-07-17,16,"Sorry, Baby",Drama,103,2025,7.5,86,266,15
+2025-07-18,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,154930,968457,9835
+2025-07-18,2,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,63326,145968,2886
+2025-07-18,3,Superman,Superhero,129,2025,8.6,54432,1099916,18188
+2025-07-18,4,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,35338,90139,2059
+2025-07-18,5,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,24152,2236111,30952
+2025-07-18,6,Smurfs,Animation,92,2025,7.3,10901,10901,300
+2025-07-18,7,Gerbang Setan,Comedy / Horror,88,2025,5.6,5056,11722,595
+2025-07-18,8,I Know What You Did Last Summer,Thriller,111,2025,7.3,4921,21749,1602
+2025-07-18,9,Jalan Pulang,Horror,97,2025,6.2,2956,2798735,51936
+2025-07-18,10,Jodoh 3 Bujang,Drama,107,2025,7.6,2487,535083,11249
+2025-07-18,11,F1 The Movie,Sport / Action / Drama,155,2025,8.9,1904,501935,12398
+2025-07-18,12,Gaza,Religious / Drama,96,2025,4.0,1627,151007,3920
+2025-07-18,13,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,1552,8526,174
+2025-07-18,14,Bride Hard,Action / Comedy,105,2025,7.0,1466,1466,219
+2025-07-18,15,Selepas Tahlil,Horror,93,2025,7.0,816,174016,5154
+2025-07-18,16,Arti Cinta,Romance / Drama,95,2025,6.5,546,2999,570
+2025-07-18,17,Narik Sukmo,Horror,95,2025,6.2,405,196257,5542
+2025-07-18,18,Saiyaara,Romance,150,2025,8.0,335,335,10
+2025-07-18,19,"Sorry, Baby",Drama,103,2025,7.5,66,332,19
+2025-07-21,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,136145,1529217,15119
+2025-07-21,2,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,37342,343470,6585
+2025-07-21,3,Superman,Superhero,129,2025,8.6,36949,1343177,21738
+2025-07-21,4,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,16439,2360850,32948
+2025-07-21,5,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,12991,153025,4628
+2025-07-21,6,I Know What You Did Last Summer,Thriller,111,2025,7.3,2229,37045,2179
+2025-07-21,7,Smurfs,Animation,92,2025,7.3,2220,36597,973
+2025-07-21,8,Gerbang Setan,Comedy / Horror,88,2025,5.6,2187,22629,1109
+2025-07-21,9,Jodoh 3 Bujang,Drama,107,2025,7.6,1393,540458,11391
+2025-07-21,10,Jalan Pulang,Horror,97,2025,6.2,1299,2806978,52251
+2025-07-21,11,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,1146,24810,254
+2025-07-21,12,F1 The Movie,Sport / Action / Drama,155,2025,8.9,885,508716,12619
+2025-07-21,13,Bride Hard,Action / Comedy,105,2025,7.0,549,5480,655
+2025-07-21,14,Saiyaara,Romance,150,2025,8.0,370,1710,60
+2025-07-24,1,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,220454,220454,892
+2025-07-24,2,The Fantastic Four: First Steps,Superhero,114,2025,8.2,119372,286572,5283
+2025-07-24,3,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,87134,1826677,20034
+2025-07-24,4,Karunrung 1995,Thriller / Regional Film,84,2025,2.5,50375,55876,324
+2025-07-24,5,Kampung Jabang Mayit: Ritual Maut,Horror,92,2025,6.5,36061,36061,743
+2025-07-24,6,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,21451,432960,9389
+2025-07-24,7,Doti - Tumbal Ilmu Hitam,Regional Film / Horror,82,2025,4.0,15680,15680,160
+2025-07-24,8,Superman,Superhero,129,2025,8.6,8386,1396987,23606
+2025-07-24,9,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,5527,181907,6340
+2025-07-24,10,Gak Nyangka..!!,Comedy / Drama,102,2025,7.4,3841,3841,406
+2025-07-24,11,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,3770,2381733,33833
+2025-07-24,12,Jodoh 3 Bujang,Drama,107,2025,7.6,3594,545171,11458
+2025-07-24,13,Selepas Tahlil,Horror,93,2025,7.0,3225,178256,5270
+2025-07-24,14,Gerbang Setan,Comedy / Horror,88,2025,5.6,643,27355,1404
+2025-07-24,15,F1 The Movie,Sport / Action / Drama,155,2025,8.9,530,510565,12756
+2025-07-24,16,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,138,26300,286
+2025-07-27,1,The Fantastic Four: First Steps,Superhero,114,2025,8.2,169036,805523,12366
+2025-07-27,2,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,115860,2182504,24023
+2025-07-27,3,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,57384,399653,3726
+2025-07-27,4,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,31589,514134,11095
+2025-07-27,5,Superman,Superhero,129,2025,8.6,27410,1469396,24897
+2025-07-27,6,Kampung Jabang Mayit: Ritual Maut,Horror,92,2025,6.5,17550,103000,2980
+2025-07-27,7,Ghost Train,Mystery / Horror,95,2025,7.0,13217,35608,1043
+2025-07-27,8,Doti - Tumbal Ilmu Hitam,Regional Film / Horror,82,2025,4.0,12426,43976,383
+2025-07-27,9,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,12224,28745,191
+2025-07-27,10,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,11194,2407787,34031
+2025-07-27,11,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,10544,210125,7217
+2025-07-27,12,Gak Nyangka..!!,Comedy / Drama,102,2025,7.4,4063,15727,1063
+2025-07-27,13,Doraemon The Movie: Nobitas Art World Tales,Animation / Adventure,105,2025,7.9,2947,31702,294
+2025-07-27,14,Gerbang Setan,Comedy / Horror,88,2025,5.6,1183,30216,1527
+2025-07-27,15,F1 The Movie,Sport / Action / Drama,155,2025,8.9,774,512387,12818
+2025-07-27,16,Ultraman Arc The Movie: The Clash of Light and Evil,Action / Superhero,104,2025,7.0,651,1628,60
+2025-07-30,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,60552,2394316,28530
+2025-07-30,2,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,46074,534609,6580
+2025-07-30,3,The Fantastic Four: First Steps,Superhero,114,2025,8.2,39287,965116,18740
+2025-07-30,4,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,17217,45962,821
+2025-07-30,5,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,17144,569754,12920
+2025-07-30,6,The Naked Gun,Comedy / Action / Crime,85,2025,7.0,10341,10341,1311
+2025-07-30,7,Ghost Train,Mystery / Horror,95,2025,7.0,7144,60665,2260
+2025-07-30,8,Superman,Superhero,129,2025,8.6,6206,1493236,26144
+2025-07-30,9,Kampung Jabang Mayit: Ritual Maut,Horror,92,2025,6.5,4415,125949,4453
+2025-07-30,10,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,4238,224316,8164
+2025-07-30,11,Doti - Tumbal Ilmu Hitam,Regional Film / Horror,82,2025,4.0,3955,57494,508
+2025-07-30,12,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,1398,2413998,34254
+2025-07-30,13,Gak Nyangka..!!,Comedy / Drama,102,2025,7.4,917,20111,1410
+2025-07-30,14,Gerbang Setan,Comedy / Horror,88,2025,5.6,814,32350,1656
+2025-07-30,15,BTS Army: Forever We Are Young,Music,96,2025,0.0,304,304,18
+2025-07-30,16,F1 The Movie,Sport / Action / Drama,155,2025,8.9,292,513291,12900
+2025-08-02,1,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,109868,2617966,32391
+2025-08-02,2,The Fantastic Four: First Steps,Superhero,114,2025,8.2,86750,1125708,22889
+2025-08-02,3,Sihir Pelakor,Horror,93,2025,7.0,70098,200168,3797
+2025-08-02,4,Rego Nyowo,Horror,105,2025,6.1,47789,130890,3937
+2025-08-02,5,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,41443,652602,8675
+2025-08-02,6,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,21993,96255,2158
+2025-08-02,7,Superman,Superhero,129,2025,8.6,15039,1519345,26763
+2025-08-02,8,Ghost Train,Mystery / Horror,95,2025,7.0,12649,82732,3282
+2025-08-02,9,The Naked Gun,Comedy / Action / Crime,85,2025,7.0,11534,34309,3049
+2025-08-02,10,The Bad Guys 2,Heist / Animation,104,2025,8.2,11497,14908,1021
+2025-08-02,11,Bertaut Rindu: Semua Impian Berhak Dirayakan,Romance / Drama,92,2025,7.4,8225,47539,1706
+2025-08-02,12,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,6308,587615,13730
+2025-08-02,13,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,3101,2418924,34345
+2025-08-02,14,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,1903,228827,8439
+2025-08-02,15,Dhadak 2,Thriller / Romance,142,2025,7.4,404,670,66
+2025-08-02,16,BTS Army: Forever We Are Young,Music,96,2025,0.0,374,916,75
+2025-08-02,17,Son Of Sardaar 2,Comedy,145,2025,7.5,308,508,18
+2025-08-05,1,Sihir Pelakor,Horror,93,2025,7.0,42376,367215,9091
+2025-08-05,2,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,40834,2780122,37076
+2025-08-05,3,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,37403,766843,10695
+2025-08-05,4,Rego Nyowo,Horror,105,2025,6.1,27048,231937,8499
+2025-08-05,5,The Fantastic Four: First Steps,Superhero,114,2025,8.2,18233,1240042,27984
+2025-08-05,6,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,6809,129899,3899
+2025-08-05,7,Bertaut Rindu: Semua Impian Berhak Dirayakan,Romance / Drama,92,2025,7.4,5413,63545,2648
+2025-08-05,8,Ghost Train,Mystery / Horror,95,2025,7.0,4330,102479,4675
+2025-08-05,9,Superman,Superhero,129,2025,8.6,3842,1539427,27710
+2025-08-05,10,The Naked Gun,Comedy / Action / Crime,85,2025,7.0,2637,51097,4491
+2025-08-05,11,Kitab Sijjin & Illiyyin,Horror,99,2025,7.2,1600,601363,14328
+2025-08-05,12,The Bad Guys 2,Heist / Animation,104,2025,8.2,1033,26195,2168
+2025-08-05,13,Jurassic World: Rebirth,Adventure / Science Fiction / Action,133,2025,7.6,678,2424872,34543
+2025-08-05,14,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,554,231595,8638
+2025-08-08,1,Weapons,Mystery / Thriller / Horror,128,2025,8.4,54388,122408,4065
+2025-08-08,2,Panggil Aku Ayah,Drama,120,2025,7.9,43901,117694,3971
+2025-08-08,3,Pamali: Tumbal,Horror,95,2025,6.4,43454,101169,2591
+2025-08-08,4,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,30597,63157,1893
+2025-08-08,5,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,30319,2873700,40163
+2025-08-08,6,Sihir Pelakor,Horror,93,2025,7.0,28351,471683,12828
+2025-08-08,7,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,22614,853422,12002
+2025-08-08,8,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,19669,19669,720
+2025-08-08,9,The Fantastic Four: First Steps,Superhero,114,2025,8.2,12580,1279577,30013
+2025-08-08,10,Rego Nyowo,Horror,105,2025,6.1,6373,267520,10748
+2025-08-08,11,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,2085,139538,4298
+2025-08-08,12,Superman,Superhero,129,2025,8.6,1635,1544602,28000
+2025-08-08,13,Freakier Friday,Family / Fantasy,111,2025,7.4,886,3690,970
+2025-08-08,14,The Naked Gun,Comedy / Action / Crime,85,2025,7.0,531,53457,4741
+2025-08-08,15,Ghost Train,Mystery / Horror,95,2025,7.0,355,106390,5064
+2025-08-08,16,Tomb Watcher,Horror,92,2025,6.5,156,494,109
+2025-08-08,17,SEISHUN INOSHISHI <Go Wild> ATARASHII GAKKO! THE MOVIE,Documentary / Music,120,2025,10.0,45,114,57
+2025-08-11,1,Weapons,Mystery / Thriller / Horror,128,2025,8.4,59727,388471,7620
+2025-08-11,2,Panggil Aku Ayah,Drama,120,2025,7.9,42078,315723,8637
+2025-08-11,3,Pamali: Tumbal,Horror,95,2025,6.4,28258,246383,5842
+2025-08-11,4,Sihir Pelakor,Horror,93,2025,7.0,24064,564257,14836
+2025-08-11,5,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,20616,2965280,41721
+2025-08-11,6,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,19830,916088,12694
+2025-08-11,7,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,13933,100933,2589
+2025-08-11,8,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,7810,111831,3528
+2025-08-11,9,The Fantastic Four: First Steps,Superhero,114,2025,8.2,5020,1328652,31211
+2025-08-11,10,Rego Nyowo,Horror,105,2025,6.1,2048,282493,11463
+2025-08-11,11,Superman,Superhero,129,2025,8.6,724,1552684,28166
+2025-08-11,12,Omniscient Reader: The Prophecy,Fantasy,117,2025,7.8,619,145915,4453
+2025-08-11,13,Freakier Friday,Family / Fantasy,111,2025,7.4,359,6866,1158
+2025-08-11,14,The Naked Gun,Comedy / Action / Crime,85,2025,7.0,270,55810,4832
+2025-08-11,15,Ghost Train,Mystery / Horror,95,2025,7.0,151,107759,5118
+2025-08-14,1,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,70548,83249,1629
+2025-08-14,2,Weapons,Mystery / Thriller / Horror,128,2025,8.4,50197,556296,12787
+2025-08-14,3,Panggil Aku Ayah,Drama,120,2025,7.9,40241,442937,14048
+2025-08-14,4,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,24097,988588,13579
+2025-08-14,5,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,21307,21307,1033
+2025-08-14,6,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,16399,3012835,43695
+2025-08-14,7,Pamali: Tumbal,Horror,95,2025,6.4,14679,320055,8717
+2025-08-14,8,Panggilan Dari Kubur,Horror,88,2025,5.5,14341,14341,627
+2025-08-14,9,Sihir Pelakor,Horror,93,2025,7.0,11036,611108,17108
+2025-08-14,10,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,9075,141415,4600
+2025-08-14,11,Nobody 2,Action / Thriller / Comedy,89,2025,7.9,7979,21825,2436
+2025-08-14,12,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,5358,125215,4819
+2025-08-14,13,The Fantastic Four: First Steps,Superhero,114,2025,8.2,1866,1337387,32304
+2025-08-14,14,6DAYS,Music / Documentary,80,2025,4.0,1130,1130,84
+2025-08-14,15,War 2,Action,173,2025,7.7,849,849,18
+2025-08-14,16,Merah Putih One For All,Adventure / Animation,70,2025,2.2,720,720,50
+2025-08-14,17,Rego Nyowo,Horror,105,2025,6.1,296,285575,11961
+2025-08-17,1,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,350300,1191300,11555
+2025-08-17,2,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,67549,272157,5575
+2025-08-17,3,Weapons,Mystery / Thriller / Horror,128,2025,8.4,67000,698515,14719
+2025-08-17,4,Panggil Aku Ayah,Drama,120,2025,7.9,62155,584946,16471
+2025-08-17,5,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,24238,81081,3344
+2025-08-17,6,Juara Sejati,Family,111,2026,4.5,20000,60000,9
+2025-08-17,7,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,11052,3041138,44012
+2025-08-17,8,Sihir Pelakor,Horror,93,2025,7.0,10790,635319,17606
+2025-08-17,9,Panggilan Dari Kubur,Horror,88,2025,5.5,10474,41037,1773
+2025-08-17,10,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,8975,145130,5229
+2025-08-17,11,Pamali: Tumbal,Horror,95,2025,6.4,7744,336488,8955
+2025-08-17,12,Nobody 2,Action / Thriller / Comedy,89,2025,7.9,6500,39746,3024
+2025-08-17,13,"Believe - Takdir, Mimpi, Keberanian",Drama / War / Action,112,2025,8.1,5600,1030439,13952
+2025-08-17,14,THE CONJURING (REISSUE),Horror,112,2025,9.4,4419,11747,123
+2025-08-17,15,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,4134,160290,5030
+2025-08-17,16,War 2,Action,173,2025,7.7,1956,4872,118
+2025-08-17,17,6DAYS,Music / Documentary,80,2025,4.0,1744,6489,310
+2025-08-17,18,Together,Horror,102,2025,7.6,728,1461,133
+2025-08-17,19,Merah Putih One For All,Adventure / Animation,70,2025,2.2,410,1926,126
+2025-08-17,20,Ketika Hantu Yatim Piatu,Horror / Comedy,66,2025,0.0,49,49,59
+2025-08-20,1,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,93000,1735600,20751
+2025-08-20,2,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,44746,421243,8701
+2025-08-20,3,The Shadows Edge,Action / Crime,142,2025,8.6,24585,24585,1069
+2025-08-20,4,Weapons,Mystery / Thriller / Horror,128,2025,8.4,18942,796976,17313
+2025-08-20,5,Panggil Aku Ayah,Drama,120,2025,7.9,18888,681476,19289
+2025-08-20,6,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,10077,126612,4887
+2025-08-20,7,Materialists,Romance / Drama,117,2025,8.0,7919,7919,592
+2025-08-20,8,Sihir Pelakor,Horror,93,2025,7.0,4792,653958,18106
+2025-08-20,9,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,3049,3057402,44359
+2025-08-20,10,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,3039,168339,5162
+2025-08-23,1,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,115000,2006599,25946
+2025-08-23,2,The Shadows Edge,Action / Crime,142,2025,8.6,84083,176458,4221
+2025-08-23,3,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,51310,552612,11415
+2025-08-23,4,Weapons,Mystery / Thriller / Horror,128,2025,8.4,37377,871581,19173
+2025-08-23,5,Panggil Aku Ayah,Drama,120,2025,7.9,30014,748927,21169
+2025-08-23,6,Labinak,Horror,100,2025,6.1,29540,134618,3438
+2025-08-23,7,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,10627,150225,5547
+2025-08-23,8,Materialists,Romance / Drama,117,2025,8.0,10164,29166,1654
+2025-08-23,9,Hanya Namamu Dalam Doaku,Family / Drama,113,2025,7.8,8969,33225,3551
+2025-08-23,10,The Conjuring 2 (Reissue),Horror,134,2025,8.7,5731,10512,142
+2025-08-23,11,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,4630,3067206,44624
+2025-08-23,12,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,3704,178479,5338
+2025-08-23,13,Darah Nyai,Horror,91,2025,6.9,2014,6505,516
+2025-08-23,14,The Sun Gazer: Cinta Dari Langit,Religious / Romance / Drama,113,2025,6.0,1995,4681,785
+2025-08-23,15,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,1928,159890,5930
+2025-08-23,16,Together,Horror,102,2025,7.6,1744,7262,1123
+2025-08-23,17,Sihir Pelakor,Horror,93,2025,7.0,1705,659555,18383
+2025-08-23,18,Nobody 2,Action / Thriller / Comedy,89,2025,7.9,1184,50357,3618
+2025-08-23,19,Pretty Crazy,Comedy,113,2025,7.7,692,2595,452
+2025-08-26,1,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,34930,2188910,30885
+2025-08-26,2,The Shadows Edge,Action / Crime,142,2025,8.6,34685,345057,8343
+2025-08-26,3,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,34506,671003,14272
+2025-08-26,4,Labinak,Horror,100,2025,6.1,32396,236431,7332
+2025-08-26,5,Assalamualaikum Baitullah,Romance / Religious,101,2025,7.5,20283,252255,8676
+2025-08-26,6,Weapons,Mystery / Thriller / Horror,128,2025,8.4,19918,936066,21559
+2025-08-26,7,Panggil Aku Ayah,Drama,120,2025,7.9,12835,809722,23730
+2025-08-26,8,Materialists,Romance / Drama,117,2025,8.0,4975,46577,2674
+2025-08-26,9,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,4373,165815,6306
+2025-08-26,10,Hanya Namamu Dalam Doaku,Family / Drama,113,2025,7.8,2413,45798,4936
+2025-08-26,11,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,1772,3074249,44916
+2025-08-26,12,Darah Nyai,Horror,91,2025,6.9,1273,11116,874
+2025-08-26,13,Together,Horror,102,2025,7.6,837,10722,1447
+2025-08-26,14,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,769,163269,6246
+2025-08-26,15,Sihir Pelakor,Horror,93,2025,7.0,713,663010,18554
+2025-08-26,16,Nobody 2,Action / Thriller / Comedy,89,2025,7.9,371,52417,3711
+2025-08-26,17,Pretty Crazy,Comedy,113,2025,7.7,332,4308,664
+2025-08-26,18,Lyora: Penantian Buah Hati,Family / Drama,94,2025,7.4,99,180886,5477
+2025-08-29,1,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,33769,90056,2825
+2025-08-29,2,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,31727,2283212,34003
+2025-08-29,3,The Shadows Edge,Action / Crime,142,2025,8.6,23614,425554,11593
+2025-08-29,4,Labinak,Horror,100,2025,6.1,20363,299400,10135
+2025-08-29,5,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,19991,745685,16691
+2025-08-29,6,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,10101,10101,982
+2025-08-29,7,Weapons,Mystery / Thriller / Horror,128,2025,8.4,9282,974943,22887
+2025-08-29,8,Panji Tengkorak,Animation,94,2025,7.5,6545,12121,1794
+2025-08-29,9,Lebih Dari Selamanya,Romance / Drama,96,2025,7.0,5823,19886,1755
+2025-08-29,10,Panggil Aku Ayah,Drama,120,2025,7.9,5716,833032,25122
+2025-08-29,11,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,4152,4152,253
+2025-08-29,12,The Conjuring: The Devil Made Me Do It (Reissue),Horror,112,2025,9.3,2987,2987,71
+2025-08-29,13,Materialists,Romance / Drama,117,2025,8.0,2416,56308,3366
+2025-08-29,14,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,1684,174295,6760
+2025-08-29,15,Siapa Dia,Musical / Drama,102,2025,7.6,1271,2850,386
+2025-08-29,16,Relay,Action / Thriller,111,2025,8.0,1023,8679,1619
+2025-08-29,17,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,877,3078043,45117
+2025-08-29,18,Princess Mononoke,Animation / Fantasy,133,2025,8.6,644,3213,77
+2025-08-29,19,Together,Horror,102,2025,7.6,380,11867,1517
+2025-08-29,20,Jaws,Thriller,124,2025,8.7,374,374,40
+2025-08-29,21,Param Sundari,Romance,136,2025,7.3,203,203,18
+2025-08-29,22,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,142,164370,6377
+2025-08-29,23,My Beloved Stranger,Romance,122,2025,7.8,106,711,153
+2025-08-29,24,Mocca: Life In Bloom,Music / Animation,22,2025,7.5,61,61,25
+2025-09-01,1,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,30036,230115,8307
+2025-09-01,2,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,16614,2392464,38007
+2025-09-01,3,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,15207,815776,19522
+2025-09-01,4,The Shadows Edge,Action / Crime,142,2025,8.6,14724,529752,15027
+2025-09-01,5,Labinak,Horror,100,2025,6.1,9259,342038,12480
+2025-09-01,6,Weapons,Mystery / Thriller / Horror,128,2025,8.4,6582,1011257,24138
+2025-09-01,7,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,5794,34512,3201
+2025-09-01,8,Panggil Aku Ayah,Drama,120,2025,7.9,3854,858731,26289
+2025-09-01,9,Lebih Dari Selamanya,Romance / Drama,96,2025,7.0,2364,27493,2924
+2025-09-01,10,Materialists,Romance / Drama,117,2025,8.0,1174,63873,3903
+2025-09-02,1,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,28031,258146,10034
+2025-09-02,2,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,20422,836198,20378
+2025-09-02,3,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,18324,2410788,39192
+2025-09-02,4,The Shadows Edge,Action / Crime,142,2025,8.6,17222,546974,16024
+2025-09-02,5,Labinak,Horror,100,2025,6.1,9380,351418,13168
+2025-09-02,6,Weapons,Mystery / Thriller / Horror,128,2025,8.4,8744,1020001,24520
+2025-09-02,7,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,6020,40532,3910
+2025-09-02,8,Panggil Aku Ayah,Drama,120,2025,7.9,4333,863064,26649
+2025-09-02,9,Lebih Dari Selamanya,Romance / Drama,96,2025,7.0,3111,30604,3221
+2025-09-02,10,Materialists,Romance / Drama,117,2025,8.0,1391,65264,4060
+2025-09-02,11,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,1018,180695,7176
+2025-09-02,12,Relay,Action / Thriller,111,2025,8.0,777,14030,2144
+2025-09-02,13,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,739,11869,1458
+2025-09-02,14,Panji Tengkorak,Animation,94,2025,7.5,730,19792,3181
+2025-09-02,15,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,595,3081680,45320
+2025-09-02,16,Sihir Pelakor,Horror,93,2025,7.0,387,665070,18645
+2025-09-02,17,Jaws,Thriller,124,2025,8.7,302,1969,137
+2025-09-02,18,Princess Mononoke,Animation / Fantasy,133,2025,8.6,261,4953,439
+2025-09-02,19,Siapa Dia,Musical / Drama,102,2025,7.6,199,7176,841
+2025-09-02,20,Param Sundari,Romance,136,2025,7.3,151,1059,93
+2025-09-02,21,My Daughter is A Zombie,Comedy / Horror,114,2025,8.0,136,165217,6461
+2025-09-02,22,Together,Horror,102,2025,7.6,125,12855,1682
+2025-09-02,23,My Beloved Stranger,Romance,122,2025,7.8,44,1114,254
+2025-09-03,1,The Conjuring: Last Rites,Horror,135,2025,7.5,322000,322000,3665
+2025-09-03,2,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,23929,282075,11724
+2025-09-03,3,Pamali: Tumbal,Horror,95,2025,6.4,21715,367103,9273
+2025-09-03,4,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,12901,849099,21186
+2025-09-03,5,The Shadows Edge,Action / Crime,142,2025,8.6,12458,559432,16731
+2025-09-03,6,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,10240,2421028,39840
+2025-09-03,7,Labinak,Horror,100,2025,6.1,6928,358346,13716
+2025-09-03,8,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,3914,44446,4455
+2025-09-03,9,Weapons,Mystery / Thriller / Horror,128,2025,8.4,3405,1023406,24739
+2025-09-03,10,Panggil Aku Ayah,Drama,120,2025,7.9,3097,866161,26892
+2025-09-03,11,Materialists,Romance / Drama,117,2025,8.0,884,66148,4147
+2025-09-03,12,Lebih Dari Selamanya,Romance / Drama,96,2025,7.0,708,31312,3401
+2025-09-03,13,Tinggal Meninggal,Drama / Comedy,120,2025,8.4,641,181336,7246
+2025-09-03,14,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,499,12368,1587
+2025-09-03,15,Relay,Action / Thriller,111,2025,8.0,415,14445,2206
+2025-09-03,16,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,399,3082079,45359
+2025-09-03,17,Panji Tengkorak,Animation,94,2025,7.5,305,20097,3266
+2025-09-03,18,Siapa Dia,Musical / Drama,102,2025,7.6,286,7462,893
+2025-09-03,19,Princess Mononoke,Animation / Fantasy,133,2025,8.6,81,5034,461
+2025-09-04,1,The Conjuring: Last Rites,Horror,135,2025,7.5,328000,650000,8390
+2025-09-04,2,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,75529,75529,1836
+2025-09-04,3,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,20839,20839,844
+2025-09-04,4,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,17946,300021,12858
+2025-09-04,5,The Shadows Edge,Action / Crime,142,2025,8.6,11970,571402,17062
+2025-09-04,6,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,7500,2428528,40083
+2025-09-04,7,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,5518,854617,21474
+2025-09-04,8,Agape The Unconditional Love,Drama,107,2025,7.7,2337,2337,393
+2025-09-04,9,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,1285,45731,4555
+2025-09-04,10,Labinak,Horror,100,2025,6.1,1175,359521,13839
+2025-09-04,11,Panggil Aku Ayah,Drama,120,2025,7.9,1030,867191,26953
+2025-09-04,12,Materialists,Romance / Drama,117,2025,8.0,975,67123,4191
+2025-09-04,13,Weapons,Mystery / Thriller / Horror,128,2025,8.4,541,1023947,24759
+2025-09-04,14,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,345,12713,1626
+2025-09-05,1,The Conjuring: Last Rites,Horror,135,2025,7.5,529000,1179000,13625
+2025-09-05,2,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,76970,152499,3671
+2025-09-05,3,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,30680,51519,1663
+2025-09-05,4,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,27340,327361,13678
+2025-09-05,5,The Shadows Edge,Action / Crime,142,2025,8.6,26382,597784,17355
+2025-09-05,6,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,15746,2444274,40285
+2025-09-05,7,Jujutsu Kaisen: Hidden Inventory/Premature Death - The Movie,Animation,111,2025,7.9,13879,13879,431
+2025-09-05,8,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,7689,862306,21665
+2025-09-05,9,Agape The Unconditional Love,Drama,107,2025,7.7,2717,5054,601
+2025-09-05,10,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,2573,48304,4624
+2025-09-05,11,Materialists,Romance / Drama,117,2025,8.0,2449,69572,4230
+2025-09-05,12,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,856,13569,1659
+2025-09-05,13,Mocca: Life In Bloom,Music / Animation,22,2025,7.5,52,226,105
+2025-09-07,1,The Conjuring: Last Rites,Horror,135,2025,7.5,321000,1923000,24815
+2025-09-07,2,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,66809,286824,7080
+2025-09-07,3,Juara Sejati,Family,111,2026,4.5,30000,140000,10
+2025-09-07,4,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,25805,101357,3138
+2025-09-07,5,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,22886,375095,15241
+2025-09-07,6,The Shadows Edge,Action / Crime,142,2025,8.6,22690,642642,18001
+2025-09-07,7,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,11701,2472243,40821
+2025-09-07,8,Jujutsu Kaisen: Hidden Inventory/Premature Death - The Movie,Animation,111,2025,7.9,5212,25792,1103
+2025-09-07,9,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,3571,871366,21956
+2025-09-07,10,Agape The Unconditional Love,Drama,107,2025,7.7,3529,11026,862
+2025-09-07,11,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,1651,51644,4732
+2025-09-07,12,Materialists,Romance / Drama,117,2025,8.0,1339,72784,4307
+2025-09-07,13,Grave of The Fireflies,Drama / Animation / War,88,2025,8.7,684,14944,1729
+2025-09-07,14,Mocca: Life In Bloom,Music / Animation,22,2025,7.5,54,358,142
+2025-09-10,1,The Conjuring: Last Rites,Horror,135,2025,7.5,122424,2392295,40232
+2025-09-10,2,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,42000,420707,12119
+2025-09-10,3,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,26316,182444,5087
+2025-09-10,4,The Long Walk,Thriller,108,2025,8.1,10732,10732,1232
+2025-09-10,5,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,10545,411220,17491
+2025-09-10,6,The Shadows Edge,Action / Crime,142,2025,8.6,5332,662517,19011
+2025-09-10,7,Labinak,Horror,100,2025,6.1,4151,363672,13962
+2025-09-10,8,Exit 8,Horror,95,2025,7.8,3133,3133,243
+2025-09-10,9,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,2692,2482640,41655
+2025-09-10,10,"La Tahzan: Cinta, Dosa, Luka...",Religious / Drama,139,2025,7.3,1813,878572,22316
+2025-09-10,11,Agape The Unconditional Love,Drama,107,2025,7.7,1051,15186,1197
+2025-09-10,12,Jujutsu Kaisen: Hidden Inventory/Premature Death - The Movie,Animation,111,2025,7.9,1004,30629,1714
+2025-09-10,13,Materialists,Romance / Drama,117,2025,8.0,337,74022,4406
+2025-09-10,14,Dracula: A Love Tale,Fantasy / Horror / Romance,129,2025,7.8,327,53404,4883
+2025-09-10,15,Operation Hadal,Action / War,146,2025,6.6,198,198,42
+2025-09-10,16,CHA EUN-WOO VR CONCERT: MEMORIES,Music / Documentary,58,2025,0.0,50,50,8
+2025-09-13,1,The Conjuring: Last Rites,Horror,135,2025,7.5,206557,2861197,49648
+2025-09-13,2,Sukma,Thriller / Horror,108,2025,7.3,64287,222255,5118
+2025-09-13,3,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,55275,555302,16128
+2025-09-13,4,Mama: Pesan Dari Neraka,Horror,92,2025,6.4,20601,73317,4399
+2025-09-13,5,Gereja Setan,Horror / Drama,110,2025,6.8,19894,95503,2558
+2025-09-13,6,The Long Walk,Thriller,108,2025,8.1,11643,36446,2959
+2025-09-13,7,The Shadows Edge,Action / Crime,142,2025,8.6,11370,681690,19499
+2025-09-13,8,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,9380,206296,5409
+2025-09-13,9,Red Sonja,Action / Fantasy,110,2025,7.0,5576,8999,919
+2025-09-13,10,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,5148,423570,18036
+2025-09-13,11,Exit 8,Horror,95,2025,7.8,4939,14306,768
+2025-09-13,12,Demon Slayer -Kimetsu No Yaiba- The Movie: Infinity Castle,Animation,155,2025,8.8,4004,2489742,41982
+2025-09-13,13,Siccin 8,Horror,108,2025,5.7,3241,7817,510
+2025-09-13,14,Lintrik,Horror,102,2025,7.3,1806,16459,532
+2025-09-13,15,Jujutsu Kaisen: Hidden Inventory/Premature Death - The Movie,Animation,111,2025,7.9,1198,32758,1840
+2025-09-13,16,Baaghi 4,Action,157,2025,6.6,746,1136,44
+2025-09-13,17,Operation Hadal,Action / War,146,2025,6.6,456,1054,136
+2025-09-13,18,CHA EUN-WOO VR CONCERT: MEMORIES,Music / Documentary,58,2025,0.0,123,227,32
+2025-09-16,1,The Conjuring: Last Rites,Horror,135,2025,7.5,47346,3094572,59355
+2025-09-16,2,Sukma,Thriller / Horror,108,2025,7.3,44993,378992,10689
+2025-09-16,3,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,30576,660054,20665
+2025-09-16,4,Gereja Setan,Horror / Drama,110,2025,6.8,16589,153282,5628
+2025-09-16,5,Mama: Pesan Dari Neraka,Horror,92,2025,6.4,7082,109117,7001
+2025-09-16,6,The Long Walk,Thriller,108,2025,8.1,3837,54535,4534
+2025-09-16,7,The Shadows Edge,Action / Crime,142,2025,8.6,3013,699203,20112
+2025-09-16,8,Exit 8,Horror,95,2025,7.8,2395,24547,1398
+2025-09-16,9,Red Sonja,Action / Fantasy,110,2025,7.0,1927,19300,1850
+2025-09-16,10,Menjelang Magrib 2: Wanita Yang Di Rantai,Horror,102,2025,6.0,1427,218021,5726
+2025-09-19,1,Sukma,Thriller / Horror,108,2025,7.3,71113,560638,14984
+2025-09-19,2,The Conjuring: Last Rites,Horror,135,2025,7.5,39040,3208076,64682
+2025-09-19,3,Jadi Tuh Barang,Comedy / Drama,101,2025,6.6,38911,90337,1817
+2025-09-19,4,Perempuan Pembawa Sial,Horror,98,2025,7.4,24617,61745,2478
+2025-09-19,5,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,22189,727241,24045
+2025-09-19,6,Maryam: Janji Dan Jiwa Yang Terikat,Horror,92,2025,7.5,17838,46851,2674
+2025-09-19,7,Gereja Setan,Horror / Drama,110,2025,6.8,8884,190047,7539
+2025-09-19,8,Detective Conan The Movie: One-Eyed Flashback,Mystery / Animation,110,2025,7.9,6198,26590,2128
+2025-09-19,9,Afterburn,Action / Science Fiction,106,2025,6.7,4464,16493,2112
+2025-09-19,10,A Big Bold Beautiful Journey,Fantasy / Romance,109,2025,7.9,3693,3693,1080
+2025-09-22,1,Sukma,Thriller / Horror,108,2025,7.3,70110,800099,19454
+2025-09-22,2,Jadi Tuh Barang,Comedy / Drama,101,2025,6.6,26507,190828,4902
+2025-09-22,3,The Conjuring: Last Rites,Horror,135,2025,7.5,25225,3350055,70059
+2025-09-22,4,Perempuan Pembawa Sial,Horror,98,2025,7.4,19748,131783,5880
+2025-09-22,5,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,13929,804349,27461
+2025-09-22,6,Gereja Setan,Horror / Drama,110,2025,6.8,6807,220648,8859
+2025-09-22,7,Maryam: Janji Dan Jiwa Yang Terikat,Horror,92,2025,7.5,4303,77698,5643
+2025-09-22,8,Afterburn,Action / Science Fiction,106,2025,6.7,3742,41098,3995
+2025-09-22,9,Detective Conan The Movie: One-Eyed Flashback,Mystery / Animation,110,2025,7.9,3429,66165,3996
+2025-09-22,10,The Shadows Edge,Action / Crime,142,2025,8.6,2385,722758,21148
+2025-09-25,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,119523,119523,2387
+2025-09-25,2,Cyberbullying,School Drama / Teen,104,2025,7.5,94187,141242,111
+2025-09-25,3,Sukma,Thriller / Horror,108,2025,7.3,33001,923799,23539
+2025-09-25,4,Dia Bukan Ibu,Horror,119,2025,7.7,30000,30000,1328
+2025-09-25,5,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,20453,20453,691
+2025-09-25,6,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,14863,33206,3128
+2025-09-25,7,The Conjuring: Last Rites,Horror,135,2025,7.5,11720,3398303,73703
+2025-09-25,8,Jadi Tuh Barang,Comedy / Drama,101,2025,6.6,11444,251252,7603
+2025-09-25,9,Perempuan Pembawa Sial,Horror,98,2025,7.4,7309,170825,8237
+2025-09-25,10,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,5907,832345,30124
+2025-09-25,11,Gereja Setan,Horror / Drama,110,2025,6.8,4226,235835,9923
+2025-09-25,12,The Shadows Edge,Action / Crime,142,2025,8.6,1656,728667,21642
+2025-09-25,13,Detective Conan The Movie: One-Eyed Flashback,Mystery / Animation,110,2025,7.9,882,71269,5062
+2025-09-25,14,Afterburn,Action / Science Fiction,106,2025,6.7,597,46115,5121
+2025-09-25,15,Exit 8,Horror,95,2025,7.8,579,34264,2238
+2025-09-25,16,Janji Senja,Family / Drama,101,2025,0.0,500,500,55
+2025-09-25,17,Maryam: Janji Dan Jiwa Yang Terikat,Horror,92,2025,7.5,442,85118,6954
+2025-09-25,18,Tharae: The Exorcist,Horror,119,2025,7.0,295,21582,2686
+2025-09-25,19,The Long Walk,Thriller,108,2025,8.1,249,70275,6243
+2025-09-25,20,BTS 2017 THE WINGS TOUR THE FINAL Remastered,Documentary / Music,107,2025,0.0,78,328,93
+2025-09-25,21,BTS 2016 LIVE The Most Beautiful Moment In Life On Stage: EPILOGUE REMASTERED,Documentary / Music,102,2025,0.0,57,338,96
+2025-09-28,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,206848,656447,12484
+2025-09-28,2,Juara Sejati,Family,111,2026,4.5,36052,226052,17
+2025-09-28,3,Sukma,Thriller / Horror,108,2025,7.3,28070,1011679,25835
+2025-09-28,4,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,26330,81459,4634
+2025-09-28,5,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,22280,96022,5973
+2025-09-28,6,Dia Bukan Ibu,Horror,119,2025,7.7,20944,93333,4297
+2025-09-28,7,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,18728,449833,18778
+2025-09-28,8,The Conjuring: Last Rites,Horror,135,2025,7.5,12859,3436753,75057
+2025-09-28,9,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,9270,861092,31193
+2025-09-28,10,Gabbys Dollhouse: The Movie,Family / Fantasy,98,2025,7.3,5014,13307,1226
+2025-09-28,11,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,4728,37826,2095
+2025-09-28,12,Perempuan Pembawa Sial,Horror,98,2025,7.4,4679,182076,8706
+2025-09-28,13,Gereja Setan,Horror / Drama,110,2025,6.8,3000,245218,10278
+2025-09-28,14,The Shadows Edge,Action / Crime,142,2025,8.6,2686,735108,21850
+2025-09-28,15,Lintrik,Horror,102,2025,7.3,2300,20288,896
+2025-09-28,16,Detective Conan The Movie: One-Eyed Flashback,Mystery / Animation,110,2025,7.9,2025,76275,5354
+2025-09-28,17,Jadi Tuh Barang,Comedy / Drama,101,2025,6.6,1716,270912,8616
+2025-09-28,18,Afterburn,Action / Science Fiction,106,2025,6.7,971,49503,5456
+2025-09-28,19,BTS 2016 LIVE The Most Beautiful Moment In Life On Stage: EPILOGUE REMASTERED,Documentary / Music,102,2025,0.0,516,1308,222
+2025-09-28,20,BTS 2017 THE WINGS TOUR THE FINAL Remastered,Documentary / Music,107,2025,0.0,357,1141,221
+2025-09-28,21,Exit 8,Horror,95,2025,7.8,337,35133,2304
+2025-09-28,22,Janji Senja,Family / Drama,101,2025,0.0,237,1268,87
+2025-10-01,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,98684,954738,24065
+2025-10-01,2,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,12636,127113,7879
+2025-10-01,3,Avatar: The Way of Water (Re-Release) (3D),Science Fiction / Action / Adventure,192,2025,9.5,11157,11157,298
+2025-10-01,4,Death Whisperer 3,Horror / Thriller,104,2025,7.3,10899,10899,1191
+2025-10-01,5,The Strangers: Chapter 2,Thriller,98,2025,6.7,10237,10237,1242
+2025-10-01,6,No Other Choice,Thriller,129,2025,8.3,6356,6356,329
+2025-10-01,7,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,5662,117739,8273
+2025-10-01,8,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,5169,55404,3219
+2025-10-01,9,Dia Bukan Ibu,Horror,119,2025,7.7,4464,111193,6396
+2025-10-01,10,The Conjuring: Last Rites,Horror,135,2025,7.5,4232,3455345,76265
+2025-10-01,11,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,2899,871809,32097
+2025-10-01,12,Gereja Setan,Horror / Drama,110,2025,6.8,1167,249741,10546
+2025-10-01,13,Gabbys Dollhouse: The Movie,Family / Fantasy,98,2025,7.3,974,17101,1832
+2025-10-01,14,The Shadows Edge,Action / Crime,142,2025,8.6,388,737333,22055
+2025-10-01,15,BTS 2019 `LOVE YOURSELF: SPEAK YOURSELF` LONDON REMASTERED,Documentary / Music,108,2025,0.0,379,379,50
+2025-10-01,16,Detective Conan The Movie: One-Eyed Flashback,Mystery / Animation,110,2025,7.9,332,77599,5642
+2025-10-01,17,BTS 2021 MUSTER SOWOOZOO Remastered,Documentary / Music,95,2025,0.0,213,213,50
+2025-10-01,18,Afterburn,Action / Science Fiction,106,2025,6.7,55,50128,5703
+2025-10-04,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,172646,1307175,32036
+2025-10-04,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,54257,132083,5904
+2025-10-04,3,Tukar Takdir,Survival / Drama,107,2025,7.6,40929,132157,5799
+2025-10-04,4,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,17159,167318,9341
+2025-10-04,5,Avatar: The Way of Water (Re-Release) (3D),Science Fiction / Action / Adventure,192,2025,9.5,14446,37884,1097
+2025-10-04,6,Rest Area,Horror,79,2025,6.3,12725,38725,1925
+2025-10-04,7,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,12514,141012,9383
+2025-10-04,8,No Other Choice,Thriller,129,2025,8.3,7637,21711,1011
+2025-10-04,9,The Strangers: Chapter 2,Thriller,98,2025,6.7,7312,26125,2688
+2025-10-04,10,Death Whisperer 3,Horror / Thriller,104,2025,7.3,5939,26066,2464
+2025-10-04,11,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,5690,69050,3677
+2025-10-04,12,The Conjuring: Last Rites,Horror,135,2025,7.5,4767,3465402,76645
+2025-10-04,13,Dia Bukan Ibu,Horror,119,2025,7.7,2134,115873,6749
+2025-10-04,14,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,1714,876095,32308
+2025-10-04,15,BTS 2019 `LOVE YOURSELF: SPEAK YOURSELF` LONDON REMASTERED,Documentary / Music,108,2025,0.0,1581,2195,159
+2025-10-04,16,Maria,Drama / Biography,123,2025,8.6,780,780,310
+2025-10-04,17,BTS 2021 MUSTER SOWOOZOO Remastered,Documentary / Music,95,2025,0.0,477,876,143
+2025-10-04,18,Sunny Sanskari Ki Tulsi Kumari,Romance / Comedy,134,2025,7.2,442,859,57
+2025-10-05,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,155383,1462558,35205
+2025-10-05,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,40854,172937,7681
+2025-10-05,3,Tukar Takdir,Survival / Drama,107,2025,7.6,31848,164005,7500
+2025-10-05,4,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,14796,476006,18898
+2025-10-05,5,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,13907,181225,9941
+2025-10-05,6,Avatar: The Way of Water (Re-Release) (3D),Science Fiction / Action / Adventure,192,2025,9.5,12809,50693,1357
+2025-10-05,7,Rest Area,Horror,79,2025,6.3,11762,50487,2568
+2025-10-05,8,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,10906,151918,9808
+2025-10-05,9,No Other Choice,Thriller,129,2025,8.3,6589,28300,1237
+2025-10-05,10,Death Whisperer 3,Horror / Thriller,104,2025,7.3,6167,32233,2800
+2025-10-05,11,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,5453,74503,3815
+2025-10-05,12,The Strangers: Chapter 2,Thriller,98,2025,6.7,5403,31528,3053
+2025-10-05,13,The Conjuring: Last Rites,Horror,135,2025,7.5,4192,3469594,76796
+2025-10-05,14,Dia Bukan Ibu,Horror,119,2025,7.7,2165,118038,6857
+2025-10-05,15,Gereja Setan,Horror / Drama,110,2025,6.8,1992,251733,10648
+2025-10-05,16,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,1548,877643,32367
+2025-10-05,17,BTS 2019 `LOVE YOURSELF: SPEAK YOURSELF` LONDON REMASTERED,Documentary / Music,108,2025,0.0,1033,3228,209
+2025-10-05,18,Maria,Drama / Biography,123,2025,8.6,482,1262,389
+2025-10-05,19,Sunny Sanskari Ki Tulsi Kumari,Romance / Comedy,134,2025,7.2,359,1218,82
+2025-10-05,20,BTS 2021 MUSTER SOWOOZOO Remastered,Documentary / Music,95,2025,0.0,204,1080,187
+2025-10-06,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,72373,1534931,38334
+2025-10-06,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,42430,215367,9401
+2025-10-06,3,Tukar Takdir,Survival / Drama,107,2025,7.6,18124,182129,9078
+2025-10-06,4,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,8451,189676,10521
+2025-10-06,5,Rest Area,Horror,79,2025,6.3,8309,58796,3164
+2025-10-06,6,Avatar: The Way of Water (Re-Release) (3D),Science Fiction / Action / Adventure,192,2025,9.5,3605,54298,1606
+2025-10-06,7,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,3405,77908,3955
+2025-10-06,8,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,3388,155306,10269
+2025-10-06,9,Death Whisperer 3,Horror / Thriller,104,2025,7.3,2535,34768,3134
+2025-10-06,10,No Other Choice,Thriller,129,2025,8.3,2504,30804,1458
+2025-10-06,11,The Strangers: Chapter 2,Thriller,98,2025,6.7,2038,33566,3389
+2025-10-06,12,The Conjuring: Last Rites,Horror,135,2025,7.5,1589,3471183,76948
+2025-10-06,13,Dia Bukan Ibu,Horror,119,2025,7.7,918,118956,6962
+2025-10-06,14,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,625,878268,32426
+2025-10-06,15,Maria,Drama / Biography,123,2025,8.6,193,1455,434
+2025-10-07,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,74027,1608958,41364
+2025-10-07,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,40964,256331,11331
+2025-10-07,3,Tukar Takdir,Survival / Drama,107,2025,7.6,20047,202176,10551
+2025-10-07,4,Rest Area,Horror,79,2025,6.3,9266,68062,3740
+2025-10-07,5,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,6599,196275,11061
+2025-10-07,6,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,4159,159465,10758
+2025-10-07,7,Avatar: The Way of Water (Re-Release) (3D),Science Fiction / Action / Adventure,192,2025,9.5,3293,57591,1850
+2025-10-07,8,Death Whisperer 3,Horror / Thriller,104,2025,7.3,3244,38012,3450
+2025-10-07,9,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,2970,80878,4099
+2025-10-07,10,No Other Choice,Thriller,129,2025,8.3,2707,33511,1680
+2025-10-07,11,The Strangers: Chapter 2,Thriller,98,2025,6.7,2039,35605,3686
+2025-10-07,12,The Conjuring: Last Rites,Horror,135,2025,7.5,1767,3472950,77109
+2025-10-07,13,Dia Bukan Ibu,Horror,119,2025,7.7,811,119767,7059
+2025-10-07,14,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,599,878867,32484
+2025-10-07,15,Maria,Drama / Biography,123,2025,8.6,146,1601,477
+2025-10-09,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,56720,1740628,45555
+2025-10-09,2,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,52975,52975,1684
+2025-10-09,3,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,30221,326997,14594
+2025-10-09,4,Tron: Ares,Action / Science Fiction,119,2025,7.7,18753,54977,5308
+2025-10-09,5,Cyberbullying,School Drama / Teen,104,2025,7.5,15217,167269,163
+2025-10-09,6,Yakin Nikah,Drama / Romance,108,2025,7.6,12529,12529,1020
+2025-10-09,7,Pencarian Terakhir,Mystery / Horror,103,2025,6.6,7858,483864,18935
+2025-10-09,8,Tukar Takdir,Survival / Drama,107,2025,7.6,6347,225761,12395
+2025-10-09,9,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,3425,204005,11549
+2025-10-09,10,Rest Area,Horror,79,2025,6.3,2055,76291,4378
+2025-10-09,11,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,1750,162996,11101
+2025-10-09,12,Dibalik Pintu Kematian,Horror,90,2025,3.5,1746,1746,263
+2025-10-09,13,No Other Choice,Thriller,129,2025,8.3,1470,36638,1894
+2025-10-09,14,Dongji Rescue,Action / Drama / History,134,2025,8.6,1219,2391,395
+2025-10-09,15,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,1155,84225,4253
+2025-10-09,16,Good Boy,Horror,73,2025,7.1,1010,2330,258
+2025-10-09,17,The Conjuring: Last Rites,Horror,135,2025,7.5,774,3474556,77216
+2025-10-09,18,Death Whisperer 3,Horror / Thriller,104,2025,7.3,758,40238,3686
+2025-10-09,19,The Strangers: Chapter 2,Thriller,98,2025,6.7,349,36606,3883
+2025-10-10,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,57684,1798312,47448
+2025-10-10,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,49640,376637,16162
+2025-10-10,3,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,27960,80935,3349
+2025-10-10,4,Tron: Ares,Action / Science Fiction,119,2025,7.7,25679,80656,7453
+2025-10-10,5,Yakin Nikah,Drama / Romance,108,2025,7.6,10673,23202,1905
+2025-10-10,6,Tukar Takdir,Survival / Drama,107,2025,7.6,7786,233547,12973
+2025-10-10,7,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,4745,4745,645
+2025-10-10,8,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,4103,208108,11734
+2025-10-10,9,Rest Area,Horror,79,2025,6.3,2583,78874,4560
+2025-10-10,10,Dibalik Pintu Kematian,Horror,90,2025,3.5,1997,3743,472
+2025-10-10,11,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,1514,164510,11188
+2025-10-10,12,Good Boy,Horror,73,2025,7.1,1410,3740,392
+2025-10-10,13,No Other Choice,Thriller,129,2025,8.3,1196,37834,1964
+2025-10-10,14,Dongji Rescue,Action / Drama / History,134,2025,8.6,966,3357,515
+2025-10-10,15,Dilanjutkan Salah Disudahi Perih,Romance / Comedy,128,2025,7.6,911,85136,4298
+2025-10-10,16,The Conjuring: Last Rites,Horror,135,2025,7.5,664,3475220,77246
+2025-10-10,17,Death Whisperer 3,Horror / Thriller,104,2025,7.3,549,40787,3737
+2025-10-10,18,The Strangers: Chapter 2,Thriller,98,2025,6.7,258,36864,3913
+2025-10-11,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,88853,1887165,49534
+2025-10-11,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,77383,454020,18071
+2025-10-11,3,Tron: Ares,Action / Science Fiction,119,2025,7.7,53064,133720,9599
+2025-10-11,4,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,32147,113082,4797
+2025-10-11,5,Yakin Nikah,Drama / Romance,108,2025,7.6,11777,34979,2711
+2025-10-11,6,Tukar Takdir,Survival / Drama,107,2025,7.6,9442,242989,13514
+2025-10-11,7,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,6540,214648,11971
+2025-10-11,8,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,5503,10248,1257
+2025-10-11,9,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,4323,168833,11284
+2025-10-11,10,Rest Area,Horror,79,2025,6.3,4219,83093,4723
+2025-10-13,1,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,38464,2010912,53907
+2025-10-13,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,34295,541320,21875
+2025-10-13,3,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,15996,161831,7453
+2025-10-13,4,Tron: Ares,Action / Science Fiction,119,2025,7.7,12435,187159,13719
+2025-10-13,5,Tukar Takdir,Survival / Drama,107,2025,7.6,6119,257471,14713
+2025-10-13,6,Yakin Nikah,Drama / Romance,108,2025,7.6,3796,49762,4213
+2025-10-13,7,Rest Area,Horror,79,2025,6.3,1874,89198,5066
+2025-10-13,8,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,1792,222116,12435
+2025-10-13,9,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,1420,15741,2211
+2025-10-13,10,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,1165,173772,11505
+2025-10-16,1,Getih Ireng,Horror,106,2025,7.1,45522,45522,1900
+2025-10-16,2,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,27175,634896,26934
+2025-10-16,3,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,22299,2099449,59529
+2025-10-16,4,Jangan Panggil Mama Kafir,Religious / Drama,110,2025,7.4,14085,14085,1173
+2025-10-16,5,Black Phone 2,Horror,114,2025,7.7,8399,19897,3724
+2025-10-16,6,Tron: Ares,Action / Science Fiction,119,2025,7.7,5214,209092,17206
+2025-10-16,7,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,3565,188345,9822
+2025-10-16,8,Tukar Takdir,Survival / Drama,107,2025,7.6,2581,269688,16284
+2025-10-16,9,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,1664,3781,368
+2025-10-16,10,Menuju Pelaminan - The Road To Marriage,Romance / Drama,108,2025,7.8,1243,1243,553
+2025-10-16,11,Yakin Nikah,Drama / Romance,108,2025,7.6,1233,56312,5338
+2025-10-16,12,Cristine,Horror,94,2025,2.0,1096,1096,164
+2025-10-16,13,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,992,225994,12911
+2025-10-16,14,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,980,176931,11867
+2025-10-16,15,No Other Choice,Thriller,129,2025,8.3,715,47339,2372
+2025-10-16,16,Good Fortune,Comedy,98,2025,8.1,593,1090,335
+2025-10-16,17,Rest Area,Horror,79,2025,6.3,522,93043,5447
+2025-10-16,18,Good Boy,Horror,73,2025,7.1,475,11298,1151
+2025-10-16,19,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,350,17551,2798
+2025-10-16,20,The Conjuring: Last Rites,Horror,135,2025,7.5,283,3478416,77479
+2025-10-16,21,Dongji Rescue,Action / Drama / History,134,2025,8.6,226,8924,1008
+2025-10-16,22,Death Whisperer 3,Horror / Thriller,104,2025,7.3,184,45209,4200
+2025-10-19,1,Getih Ireng,Horror,106,2025,7.1,54419,190296,8192
+2025-10-19,2,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,45092,2217196,64404
+2025-10-19,3,Cyberbullying,School Drama / Teen,104,2025,7.5,36040,230941,200
+2025-10-19,4,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,32971,756979,31741
+2025-10-19,5,Tron: Ares,Action / Science Fiction,119,2025,7.7,18836,255268,19661
+2025-10-19,6,Black Phone 2,Horror,114,2025,7.7,8781,46996,6617
+2025-10-19,7,The Cursed,Horror,96,2025,6.5,7921,21946,1822
+2025-10-19,8,Jangan Panggil Mama Kafir,Religious / Drama,110,2025,7.4,7546,44717,4096
+2025-10-19,9,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,5986,201764,10405
+2025-10-19,10,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,3083,11436,812
+2025-10-19,11,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,2336,183825,12218
+2025-10-19,12,Tukar Takdir,Survival / Drama,107,2025,7.6,1772,276214,16910
+2025-10-19,13,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,1348,230385,13267
+2025-10-19,14,No Other Choice,Thriller,129,2025,8.3,1301,50848,2524
+2025-10-19,15,Menuju Pelaminan - The Road To Marriage,Romance / Drama,108,2025,7.8,1268,4715,1075
+2025-10-19,16,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,1089,20267,3240
+2025-10-19,17,Yakin Nikah,Drama / Romance,108,2025,7.6,1076,59666,5689
+2025-10-19,18,Rest Area,Horror,79,2025,6.3,692,94615,5574
+2025-10-19,19,Good Fortune,Comedy,98,2025,8.1,613,3022,658
+2025-10-19,20,Good Boy,Horror,73,2025,7.1,607,12944,1307
+2025-10-19,21,Dongji Rescue,Action / Drama / History,134,2025,8.6,527,10085,1083
+2025-10-19,22,It Was Just An Accident,Thriller / Drama,103,2025,8.0,410,1487,236
+2025-10-19,23,Death Whisperer 3,Horror / Thriller,104,2025,7.3,339,46030,4303
+2025-10-19,24,Cristine,Horror,94,2025,2.0,227,2354,408
+2025-10-22,1,Andai Ibu Tidak Menikah Dengan Ayah,Family / Drama,119,2025,7.6,24410,903277,33043
+2025-10-22,2,Getih Ireng,Horror,106,2025,7.1,18638,255250,14072
+2025-10-22,3,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,16741,2274499,69130
+2025-10-22,4,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,15754,804734,36331
+2025-10-22,5,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,5467,5467,876
+2025-10-22,6,Tron: Ares,Action / Science Fiction,119,2025,7.7,3007,267744,21890
+2025-10-22,7,The Toxic Avenger,Action / Science Fiction,102,2025,6.8,2336,2336,1346
+2025-10-22,8,Jangan Panggil Mama Kafir,Religious / Drama,110,2025,7.4,1999,52783,5954
+2025-10-22,9,Your Letter,Animation,97,2025,8.2,1750,1750,265
+2025-10-22,10,Black Phone 2,Horror,114,2025,7.7,1717,54442,8575
+2025-10-22,11,ONE In A MILL10N,Documentary / Music,121,2025,9.0,1685,1685,52
+2025-10-22,12,The Cursed,Horror,96,2025,6.5,1509,29339,3276
+2025-10-22,13,Jembatan Shiratal Mustaqim,Religious / Horror,96,2025,6.2,764,206361,10994
+2025-10-22,14,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,648,14106,1238
+2025-10-22,15,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,515,232177,13645
+2025-10-22,16,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,423,186161,12596
+2025-10-22,17,Yakin Nikah,Drama / Romance,108,2025,7.6,286,60825,6023
+2025-10-22,18,Thamma,Comedy / Horror / Romance,150,2025,7.3,200,400,43
+2025-10-22,19,Tukar Takdir,Survival / Drama,107,2025,7.6,181,277238,17221
+2025-10-22,20,Good Fortune,Comedy,98,2025,8.1,152,3785,848
+2025-10-22,21,The Smashing Machine,Sport / Biography / Action,123,2025,7.8,82,20931,3475
+2025-10-25,1,Tumbal Darah,Horror,92,2025,7.1,32437,108276,5572
+2025-10-25,2,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,28695,2328501,71971
+2025-10-25,3,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,27125,62213,2972
+2025-10-25,4,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,20842,850057,39093
+2025-10-25,5,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,16548,76058,5034
+2025-10-25,6,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,12734,26793,3139
+2025-10-25,7,Getih Ireng,Horror,106,2025,7.1,9480,279920,16703
+2025-10-25,8,Tron: Ares,Action / Science Fiction,119,2025,7.7,7102,280107,22790
+2025-10-25,9,Murder Report,Thriller / Drama,107,2025,8.4,3318,5334,809
+2025-10-25,10,Black Phone 2,Horror,114,2025,7.7,3035,59814,9058
+2025-10-25,11,The Toxic Avenger,Action / Science Fiction,102,2025,6.8,2149,6603,2646
+2025-10-25,12,Your Letter,Animation,97,2025,8.2,1909,5898,738
+2025-10-25,13,ONE In A MILL10N,Documentary / Music,121,2025,9.0,1861,4369,174
+2025-10-25,14,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,1776,235869,14005
+2025-10-25,15,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,1686,188787,12821
+2025-10-25,16,The Cursed,Horror,96,2025,6.5,1498,32871,3625
+2025-10-25,17,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,948,15846,1460
+2025-10-25,18,Cyberbullying,School Drama / Teen,104,2025,7.5,822,232912,492
+2025-10-25,19,Sentimental Value,Drama,133,2025,8.4,703,1135,132
+2025-10-25,20,Jangan Panggil Mama Kafir,Religious / Drama,110,2025,7.4,700,54637,6276
+2025-10-25,21,The Ugly,Thriller / Mystery,103,2025,7.7,325,593,222
+2025-10-25,22,Thamma,Comedy / Horror / Romance,150,2025,7.3,234,936,98
+2025-10-26,1,Tumbal Darah,Horror,92,2025,7.1,31892,140168,7403
+2025-10-26,2,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,28992,2357493,73077
+2025-10-26,3,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,24412,86625,4224
+2025-10-26,4,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,16334,92392,6444
+2025-10-26,5,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,14383,864440,40094
+2025-10-26,6,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,9974,36767,4007
+2025-10-26,7,Getih Ireng,Horror,106,2025,7.1,9855,289775,17418
+2025-10-26,8,Tron: Ares,Action / Science Fiction,119,2025,7.7,5812,285919,23120
+2025-10-26,9,Murder Report,Thriller / Drama,107,2025,8.4,2733,8067,1158
+2025-10-26,10,Black Phone 2,Horror,114,2025,7.7,2444,62258,9209
+2025-10-26,11,Your Letter,Animation,97,2025,8.2,1727,7625,870
+2025-10-26,12,The Toxic Avenger,Action / Science Fiction,102,2025,6.8,1686,8289,3029
+2025-10-26,13,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,1558,190345,12890
+2025-10-26,14,The Cursed,Horror,96,2025,6.5,1454,34325,3715
+2025-10-26,15,ONE In A MILL10N,Documentary / Music,121,2025,9.0,1431,5800,228
+2025-10-26,16,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,1287,237156,14120
+2025-10-26,17,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,1042,16888,1535
+2025-10-26,18,Cyberbullying,School Drama / Teen,104,2025,7.5,542,233454,527
+2025-10-26,19,Jangan Panggil Mama Kafir,Religious / Drama,110,2025,7.4,521,55158,6354
+2025-10-26,20,Sentimental Value,Drama,133,2025,8.4,424,1559,195
+2025-10-26,21,The Ugly,Thriller / Mystery,103,2025,7.7,358,951,309
+2025-10-26,22,Thamma,Comedy / Horror / Romance,150,2025,7.3,257,1193,116
+2025-10-27,1,Tumbal Darah,Horror,92,2025,7.1,19143,159311,9171
+2025-10-27,2,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,15577,102202,5513
+2025-10-27,3,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,12540,2370033,74200
+2025-10-27,4,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,8412,100804,7687
+2025-10-27,5,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,7513,871953,41015
+2025-10-27,6,Getih Ireng,Horror,106,2025,7.1,4712,294487,18156
+2025-10-27,7,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,3150,39917,4840
+2025-10-27,8,Murder Report,Thriller / Drama,107,2025,8.4,1444,9511,1478
+2025-10-27,9,Tron: Ares,Action / Science Fiction,119,2025,7.7,1244,287163,23447
+2025-10-27,10,Your Letter,Animation,97,2025,8.2,1100,8725,983
+2025-10-27,11,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,863,238019,14224
+2025-10-27,12,Black Phone 2,Horror,114,2025,7.7,703,62961,9360
+2025-10-27,13,The Toxic Avenger,Action / Science Fiction,102,2025,6.8,518,8807,3391
+2025-10-27,14,The Cursed,Horror,96,2025,6.5,496,34821,3805
+2025-10-27,15,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,303,17191,1607
+2025-10-27,16,Sentimental Value,Drama,133,2025,8.4,237,1796,252
+2025-10-27,17,The Ugly,Thriller / Mystery,103,2025,7.7,235,1186,376
+2025-10-27,18,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,167,190512,12957
+2025-10-28,1,Tumbal Darah,Horror,92,2025,7.1,17176,176487,10887
+2025-10-28,2,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,16069,2386102,75319
+2025-10-28,3,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,13979,116181,6853
+2025-10-28,4,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,11521,112325,8841
+2025-10-28,5,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,6876,878829,41956
+2025-10-28,6,Getih Ireng,Horror,106,2025,7.1,5481,299968,18923
+2025-10-28,7,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,2684,42601,5566
+2025-10-28,8,Tron: Ares,Action / Science Fiction,119,2025,7.7,1345,288508,23779
+2025-10-28,9,Murder Report,Thriller / Drama,107,2025,8.4,950,10461,1781
+2025-10-28,10,The Toxic Avenger,Action / Science Fiction,102,2025,6.8,799,9606,3746
+2025-10-28,11,Black Phone 2,Horror,114,2025,7.7,764,63725,9545
+2025-10-28,12,Chainsaw Man - The Movie: Reze Arc,Animation / Fantasy,100,2025,8.2,692,238711,14328
+2025-10-28,13,The Cursed,Horror,96,2025,6.5,612,35433,3930
+2025-10-28,14,Your Letter,Animation,97,2025,8.2,481,9206,1091
+2025-10-28,15,One Battle After Another,Crime / Thriller / Suspense,162,2025,8.6,371,190883,13033
+2025-10-28,16,Sentimental Value,Drama,133,2025,8.4,248,2044,307
+2025-10-28,17,A Writers Odyssey 2,Action / Fantasy,133,2025,7.9,221,17412,1682
+2025-10-28,18,The Ugly,Thriller / Mystery,103,2025,7.7,121,1307,439
+2025-10-31,1,Shutter,Mystery / Horror,89,2025,6.6,28755,60459,4031
+2025-10-31,2,Tumbal Darah,Horror,92,2025,7.1,14488,226856,14423
+2025-10-31,3,Si Paling Aktor,Comedy / Drama,92,2025,7.2,12319,20193,3213
+2025-10-31,4,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,12119,163331,9689
+2025-10-31,5,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,7805,2414076,77324
+2025-10-31,6,Pengin Hijrah,Religious / Drama / Romance,114,2025,7.0,7006,22252,1514
+2025-10-31,7,Rosario,Horror,88,2025,6.5,5128,5128,936
+2025-10-31,8,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,3680,137468,10689
+2025-10-31,9,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,3511,890528,43421
+2025-10-31,10,Regretting You,Drama / Romance,116,2025,7.6,2884,2884,844
+2025-11-03,1,Tumbal Darah,Horror,92,2025,7.1,15515,293683,17530
+2025-11-03,2,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,14149,234231,12500
+2025-11-03,3,Shutter,Mystery / Horror,89,2025,6.6,12912,165961,10655
+2025-11-03,4,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,11835,2470552,79594
+2025-11-03,5,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,3871,904886,44839
+2025-11-03,6,Pengin Hijrah,Religious / Drama / Romance,114,2025,7.0,3782,39132,2926
+2025-11-03,7,Si Paling Aktor,Comedy / Drama,92,2025,7.2,3493,40054,5837
+2025-11-03,8,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,3421,153940,11764
+2025-11-03,9,Rosario,Horror,88,2025,6.5,2474,24939,3407
+2025-11-03,10,Getih Ireng,Horror,106,2025,7.1,1758,315715,20658
+2025-11-03,11,Tin Soldier,Thriller / Action,86,2025,4.8,1642,18045,3659
+2025-11-03,12,Tron: Ares,Action / Science Fiction,119,2025,7.7,1160,299249,25085
+2025-11-03,13,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,1074,54963,7906
+2025-11-03,14,Regretting You,Drama / Romance,116,2025,7.6,863,8097,1947
+2025-11-03,15,Badik,Mystery / Drama / Action,84,2025,4.0,568,5793,359
+2025-11-03,16,Shelby Oaks,Horror,91,2025,6.7,477,4489,858
+2025-11-03,17,Caught Stealing,Crime / Thriller / Comedy,107,2025,8.1,426,7008,1644
+2025-11-06,1,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,109889,109889,2127
+2025-11-06,2,Pangku,Drama,104,2025,8.3,53349,53349,1601
+2025-11-06,3,Predator: Badlands,Action / Science Fiction,107,2025,8.0,30066,75272,5442
+2025-11-06,4,Kuncen,Horror,108,2025,5.8,18057,18057,977
+2025-11-06,5,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,14843,280693,15159
+2025-11-06,6,Tumbal Darah,Horror,92,2025,7.1,7096,329164,20016
+2025-11-06,7,Shutter,Mystery / Horror,89,2025,6.6,4506,195422,15092
+2025-11-06,8,Solata,Drama / Family / Comedy,106,2025,6.3,3455,3455,92
+2025-11-06,9,Sentimental Value,Drama,133,2025,8.4,2877,4921,378
+2025-11-06,10,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,2841,2490102,81483
+2025-11-06,11,Pengin Hijrah,Religious / Drama / Romance,114,2025,7.0,1763,48007,3954
+2025-11-06,12,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,1627,913149,45898
+2025-11-06,13,Air Mata Di Ujung Sajadah 2,Drama / Religious,105,2025,6.9,1323,161245,12597
+2025-11-06,14,Boss,Comedy / Action,98,2025,7.1,573,1135,411
+2025-11-06,15,Rosario,Horror,88,2025,6.5,360,28956,4538
+2025-11-06,16,Stolen Girl,Thriller / Drama / Action,105,2025,7.2,308,56777,8589
+2025-11-06,17,Getih Ireng,Horror,106,2025,7.1,269,319092,21229
+2025-11-06,18,Tron: Ares,Action / Science Fiction,119,2025,7.7,228,300769,25545
+2025-11-06,19,Regretting You,Drama / Romance,116,2025,7.6,190,9695,2358
+2025-11-06,20,Tin Soldier,Thriller / Action,86,2025,4.8,152,20142,4420
+2025-11-06,21,Measure in Love,Romance,113,2025,6.5,62,108,137
+2025-11-09,1,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,101399,375288,9815
+2025-11-09,2,Cyberbullying,School Drama / Teen,104,2025,7.5,65506,298960,698
+2025-11-09,3,Predator: Badlands,Action / Science Fiction,107,2025,8.0,59234,242652,12509
+2025-11-09,4,Pangku,Drama,104,2025,8.3,44826,201879,8176
+2025-11-09,5,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,15151,322456,16795
+2025-11-09,6,Kuncen,Horror,108,2025,5.8,13273,49113,3258
+2025-11-09,7,The First Ride,Adventure / Comedy,116,2025,7.7,7029,21965,2504
+2025-11-09,8,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,5709,2502992,82020
+2025-11-09,9,Tumbal Darah,Horror,92,2025,7.1,2822,340131,20745
+2025-11-09,10,Sore Istri Dari Masa Depan,Drama / Romance,119,2025,9.0,2818,3084897,47778
+2025-11-12,1,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,69168,69168,2312
+2025-11-12,2,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,48634,529829,17159
+2025-11-12,3,Pangku,Drama,104,2025,8.3,40905,300925,14445
+2025-11-12,4,Predator: Badlands,Action / Science Fiction,107,2025,8.0,10506,295662,18485
+2025-11-12,5,The Running Man,Action / Thriller,133,2025,8.0,6763,6763,1285
+2025-11-12,6,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,3944,336663,18199
+2025-11-12,7,Kuncen,Horror,108,2025,5.8,2104,63557,5089
+2025-11-12,8,The First Ride,Adventure / Comedy,116,2025,7.7,811,27656,4145
+2025-11-12,9,Kang Solah From Kang Mak x Nenek Gayung,Comedy / Horror,116,2025,7.3,772,2507270,82549
+2025-11-12,10,J-HOPE Tour - HOPE ON THE STAGE The Movie,Documentary / Music,90,2025,0.0,655,655,41
+2025-11-15,1,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,130394,315277,6870
+2025-11-15,2,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,126967,313831,9183
+2025-11-15,3,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,55063,131271,3787
+2025-11-15,4,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,41152,639789,20800
+2025-11-15,5,Pangku,Drama,104,2025,8.3,28865,375948,17625
+2025-11-15,6,Dopamin,Survival / Romance,94,2025,7.7,22404,76908,3791
+2025-11-15,7,Predator: Badlands,Action / Science Fiction,107,2025,8.0,17802,327438,19843
+2025-11-15,8,The Running Man,Action / Thriller,133,2025,8.0,7855,23426,3016
+2025-11-15,9,Wicked,Fantasy / Musical,160,2025,9.6,2976,4192,220
+2025-11-15,10,Tak Kenal Maka Taaruf,Religious / Romance,99,2025,7.5,1507,10251,564
+2025-11-15,11,The First Ride,Adventure / Comedy,116,2025,7.7,1174,30201,4386
+2025-11-15,12,Kuncen,Horror,108,2025,5.8,803,65237,5249
+2025-11-15,13,J-HOPE Tour - HOPE ON THE STAGE The Movie,Documentary / Music,90,2025,0.0,760,1639,119
+2025-11-15,14,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,718,338815,18353
+2025-11-15,15,My Boo 2,Drama / Fantasy / Romance,117,2025,7.0,410,873,320
+2025-11-15,16,The Legend of Hei 2,Animation / Adventure,119,2025,8.2,144,274,87
+2025-11-18,1,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,71419,599259,14418
+2025-11-18,2,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,27741,474248,16624
+2025-11-18,3,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,23154,249967,8548
+2025-11-18,4,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,17238,713532,24034
+2025-11-18,5,Pangku,Drama,104,2025,8.3,14987,434058,20952
+2025-11-18,6,Dopamin,Survival / Romance,94,2025,7.7,10973,119603,6440
+2025-11-18,7,Predator: Badlands,Action / Science Fiction,107,2025,8.0,3613,353052,21399
+2025-11-18,8,The Running Man,Action / Thriller,133,2025,8.0,1671,33402,4237
+2025-11-18,9,Rangga & Cinta,Romance / Musical / Drama / Teen,119,2025,7.7,763,919554,46518
+2025-11-18,10,The First Ride,Adventure / Comedy,116,2025,7.7,246,31694,4611
+2025-11-21,1,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,81000,837667,20646
+2025-11-21,2,Wicked: For Good,Fantasy / Musical,137,2025,8.1,55267,178599,6971
+2025-11-21,3,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,29768,559070,21100
+2025-11-21,4,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,26051,56250,1201
+2025-11-21,5,Keadilan (The Verdict),Crime / Thriller,100,2025,7.6,22364,54202,3053
+2025-11-21,6,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,17820,307478,11467
+2025-11-21,7,Pangku,Drama,104,2025,8.3,9610,465308,22620
+2025-11-21,8,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,9149,744726,25454
+2025-11-21,9,Dopamin,Survival / Romance,94,2025,7.7,5719,140842,7706
+2025-11-21,10,Keeper,Horror,99,2025,7.1,3378,3378,502
+2025-11-21,11,Predator: Badlands,Action / Science Fiction,107,2025,8.0,1943,359249,21849
+2025-11-21,12,Leak 2 (Jimat Dadong),Horror,89,2025,4.0,1066,4321,155
+2025-11-21,13,Belum Ada Judul,Drama,88,2025,6.6,1023,3259,1059
+2025-11-21,14,Jujutsu Kaisen: Zero -Revival-,Animation / Fantasy,105,2025,9.0,509,509,124
+2025-11-21,15,Samsara,Drama / Fantasy,80,2025,8.4,148,777,73
+2025-11-21,16,120 Bahadur,War / Action,137,2025,9.0,140,140,14
+2025-11-24,1,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,66758,1131105,27645
+2025-11-24,2,Wicked: For Good,Fantasy / Musical,137,2025,8.1,24498,397872,13721
+2025-11-24,3,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,16585,673219,25872
+2025-11-24,4,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,14186,387788,14188
+2025-11-24,5,Pangku,Drama,104,2025,8.3,11100,516970,24722
+2025-11-24,6,Keadilan (The Verdict),Crime / Thriller,100,2025,7.6,6713,84758,5856
+2025-11-24,7,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,5589,80257,3140
+2025-11-24,8,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,5031,770669,26517
+2025-11-24,9,Dopamin,Survival / Romance,94,2025,7.7,3437,155680,8570
+2025-11-24,10,Keeper,Horror,99,2025,7.1,1081,12293,1426
+2025-11-24,11,Predator: Badlands,Action / Science Fiction,107,2025,8.0,1066,368957,22229
+2025-11-24,12,Jujutsu Kaisen: Zero -Revival-,Animation / Fantasy,105,2025,9.0,182,1637,325
+2025-11-27,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,272846,272846,3722
+2025-11-27,2,Zootopia 2,Adventure / Animation,108,2025,8.5,42021,123555,5078
+2025-11-27,3,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,34167,1294173,33692
+2025-11-27,4,Air Mata Mualaf,Religious / Drama,111,2025,6.7,24300,24300,597
+2025-11-27,5,Legenda Kelam Malin Kundang,Mystery / Thriller,99,2025,7.5,16000,16000,1199
+2025-11-27,6,Wicked: For Good,Fantasy / Musical,137,2025,8.1,8364,444452,17528
+2025-11-27,7,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,7363,710204,29303
+2025-11-27,8,Pangku,Drama,104,2025,8.3,3855,543610,26519
+2025-11-27,9,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,2686,417189,16126
+2025-11-27,10,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,1414,90865,4512
+2025-11-27,11,Sosok Ketiga: Lintrik,Horror,117,2025,6.7,1013,780753,27284
+2025-11-27,12,Keadilan (The Verdict),Crime / Thriller,100,2025,7.6,416,96316,7213
+2025-11-27,13,The Voice of Hind Rajab,Drama / Documentary,89,2025,8.5,389,954,157
+2025-11-27,14,Ha Gom: The Darkness Of Soul,Horror,85,2025,5.0,120,395,92
+2025-11-30,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,619425,1825342,17912
+2025-11-30,2,Zootopia 2,Adventure / Animation,108,2025,8.5,96129,402761,10240
+2025-11-30,3,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,44426,1423272,36483
+2025-11-30,4,Cyberbullying,School Drama / Teen,104,2025,7.5,32161,430000,765
+2025-11-30,5,Wicked: For Good,Fantasy / Musical,137,2025,8.1,12098,489417,18573
+2025-11-30,6,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,8487,744120,30333
+2025-11-30,7,Legenda Kelam Malin Kundang,Mystery / Thriller,99,2025,7.5,7916,41959,2688
+2025-11-30,8,Maju Serem Mundur Horor,Comedy / Horror,91,2025,6.9,4042,343640,18490
+2025-11-30,9,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,2428,97184,4797
+2025-11-30,10,Pesugihan Sate Gagak,Comedy / Horror,105,2025,7.0,1743,422147,16283
+2025-11-30,11,Pangku,Drama,104,2025,8.3,1724,550536,26820
+2025-11-30,12,Air Mata Mualaf,Religious / Drama,111,2025,6.7,1106,32446,1485
+2025-11-30,13,The Voice of Hind Rajab,Drama / Documentary,89,2025,8.5,350,2065,232
+2025-11-30,14,SEVENTEEN WORLD TOUR [NEW_] IN JAPAN: LIVE VIEWING,Music / Live in Cinema,225,2025,0.0,326,326,25
+2025-11-30,15,Tere Ishk Mein,Romance / Action,167,2025,7.0,307,662,15
+2025-11-30,16,Ha Gom: The Darkness Of Soul,Horror,85,2025,5.0,91,719,92
+2025-12-01,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,476305,2301647,24876
+2025-12-01,2,Zootopia 2,Adventure / Animation,108,2025,8.5,37128,439889,12090
+2025-12-01,3,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,28204,1451476,37379
+2025-12-01,4,Wicked: For Good,Fantasy / Musical,137,2025,8.1,4723,494140,18875
+2025-12-01,5,Legenda Kelam Malin Kundang,Mystery / Thriller,99,2025,7.5,4617,46576,2988
+2025-12-01,6,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,3150,747270,30622
+2025-12-01,7,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,1494,98678,4917
+2025-12-01,8,Pangku,Drama,104,2025,8.3,844,551380,26875
+2025-12-01,9,The Voice of Hind Rajab,Drama / Documentary,89,2025,8.5,106,2171,260
+2025-12-02,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,439026,2740673,30689
+2025-12-02,2,Zootopia 2,Adventure / Animation,108,2025,8.5,37191,477080,13501
+2025-12-02,3,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,26493,1477969,38109
+2025-12-02,4,Wicked: For Good,Fantasy / Musical,137,2025,8.1,4316,498456,19105
+2025-12-02,5,Legenda Kelam Malin Kundang,Mystery / Thriller,99,2025,7.5,3341,49917,3200
+2025-12-02,6,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,2668,749938,30863
+2025-12-02,7,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,1865,100543,5012
+2025-12-02,8,Pangku,Drama,104,2025,8.3,768,552148,26914
+2025-12-02,9,The Voice of Hind Rajab,Drama / Documentary,89,2025,8.5,163,2334,274
+2025-12-03,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,420644,3161317,36379
+2025-12-03,2,Zootopia 2,Adventure / Animation,108,2025,8.5,33320,510400,14474
+2025-12-03,3,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,23642,23642,156
+2025-12-03,4,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,18163,1496132,38583
+2025-12-03,5,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,12594,12594,701
+2025-12-03,6,Wicked: For Good,Fantasy / Musical,137,2025,8.1,2765,501221,19212
+2025-12-03,7,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,1704,751642,30977
+2025-12-03,8,Legenda Kelam Malin Kundang,Mystery / Thriller,99,2025,7.5,1624,51541,3285
+2025-12-03,9,Danyang Wingit Jumat Kliwon,Horror,86,2025,8.4,1150,101693,5090
+2025-12-03,10,Eternity,Romance / Fantasy,114,2025,8.6,788,788,45
+2025-12-04,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,369990,3531307,41211
+2025-12-04,2,Wasiat Warisan,Drama,116,2025,7.0,34753,34753,335
+2025-12-04,3,Zootopia 2,Adventure / Animation,108,2025,8.5,31171,541571,15238
+2025-12-04,4,Riba,Horror,95,2025,6.7,20739,20739,754
+2025-12-04,5,Ozora: Penganiayaan Brutal Penguasa Jaksel,Thriller / Crime / Drama,109,2025,6.6,18399,18399,567
+2025-12-04,6,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,13316,1509448,38785
+2025-12-04,7,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,10374,22968,1026
+2025-12-04,8,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,8982,32624,294
+2025-12-04,9,Wicked: For Good,Fantasy / Musical,137,2025,8.1,2451,503672,19291
+2025-12-04,10,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,1298,752940,31061
+2025-12-05,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,471221,4002528,47628
+2025-12-05,2,Zootopia 2,Adventure / Animation,108,2025,8.5,68074,609645,16268
+2025-12-05,3,Riba,Horror,95,2025,6.7,30424,51163,1389
+2025-12-05,4,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,22971,45939,1466
+2025-12-05,5,Wasiat Warisan,Drama,116,2025,7.0,12050,46803,657
+2025-12-05,6,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,10621,43245,794
+2025-12-05,7,Ozora: Penganiayaan Brutal Penguasa Jaksel,Thriller / Crime / Drama,109,2025,6.6,9036,27435,1111
+2025-12-05,8,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,7187,1516635,39009
+2025-12-05,9,SISU: Road To Revenge,War / Action,89,2025,8.3,3134,3134,416
+2025-12-05,10,Wicked: For Good,Fantasy / Musical,137,2025,8.1,2960,506632,19362
+2025-12-05,11,"13 Days, 13 Nights",War / Action,111,2025,8.2,2056,2056,215
+2025-12-05,12,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,1473,754413,31141
+2025-12-05,13,Eternity,Romance / Fantasy,114,2025,8.6,738,2325,187
+2025-12-05,14,NIA,Drama,102,2025,4.5,367,1215,586
+2025-12-05,15,Monsta X: Connect X In Cinemas,Music / Documentary,117,2025,0.0,91,333,73
+2025-12-06,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,678000,4680528,53051
+2025-12-06,2,Zootopia 2,Adventure / Animation,108,2025,8.5,101481,711126,17343
+2025-12-06,3,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,37014,82953,1871
+2025-12-06,4,Riba,Horror,95,2025,6.7,30624,81787,1861
+2025-12-06,5,Wasiat Warisan,Drama,116,2025,7.0,17851,64654,808
+2025-12-06,6,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,17558,60803,883
+2025-12-06,7,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,11940,1528575,39215
+2025-12-06,8,Wicked: For Good,Fantasy / Musical,137,2025,8.1,5651,512283,19434
+2025-12-06,9,SISU: Road To Revenge,War / Action,89,2025,8.3,4907,8041,617
+2025-12-06,10,Ozora: Penganiayaan Brutal Penguasa Jaksel,Thriller / Crime / Drama,109,2025,6.6,4358,31793,1313
+2025-12-06,11,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,3222,757635,31216
+2025-12-06,12,"13 Days, 13 Nights",War / Action,111,2025,8.2,2269,4325,343
+2025-12-06,13,Eternity,Romance / Fantasy,114,2025,8.6,1002,3327,205
+2025-12-06,14,Monsta X: Connect X In Cinemas,Music / Documentary,117,2025,0.0,427,760,97
+2025-12-06,15,NIA,Drama,102,2025,4.5,259,1474,638
+2025-12-09,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,363916,6003515,74520
+2025-12-09,2,Zootopia 2,Adventure / Animation,108,2025,8.5,34164,881679,21770
+2025-12-09,3,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,12643,139828,3741
+2025-12-09,4,Riba,Horror,95,2025,6.7,11443,122876,3106
+2025-12-09,5,Sampai Titik Terakhirmu,Romance / Drama,114,2025,7.9,5418,1551585,39883
+2025-12-09,6,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,5253,85205,2191
+2025-12-09,7,SISU: Road To Revenge,War / Action,89,2025,8.3,2482,17062,1120
+2025-12-09,8,Wasiat Warisan,Drama,116,2025,7.0,1527,81281,1101
+2025-12-09,9,Wicked: For Good,Fantasy / Musical,137,2025,8.1,1257,520524,19692
+2025-12-09,10,Now You See Me: Now You Dont,Crime / Thriller,112,2025,7.9,1241,762731,31463
+2025-12-09,11,Ozora: Penganiayaan Brutal Penguasa Jaksel,Thriller / Crime / Drama,109,2025,6.6,743,37235,1781
+2025-12-09,12,"13 Days, 13 Nights",War / Action,111,2025,8.2,602,7384,569
+2025-12-09,13,Eternity,Romance / Fantasy,114,2025,8.6,456,5245,418
+2025-12-09,14,Dhurandhar,Action / Adventure,212,2025,8.5,425,425,13
+2025-12-12,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,228783,6730918,92794
+2025-12-12,2,Zootopia 2,Adventure / Animation,108,2025,8.5,48791,1006483,25670
+2025-12-12,3,Mertua Ngeri Kali,Comedy / Family / Drama,107,2025,7.4,32086,78196,1854
+2025-12-12,4,Qorin 2,Horror / Religious,110,2025,7.0,31016,79268,3136
+2025-12-12,5,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,12106,169112,4942
+2025-12-12,6,Riba,Horror,95,2025,6.7,11651,164076,3720
+2025-12-12,7,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,2509,93965,2870
+2025-12-12,8,Mengejar Restu,Drama / Romance / Religious,117,2025,7.0,1720,26094,1104
+2025-12-12,9,The Carpenters Son,Horror,94,2025,7.2,1144,4418,749
+2025-12-12,10,Dhurandhar,Action / Adventure,212,2025,8.5,491,2181,87
+2025-12-15,1,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,206743,7710528,108380
+2025-12-15,2,Zootopia 2,Adventure / Animation,108,2025,8.5,41751,1208753,29919
+2025-12-15,3,Qorin 2,Horror / Religious,110,2025,7.0,23969,175008,6499
+2025-12-15,4,Mertua Ngeri Kali,Comedy / Family / Drama,107,2025,7.4,14505,138022,4288
+2025-12-15,5,Five Nights At Freddys 2,Mystery / Horror,104,2025,7.2,8904,216256,6093
+2025-12-15,6,JUJUTSU KAISEN: SHIBUYA INCIDENT X THE CULLING GAME ADVANCE SCREENING - THE MOVIE,Animation,88,2025,7.3,1637,102997,3072
+2025-12-15,7,The Carpenters Son,Horror,94,2025,7.2,812,9202,1057
+2025-12-15,8,Nobody,Animation / Adventure,118,2025,8.3,158,1279,165
+2025-12-15,9,Scarlet,Adventure / Animation,111,2025,8.1,146,2340,572
+2025-12-18,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,349000,748000,8909
+2025-12-18,2,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,137773,8158517,119307
+2025-12-18,3,Timur,Action / Drama,101,2025,7.0,57000,57000,1760
+2025-12-18,4,Wasiat Warisan,Drama,116,2025,7.0,22340,103621,1124
+2025-12-18,5,Zootopia 2,Adventure / Animation,108,2025,8.5,21000,1286395,32682
+2025-12-18,6,Mertua Ngeri Kali,Comedy / Family / Drama,107,2025,7.4,4732,162768,5499
+2025-12-21,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,429649,1969561,21216
+2025-12-21,2,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,182106,8650097,125529
+2025-12-21,3,Timur,Action / Drama,101,2025,7.0,61965,226181,6664
+2025-12-21,4,Zootopia 2,Adventure / Animation,108,2025,8.5,45659,1402780,33937
+2025-12-21,5,Mertua Ngeri Kali,Comedy / Family / Drama,107,2025,7.4,1135,167545,5681
+2025-12-21,6,Dream Animals: The Movie,Animation,90,2025,8.0,99,377,94
+2025-12-24,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,264305,3028758,31727
+2025-12-24,2,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,135377,135377,1717
+2025-12-24,3,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,107544,9055000,131265
+2025-12-24,4,Comic 8 Revolution Santet K4binet,Horror / Comedy,111,2025,5.6,71951,71951,1432
+2025-12-24,5,Patah Hati Yang Kupilih,Family / Drama,109,2025,7.3,32655,32655,1258
+2025-12-24,6,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,31780,31780,452
+2025-12-24,7,Qorin 2,Horror / Religious,110,2025,7.0,23329,228554,8770
+2025-12-24,8,Timur,Action / Drama,101,2025,7.0,22527,353772,10477
+2025-12-24,9,Zootopia 2,Adventure / Animation,108,2025,8.5,20931,1499831,35063
+2025-12-24,10,Anaconda,Adventure / Comedy,99,2025,7.2,9623,9623,342
+2025-12-27,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,325894,4032623,39766
+2025-12-27,2,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,150738,9525928,136266
+2025-12-27,3,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,76863,425620,7416
+2025-12-27,4,Comic 8 Revolution Santet K4binet,Horror / Comedy,111,2025,5.6,41486,243530,4661
+2025-12-27,5,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,36862,158281,3029
+2025-12-27,6,Zootopia 2,Adventure / Animation,108,2025,8.5,31648,1599269,36292
+2025-12-27,7,Anaconda,Adventure / Comedy,99,2025,7.2,14517,53947,1168
+2025-12-27,8,Patah Hati Yang Kupilih,Family / Drama,109,2025,7.3,10645,74549,3194
+2025-12-27,9,Timur,Action / Drama,101,2025,7.0,6060,379113,11343
+2025-12-27,10,#RUNSEOKJIN_EP.TOUR THE MOVIE,Music / Documentary,94,2025,0.0,335,335,8
+2025-12-27,11,Tu Meri Main Tera Main Tera Tu Meri,Comedy / Romance,144,2025,8.0,331,1082,43
+2025-12-30,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,185609,4701000,48337
+2025-12-30,2,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,107991,707288,12584
+2025-12-30,3,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,106768,9908035,141862
+2025-12-30,4,Comic 8 Revolution Santet K4binet,Horror / Comedy,111,2025,5.6,26437,336231,7452
+2025-12-30,5,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,25426,244641,5591
+2025-12-30,6,Zootopia 2,Adventure / Animation,108,2025,8.5,20325,1666200,37705
+2025-12-30,7,Anaconda,Adventure / Comedy,99,2025,7.2,14711,100708,2328
+2025-12-30,8,Patah Hati Yang Kupilih,Family / Drama,109,2025,7.3,6330,100291,4315
+2025-12-30,9,Timur,Action / Drama,101,2025,7.0,5433,395000,11857
+2026-01-02,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,164258,5251164,56123
+2026-01-02,2,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,108380,10253600,146816
+2026-01-02,3,Dusun Mayit,Horror / Adventure,95,2025,5.8,82742,252948,4338
+2026-01-02,4,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,67144,928696,17151
+2026-01-02,5,Modual Nekad,Comedy / Drama,107,2025,7.1,44650,174666,4292
+2026-01-02,6,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,21047,308975,7077
+2026-01-02,7,Zootopia 2,Adventure / Animation,108,2025,8.5,18136,1718372,38725
+2026-01-02,8,The Housemaid,Thriller,131,2025,8.1,13634,38700,1454
+2026-01-02,9,Anaconda,Adventure / Comedy,99,2025,7.2,9639,132414,2966
+2026-01-02,10,Comic 8 Revolution Santet K4binet,Horror / Comedy,111,2025,5.6,6791,366863,8410
+2026-01-02,11,Moon The Panda,Adventure / Family,99,2026,7.4,1906,1906,182
+2026-01-05,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,96711,5659711,63470
+2026-01-05,2,Dusun Mayit,Horror / Adventure,95,2025,5.8,53842,453911,9259
+2026-01-05,3,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,53246,10511903,152023
+2026-01-05,4,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,37397,1075625,21362
+2026-01-05,5,Modual Nekad,Comedy / Drama,107,2025,7.1,19994,280484,7952
+2026-01-05,6,The Housemaid,Thriller,131,2025,8.1,9108,81881,2797
+2026-01-05,7,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,7895,357346,8508
+2026-01-05,8,Patah Hati Yang Kupilih,Family / Drama,109,2025,7.3,7783,109160,4611
+2026-01-05,9,Zootopia 2,Adventure / Animation,108,2025,8.5,5266,1757913,39837
+2026-01-05,10,Anaconda,Adventure / Comedy,99,2025,7.2,3769,155354,3610
+2026-01-05,11,Comic 8 Revolution Santet K4binet,Horror / Comedy,111,2025,5.6,2249,382734,8891
+2026-01-05,12,Moon The Panda,Adventure / Family,99,2026,7.4,952,8386,665
+2026-01-08,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,39227,5826452,69564
+2026-01-08,2,Dusun Mayit,Horror / Adventure,95,2025,5.8,30609,569390,13778
+2026-01-08,3,Musuh Dalam Selimut,Drama,108,2026,7.0,25862,25862,1022
+2026-01-08,4,Suka Duka Tawa,Drama / Comedy,127,2026,7.7,24614,24614,1054
+2026-01-08,5,Malam 3 Yasinan,Horror,102,2026,4.7,23171,23171,799
+2026-01-08,6,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,23040,1168546,24840
+2026-01-08,7,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,22896,10625803,156442
+2026-01-08,8,Uang Passolo,Drama,95,2026,8.7,18588,18588,238
+2026-01-08,9,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,14581,36919,2346
+2026-01-08,10,The Housemaid,Thriller,131,2025,8.1,10214,115058,4148
+2026-01-08,11,Modual Nekad,Comedy / Drama,107,2025,7.1,8042,317225,10290
+2026-01-08,12,Zootopia 2,Adventure / Animation,108,2025,8.5,3170,1767984,40519
+2026-01-08,13,The Spongebob Movie: Search For Squarepants,Animation,96,2025,7.5,2046,367007,9297
+2026-01-08,14,Anaconda,Adventure / Comedy,99,2025,7.2,1287,162986,4250
+2026-01-08,15,Cyberbullying,School Drama / Teen,104,2025,7.5,1157,487066,878
+2026-01-11,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,68015,6024127,75145
+2026-01-11,2,Dusun Mayit,Horror / Adventure,95,2025,5.8,40720,687890,17429
+2026-01-11,3,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,34849,10736194,159968
+2026-01-11,4,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,31303,1255486,27519
+2026-01-11,5,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,27503,113911,5270
+2026-01-11,6,Uang Passolo,Drama,95,2026,8.7,20686,75597,999
+2026-01-11,7,Malam 3 Yasinan,Horror,102,2026,4.7,17953,73036,2894
+2026-01-11,8,The Housemaid,Thriller,131,2025,8.1,16959,167369,5463
+2026-01-11,9,Suka Duka Tawa,Drama / Comedy,127,2026,7.7,12824,65334,3741
+2026-01-11,10,Musuh Dalam Selimut,Drama,108,2026,7.0,12415,65230,3892
+2026-01-14,1,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,16324,6081113,79848
+2026-01-14,2,Unexpected Family,Comedy / Drama,121,2026,8.3,15210,15210,1356
+2026-01-14,3,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,15202,1302276,30214
+2026-01-14,4,Dusun Mayit,Horror / Adventure,95,2025,5.8,14599,743263,20953
+2026-01-14,5,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,12936,10784046,163358
+2026-01-14,6,28 Years Later: The Bone Temple,Thriller,109,2026,8.2,12572,12572,1710
+2026-01-14,7,Uang Passolo,Drama,95,2026,8.7,10318,108921,1723
+2026-01-14,8,Musuh Dalam Selimut,Drama,108,2026,7.0,6404,88784,6045
+2026-01-14,9,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,6080,138368,7726
+2026-01-14,10,The Housemaid,Thriller,131,2025,8.1,5792,187157,6803
+2026-01-14,11,Suka Duka Tawa,Drama / Comedy,127,2026,7.7,4396,83912,5661
+2026-01-14,12,Malam 3 Yasinan,Horror,102,2026,4.7,2883,84178,4352
+2026-01-14,13,Modual Nekad,Comedy / Drama,107,2025,7.1,1100,348568,12118
+2026-01-14,14,Anaconda,Adventure / Comedy,99,2025,7.2,542,171336,4716
+2026-01-14,15,We Bury The Dead,Thriller,95,2026,6.8,393,12884,1697
+2026-01-14,16,Love Live! NIJIGASAKI High School Idol Club The Movie – FINALE – CHAPTER 2,Animation,75,2026,8.0,300,300,46
+2026-01-17,1,Alas Roban,Horror,111,2026,6.7,203471,597316,9215
+2026-01-17,2,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,45100,6186725,82797
+2026-01-17,3,Unexpected Family,Comedy / Drama,121,2026,8.3,36287,101602,3794
+2026-01-17,4,Penerbangan Terakhir,Drama,111,2026,6.7,23091,108091,4039
+2026-01-17,5,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,22775,10855865,164980
+2026-01-17,6,Uang Passolo,Drama,95,2026,8.7,13138,146273,2217
+2026-01-17,7,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,10927,166915,8644
+2026-01-17,8,28 Years Later: The Bone Temple,Thriller,109,2026,8.2,10235,46274,3998
+2026-01-17,9,The Housemaid,Thriller,131,2025,8.1,10122,216712,7760
+2026-01-17,10,5 Centimeters Per Second (Animation),Animation,77,2026,8.5,7514,21508,758
+2026-01-17,11,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,7100,1324186,31280
+2026-01-17,12,Bidadari Surga,Religious / Drama,80,2026,6.6,6197,18796,1667
+2026-01-17,13,Dusun Mayit,Horror / Adventure,95,2025,5.8,5284,762114,21997
+2026-01-17,14,Penunggu Rumah: Buto Ijo,Horror,78,2026,6.4,2670,24829,1332
+2026-01-17,15,Suka Duka Tawa,Drama / Comedy,127,2026,7.7,1821,89768,5978
+2026-01-17,16,Musuh Dalam Selimut,Drama,108,2026,7.0,932,93280,6443
+2026-01-17,17,Pororo The Movie: Sweet Castle Adventure,Adventure / Animation / Fantasy,67,2026,0.0,777,2055,194
+2026-01-17,18,Happy Patel: Khatarnak Jasoos,Action / Comedy,117,2026,7.6,200,347,35
+2026-01-17,19,Love Live! NIJIGASAKI High School Idol Club The Movie – FINALE – CHAPTER 2,Animation,75,2026,8.0,180,792,133
+2026-01-20,1,Alas Roban,Horror,111,2026,6.7,84270,953456,19747
+2026-01-20,2,Penerbangan Terakhir,Drama,111,2026,6.7,16652,166652,7386
+2026-01-20,3,Unexpected Family,Comedy / Drama,121,2026,8.3,13105,167949,6575
+2026-01-20,4,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,7529,10888249,166719
+2026-01-20,5,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,6703,6227797,85498
+2026-01-20,6,Uang Passolo,Drama,95,2026,8.7,4791,167283,2741
+2026-01-20,7,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,3738,184514,9773
+2026-01-20,8,28 Years Later: The Bone Temple,Thriller,109,2026,8.2,3321,59473,5551
+2026-01-20,9,The Housemaid,Thriller,131,2025,8.1,3012,229619,8689
+2026-01-20,10,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,2367,1335101,32092
+2026-01-20,11,Dusun Mayit,Horror / Adventure,95,2025,5.8,2038,770509,22671
+2026-01-20,12,5 Centimeters Per Second (Animation),Animation,77,2026,8.5,1965,29890,1412
+2026-01-20,13,Bidadari Surga,Religious / Drama,80,2026,6.6,484,24780,2229
+2026-01-20,14,Penunggu Rumah: Buto Ijo,Horror,78,2026,6.4,414,27751,1730
+2026-01-20,15,Suka Duka Tawa,Drama / Comedy,127,2026,7.7,381,91572,6217
+2026-01-20,16,Pororo The Movie: Sweet Castle Adventure,Adventure / Animation / Fantasy,67,2026,0.0,89,2883,272
+2026-01-23,1,Alas Roban,Horror,111,2026,6.7,62637,1165224,27033
+2026-01-23,2,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,61164,61164,1402
+2026-01-23,3,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,40151,80243,2459
+2026-01-23,4,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,24475,61690,2948
+2026-01-23,5,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,20177,51064,2545
+2026-01-23,6,Penerbangan Terakhir,Drama,111,2026,6.7,14074,215479,9743
+2026-01-23,7,Unexpected Family,Comedy / Drama,121,2026,8.3,12147,197596,8234
+2026-01-23,8,Primate,Thriller,88,2026,7.3,6863,6863,878
+2026-01-23,9,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,4932,6243532,86750
+2026-01-23,10,Mercy,Science Fiction / Crime,100,2026,7.7,4915,20468,3509
+2026-01-23,11,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,3698,10900394,167411
+2026-01-23,12,The Housemaid,Thriller,131,2025,8.1,2923,237798,9300
+2026-01-23,13,Uang Passolo,Drama,95,2026,8.7,2608,175833,3062
+2026-01-23,14,Back To The Past,Action / Comedy / Science Fiction,107,2026,7.0,2008,6547,672
+2026-01-23,15,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,858,189665,10186
+2026-01-23,16,Coraline,Animation,101,2026,8.4,679,3391,429
+2026-01-23,17,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,458,1338020,32425
+2026-01-23,18,28 Years Later: The Bone Temple,Thriller,109,2026,8.2,422,61961,5918
+2026-01-23,19,5 Centimeters Per Second (Animation),Animation,77,2026,8.5,416,31966,1623
+2026-01-23,20,Border 2,War / Action,198,2026,8.0,199,199,9
+2026-01-26,1,Alas Roban,Horror,111,2026,6.7,50276,1397778,33258
+2026-01-26,2,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,24707,207735,6692
+2026-01-26,3,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,15907,131157,5658
+2026-01-26,4,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,13682,149669,5542
+2026-01-26,5,Penerbangan Terakhir,Drama,111,2026,6.7,11256,261274,11219
+2026-01-26,6,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,10402,127164,6392
+2026-01-26,7,Unexpected Family,Comedy / Drama,121,2026,8.3,9288,255947,9785
+2026-01-26,8,Primate,Thriller,88,2026,7.3,3632,30352,2384
+2026-01-26,9,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,2841,6263022,87836
+2026-01-26,10,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,2716,10912883,167767
+2026-01-26,11,Mercy,Science Fiction / Crime,100,2026,7.7,2539,36523,4833
+2026-01-26,12,Uang Passolo,Drama,95,2026,8.7,1956,184764,3267
+2026-01-26,13,The Housemaid,Thriller,131,2025,8.1,1850,249467,9827
+2026-01-26,14,Back To The Past,Action / Comedy / Science Fiction,107,2026,7.0,1228,16903,1071
+2026-01-26,15,Coraline,Animation,101,2026,8.4,917,8289,755
+2026-01-26,16,Greenland 2 : Migration,Survival / Disaster,98,2026,6.9,913,195556,10459
+2026-01-26,17,28 Years Later: The Bone Temple,Thriller,109,2026,8.2,483,64631,6101
+2026-01-26,18,5 Centimeters Per Second (Animation),Animation,77,2026,8.5,418,34018,1750
+2026-01-29,1,Kuyank,Horror,98,2026,7.3,57356,57356,809
+2026-01-29,2,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,50159,50159,1660
+2026-01-29,3,Alas Roban,Horror,111,2026,6.7,47959,1530023,38818
+2026-01-29,4,"Tuhan, Benarkah Kau Mendengarku?",Drama / Religious,113,2026,6.8,31148,31148,1051
+2026-01-29,5,Shelter,Action,107,2026,7.4,18140,53044,3036
+2026-01-29,6,Tolong Saya! (Dowajuseyo),Horror,93,2026,2.0,10136,10136,325
+2026-01-29,7,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,9893,234045,9919
+2026-01-29,8,Cyberbullying,School Drama / Teen,104,2025,7.5,8324,506825,1030
+2026-01-29,9,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,7731,158352,8674
+2026-01-29,10,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,5423,157777,7828
+2026-01-29,11,Unexpected Family,Comedy / Drama,121,2026,8.3,4194,273222,10985
+2026-01-29,12,Penerbangan Terakhir,Drama,111,2026,6.7,4124,281101,12486
+2026-01-29,13,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,3934,172856,7558
+2026-01-29,14,Send Help,Thriller,113,2026,8.0,2904,13166,2045
+2026-01-29,15,Avatar: Fire And Ash,Science Fiction / Adventure / Fantasy,197,2025,8.7,1228,6267893,88568
+2026-01-29,16,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,1127,10918352,168079
+2026-01-29,17,The Housemaid,Thriller,131,2025,8.1,1038,253855,10257
+2026-01-29,18,Return To Silent Hill,Horror,106,2026,5.8,886,2147,249
+2026-01-29,19,Primate,Thriller,88,2026,7.3,856,36291,3416
+2026-01-29,20,Sinners,Thriller / Horror,137,2025,8.4,684,60976,2772
+2026-02-01,1,Alas Roban,Horror,111,2026,6.7,64803,1702520,43617
+2026-02-01,2,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,54696,346069,12399
+2026-02-01,3,Kuyank,Horror,98,2026,7.3,52935,196885,3591
+2026-02-01,4,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,48146,183672,5889
+2026-02-01,5,Shelter,Action,107,2026,7.4,37165,145117,6881
+2026-02-01,6,Uang Passolo,Drama,95,2026,8.7,13112,200555,3539
+2026-02-01,7,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,12415,185037,8748
+2026-02-01,8,Unexpected Family,Comedy / Drama,121,2026,8.3,12008,299321,11751
+2026-02-01,9,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,10520,185125,9843
+2026-02-01,10,"Tuhan, Benarkah Kau Mendengarku?",Drama / Religious,113,2026,6.8,10051,57321,2800
+2026-02-01,11,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,7043,27025,1323
+2026-02-01,12,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,6252,188027,8159
+2026-02-01,13,Send Help,Thriller,113,2026,8.0,6035,29272,3335
+2026-02-01,14,Penerbangan Terakhir,Drama,111,2026,6.7,4834,295333,13099
+2026-02-01,15,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,2933,10925804,168297
+2026-02-01,16,Return To Silent Hill,Horror,106,2026,5.8,2751,8768,521
+2026-02-01,17,Wildcat,Action,99,2026,6.6,2740,9340,1500
+2026-02-01,18,Tolong Saya! (Dowajuseyo),Horror,93,2026,2.0,2151,19079,848
+2026-02-01,19,Mudborn,Horror,111,2026,7.8,1655,3648,240
+2026-02-01,20,The Housemaid,Thriller,131,2025,8.1,1196,258029,10481
+2026-02-01,21,Primate,Thriller,88,2026,7.3,898,38671,3574
+2026-02-01,22,Sinners,Thriller / Horror,137,2025,8.4,823,63900,2992
+2026-02-01,23,Mardaani 3,Action / Crime,129,2026,8.7,430,1343,107
+2026-02-04,1,Kuyank,Horror,98,2026,7.3,38877,285128,6085
+2026-02-04,2,Alas Roban,Horror,111,2026,6.7,36825,1790382,48693
+2026-02-04,3,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,21418,250385,10333
+2026-02-04,4,Shelter,Action,107,2026,7.4,8810,175300,10390
+2026-02-04,5,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,4156,362659,15054
+2026-02-04,6,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,3873,197521,11009
+2026-02-04,7,I Was A Stranger,Drama / Thriller,104,2026,8.4,3151,3151,1296
+2026-02-04,8,Tolong Saya! (Dowajuseyo),Horror,93,2026,2.0,2820,24724,1361
+2026-02-04,9,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,2655,194184,9754
+2026-02-04,10,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,2476,37073,2245
+2026-02-07,1,Alas Roban,Horror,111,2026,6.7,54372,1915481,52953
+2026-02-07,2,Kuyank,Horror,98,2026,7.3,43781,416935,8315
+2026-02-07,3,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,24969,308763,12737
+2026-02-07,4,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,23465,396810,16695
+2026-02-07,5,Shelter,Action,107,2026,7.4,20099,215122,12797
+2026-02-07,6,"Check Out Sekarang, Pay Later (Caper)",Drama / Comedy,93,2026,6.2,12223,43149,3606
+2026-02-07,7,The Strangers: Chapter 3,Thriller,91,2026,6.5,6016,10361,1442
+2026-02-07,8,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,5489,209559,11529
+2026-02-07,9,Unexpected Family,Comedy / Drama,121,2026,8.3,4921,316202,13016
+2026-02-07,10,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,4343,44884,2707
+2026-02-10,1,Kuyank,Horror,98,2026,7.3,24442,527422,11082
+2026-02-10,2,Alas Roban,Horror,111,2026,6.7,20327,2012137,58336
+2026-02-10,3,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,13208,360946,15990
+2026-02-10,4,Shelter,Action,107,2026,7.4,6863,248123,15799
+2026-02-10,5,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,4318,433826,19592
+2026-02-10,6,"Check Out Sekarang, Pay Later (Caper)",Drama / Comedy,93,2026,6.2,3392,60008,6197
+2026-02-10,7,Send Help,Thriller,113,2026,8.0,2864,51204,5862
+2026-02-10,8,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,2048,218852,12334
+2026-02-10,9,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,1925,208635,10650
+2026-02-10,10,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,1748,52882,3510
+2026-02-10,11,Teman Tegar Maira,Family / Regional Film / Drama,97,2026,8.5,1483,26917,1560
+2026-02-10,12,Unexpected Family,Comedy / Drama,121,2026,8.3,1208,323783,13620
+2026-02-10,13,The Strangers: Chapter 3,Thriller,91,2026,6.5,1176,18154,2956
+2026-02-10,14,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,1172,204644,9523
+2026-02-10,15,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,1118,10938147,168916
+2026-02-10,16,Penerbangan Terakhir,Drama,111,2026,6.7,977,306739,14143
+2026-02-10,17,Balas Budi,Romance / Comedy,88,2026,6.0,593,20326,1894
+2026-02-10,18,I Was A Stranger,Drama / Thriller,104,2026,8.4,480,14092,3179
+2026-02-10,19,Wildcat,Action,99,2026,6.6,479,15750,2737
+2026-02-10,20,Ahlan Singapore,Religious / Romance,96,2026,6.0,246,10345,2878
+2026-02-10,21,Sadali,Romance / Drama,89,2026,7.5,166,12614,2883
+2026-02-13,1,Kuyank,Horror,98,2026,7.3,41694,629229,13594
+2026-02-13,2,Alas Roban,Horror,111,2026,6.7,27192,2082668,62434
+2026-02-13,3,Goat,Sport / Animation,100,2026,8.0,11030,11030,1942
+2026-02-13,4,Rumah Tanpa Cahaya,Drama / Family,102,2026,7.4,10949,28902,1426
+2026-02-13,5,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,9980,393031,18029
+2026-02-13,6,Wuthering Heights,Romance / Drama,136,2026,7.8,8461,25014,3023
+2026-02-13,7,Whistle,Horror,100,2026,6.9,6986,27612,3077
+2026-02-13,8,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,6091,15535,1586
+2026-02-13,9,Jangan Seperti Bapak,Action / Drama,100,2026,7.0,3064,12543,1391
+2026-02-13,10,Waru,Horror,88,2026,4.5,2655,4590,506
+2026-02-13,11,Shelter,Action,107,2026,7.4,2616,260722,17152
+2026-02-13,12,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,2309,440686,20608
+2026-02-13,13,Unexpected Family,Comedy / Drama,121,2026,8.3,924,326825,13940
+2026-02-13,14,"Check Out Sekarang, Pay Later (Caper)",Drama / Comedy,93,2026,6.2,850,64820,7093
+2026-02-13,15,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,739,211497,10990
+2026-02-13,16,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,683,10940933,169083
+2026-02-13,17,Panor 2,Horror,125,2026,8.0,647,3390,536
+2026-02-13,18,Send Help,Thriller,113,2026,8.0,608,53368,6259
+2026-02-13,19,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,509,55331,3901
+2026-02-13,20,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,363,221441,12629
+2026-02-13,21,Taj Mahal: An Eternal Love Story,Romance / Drama / History,151,2026,6.0,357,357,161
+2026-02-13,22,A Useful Ghost,Comedy,128,2026,8.6,320,320,13
+2026-02-13,23,O Romeo,Action,175,2026,7.2,142,142,18
+2026-02-16,1,Kuyank,Horror,98,2026,7.3,57717,794300,16843
+2026-02-16,2,Alas Roban,Horror,111,2026,6.7,40069,2210821,66963
+2026-02-16,3,Goat,Sport / Animation,100,2026,8.0,23380,85005,7158
+2026-02-16,4,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,20169,484607,22605
+2026-02-16,5,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,17905,445195,19676
+2026-02-16,6,Wuthering Heights,Romance / Drama,136,2026,7.8,11923,65807,5495
+2026-02-16,7,Rumah Tanpa Cahaya,Drama / Family,102,2026,7.4,11913,61899,3194
+2026-02-16,8,Whistle,Horror,100,2026,6.9,11102,64367,5244
+2026-02-16,9,Shelter,Action,107,2026,7.4,8579,286487,18562
+2026-02-16,10,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,8249,42265,3437
+2026-02-16,11,"Check Out Sekarang, Pay Later (Caper)",Drama / Comedy,93,2026,6.2,2042,69573,7509
+2026-02-16,12,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,1824,10946779,169237
+2026-02-16,13,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,1723,216049,11209
+2026-02-16,14,Unexpected Family,Comedy / Drama,121,2026,8.3,1523,334008,14237
+2026-02-16,15,Kokuho,Drama,175,2026,9.0,1226,1226,140
+2026-02-16,16,Waru,Horror,88,2026,4.5,1175,9129,1073
+2026-02-16,17,Esok Tanpa Ibu,Fantasy / Family / Drama,107,2026,8.1,1164,224105,12789
+2026-02-16,18,5 Centimeters Per Second (Live Action),Romance / Drama,121,2026,8.3,1151,59947,4179
+2026-02-16,19,Send Help,Thriller,113,2026,8.0,631,56428,6511
+2026-02-16,20,Panor 2,Horror,125,2026,8.0,594,6543,868
+2026-02-16,21,Jangan Seperti Bapak,Action / Drama,100,2026,7.0,513,16027,2170
+2026-02-16,22,Taj Mahal: An Eternal Love Story,Romance / Drama / History,151,2026,6.0,243,1178,355
+2026-02-19,1,Kuyank,Horror,98,2026,7.3,15311,877657,19552
+2026-02-19,2,Blades of The Guardians,Action / History,126,2026,8.4,13043,63619,2983
+2026-02-19,3,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,11904,11904,567
+2026-02-19,4,Crime 101,Thriller / Crime,140,2026,7.7,7754,23446,2563
+2026-02-19,5,Alas Roban,Horror,111,2026,6.7,7366,2276647,70705
+2026-02-19,6,Goat,Sport / Animation,100,2026,8.0,5870,121953,9995
+2026-02-19,7,Wuthering Heights,Romance / Drama,136,2026,7.8,4813,81155,6783
+2026-02-19,8,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,4529,474396,20872
+2026-02-19,9,Modual Nekad,Comedy / Drama,107,2025,7.1,3541,352575,12433
+2026-02-19,10,Kokuho,Drama,175,2026,9.0,2404,8281,796
+2026-02-19,11,Whistle,Horror,100,2026,6.9,2004,78745,6312
+2026-02-19,12,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,1989,506594,24102
+2026-02-19,13,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,1925,10952076,169512
+2026-02-19,14,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,1857,1340993,33024
+2026-02-19,15,Asrama Putri,Horror,93,2026,4.3,1554,1554,509
+2026-02-19,16,Unexpected Family,Comedy / Drama,121,2026,8.3,1490,338538,14486
+2026-02-19,17,Shelter,Action,107,2026,7.4,1474,297467,19552
+2026-02-19,18,Taneuh Kalaknat,Horror,87,2026,5.5,1023,1023,559
+2026-02-19,19,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,1019,52140,4468
+2026-02-19,20,Rumah Tanpa Cahaya,Drama / Family,102,2026,7.4,1001,77811,4452
+2026-02-19,21,Three Kingdoms: Starlit Heroes,Animation,122,2026,8.0,168,412,139
+2026-02-22,1,Blades of The Guardians,Action / History,126,2026,8.4,39268,153343,6706
+2026-02-22,2,Kuyank,Horror,98,2026,7.3,16896,929921,22103
+2026-02-22,3,Crime 101,Thriller / Crime,140,2026,7.7,13399,65214,5718
+2026-02-22,4,Goat,Sport / Animation,100,2026,8.0,12598,153171,12144
+2026-02-22,5,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,10956,41217,2199
+2026-02-22,6,Alas Roban,Horror,111,2026,6.7,7872,2301124,73128
+2026-02-22,7,Sebelum Dijemput Nenek,Comedy / Horror,103,2026,5.8,7224,225434,11563
+2026-02-22,8,Tolong Saya! (Dowajuseyo),Horror,93,2026,2.0,5561,30285,1712
+2026-02-22,9,Uang Passolo,Drama,95,2026,8.7,5469,210988,4039
+2026-02-22,10,Kokuho,Drama,175,2026,9.0,4540,19606,1573
+2026-02-22,11,Janur Ireng: Sewu Dino The Prequel,Horror,94,2025,7.3,4002,1344995,33113
+2026-02-22,12,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,3989,515001,25185
+2026-02-22,13,Marty Supreme,Drama / Sport,150,2026,8.5,3876,10527,284
+2026-02-22,14,Penerbangan Terakhir,Drama,111,2026,6.7,3709,311376,14344
+2026-02-22,15,Wuthering Heights,Romance / Drama,136,2026,7.8,3250,91558,7815
+2026-02-22,16,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,3173,485146,21790
+2026-02-22,17,Whistle,Horror,100,2026,6.9,2965,86496,6988
+2026-02-22,18,Shelter,Action,107,2026,7.4,2201,303178,20141
+2026-02-22,19,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,1946,10957627,169919
+2026-02-22,20,Sengkolo Petaka Satu Suro,Horror,104,2026,6.2,1834,208280,10078
+2026-02-22,21,Once We Were Us,Romance / Drama,115,2026,8.0,1706,5906,1388
+2026-02-22,22,Asrama Putri,Horror,93,2026,4.3,1684,6534,1595
+2026-02-22,23,Unexpected Family,Comedy / Drama,121,2026,8.3,1648,342909,14739
+2026-02-22,24,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,1398,56321,4993
+2026-02-22,25,Rumah Tanpa Cahaya,Drama / Family,102,2026,7.4,1387,81579,5075
+2026-02-22,26,Taneuh Kalaknat,Horror,87,2026,5.5,1212,4118,1410
+2026-02-22,27,Pocong Merah,Regional Film / Horror,83,2026,3.0,753,753,211
+2026-02-22,28,Three Kingdoms: Starlit Heroes,Animation,122,2026,8.0,155,918,276
+2026-02-22,29,Do Deewane Seher Mein,Romance,134,2026,7.0,106,243,44
+2026-02-22,30,A Hero,Drama,128,2026,8.0,25,160,14
+2026-02-22,31,Epic: Elvis Presley In Concert,Documentary / Music,94,2026,9.1,19,218,54
+2026-02-25,1,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,21754,21754,1688
+2026-02-25,2,Kuyank,Horror,98,2026,7.3,16536,971582,24668
+2026-02-25,3,Scream 7,Mystery / Crime / Horror,114,2026,7.5,15849,15849,1953
+2026-02-25,4,Blades of The Guardians,Action / History,126,2026,8.4,7778,186024,10182
+2026-02-25,5,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,4986,57906,3686
+2026-02-25,6,Marty Supreme,Drama / Sport,150,2026,8.5,4599,15126,651
+2026-02-25,7,Iron Lung,Horror,125,2026,6.4,4568,4568,359
+2026-02-25,8,Alas Roban,Horror,111,2026,6.7,3830,2315403,75111
+2026-02-25,9,Crime 101,Thriller / Crime,140,2026,7.7,3256,81668,8308
+2026-02-25,10,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,1552,492201,22479
+2026-02-25,11,Goat,Sport / Animation,100,2026,8.0,1249,160676,13647
+2026-02-25,12,Wuthering Heights,Romance / Drama,136,2026,7.8,894,95604,8763
+2026-02-25,13,Kokuho,Drama,175,2026,9.0,881,24221,2153
+2026-02-25,14,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,710,10960210,170288
+2026-02-25,15,Asrama Putri,Horror,93,2026,4.3,643,8720,2375
+2026-02-25,16,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,585,58213,5485
+2026-02-25,17,Once We Were Us,Romance / Drama,115,2026,8.0,483,9204,2349
+2026-02-25,18,Whistle,Horror,100,2026,6.9,428,89581,7611
+2026-02-25,19,Rumah Tanpa Cahaya,Drama / Family,102,2026,7.4,396,83120,5539
+2026-02-25,20,Shelter,Action,107,2026,7.4,389,305130,20723
+2026-02-25,21,Papa Zola The Movie,Action / Animation / Family,112,2026,8.1,365,516973,25879
+2026-02-25,22,Unexpected Family,Comedy / Drama,121,2026,8.3,195,344018,14939
+2026-02-28,1,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,30157,80084,5888
+2026-02-28,2,Scream 7,Mystery / Crime / Horror,114,2026,7.5,19199,55988,6567
+2026-02-28,3,Blades of The Guardians,Action / History,126,2026,8.4,16096,216019,12220
+2026-02-28,4,Kuyank,Horror,98,2026,7.3,15717,1021057,26805
+2026-02-28,5,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,11179,35042,3438
+2026-02-28,6,Marty Supreme,Drama / Sport,150,2026,8.5,7941,31864,2192
+2026-02-28,7,Lift,Thriller / Mystery,98,2026,7.7,7346,30280,2128
+2026-02-28,8,Iron Lung,Horror,125,2026,6.4,7018,19124,1168
+2026-02-28,9,Alas Roban,Horror,111,2026,6.7,5794,2326114,75959
+2026-02-28,10,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,5059,68185,4253
+2026-02-28,11,Goat,Sport / Animation,100,2026,8.0,4808,167564,14128
+2026-02-28,12,Crime 101,Thriller / Crime,140,2026,7.7,4413,90168,9132
+2026-02-28,13,Hamnet,Romance / Drama / History,125,2026,8.6,3078,5819,602
+2026-02-28,14,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,1710,495880,22628
+2026-02-28,15,Rajah,Thriller / Horror,108,2026,8.1,1705,4915,982
+2026-02-28,16,Kokuho,Drama,175,2026,9.0,1498,26927,2400
+2026-02-28,17,Wuthering Heights,Romance / Drama,136,2026,7.8,1318,98236,9130
+2026-02-28,18,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,869,10962105,170423
+2026-02-28,19,Once We Were Us,Romance / Drama,115,2026,8.0,684,10989,2660
+2026-02-28,20,TWENTY ONE PILOTS: MORE THAN WE EVER IMAGINED,Documentary / Music,119,2026,0.0,530,891,59
+2026-02-28,21,Epic: Elvis Presley In Concert,Documentary / Music,94,2026,9.1,494,1290,549
+2026-02-28,22,AIUEO Macam Betool Aja,Romance / Comedy,120,2026,7.0,427,59351,5624
+2026-02-28,23,Whistle,Horror,100,2026,6.9,339,90246,7728
+2026-02-28,24,Dead Man's Wire,Drama,105,2026,0.0,111,111,9
+2026-02-28,25,Sun Children,Drama,99,2026,0.0,43,43,9
+2026-03-03,1,Kuyank,Horror,98,2026,7.3,11823,1063634,28872
+2026-03-03,2,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,11321,138191,10341
+2026-03-03,3,Scream 7,Mystery / Crime / Horror,114,2026,7.5,8274,89446,10656
+2026-03-03,4,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,5966,59023,6601
+2026-03-03,5,Alas Roban,Horror,111,2026,6.7,5890,2344069,77063
+2026-03-03,6,Blades of The Guardians,Action / History,126,2026,8.4,3437,244373,14463
+2026-03-03,7,Lift,Thriller / Mystery,98,2026,7.7,3083,45388,3797
+2026-03-03,8,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,1824,77691,4893
+2026-03-03,9,Marty Supreme,Drama / Sport,150,2026,8.5,1782,41471,3474
+2026-03-03,10,Once We Were Us,Romance / Drama,115,2026,8.0,1579,14288,3088
+2026-03-06,1,Hoppers,Animation,104,2026,8.7,21470,47364,5511
+2026-03-06,2,Kuyank,Horror,98,2026,7.3,9735,1094912,30817
+2026-03-06,3,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,6344,158117,12749
+2026-03-06,4,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,5778,77953,8411
+2026-03-06,5,Scream 7,Mystery / Crime / Horror,114,2026,7.5,3762,102397,12564
+2026-03-06,6,Alas Roban,Horror,111,2026,6.7,3633,2357984,78001
+2026-03-06,7,Blades of The Guardians,Action / History,126,2026,8.4,3430,254968,15690
+2026-03-06,8,The Bride!,Thriller,126,2026,7.3,3083,13629,3035
+2026-03-06,9,"Good Luck, Have Fun, Dont Die",Science Fiction / Action,134,2026,8.1,2838,2838,787
+2026-03-06,10,PROJECT Y,Crime / Action,108,2026,7.3,2305,2305,573
+2026-03-06,11,Setan Alas!,Horror,84,2026,7.1,2268,6102,422
+2026-03-06,12,Setannya Cuan,Comedy / Horror,106,2026,6.3,2189,4237,729
+2026-03-06,13,Once We Were Us,Romance / Drama,115,2026,8.0,1348,18237,3503
+2026-03-06,14,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,1088,504433,22944
+2026-03-06,15,Iron Lung,Horror,125,2026,6.4,1064,30068,2400
+2026-03-06,16,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,1023,80850,5292
+2026-03-06,17,ENHYPEN [WALK THE LINE SUMMER EDITION] IN CINEMAS,Music / Documentary,123,2026,0.0,916,3626,164
+2026-03-06,18,Lift,Thriller / Mystery,98,2026,7.7,775,48177,4474
+2026-03-06,19,Marty Supreme,Drama / Sport,150,2026,8.5,755,43430,3980
+2026-03-06,20,Crime 101,Thriller / Crime,140,2026,7.7,668,100493,10528
+2026-03-06,21,Hamnet,Romance / Drama / History,125,2026,8.6,595,13087,1678
+2026-03-06,22,Rajah,Thriller / Horror,108,2026,8.1,420,9377,1790
+2026-03-06,23,Juara Sejati,Family,111,2026,4.5,323,229942,589
+2026-03-06,24,Wuthering Heights,Romance / Drama,136,2026,7.8,294,101093,9643
+2026-03-06,25,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,283,10965207,170721
+2026-03-06,26,Palestine 36,Drama / History,128,2026,8.6,175,175,16
+2026-03-06,27,Kokuho,Drama,175,2026,9.0,160,29037,2747
+2026-03-06,28,Epic: Elvis Presley In Concert,Documentary / Music,94,2026,9.1,153,2436,1410
+2026-03-09,1,Hoppers,Animation,104,2026,8.7,20864,183634,12377
+2026-03-09,2,Kuyank,Horror,98,2026,7.3,9853,1130013,32850
+2026-03-09,3,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,5883,199029,15626
+2026-03-09,4,Alas Roban,Horror,111,2026,6.7,5049,2377531,79064
+2026-03-09,5,Scream 7,Mystery / Crime / Horror,114,2026,7.5,3798,119227,14255
+2026-03-09,6,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,3729,96430,10053
+2026-03-09,7,Blades of The Guardians,Action / History,126,2026,8.4,3233,274173,16896
+2026-03-09,8,Setan Alas!,Horror,84,2026,7.1,3041,16785,1506
+2026-03-09,9,Setannya Cuan,Comedy / Horror,106,2026,6.3,2511,14204,1795
+2026-03-09,10,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,2306,10980141,170863
+2026-03-09,11,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,1428,510043,23231
+2026-03-09,12,Once We Were Us,Romance / Drama,115,2026,8.0,1425,24273,3996
+2026-03-09,13,The Bride!,Thriller,126,2026,7.3,1317,20470,4569
+2026-03-09,14,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,1273,87515,5674
+2026-03-09,15,PROJECT Y,Crime / Action,108,2026,7.3,1242,9575,2072
+2026-03-09,16,"Good Luck, Have Fun, Dont Die",Science Fiction / Action,134,2026,8.1,900,8532,2161
+2026-03-09,17,Marty Supreme,Drama / Sport,150,2026,8.5,622,46579,4411
+2026-03-09,18,Crime 101,Thriller / Crime,140,2026,7.7,540,103735,10865
+2026-03-09,19,Hamnet,Romance / Drama / History,125,2026,8.6,404,15206,1976
+2026-03-09,20,Iron Lung,Horror,125,2026,6.4,357,33747,2796
+2026-03-09,21,Rajah,Thriller / Horror,108,2026,8.1,335,10871,1943
+2026-03-09,22,Lift,Thriller / Mystery,98,2026,7.7,267,49984,4926
+2026-03-09,23,Kokuho,Drama,175,2026,9.0,59,29591,2857
+2026-03-12,1,Hoppers,Animation,104,2026,8.7,18607,242558,18785
+2026-03-12,2,Kuyank,Horror,98,2026,7.3,9456,1157143,34790
+2026-03-12,3,Alas Roban,Horror,111,2026,6.7,5833,2394120,80201
+2026-03-12,4,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,4076,211146,17665
+2026-03-12,5,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,3934,108649,11578
+2026-03-12,6,Scream 7,Mystery / Crime / Horror,114,2026,7.5,3114,128830,15658
+2026-03-12,7,Number One,Drama,105,2026,7.9,2829,6667,1873
+2026-03-12,8,Blades of The Guardians,Action / History,126,2026,8.4,2504,282034,17940
+2026-03-12,9,Setan Alas!,Horror,84,2026,7.1,2503,24538,2010
+2026-03-12,10,Setannya Cuan,Comedy / Horror,106,2026,6.3,2458,22265,2895
+2026-03-12,11,Reminders of Him,Romance,114,2026,7.3,1992,3929,2001
+2026-03-12,12,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,1809,514957,23321
+2026-03-12,13,Once We Were Us,Romance / Drama,115,2026,8.0,1204,28029,4577
+2026-03-12,14,PROJECT Y,Crime / Action,108,2026,7.3,637,12150,2856
+2026-03-12,15,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,551,89487,5943
+2026-03-12,16,The Bride!,Thriller,126,2026,7.3,545,22532,5175
+2026-03-12,17,Crime 101,Thriller / Crime,140,2026,7.7,504,105185,11251
+2026-03-12,18,"Good Luck, Have Fun, Dont Die",Science Fiction / Action,134,2026,8.1,384,10217,2752
+2026-03-12,19,Marty Supreme,Drama / Sport,150,2026,8.5,375,47656,4742
+2026-03-12,20,"We, Everyday",Drama / Romance,100,2026,7.6,370,1000,879
+2026-03-12,21,Iron Lung,Horror,125,2026,6.4,223,34629,3073
+2026-03-12,22,Hamnet,Romance / Drama / History,125,2026,8.6,161,16212,2225
+2026-03-15,1,Hoppers,Animation,104,2026,8.7,48280,371986,25885
+2026-03-15,2,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,14660,240035,19938
+2026-03-15,3,Kuyank,Horror,98,2026,7.3,13404,1191049,36741
+2026-03-15,4,Alas Roban,Horror,111,2026,6.7,8332,2418274,81545
+2026-03-15,5,Blades of The Guardians,Action / History,126,2026,8.4,6433,296513,19070
+2026-03-15,6,Titip Bunda Di Surga-Mu,Family / Drama,112,2026,7.6,6395,124496,13059
+2026-03-15,7,Scream 7,Mystery / Crime / Horror,114,2026,7.5,5416,142540,17052
+2026-03-15,8,Setannya Cuan,Comedy / Horror,106,2026,6.3,4518,33355,4131
+2026-03-15,9,Number One,Drama,105,2026,7.9,3121,16484,3696
+2026-03-15,10,Setan Alas!,Horror,84,2026,7.1,3065,32683,2708
+2026-03-15,11,"Kafir, Gerbang Sukma",Horror,108,2026,7.0,2779,521968,23562
+2026-03-15,12,Once We Were Us,Romance / Drama,115,2026,8.0,1803,32688,5177
+2026-03-15,13,Crime 101,Thriller / Crime,140,2026,7.7,1716,109358,11688
+2026-03-15,14,"Antara Mama, Cinta Dan Surga",Drama / Family,110,2026,5.0,1155,92688,6216
+2026-03-15,15,PROJECT Y,Crime / Action,108,2026,7.3,913,14797,3452
+2026-03-15,16,Reminders of Him,Romance,114,2026,7.3,887,6206,3262
+2026-03-15,17,"Good Luck, Have Fun, Dont Die",Science Fiction / Action,134,2026,8.1,803,12549,3218
+2026-03-15,18,Marty Supreme,Drama / Sport,150,2026,8.5,588,49481,5058
+2026-03-15,19,The Bride!,Thriller,126,2026,7.3,532,24420,5607
+2026-03-15,20,Iron Lung,Horror,125,2026,6.4,510,35815,3305
+2026-03-15,21,Hamnet,Romance / Drama / History,125,2026,8.6,438,17420,2512
+2026-03-15,22,"We, Everyday",Drama / Romance,100,2026,7.6,175,1544,1258
+2026-03-15,23,Through The Olive Trees,Drama,103,2026,0.0,125,395,13
+2026-03-18,1,Danur: The Last Chapter,Horror,98,2026,6.6,111803,111803,2223
+2026-03-18,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,80886,80886,2167
+2026-03-18,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,47456,47456,1707
+2026-03-18,4,Senin Harga Naik,Drama / Comedy,116,2026,8.2,45285,45285,1854
+2026-03-18,5,Na Willa,Family / Drama,118,2026,8.6,36875,36875,1713
+2026-03-18,6,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,27000,27000,1024
+2026-03-18,7,Hoppers,Animation,104,2026,8.7,15068,442490,31293
+2026-03-21,1,Danur: The Last Chapter,Horror,98,2026,6.6,120738,380000,9218
+2026-03-21,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,70124,250823,8060
+2026-03-21,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,61827,170854,6358
+2026-03-21,4,Senin Harga Naik,Drama / Comedy,116,2026,8.2,31056,123568,6455
+2026-03-21,5,Hoppers,Animation,104,2026,8.7,25339,511568,33289
+2026-03-21,6,Na Willa,Family / Drama,118,2026,8.6,23474,102263,6074
+2026-03-21,7,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,22013,86739,3591
+2026-03-21,8,Alas Roban,Horror,111,2026,6.7,14693,2432967,82519
+2026-03-21,9,2026 NCT DREAM TOUR <THE DREAM SHOW 4: FUTURE THE DREAM> FINALE in CINEMAS,Music / Live in Cinema,210,2026,0.0,2072,2072,13
+2026-03-21,10,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,1456,4064,87
+2026-03-22,1,Danur: The Last Chapter,Horror,98,2026,6.6,236380,616380,12071
+2026-03-22,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,131376,382199,10271
+2026-03-22,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,115581,286435,8169
+2026-03-22,4,Na Willa,Family / Drama,118,2026,8.6,53776,156039,7584
+2026-03-22,5,Senin Harga Naik,Drama / Comedy,116,2026,8.2,49635,173203,7906
+2026-03-22,6,Hoppers,Animation,104,2026,8.7,33754,545322,34200
+2026-03-22,7,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,30913,117652,4478
+2026-03-22,8,Panda Plan: The Magical Tribe,Comedy / Action,100,2026,6.8,17597,271180,22200
+2026-03-22,9,Blades of The Guardians,Action / History,126,2026,8.4,7260,310912,20207
+2026-03-22,10,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,1788,5852,131
+2026-03-23,1,Danur: The Last Chapter,Horror,98,2026,6.6,277654,894034,15155
+2026-03-23,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,189917,572116,12503
+2026-03-23,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,139867,426302,10020
+2026-03-23,4,Na Willa,Family / Drama,118,2026,8.6,88810,244849,9070
+2026-03-23,5,Senin Harga Naik,Drama / Comedy,116,2026,8.2,66943,240146,9218
+2026-03-23,6,Hoppers,Animation,104,2026,8.7,36810,582132,35038
+2026-03-23,7,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,27616,145268,5263
+2026-03-23,8,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,1130,6982,169
+2026-03-24,1,Danur: The Last Chapter,Horror,98,2026,6.6,314244,1208278,18443
+2026-03-24,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,209420,781536,14855
+2026-03-24,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,136403,562705,11903
+2026-03-24,4,Na Willa,Family / Drama,118,2026,8.6,100626,345475,10629
+2026-03-24,5,Senin Harga Naik,Drama / Comedy,116,2026,8.2,71569,311715,10439
+2026-03-24,6,Hoppers,Animation,104,2026,8.7,31372,613504,35802
+2026-03-24,7,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,16731,161999,5864
+2026-03-24,8,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,981,7963,202
+2026-03-27,1,Danur: The Last Chapter,Horror,98,2026,6.6,210236,1936422,27934
+2026-03-27,2,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,156859,1312088,22200
+2026-03-27,3,Na Willa,Family / Drama,118,2026,8.6,87550,611872,15776
+2026-03-27,4,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,82177,868291,17292
+2026-03-27,5,Senin Harga Naik,Drama / Comedy,116,2026,8.2,69929,520099,14271
+2026-03-27,6,Agak Laen: Menyala Pantiku!,Comedy,119,2025,8.3,16202,10997135,171258
+2026-03-27,7,Hoppers,Animation,104,2026,8.7,15626,667312,37897
+2026-03-27,8,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,10170,197317,7337
+2026-03-27,9,BRING ME THE HORIZON: L.I.V.E. IN São Paulo (LIVE IMMERSIVE VIRTUAL EXPERIMENT),Music / Documentary,114,2026,10.0,1974,7139,151
+2026-03-27,10,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,817,10260,305
+2026-03-30,1,Tunggu Aku Sukses Nanti,Drama,110,2026,8.4,151924,1802889,29808
+2026-03-30,2,Danur: The Last Chapter,Horror,98,2026,6.6,127223,2508978,36934
+2026-03-30,3,Suzzanna: Santet Dosa di Atas Dosa,Drama / Fantasy / Horror / Thriller,135,2026,7.4,58058,1124581,22216
+2026-03-30,4,Na Willa,Family / Drama,118,2026,8.6,55526,878886,21099
+2026-03-30,5,Senin Harga Naik,Drama / Comedy,116,2026,8.2,54577,731012,18373
+2026-03-30,6,Hoppers,Animation,104,2026,8.7,4264,705677,39800
+2026-03-30,7,Pelangi di Mars,Drama / Family / Adventure / Science Fiction,112,2026,6.4,3731,229851,8488
+2026-03-30,8,Dhurandhar: The Revenge,Thriller / Action,245,2026,8.6,487,13610,420

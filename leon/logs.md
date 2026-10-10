@@ -1951,3 +1951,128 @@ Rule: only data dated on or before 2025-09-30 as evidence; main's 0.36284 file o
 - Raw test predictions by period (no season factors), weight still needed to reach the right level (1.00 = right) plain -> relative: Lebaran week 1.62 -> 1.14, pre_to_ram 0.82 -> 1.00, ram_to_ram 0.99 -> 0.94, Christmas 0.97 -> 0.92, normal 0.96 -> 0.91; size-weighted level off: Lebaran 0.468 -> 0.116, pre_to_ram 0.239 -> 0.177, ram_to_ram 0.109 -> 0.117, Christmas 0.066 -> 0.104, normal 0.130 -> 0.161. It extrapolates to Lebaran week on its own, but main's hand-set x2.0 on the blend already sits at about 1.03, so no gain there.
 - Blend of plain and relative OOF (share of relative): 0.0 0.2980, 0.1 0.2969, 0.2 0.2965 (-0.0015, all 3 seeds same sign), 0.3 0.2968, 0.5 0.2989. Small, about the noise level, and Kumo already adds variety; not adopted.
 - Summary of this round: the only post-cutoff features that moved the CV are n_ret_prev and n_fill_ratio (applied); cinema-vs-national features and the relative target add nothing usable. Not done: pruning the near-dead days-off / profile columns with the full pipeline.
+
+## 2026-10-10 - LB: submission_cine.csv (main with n_ret_prev + n_fill_ratio, before the pruning audit) 0.35632 (was 0.35793)
+- Gain 0.0016 on the LB vs 0.0025 on train CV (3 seeds); the CV tracks the LB direction for main. Leaderboard top: 0.33662, 0.34264, 0.34450, 0.35446; this file is 5th.
+- Pruning runs (days-off + profile columns) for main (`research/prune_main.py`) and legit (`exp/e29_prune_legit.py`) are still running in the background.
+
+## 2026-10-10 - Out-of-range rows: where main's error sits, and a fix for the LGBM target (scratch `research/extrap.py`, `extrap2.py`, `wbin.py`)
+- Special seasons carry about half of main's film-level error with about 30% of the rows; in Lebaran week 49% of test rows have a national ratio (n_ret_prev) above the train 99th percentile. Trees saturate on values they never saw.
+- Out-of-range test on TRAIN labels: hold out films that have >= 3 rows with national ratio ret_h >= THR, train only on the other films' rows with ret_h < THR, score the held-out rows (row-level MASE, fast LGBM, 2 seeds). Variants: plain target; relative target y / national ratio^p with weights national^p (same L1 loss), p = 0.5 and 1; plain + relative averaged 50/50.
+| THR | films | rows | plain | p=0.5 | relative p=1 | avg plain + relative | films better than plain (p=0.5 / avg) |
+|---|---|---|---|---|---|---|---|
+| 1.2 | 49 | 4884 | 1.057 | 0.857 | 0.917 | 0.833 | 42 / 38 of 49 |
+| 1.5 | 27 | 2202 | 1.285 | 1.056 | 1.160 | 1.009 | 23 / 22 of 27 |
+| 1.8 | 20 | 1528 | 1.597 | 1.291 | 1.336 | 1.258 | 18 / 18 of 20 |
+- At THR 1.5 with 3 seeds: plain needs a constant x1.45 (like the hand-set Lebaran x2.0), then reaches 1.114; relative needs x0.75 and reaches 1.002; the 50/50 average needs x1.00 and reaches 1.008 (better shape across films, not only level). Pure national projection (national x k(h)) 1.181; MASE of predicting ratio 1: 1.501.
+- Ordinary CV (5 folds by film, seeds 1-3, no extra rows), OOF MASE all rows / rows with ret_h >= 1.5: plain 0.2963 / 1.0459; p=0.5 model alone 0.2937 / 0.9829 (-0.0026 overall); plain + p=0.5 at share 0.7: 0.2935 / 0.9959; plain + relative share 0.2: 0.2949 / 1.0085. Best share by national-ratio bin is noisy in range, high (about 0.5-1.0) for ret_h > 1.5.
+- Kumo with legit features (no national input) behaves like the LGBM on high-ratio rows (1.38 vs 1.37 on > 1.5); no evidence about Kumo with main's features.
+- Scrape options seen on cinepoint.com (not collected yet): top box office table also has genre and a "Score" per film (6.8-8, labelled CinepointFlash, scale not documented), the Daily Showtime page has per-film runtime and share of the day's showtimes; no per-city / per-cinema data. Per-film pages are not reachable without driving a browser.
+
+## 2026-10-10 - main: LGBM target scaled by the national ratio, and pruning of 4 dead columns (backups `main_backup_before_target_power.ipynb`, `main_backup_before_prune.ipynb`; scripts `nb_target_power.py`, `nb_prune_main.py`)
+- main.ipynb setup cell: `national_scale(X, power)`, `NAT_MEDIAN`, switches `TARGET_POWER_LGBM = 0.5` and `TARGET_POWER_KUMO = 0.0` (Kumo off, untested). The LGBM fits (tickets + 0.05) / national_ratio^0.5 with sample weights x national_ratio^0.5 (same loss as the plain target) and multiplies back (- 0.05); Kumo uses the same transform without weights (median regression commutes with a known positive scale) when its power is non-zero. national_ratio = ret_h (off-chart: 0.7 x cut_h, else the train median) + 0.05. Only used when the Cinepoint columns exist.
+- Full pipeline CV (LGBM only, extra rows, 1500 trees, RUN_CV forced True), seeds 42 / 1 / 2: before 0.2884 / 0.2885 / 0.2886 (100 features) -> with TARGET_POWER_LGBM 0.5: 0.2868 / 0.2867 / 0.2874 (mean 0.2870, -0.0015).
+- Greedy prune on main's 100 features (`research/prune_main.py`, fast LGBM, 3 seeds, no extra rows, keep a removal if the mean is not worse than the best by more than 0.0003): removed off_d2, off_d1, kind_code, source_code (0.2980 -> 0.2968 with 96 features). Kept (each removal made it worse): local_horror, is_local, tgt_hol, win_wk, between_off, tgt_prev_off, win_hol, between_off_share, pred_adm_log, is_sequel, off_d3, origin_code, tgt_next_off.
+- Applied: off_d1 / off_d2 no longer created (win_off = sum of the three window days directly; OFF_COLS starts with off_d3), kind_code / source_code and their lookup lists removed from the profile cell. 96 features.
+- Full pipeline CV with both changes, seeds 42 / 1 / 2: 0.2863 / 0.2869 / 0.2859 (mean 0.2864). Main LGBM CV path: 0.2910 (98 features) -> 0.2885 (+ n_ret_prev, n_fill_ratio) -> 0.2870 (+ national^0.5 target) -> 0.2864 (pruned, 96 features).
+- Not retuned: the hand-set Lebaran x2.0 / school x1.25 factors (calibrated on the old blend; the LGBM part of the blend now predicts about 15% more in Lebaran week, so the blend level may move up by about 5%; check the level against the real national sales after the next full run).
+- Not touched: main_legit (its own prune run `exp/e29_prune_legit.py` is still going; main_legit's Ramadan genre cell uses kind_code, so kind_code must stay computed there).
+- LB so far for main: 0.35632 for the version with the two national-chart columns (before the target change and the pruning).
+
+## 2026-10-10 - Cinepoint data audit: mislabelled dates in the daily files; new scraper for genre / runtime / score
+### Finding (scratch `research/audit_daily.py`, `probe_cinepoint.py`)
+- The popup rows of cinepoint.com/pages/tbo hold, for every film of the day, genre, runtime, release year and a "Cinepoint Flash" score (6.8-8.7) besides the 6 columns the daily scraper kept. New scraper `external/cinepoint/cinepoint_film_info.py` (Playwright, visible Chrome like the daily one; output `external/cinepoint/cinepoint_film_info.csv`, one row per film and scraped date, with the daily numbers too).
+- Test scrape of 2025-06-02 matches `cinepoint_daily_top_train.csv` exactly (12 films, every number). 2025-12-01 does NOT: the file's Dec 1 row contains Five Nights at Freddys 2 and a Jujutsu Kaisen screening (films whose total equals their first day, opened Dec 3) and Agak Laen at a total of 3,161,317, while a fresh scrape of Dec 1 shows Agak Laen at 476,305 / total 2,301,647. So the file holds another day's data under the label 2025-12-01.
+- Audit with the running-total identity (for a film on consecutive dates, total(d) - total(d-1) = daily(d)): pass rate 96.6% (train file), 96.2% (test-period file), 96.6% (prev file), but each file has 13 dates at 0% pass in blocks of 2-5 days:
+  - train: 2025-05-02..05, 06-29, 07-11..12, 07-16..17, 09-02..05
+  - test period: 2025-10-05..06, 10-10..11, 10-27..28, 12-01..05, 2026-03-22..23 (Lebaran week)
+  - prev: 2023-11-06..09, 11-13..15, 2024-03-29, 07-01..03, 2025-03-03..04
+  - plus 24 dates missing in the prev file (2023-09-25, ..., 2024-04-02..10 (Lebaran 2024 week), 2024-04-29).
+  About 7% of days carry wrong values in main's strongest column (ret_h, cut_h, n_ret_prev, n_fill_ratio) and in the market totals the legit season formula uses (prev + train files, from 2024-09-20 on).
+- Re-scrape started: 78 bad / missing dates (flagged dates, the day before each block, missing dates) plus every third day 2025-04-01..2026-03-31 for the film info (about 190 popups, ~30-40 min). The original CSVs are not modified; the plan is to validate the new rows with the same identity against their neighbours, store corrected rows in new files (pre-cutoff rows separate, so main_legit can load them without any post-cutoff date) and have the notebooks replace the bad dates when they load the charts.
+
+## 2026-10-10 - main_legit pruning result (`exp/e29_prune_legit.py`, fast LGBM with extra rows, 3 seeds, start = 78 features 0.3244)
+- Removed: tgt_hol only (0.3244 -> 0.3228, 77 features). Every other new days-off / profile column made the CV worse when dropped (win_wk +0.0023, source_code +0.0013, off_d2 +0.0017, tgt_prev_off +0.0010, tgt_next_off +0.0019, between_off +0.0024, between_off_share +0.0017, is_local +0.0023, kind_code +0.0016, pred_adm_log +0.0021, off_d1 +0.0013, local_horror +0.0015, win_hol +0.0022, origin_code +0.0028), so they stay; kind_code also feeds the Ramadan genre cell.
+- Applied to main_legit.ipynb only (backup `main_legit_backup_before_prune.ipynb`): tgt_hol no longer created or used; smoke run OK, 77 features. main keeps tgt_hol (its own prune run kept it, a removal there was within the noise).
+- The two notebooks now differ in the days-off / profile columns on purpose: main 96 features (off_d1, off_d2, kind_code, source_code removed), legit 77 (tgt_hol removed), each from its own prune run.
+
+## 2026-10-10 - Cinepoint chart fix applied (re-scrape finished; scratch `research/merge_fix.py`)
+- Scrape result: 164 of 188 dates read (2,382 rows, 496 films, `external/cinepoint/cinepoint_film_info.csv`); the 24 dates the original file lacked (2023-09-25/26, Oct-Dec 2023 days, 2024-01-22/23, 2024-04-02..10 = Lebaran 2024 week, 2024-04-29) have no popup on the site, so they stay missing.
+- The new scraper has the same intermittent problem: on 2025-06-03 it returned an older day's numbers (Mission Impossible total 1,719,104, lower than its total of 1,877,523 a day earlier), so no single scrape is trusted, every replaced date is validated against its neighbours. On the 110 dates that were not flagged the new scrape equals the old file on 99.1% of film-days.
+- Of the 54 flagged dates that were re-scraped, 23 had different numbers (2023-11-05, 11-09, 11-12, 11-13, 11-14, 2024-03-28, 07-01, 07-02, 2025-03-03, 05-02, 05-04, 06-28, 07-11, 07-16, 09-02, 09-04, 2025-10-05, 10-10, 10-27, 12-01, 12-02, 12-04, 2026-03-22); the rest were flagged only because they neighbour a bad day.
+- Running-total audit on the merged table (bad dates replaced): pass rate 96.5% -> 99.5%, dates below 0.7: 39 -> 0.
+- Corrected rows saved as `external/cinepoint/cinepoint_daily_fix_pre_cutoff.csv` (411 rows, 36 dates, up to 2025-09-05) and `cinepoint_daily_fix_post_cutoff.csv` (255 rows, 18 dates, 2025-10-04..2026-03-23); the original CSVs are untouched. Notebooks: `replace_chart_dates(charts, fix_files)` drops the original rows of the fixed dates and appends the fix rows (script `nb_chart_fix.py`, backups `main_backup_before_chart_fix.ipynb`, `main_legit_backup_before_chart_fix.ipynb`).
+  - main.ipynb: loads both fix files (Cinepoint cell, before the film keys are built).
+  - main_legit.ipynb: loads only the pre-cutoff file inside load_charts (the post-cutoff assert still holds).
+- main full-pipeline CV (LGBM only, extra rows, 1500 trees, RUN_CV forced on, TARGET_POWER_LGBM 0.5, 96 features), seeds 42 / 1 / 2: before the fix 0.2863 / 0.2869 / 0.2859 (mean 0.2864) -> after 0.2768 / 0.2772 / 0.2771 (mean 0.2770), -0.0094 on every seed. Main LGBM CV path: 0.2910 -> 0.2885 -> 0.2870 -> 0.2864 -> 0.2770.
+- main_legit (season formula inputs, harness): share change of normal-season films D4-D10 [0.68, 0.76, 0.68, 0.52, 0.25, 0.20, 0.14] -> [0.77, 0.78, 0.73, 0.52, 0.27, 0.20, 0.18]; 2025 Eid releases unchanged. Distance to the old main file (which was built on the uncorrected data) 0.1945 -> 0.1962; not a meaningful measure any more.
+- Consequence for earlier results: every real-sales check that used cinepoint_daily_top.csv as the "real" side (Christmas / kids / Ramadan weights, Lebaran levels) is affected on the bad dates (Oct 5-6, 10-11, 27-28, Dec 1-5, Mar 22-23); the conclusions were drawn on the size-weighted levels over whole seasons so they should hold, but they are to be re-checked with the corrected data.
+- Loader guard: `replace_chart_dates` now prints "chart dates replaced by the re-scraped rows: N" or a WARNING when no cinepoint_daily_fix_*.csv is found (so a run without the fix files is not silent). Smoke runs: main 36 dates replaced (2 fix files), main_legit 36 (1 file).
+- Sanity of full-run test predictions (LGBM only, 1500 trees, seed 42): total tickets 12.22M (before target power + chart fix) -> 11.91M; mean ratio 0.462 -> 0.482; Lebaran-week rows mean ratio 1.313 -> 1.413 (+7.6%); the 50-tree smoke totals are not comparable (underfit model with the relative target). Old submission_cine.csv total 13.35M (Kumo blend + season factors).
+
+### Scraped film info as features for main (fast LGBM, 5 folds by film, seeds 1-3, no extra rows, corrected data, 96 features base 0.2896; `research/film_info_feats.py`)
+- `external/cinepoint/cinepoint_film_info.csv` coverage: score / runtime / genre for 224 of 237 train films and 157 of 160 test films (title key match); the score is identical on every scraped date for a film (range 0-10, median 7.4; 0 treated as missing), runtime 22-245 min.
+| Added | CV | vs base |
+|---|---|---|
+| info_score (Cinepoint Flash score) | 0.2884 | -0.0012 (3 / 3 seeds better) |
+| info_runtime | 0.2896 | -0.0001 |
+| both | 0.2892 | -0.0004 |
+- The score is a small, consistent gain (about the noise level); runtime adds nothing. Not added to the notebook yet (needs the new CSV file next to the other external files).
+- main_legit levels vs the corrected real sales (equal-per-film level / size-weighted level, 1.00 = right once the baseline is re-derived; the baseline moved with the corrected data), before -> after the chart fix: ram_to_ram 0.98 -> 1.04 / 0.98 -> 1.04, ram_to_lebaran 0.91 -> 0.95 (size-weighted), pre_to_ram and normal unchanged. The Ramadan / Lebaran levels move up 4-6%, toward the right level relative to the normal season.
+- To do: re-check the earlier real-sales conclusions (Christmas, kids, Ramadan genre weights) with the corrected truth; Kumo with TARGET_POWER_KUMO 0.5 (GPU); decide on info_score.
+
+## 2026-10-10 - Kumo and LGBM target power re-tested on the corrected data (scratch `research/kumo_extrap.py`, `kumo_more.py`, `lgbm_powers.py`)
+- Hold-out test as before (films with >= 3 rows of national ratio >= 1.5 held out; train on the other films' rows below 1.5; with the corrected chart data: 24 films, 2,144 rows, real mean ratio 2.50). Kumo: 10,000 context rows (no shifted rows), 2 context seeds; LGBM: 3 seeds. MASE on those rows (mean predicted in brackets):
+| Power | Kumo | LGBM |
+|---|---|---|
+| 0 | 1.345 (1.42) | 1.407 (1.21) |
+| 0.25 | 1.235 (1.59) | 1.250 (1.43) |
+| 0.5 | 1.116 (1.75) | 1.113 (1.70) |
+| 0.75 | 1.043 (1.98) | 1.025 (2.03) |
+| 1.0 | 1.039 (2.26) | 1.043 (2.35) |
+- With the corrected data the best power moved up (before the fix LGBM p=1.0 was worse than 0.5, 1.160 vs 1.056): the national ratio is less noisy now. Best constant multiplier of each: Kumo p0 x1.35 -> 1.239, p0.5 x1.15 -> 1.081; LGBM p0 x1.60 -> 1.156, p0.5 x1.20 -> 1.063.
+- Blends 0.7 Kumo + 0.3 LGBM on those rows: both p=0: 1.348; Kumo 0 + LGBM 0.5 (what main had): 1.258; Kumo 0.5 + LGBM 0: 1.169; both 0.5: 1.107. With both at 0.5 the Kumo weight hardly matters (0.0: 1.113, 0.3: 1.106, 0.5: 1.105, 0.7: 1.107, 1.0: 1.116); with Kumo at 0 it matters a lot (1.113 -> 1.345 as the Kumo weight goes 0 -> 1).
+- Ordinary rows (corrected data): LGBM CV (5 folds by film, seeds 1-3, fast, no extra rows): p0 0.2893, p0.25 0.2875, p0.5 0.2861, **p0.75 0.2855**, p1.0 0.2881. Kumo (5 folds by film, 8,000 context rows, one context seed, up to 3,000 random validation rows per fold, same rows for every power): p0 0.2920, p0.25 0.2905, p0.5 0.2900, **p0.75 0.2882**.
+- DECISION: TARGET_POWER_LGBM = 0.75 and TARGET_POWER_KUMO = 0.75 in main.ipynb (backup `main_backup_before_power075.ipynb`). Not run end to end with Kumo here (GPU test above only); full LGBM-only regeneration `nb_lgbm_full_main_P075.pkl` in progress.
+- Open: the hand-set Lebaran x2.0 and school x1.25 were calibrated on saturated predictions; with power 0.75 the raw predictions on high-ratio rows rise by about 40%, so they must be re-derived (next).
+
+## 2026-10-10 - main: powers 0.75 / 0.75 applied; season factors re-derived (backups `main_backup_before_power075.ipynb`, `main_backup_before_season_recalibration.ipynb`; scratch `research/season_levels.py`)
+- Both powers set to 0.75 (the user had already changed TARGET_POWER_KUMO to 0.5 in the saved file; a first regeneration therefore ran at 0.5 and matched the earlier run exactly, CV 0.2768). Full pipeline, LGBM only, seed 42, corrected data: power 0.5 CV 0.2768 -> power 0.75 CV 0.2764.
+- Level of main's RAW LGBM predictions (no season factors) against the real national numbers, size-weighted, 1.00 = right (baseline level of the model on train films 0.77, C(h) per horizon from train films; the same at power 0.5 and 0.75 within 0.03):
+| Group | rows | films | raw mean ratio | factor still needed (size-weighted) | equal per film | hand factor used before |
+|---|---|---|---|---|---|---|
+| all other rows | 50,049 | 114 | 0.40 | 0.89 | 1.06 | |
+| school break, not Lebaran | 3,267 | 10 | 0.61 | 0.92 | 0.84 | x1.25 |
+| Ramadan (D1-D3 and target) | 10,668 | 29 | 0.46 | 1.02 | 1.24 | |
+| Christmas break | 2,067 | 7 | 0.68 | 0.96 | 0.96 | |
+| Lebaran week | 4,598 | 10 | 1.41 | 1.65 | 1.67 | x2.0 |
+| Ramadan (opened before) | 1,962 | 8 | 0.14 | 1.13 | 2.24 | |
+- Old model raw Lebaran level times x2.0 (about 2.4, set on the public LB with a weaker model) is about the new raw level 1.41 times x1.65 (about 2.3): the absolute level agrees; the school factor is not needed any more (the target scaling already puts those rows near the right level; x1.25 on top would be about 36% too high).
+- Applied: season cell now only `LEBARAN_FACTOR = 1.65` (no SEASON_FACTORS dict, no SCHOOL_DAYS / school-break mask); markdown rewritten. Smoke run OK (96 features).
+- To check after the user's full run (Kumo + LGBM blend): level of the final submission file against the real national numbers by group (the factor was derived from the LGBM-only raw predictions; Kumo at power 0.75 predicted about the same as LGBM on the hold-out: 1.98 vs 2.03).
+
+## 2026-10-10 - LB: submission_cine.csv (main with corrected chart dates, national-ratio target power 0.75 on LGBM and Kumo, 96 features, LEBARAN_FACTOR 1.65, no school factor) 0.34650 (was 0.35632)
+- Gain 0.0098 on the LB; 4th place, top 0.33662 (SAGARAS), then 0.34264, 0.34450.
+- main path on the LB: 0.36284 -> 0.35793 (feature clean-up) -> 0.35632 (n_ret_prev, n_fill_ratio) -> 0.34650 (chart fix + national-ratio target + recalibrated season factors; these three were submitted together, so their individual effects are not separated).
+
+## 2026-10-10 - Level of the submitted file, hard-rows ideas, snapping (scratch `research/season_levels_sub.py`, `regime_cv.py`)
+- Level of the submitted file (LB 0.34650) vs the real national numbers (size-weighted factor still needed / equal per film): Lebaran week 0.90 / 1.04 (mean ratio 2.31), school break not Lebaran 1.01 / 0.86, Ramadan 0.96 / 1.30, Christmas 0.92 / 0.92, other rows 0.90 / 0.99, Ramadan opened before 1.15 / 1.48. Levels are within about 10%: the remaining error is not level.
+- Title matching Cinepoint vs our films is clean: 2 train films (0.3% of rows) and 0 test films not found by title.
+- Hard rows (ret_h >= 1.5, 2,144 rows, 3.9%) and mid rows (1.0-1.5, 5,871 rows) in 5-fold CV by film, LGBM power 0.75, fast, 2 seeds: base all 0.2848 / hard 0.9977 / mid 0.4902; up-weight rows with ret_h >= 1.2 x3: 0.2861 / 0.9767 / 0.4926, x5: 0.2881 / 0.9817; specialist model (ret_h >= 1) share 0.5 on hard rows: 0.2845 / 0.9899, share 1.0: 0.2845 / 0.9905; leveling hard rows to the film's national total, strength 0.25 / 0.5 / 1.0: 0.2846 / 0.9924, 0.2846 / 0.9921, 0.2852 / 1.0071; projection national x k(h) share 0.2 / 0.4: 0.2852 / 1.0084, 0.2862 / 1.0323. None helps: the model already uses what the national numbers give.
+- Snapping the OOF to 0 below a threshold (all rows MASE): 0.0 0.2868, 0.05 0.2856, 0.1 0.2847, 0.15 0.2844, 0.2 0.2848, 0.25 0.2869, 0.3 0.2911, 0.4 0.3069: the current 0.2 / 0.1 is at the optimum within 0.0004.
+
+## 2026-10-10 - Research batch after LB 0.34650 (new data: weather, Wikipedia; scaled national ratio; tree blend)
+- Levels counting films by their number of rows (what MASE counts), submitted file, factor still needed: Lebaran week 1.02, school break 0.83, Christmas 0.92, other rows 0.91, Ramadan 1.10 (1.30 equal per film, 0.96 size-weighted), Ramadan opened before 1.25. Relative to the other rows, Ramadan looks 7-31% low (central about 20%): a level fix there is worth about 0.001 on the score at most; not applied.
+- New external data: `external/weather_daily.csv` + `city_coords.csv` (Open-Meteo archive, daily precipitation and mean temperature for all 73 cities, 2025-03-15..2026-03-31; script `external/weather_fetch.py`; Rokan Hilir added by hand at Bagansiapiapi 2.15, 100.82). `external/wiki_fetch.py` -> `external/wiki_pageviews_window.csv` (Wikipedia en + id pageviews per film from D1-35 to D1+11) was running.
+- Features on main's 96 (fast LGBM power 0.75, 5 folds by film, seeds 1-3, no extra rows; base 0.2860): rain on the target day, day before, D1-D3, difference, heavy rain, temperature 0.2859 (-0.0002); rain on the target day only 0.2857 (-0.0004); rain target minus D1-D3 + heavy rain 0.2860 (0.0000). National ratio scaled to our cinemas' terms (national x per-horizon median of y / national): nat_adj + prev_adj 0.2853 (-0.0008), + fill_adj + expected tickets 0.2852 (-0.0008). Nothing usable (noise is about 0.001).
+- Tree blend on the national-ratio target (5 folds, corrected data): LGBM 0.2848 (2 seeds), XGBoost 0.2856, CatBoost (400 its, depth 8) 0.2895; blends lgbm + xgb 0.2846, lgbm + cat 0.2852, all three equal 0.2847, 0.5 / 0.25 / 0.25 0.2844 (-0.0004): the trees see the same features, so no diversity.
+- Gap of the submitted file to the national-implied level by film (rows x absolute gap): spread out, top 10 films 32%, top 25 of 159 films 48%; largest: We Everyday 7% (pred 0.22 vs implied 4.48, tiny film with an unreliable national ratio), Reminders of Him 5%, Tunggu Aku Sukses Nanti 3%, Number One 3%, Na Willa 3%. No small set of films to fix.
+- LGBM Optuna on the new target (40 trials, fast config) started: `research/tune_lgbm.py`.
+
+## 2026-10-10 - Incomplete days in train.csv (found through a per-date check of our data against Cinepoint; scratch `research/date_resid.py`, `partial_days_cv.py`)
+- Check: per film, log(our daily total / Cinepoint national) minus the film's own median of it; the median over films per date should be about 0. With the fixed charts it flags 14 dates, 13 of them in 2025-06-01..06-17 (-0.9 on June 1-5, -0.4 to -0.5 on June 6, 8, 10, -3.0 on June 11, -2.7 on June 14, -0.7 / -0.9 on June 15, 16); the original files had 20 dates, the re-scrape fixed the 6 others (06-29, 07-16, 09-01, 09-02, 09-04, 09-05).
+- Cause: OUR data, not Cinepoint: train.csv is partial on those days. Per day (typical 775 rows, 116 cinemas, about 6,300 shows): 06-01..06-05 about 2,000 shows (0.5 of normal), 06-07 10 rows, 06-09 1 row, 06-10 67 cinemas, 06-11 76 cinemas and 796 shows, 06-13 no rows, 06-14 83 cinemas, 06-15 87, 06-16 62.
+- Rule (shows < 75% or cinemas < 85% of the centred 21-day median, or no rows) finds exactly 13 days: 2025-06-01..05, 06-07, 06-09, 06-10, 06-11, 06-13, 06-14, 06-15, 06-16. Rows touching them (target day, or D1-D3 base): 1,766 of 54,671 (3.2%, 6 films; 1,570 by the target day, 294 by D1-D3).
+- CV (LGBM power 0.75, fast, 5 folds, seeds 1-3, scored on the same 52,905 clean rows): train on all rows 0.2844; drop rows with an incomplete target day 0.2839; drop rows touching incomplete days 0.2833 (-0.0012, every seed better); down-weight to 0.3: 0.2849. Dropping is best.
+- Applied to both notebooks (script `nb_incomplete_days.py`, backups `main_backup_before_incomplete_days.ipynb`, `main_legit_backup_before_incomplete_days.ipynb`): `incomplete_days(raw)` + `touches_incomplete(df)` in the setup cell; train_df drops those rows (52,905 left) and AUG drops its own (254,483 -> 244,229). The 13 days are printed at run time. Test period is complete (all 175 days have rows, median 116 cinemas a day like train).
+- Other checks this round: Cinepoint vs our data aligned at lag 0 in the train months (best lag 0 for 76% of films); Wikipedia interest (en + id pageviews around the release; coverage 66% of train rows, 50% of test rows): before release 0.2858 (-0.0002), day-level 0.2863 (+0.0002), all 0.2863 (+0.0003) vs base 0.2860: nothing. LGBM Optuna (40 trials, best 0.2840 on its own seed 7): on 3 other seeds current 0.2855 vs tuned 0.2853 (-0.0002): the parameters are at their optimum. Kumo per-horizon context: 0.2885 vs 0.2882 for the random context: no gain.

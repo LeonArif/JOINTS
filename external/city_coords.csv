@@ -1,0 +1,74 @@
+city_name,province,matched,admin1,lat,lon
+JAKARTA,DKI Jakarta,Jakarta,Jakarta Special Capital Region,-6.21462,106.84513
+TANGERANG,Banten,Tangerang,Banten,-6.17806,106.63
+CILEGON,Banten,Cilegon,Banten,-6.0144,106.0542
+BOGOR,Jawa Barat,Bogor,West Java,-6.59444,106.78917
+BEKASI,Jawa Barat,Bekasi,West Java,-6.2349,106.9896
+BANDUNG,Jawa Barat,Bandung,West Java,-6.92222,107.60694
+DEPOK,Jawa Barat,Depok,West Java,-6.4,106.81861
+CIKARANG,Jawa Barat,Cikarang,West Java,-6.26111,107.15278
+KARAWANG,Jawa Barat,Karawang,West Java,-6.30525,107.3197
+CIREBON,Jawa Barat,Cirebon,West Java,-6.7063,108.557
+GARUT,Jawa Barat,Garut,West Java,-7.245,107.921
+TASIKMALAYA,Jawa Barat,Tasikmalaya,West Java,-7.3274,108.2207
+SUMEDANG,Jawa Barat,Sumedang,West Java,-6.85861,107.91639
+CIANJUR,Jawa Barat,Cianjur,West Java,-6.82222,107.13944
+INDRAMAYU,Jawa Barat,Indramayu,West Java,-6.32639,108.32
+SUKABUMI,Jawa Barat,Sukabumi,West Java,-6.91806,106.92667
+PURWAKARTA,Jawa Barat,Purwakarta,West Java,-6.55694,107.44333
+SEMARANG,Jawa Tengah,Semarang,Central Java,-6.99306,110.42083
+SOLO,Jawa Tengah,Surakarta,Central Java,-7.55611,110.83167
+PEKALONGAN,Jawa Tengah,Pekalongan,Central Java,-6.8886,109.6753
+KLATEN,Jawa Tengah,Klaten,Central Java,-7.70583,110.60639
+MAGELANG,Jawa Tengah,Magelang,Central Java,-7.47056,110.21778
+PURWOKERTO,Jawa Tengah,Purwokerto,Central Java,-7.42139,109.23444
+TEGAL,Jawa Tengah,Tegal,Central Java,-6.8694,109.1402
+SURABAYA,Jawa Timur,Surabaya,East Java,-7.24917,112.75083
+MALANG,Jawa Timur,Malang,East Java,-7.9797,112.6304
+SIDOARJO,Jawa Timur,Sidoarjo,East Java,-7.4478,112.7183
+GRESIK,Jawa Timur,Gresik,,-1.7,109.13333
+JEMBER,Jawa Timur,Jemberem,,11.23333,-15.05
+KEDIRI,Jawa Timur,Kediri,East Java,-7.81667,112.01667
+BONDOWOSO,Jawa Timur,Bondowoso,East Java,-7.91346,113.82145
+MADIUN,Jawa Timur,Madiun,East Java,-7.6298,111.5239
+TUBAN,Jawa Timur,Tuban,East Java,-6.8976,112.0649
+YOGYAKARTA,DI Yogyakarta,Yogyakarta,Special Region of Yogyakarta,-7.80139,110.36472
+MEDAN,Sumatera Utara,Medan,North Sumatra,3.58333,98.66667
+KISARAN,Sumatera Utara,Kisaran,North Sumatra,2.9845,99.6158
+PEMATANG SIANTAR,Sumatera Utara,Pematangsiantar,North Sumatra,2.9595,99.0687
+RANTAU PRAPAT,Sumatera Utara,Rantauprapat,North Sumatra,2.1,99.83333
+LAMPUNG,Lampung,Bandar Lampung,Lampung,-5.42917,105.26111
+BATAM,Kepulauan Riau,Batam,Riau,1.14937,104.02491
+TANJUNG PINANG,Kepulauan Riau,Tanjung Pinang,Riau Islands,0.91667,104.45833
+PEKANBARU,Riau,Pekanbaru,Riau,0.51667,101.44167
+DUMAI,Riau,Dumai,Riau,1.66711,101.44316
+PALEMBANG,Sumatera Selatan,Palembang,South Sumatra,-2.91673,104.7458
+JAMBI,Jambi,Jambi,Moxico Province,-14.01667,21.56667
+PADANG,Sumatera Barat,Padang,West Sumatra,-0.94924,100.35427
+BENGKULU,Bengkulu,Bengkulu,Bengkulu,-3.80044,102.26554
+PANGKAL PINANG,Kepulauan Bangka Belitung,Pangkal,East Java,-7.9969,111.579
+SAMARINDA,Kalimantan Timur,Samarinda,East Kalimantan,-0.49167,117.14583
+BALIKPAPAN,Kalimantan Timur,Balikpapan,East Kalimantan,-1.26753,116.82887
+BONTANG,Kalimantan Timur,Bontangos,,35.67345,75.44808
+BANJARMASIN,Kalimantan Selatan,Banjarmasin,South Kalimantan,-3.31987,114.59075
+PONTIANAK,Kalimantan Barat,Pontianak,West Kalimantan,-0.03194,109.325
+SINGKAWANG,Kalimantan Barat,Singkawang,West Kalimantan,0.90925,108.98463
+PALANGKARAYA,Kalimantan Tengah,Palangkaraya,Central Kalimantan,-2.20833,113.91667
+KUALA KAPUAS,Kalimantan Tengah,Kuala Kapuas,Sarawak,3.01667,114.35
+TARAKAN,Kalimantan Utara,Tarakan,North Kalimantan,3.31332,117.59152
+MAKASSAR,Sulawesi Selatan,Makassar,South Sulawesi,-5.14861,119.43194
+MANADO,Sulawesi Utara,Manado,North Sulawesi,1.48218,124.84892
+GORONTALO,Gorontalo,Gorontalo,Gorontalo,0.5375,123.0625
+PALU,Sulawesi Tengah,Palu,Central Sulawesi,-0.90833,119.87083
+KENDARI,Sulawesi Tenggara,Kendari,Southeast Sulawesi,-3.9778,122.51507
+MAMUJU,Sulawesi Barat,Mamuju,West Sulawesi,-2.68056,118.88611
+DENPASAR,Bali,Denpasar,Bali,-8.65,115.21667
+MATARAM,NTB,Mataram,West Nusa Tenggara,-8.58333,116.11667
+KUPANG,NTT,Kupang,East Nusa Tenggara,-10.17083,123.60694
+AMBON,Maluku,Ambon City,Maluku,-3.69583,128.18333
+TERNATE,Maluku Utara,Ternate,Maluku,-3.27333,126.00972
+JAYAPURA,Papua,Jayapura,Special Region of Papua,-2.53371,140.71812
+SORONG,Papua Barat Daya,Sorong,Southwest Papua,-0.87956,131.26105
+MANOKWARI,Papua Barat,Menukwari,,-1.0,134.8
+TIMIKA,Papua Tengah,Timika,Central Papua,-4.61407,136.67679
+ROKAN HILIR,Riau,Bagansiapiapi (manual),Riau,2.15,100.82
