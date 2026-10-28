@@ -2123,3 +2123,437 @@ Rule: only data dated on or before 2025-09-30 as evidence; main's 0.36284 file o
 - Added the NN as third model (plain target, no national numbers), tuned NN settings from main's Optuna search, Kumo 12000 + 3000 context rows and 8 estimators (new KUMO_ESTIMATORS), blend weights Kumo 0.4 / LGBM 0.3 / NN 0.3 copied from main (placeholder).
 - Not yet run or checked: legit smoke run, legit CV of the NN, blend weights re-derived on legit's own OOF, whether 12k + 3k context and 8 estimators help on legit (no RUN_CV switch in legit, CV always runs).
 - Feature sets (from the saved smoke tables): 73 columns shared. Only in main: the Cinepoint national columns (ret_h, cut_h, ret4-ret10, cut4-cut10, cp_log_m13, cp_cov, cp_ndays, cp_ret_mean, n_ret_prev, n_fill_ratio) and tgt_hol. Only in legit: off_d1, off_d2, kind_code, source_code (pruned from main as near-dead).
+
+- main_legit: tqdm progress bars added (Kumo: one bar over chunks of rows across all context seeds, with the current seed shown; NN: bar over seeds). Backup `main_legit_backup_before_tqdm.ipynb`. Not run yet. Idea not done: per-seed interim save of the Kumo predictions.
+
+## 2026-10-11 - main_fast.ipynb (copy of main with the cheaper Kumo setting, prepared as a fallback)
+- main.ipynb Kumo step (12k+3k context, 8 estimators, 3 seeds) was still running after 300 min, slower than the 3 h estimate (GPU ran at 1.6 GHz under thermal slowdown). Fallback copy: KUMO 8000 + 2000 rows, 4 estimators, same 3 seeds, NN and blend as main, tqdm bars, output file submission_cine_fast.csv (so it does not overwrite main's). Not run.
+
+- main.ipynb: Kumo back to 8000 + 2000 context rows and 4 estimators (user decision after the 12k + 3k / 8 estimator run passed 5 h; scaling from my timings says about 5.5-6.5 h), tqdm bars added (Kumo chunks over all seeds, NN seeds). Backup `main_backup_before_tqdm_8k.ipynb`. `main_fast.ipynb` is now redundant (same settings, writes submission_cine_fast.csv).
+
+## 2026-10-11 - Leaderboard: main submission scored 0.33446 (rank 1, previous best 0.34650; rank 2 SAGARAS 0.33662)
+- Reported by the user from a screenshot. Which run produced it (NN in the blend, Kumo setting) was not stated at the time of logging; to be confirmed.
+
+- Reported by the user (2026-10-11): main_legit LGBM CV is about 0.33 (main LGBM CV 0.2753). Not re-measured by me after the legit changes (NN, Kumo setting, tqdm); the legit submission scored LB 0.40286.
+
+## 2026-10-11 - Other model families as blend partners (CPU, scratch `research/other_models.py`)
+- Same rows / folds / national-ratio target as the NN search (no extra rows). Base blend 0.4 Kumo + 0.3 LGBM + 0.3 NN (tuned NN) = 0.2723. Each new model mixed in at weight w (blend = (1-w) base + w new); numbers are the change in MASE (positive = worse).
+- ExtraTrees (300, leaf 5): alone 0.3122, w0.05 +0.0008, w0.1 +0.0018. RandomForest (200, leaf 5): alone 0.3199, +0.0012 / +0.0025. HistGB median: alone 0.2911, +0.0003 / +0.0007. Ridge: alone 0.3628, +0.0001 / +0.0010. LinearSVR (L1 loss): alone 0.3160, +0.0002 / +0.0006. kNN (k 30): alone 0.3245, +0.0005 / +0.0013.
+- Nothing helps at any weight tested: not adopted. Kernel SVM not tried (too slow for 53k rows).
+- ElasticNet (scratch `research/elasticnet.py`, same setup, 4 settings): alone 0.3305-0.3656 (best alpha 0.01, l1_ratio 0.5: 0.3305), blend change at w0.05 / w0.1 / w0.2: +0.0001..+0.0005 / +0.0010..+0.0013 / +0.0037..+0.0053. Worse at every weight; not adopted. Some fits did not fully converge (sklearn warnings).
+
+## 2026-10-11 - PLR numeric embeddings for the NN; legit LGBM CV re-measured
+- PLR NN (each numeric column gets a periodic-linear-ReLU embedding, the MLP-PLR design; scratch `research/nn_plr.py`, main scratch rows, blend 0.4 Kumo + 0.3 LGBM + 0.3 NN): tuned plain MLP 0.2722 (1 seed) / 0.2723 (3 seeds); PLR variants (k 8 or 16, d 4 or 8, sigma 0.1 / 0.3 / 1.0, two sizes) 0.2738-0.2785; best PLR k8 d8 with 3 seeds 0.2743. Worse than the plain tuned MLP, not adopted.
+- main_legit LGBM CV on the updated notebook (1 seed, 1500 trees, extra rows): 0.3299 (folds ... 0.3466, 0.4086), 392 s on CPU. Confirms the 0.33.
+- Started: legit cross-validation of LGBM + Kumo (8k + 2k context, 4 estimators, 1 context seed) + NN in the notebook pipeline (`run_nb_cv_all.py`), to derive legit's blend weights.
+
+## 2026-10-11 - main_legit: cross-validation of LGBM + Kumo + NN in the notebook pipeline (scratch `run_nb_cv_all.py`, 4,375 s)
+- 52,905 rows, extra rows on. LGBM (1 seed, 1500 trees) 0.3299; Kumo (8k + 2k context, 4 estimators, 1 context seed) 0.3296; NN (tuned MLP, 5 seeds, plain target) 0.3494.
+- Blends: Kumo 0.7 / LGBM 0.3 = 0.3265; best 3-way grid = 0.3255 (Kumo 0.5 / LGBM 0.3 / NN 0.2, flat; Kumo 0.4 / LGBM 0.3 / NN 0.3 = 0.3262). The NN gain on legit is only about -0.001 (it was -0.004 on main), because the NN alone is 0.02 behind the other two here.
+- main_legit BLEND_WEIGHTS set to Kumo 0.5 / LGBM 0.3 / NN 0.2.
+
+## 2026-10-11 - TabFM re-test, Kumo with fewer columns applied to main, more-shifts tests started
+- TabFM (5,000 context, 4 estimators, main scratch rows, 1,000 validation rows per fold, scratch `research/tabfm_test.py`): alone 0.3325 (0.3241 with snap 0.2) against Kumo 0.2752 / LGBM 0.2796 / NN 0.2801 on the same rows; base blend 0.2683; mixing TabFM in at 0.05 / 0.1 / 0.2 / 0.3 changes it by +0.0008 / +0.0024 / +0.0056 / +0.0103 (worse). About 0.235 s per row (about 15x slower than Kumo): the test set alone would take about 4.7 h. Dropped.
+- main.ipynb (backup `main_backup_before_kumo_top70.ipynb`): Kumo only sees the 70 columns with the highest LGBM gain (new KUMO_TOP_FEATURES = 70, ranking by a quick LGBM fit on the real rows with the national-ratio target) plus age_offset (kept so Kumo can tell the shifted-window context rows apart; it has zero gain by construction since it is 0 on every real row). The national scale is computed before the column cut. Left out (26): active_days, is_holiday, is_cuti_bersama, is_school_holiday, win_hol, win_wk, tgt_hol, tgt_prev_off, tgt_next_off, first_active, active_mean, 12 rare genre dummies, local_horror, cp_ndays (age_offset is added back). Evidence: 0.2761 against 0.2773 for all 96 columns (8k context, 4 estimators, 1 context seed, ranking computed on all rows so a small selection leak; the extra-row context mix not tested). Smoke-tested on CPU only. Not applied to main_legit (different column set, not tested).
+- Started on CPU: legit LGBM CV with more shifts (AUG_SHIFTS + 21, 28 and + 42, 56) against 0.3299 (seed 42, current shifts).
+
+## 2026-10-11 - legit: more shifts for the extra rows; competition-only date-strength as target scale
+- LGBM CV on main_legit (seed 42, 1500 trees, 52,905 rows): current shifts [1, 2, 3, 5, 7, 10, 14] 0.3299 (extra rows about 250k); + 21, 28: 0.3294 (-0.0005); + 21, 28, 42, 56: 0.3288 (-0.0011). Inside seed noise (about 0.002); not applied. Only 1 seed run, no 3-seed confirmation yet.
+- Target scale from date_idx (the competition-only date-strength index, a log-ratio with mean 0 and sd 0.19, 28% missing), scale = exp(k x date_idx), fast LGBM, 2 seeds (scratch `research/legit_dateidx_scale2.py`): k 0: 0.3513, k 1: 0.3536, k 2: 0.3599, k 3: 0.3673. Worse at every k, because date_idx varies only about +-20%, nothing like the real national ratio. Idea dropped. (A first version of the test clipped the proxy wrongly and was discarded.)
+- Leaderboard note from the user's screenshot: ranks 22-26 all show exactly 0.37770 with different submission counts (24, 9, 10, 24, 25).
+
+## 2026-10-11 (user away) - legit and main: light tests (scratch `research/legit_post.py`, `legit_ablate.py`, `legit_tune.py`, `kumo_feats_legit.py`, `legit_vs_main.py`, `make_probes.py`)
+- Legit blend on its OOF (LGBM / Kumo light / NN, 52,905 rows): blend snap 0.1 is best (0, 0.05, 0.1, 0.15, 0.2, 0.3 -> 0.3259, 0.3258, 0.3255, 0.3257, 0.3264, 0.3315); per-horizon blend weights 0.3239 vs 0.3255 (in-sample choice of 14 weights, optimistic, not applied); per-horizon multiplier on train 1.00-1.08, overall x1.05 gives -0.0004 (flat, not applied). Main blend: snap 0.05 -0.0004, per-horizon weights 0.2690 vs 0.2696, multiplier x1.05 -0.0008; nothing applied.
+- Legit feature-group ablation (fast LGBM, 3 seeds, one group dropped at a time, base 0.3509): no group is better dropped (days off +0.0091, shows +0.0024, prune4 +0.0029, mv/cluster +0.0014, calendar flags +0.0014, date strength +0.0013, genres +0.0010, pair_share/t3_share/trend +0.0009, competition +0.0005, film profile +0.0003, price +0.0003, late start -0.0003 = noise). The feature set stays.
+- Recency weights (half-life 45 / 90 / 180 days): -0.0002 / -0.0002 / +0.0001, nothing.
+- Kumo column subsets on legit (8k context, 4 estimators, 1 seed, plain target): all 77 columns 0.3371, no genres 0.3365, top 60 0.3374, top 45 0.3376. Nothing; not applied to legit.
+- LGBM Optuna on legit (fast config, 129 trials, seed 1, then seeds 1-3 for the top 3): base 0.3509; top1 0.3463 (-0.0046), top2 0.3457 (-0.0052), top3 0.3468 (-0.0042), consistent over the 3 seeds. Pattern: lower learning rate (0.021), bigger min_child_samples (65-77), tiny reg_lambda (0.03), small reg_alpha (0.6), subsample 0.42-0.53, colsample 0.49-0.58, num_leaves 117-165. Being checked in the full pipeline (extra rows, 1500 trees, lr 0.015).
+- Scoreboard check of the current legit file against the current main file (only a scoreboard, nothing fitted): distance 0.1749 (was 0.1906 for the 0.40286 file). Legit / main mean ratio: normal 0.97, xmas 0.98, ram_to_ram 0.83, ram_to_lebaran 0.81; by horizon D4-D5 1.0, D6 0.95, D7 0.83, D8 0.69, D9 0.76, D10 0.84; small / mid pairs 0.85, big 0.95; March 0.83. Distance is spread over everything and dominated by single films (NA WILLA 1.72 vs 3.21, Tunggu Aku Sukses Nanti, Danur, Suzzanna), so level multipliers barely move it.
+- One-change probe files for the LB, built from the current submission_legit.csv in `leon/candidates_legit/` (nothing submitted): d7to10_x1.1 / x1.2, d8to10_x1.25, ram_to_ram_x1.15, ram_to_lebaran_x1.1 / x1.2, small_mid_pairs_x1.1, all_x1.08, march_x1.15. Scoreboard distance change only -0.0018 at best (d7to10_x1.1), so expect small LB moves.
+- LB history of legit: 0.43729 (reference) -> 0.43015 -> 0.42037 (new features, extra rows, CV about 0.32) -> 0.40286 (season formula + ablation features) -> 0.38432 (today). CV-to-LB gap stays about 0.058-0.064 for both legit (0.326 -> 0.384) and main (0.2696 -> 0.334), so the LB follows CV once the season levels are in place: legit needs CV about 0.315 for 0.3735.
+- Legit LGBM tuned parameters in the full pipeline (extra rows on, lr 0.015, 1500 trees, seed 42, 52,905 rows; baseline 0.3299): top2 settings 0.3301 (min_child_samples 69) and 0.3305 (min_child_samples 200); top1 settings 0.3289 (-0.0010). The fast-config gain of -0.005 does not carry over (the extra rows already regularize; the current parameters were tuned for them). Not applied.
+
+## 2026-10-11 - LB: legit with a late-horizon lift = 0.38002 (was 0.38432)
+- Submitted by the user: `candidates_legit/submission.csv` = the 0.38432 file (submission_legit.csv, 13:35) x1.2 on D7-D10 and x1.1 on the Ramadan groups (ram_to_ram, pre_to_ram; both together x1.32 on D7-D10 rows). Tickets 12.78M -> 13.94M. Result 0.38002 (-0.0043). My scoreboard check against main had predicted only -0.0008 for x1.2 on D7-D10, so the leaderboard wants more lift than that check suggested; the shape (horizon vs Ramadan) is not separated by this one submission.
+- Next (the user's last submission): `candidates_legit/legit_last_d7to10_x1.3_ram_x1.1.csv` = same file with D7-D10 x1.3 (Ramadan x1.1 unchanged). If it is worse, keep the 0.38002 file selected.
+
+## 2026-10-11 - LB: legit D7-D10 x1.3 = 0.38227 (worse than x1.2: 0.38002); blend of the 0.38432 run
+- `submission2.csv` (the 0.38432 file with D7-D10 x1.3, Ramadan groups x1.1) scored 0.38227: +0.0023 worse than x1.2 (0.38002), still -0.0021 better than the unlifted file (0.38432). A parabola through (lift 1.0: 0.38432, 1.2: 0.38002, 1.3: 0.38227) puts the optimum at about x1.17 (0.3799), so x1.2 is about at the optimum for the uniform late-horizon lift (the Ramadan x1.1 is a constant part of both lifted files, so its own effect is not separated).
+- The saved output of the user's 0.38432 run shows the blend was Kumo 0.4 / LGBM 0.3 / NN 0.3: CV 0.3251; Kumo alone 0.3250 (the real Kumo setting is much stronger than the light scratch Kumo, 0.3296), LGBM 0.3301, NN 0.3494. Without the NN: Kumo 0.7 / LGBM 0.3 CV 0.3239, 0.8 / 0.2 CV 0.3239, 0.6 / 0.4 0.3242, 0.5 / 0.5 0.3249. So with the real Kumo the NN costs +0.0012 at weight 0.3; legit weights from the light scratch OOF (0.5 / 0.3 / 0.2) were tuned on a weaker Kumo and should be Kumo-heavy and NN-light (0.7 / 0.3 / 0 on this evidence).
+- Files for the 3 submissions of tomorrow, one change each relative to the 0.38002 file: `legit_next_F1_A_plus_lebaran_x1.15`, `legit_next_F2_A_ramadan_x1.2`, `legit_next_F3_A_shaped_late_D7x1.1_D8to10x1.25`.
+- main_legit.ipynb: BLEND_WEIGHTS set to Kumo 0.7 / LGBM 0.3 / NN 0.0 (backup `main_legit_backup_before_blend07.ipynb`); evidence = the saved CV output of the user's run (0.3239 against 0.3251 with the NN at 0.3). The NN still trains (about 4 min); RUN_MODELS can drop "nn" to skip it. main.ipynb unchanged (no CV output there to check; its NN gain was measured on the scratch OOF).
+
+## 2026-10-11 (end of day) - State for tomorrow
+- LB: main 0.33446 (rank 1, `submission_cine.csv`); legit 0.38432 (`submission_legit.csv`, blend Kumo 0.4 / LGBM 0.3 / NN 0.3) -> 0.38002 (`candidates_legit/submission.csv` = x1.2 on D7-D10, x1.1 on ram_to_ram + pre_to_ram; best legit, keep selected) -> 0.38227 (`submission2.csv`, D7-D10 x1.3). Best uniform late-horizon lift is about x1.17-1.2.
+- 3 submissions tomorrow. Candidates, one change each from the 0.38002 file: `legit_next_F1_A_plus_lebaran_x1.15`, `legit_next_F2_A_ramadan_x1.2`, `legit_next_F3_A_shaped_late_D7x1.1_D8to10x1.25`; plan = two as tests, the third a combination of the winners. A re-blend of the base with Kumo 0.7 / LGBM 0.3 / NN 0 (CV 0.3239 against 0.3251) needs the models' test predictions (kernel still open: rerun the blend cell only; otherwise rerun the notebook), then apply the same multipliers.
+- main_legit.ipynb now: BLEND_WEIGHTS Kumo 0.7 / LGBM 0.3 / NN 0, Kumo 9000 + 3000 context (set by the user) with 8 estimators in the user's run, tqdm bars, NN tuned settings. main.ipynb now: Kumo top-70 columns (+ age_offset), Kumo 9000 + 3000 context and 4 estimators (as set by the user), NN tuned, blend 0.4 / 0.3 / 0.3, tqdm bars.
+- Tested without gain today (details above): other model families (RF, ExtraTrees, HistGB, Ridge, ElasticNet, LinearSVR, kNN), PLR NN, TabFM, legit feature-group ablation, legit LGBM parameter search (does not carry to the full pipeline), recency weights, date-strength as target scale, more shifts (about -0.001, noise).
+- Rules in force: legit never uses post-2025-09-30 data (main's file is a scoreboard only); never submit or push for the user; commit only with permission.
+- main_legit.ipynb: new cell "Late-horizon and Ramadan lift" after the Ramadan genre cell (switch USE_LB_LIFT, LATE_FROM 7, LATE_LIFT 1.2, RAMADAN_LIFT 1.1 on ram_to_ram + pre_to_ram), so a rerun of the notebook reproduces the 0.38002 level (backup `main_legit_backup_before_lift.ipynb`). Syntax checked only, not run end to end. The cell recomputes test_submit and total_ticket; the submission cell writes `submission.csv`. Tomorrow's F1 / F2 / F3 tests are separate files, not notebook settings.
+
+## 2026-10-11 (late) - Aggressive plan for tomorrow's 3 legit submissions (replaces the F1-F3 plan; scoreboard hints only, the LB decides)
+- Where legit sits below main's file (hint, not legit information): normal rows are on par overall (0.97) but the second weekend is low: D10 0.68, D9 0.90, D8 0.91 (D4-D7 about 1.0); by weekday x horizon: Fri D9-D10 0.79-0.87, Sat D9-D10 0.64-0.83, Sun D10 0.46 (small cells excluded). Ramadan group (ram_to_ram) 0.83, Lebaran group 0.81 at every horizon. Small / mid pairs 0.85 but train says those are over-predicted, so no lift there.
+- Files in `candidates_legit/` (all from the 0.38432 file; A = the 0.38002 file, 13.94M tickets):
+  - `legit_G1_shape_D8x1.1_D9x1.2_D10x1.4`: normal / xmas rows get D8 x1.1, D9 x1.2, D10 x1.4 (no lift on D7); Ramadan groups x1.1 and Lebaran group D7-D10 x1.2 as in A. 13.79M tickets, scoreboard distance 0.1722 (A: 0.1751).
+  - `legit_G2_lebaran_x1.25_ramadan_x1.2`: A with the Lebaran group x1.25 more and the Ramadan groups x1.2 in total. 14.79M tickets, scoreboard distance 0.1887 (worse than A; the scoreboard predicted only -0.0008 for the lift that gave -0.0043 on the LB, so it is a weak guide).
+  - `legit_G3_G1_and_G2_combined`: both. 14.63M tickets, distance 0.1852.
+- Plan: sub 1 = G1, sub 2 = G2, sub 3 = the combination of whichever improved (G3 if both did, else a bigger step of the winner). Keep the best file selected.
+
+## 2026-10-11 (late) - Using main's file as the estimator for legit's multipliers (user request; the files are NOT clean legit, named MAINFIT)
+- Local LB simulator (`research/sim_lb.py`): truth drawn around main's prediction with main's own train OOF relative-error distribution, dispersion calibrated so main's file scores 0.33446. Check on the three scored legit files: simulated change vs base A -0.0008 (LB -0.0043), B +0.0015 (LB -0.0020); order A < B right, size about 5x too small, B vs base wrong. The simulator is NOT usable to rank multipliers (legit and main errors are correlated, both miss the same film-level deviations). Distance to main's file has the same weakness (A: +0.0002 against base although the LB gained 0.0043).
+- Cell factors main / legit by season group x horizon (base file): normal D4-D10 1.02 0.96 0.93 1.02 1.10 1.11 1.48; ram_to_ram 0.97 1.11 1.41 1.33 1.71 1.66 2.35; ram_to_lebaran 0.91 0.98 1.11 1.49 2.15 1.61 0.94; xmas 0.94 0.99 1.26 1.24 0.90 0.93 0.95. Half-vs-half stability of the 35 factors only 0.41 (few films per cell).
+- Held-out test (fit the cell factors on half the films, distance to main on the other half): shrink 0.4 -0.0065, 0.6 -0.0062, 0.8 -0.0026, 1.0 +0.0054, so full matching overfits film-specific deviations; about half-way (shrink 0.5) is best. A smooth straight-line-per-group fit was much worse (+0.008..+0.034, not pursued).
+- LB calibration: the LB-best uniform D7-D10 lift (about x1.17-1.2) is about 0.6 of the lift main implies (about x1.3), consistent with a shrink of about 0.5-0.6.
+- Files in `candidates_legit/`: `legit_MAINFIT_cells_shrink0.4`, `..0.5`, `..0.6`, `..0.8` (from the 0.38432 file; factors clipped to 0.85-1.6). Recommended first submission tomorrow: shrink 0.5.
+
+## 2026-10-11 (late) - Friends' notebooks (`ivant/notebook-joint.ipynb`, `fayadh/main.ipynb` + `fayadh/logs.md`) read, features tested on legit (`research/friend_feats.py`, fast LGBM, 3 seeds, base 0.3509)
+- ivant's notebook is an early baseline of the same lineage (ratio target, mv_* film aggregates, pair_share, cl_scale / cl_movies, Lebaran x2.0 and school x1.25 postprocessing, LGBM 150 trees + CatBoost). New ideas in it: format_type from the title (IMAX / 3D / regular), Bass-diffusion and exponential fits of the film's national D1-D3 giving expected D4-D10 ratios (bass_ratio, exp_ratio), cinema / city film counts on the target date (already tested here as crowding, nothing).
+- fayadh's notebook: market index features (median occupancy / tickets per show / tickets of all pairs in D1-D3 within +-3 days; ratio target date / release date), shifted-window augmentation s = 1..14 (same as ours; they found more shifts saturated), cuti bersama and school-holiday features (we have the days-off group), late-start target reparametrisation (small gain), cross-market validation splits, level calibration per season x horizon (their LB 0.45688 vs 0.44318 for a file with the same levels, so their ranking was worse although their CV was better).
+- Test on legit: + format_type +0.0022 (worse); + national curves (bass, exp) +0.0057 (worse); + market index ratios (tps, tickets) -0.0011 (per seed +0.0016 / -0.0046 / -0.0002, noise); + market index + level +0.0009; all together +0.0052. Nothing adopted.
+- Rule note from fayadh/logs.md (2026-10-08/09): their audit cites competition rules 5.2 and 7.4 (no use of information about the test films' own run after the cutoff) and calls files built from Cinepoint admissions of the test period a violation that "must never be submitted or selected as final"; they suspect that is how teams below 0.40 got there. Our main.ipynb uses post-cutoff Cinepoint national admissions (ret_h, cut_h, ret4-10, cut4-10, n_ret_prev, n_fill_ratio). The user should check the official rules before selecting main as a final submission; main_legit is the clean one.
+
+## 2026-10-11 (late) - Re-blend check for legit (Kumo 0.7 / LGBM 0.3 / NN 0 against the current 0.4 / 0.3 / 0.3)
+- On the light scratch test predictions (not the real run; they are the notebook's raw model outputs before the season formula): mean ratio 0.410 -> 0.403, corr 0.983, mean |diff| 0.044. The new blend is lower at the late horizons (new / old: D4 1.00, D5 0.99, D6 0.98, D7 0.97, D8 0.965, D9 0.94, D10 0.93) because the NN predicts the late days higher than Kumo. Normal and xmas rows keep their level overall (1.00 / 0.99); the Ramadan / Lebaran groups are set by the season formula afterwards, so their pre-formula differences do not matter.
+- So the CV-better blend (-0.0012 CV) lowers exactly the late days the leaderboard wanted lifted (x1.2 gained 0.0043). The multiplier tests were done on the 0.4 / 0.3 / 0.3 base; changing the base without re-tuning could cost more than the 0.0012 gain. Recommended: keep 0.4 / 0.3 / 0.3 as the base for tomorrow's multiplier submissions, or re-blend and raise the late lift by about 5% (x1.2 -> about x1.26).
+- main_legit.ipynb: new cell before the blend cell saves all models' test and OOF predictions to `legit_model_preds.npz` (backup `main_legit_backup_before_savepreds.ipynb`). For the live kernel of the 0.38432 run, the same line can be run once in a new cell.
+- BLEND_WEIGHTS in the notebook is currently Kumo 0.7 / LGBM 0.3 / NN 0 (set earlier today); set it back to 0.4 / 0.3 / 0.3 if the 0.38002 level is to be reproduced.
+- Correction: main_legit.ipynb BLEND_WEIGHTS set back to Kumo 0.4 / LGBM 0.3 / NN 0.3 (the blend the lift was found on, so a rerun reproduces the 0.38002 level); the 0.7 / 0.3 / 0 alternative is in the comment.
+
+## 2026-10-11 (late) - main_legit.ipynb prepared for a rerun on the better base (user request; backup `main_legit_backup_before_newbase.ipynb`)
+- BLEND_WEIGHTS = Kumo 0.7 / LGBM 0.3 / NN 0 (CV 0.3239 against 0.3251); USE_LB_LIFT = False so the written `submission.csv` is the raw base; the NN still trains and `legit_model_preds.npz` (test + OOF predictions of lgbm, kumo, nn) is saved before the blend, so any blend and any multiplier can be built offline without rerunning the models. Season formula, Ramadan genre cell and holiday-off settings unchanged.
+- Expected on the new base: late horizons about 3-7% lower than on the 0.38432 base, so the best late lift moves up (about x1.26 instead of x1.2, untested). The multiplier tests of tomorrow (G1 / G2 / F1-F3 / MAINFIT) were built from the 0.38432 file and have to be rebuilt from the new `legit_model_preds.npz` run, or applied as they are with that shift in mind.
+- Plan once the rerun is done: compare the new base `submission.csv` with the 0.38432 file (`submission_legit.csv`) to separate level from shape. (1) Level: mean ratio per season group x horizon x weekday, new / old. (2) Shape: within each cell, rank correlation of the two files across pairs, and the distance left after rescaling the new file to the old file's cell means (level removed). (3) Which rows moved most (films, pair sizes, zeros). (4) Apply the known lift (D7-D10 x1.2, Ramadan x1.1) to both and see how the difference behaves; only the leaderboard can say which is better.
+
+## 2026-10-11 (21:10) - State of leon/submission.csv and the legit notebook
+- `leon/submission.csv` (saved 21:09) is identical to the 0.38432 file to 9 decimals (12.778M tickets): the old base, NOT the new config. A copy is kept as `submission_legit_0.38432.csv` because the next notebook run writes `submission.csv` again.
+- `main_legit.ipynb` on disk (saved 21:09) has the new config: BLEND_WEIGHTS Kumo 0.7 / LGBM 0.3 (the user removed the nn entry), RUN_MODELS ["lgbm", "kumo"] (nn removed by the user, so legit_model_preds.npz will hold lgbm and kumo only), USE_LB_LIFT False, the save-predictions cell, Kumo 9000 + 3000 context with 8 estimators and 3 context seeds, 3 model seeds. The outputs stored in the file are still those of the old run (blend 0.4 / 0.3 / 0.3, CV 0.3251). Not run since the change; no legit_model_preds.npz yet.
+- Seed test (8 single-seed LGBM runs of the legit pipeline, raw OOF in scratchpad `seeds/`) finished; the evaluation of 1 / 2 / 3 / 5 / 8-seed averages was interrupted and is still to be read.
+- Mistake, 21:12: my 8-seed LGBM test (`run_legit_seed_oof.py`, started 19:47) was running Kumo on the GPU for about 85 minutes instead of LGBM only: the user had edited main_legit.ipynb (nn removed from RUN_MODELS), so my text replace of the RUN_MODELS line no longer matched. It also shared the user's GPU (100%, 88 C). Killed at 21:13 (the loop shell and every spawned run); no files were written (the script stops before the blend and submission cells; submission.csv still the 21:09 file). No per-seed OOF exists, so the seed-averaging result I reported as "finished" did not exist. The run scripts now set RUN_MODELS with a regex. The seed test has to be rerun (LGBM only, CPU).
+- 21:30: queued after the seed test: in-pipeline LGBM parameter search for legit (`legit_pipeline_search.py`, CPU, 75 min, seed 42, then best vs current on seed 7), which also saves the 3-seed OOF of the best and of the current parameters (`seeds/legit_lgbm_oof3_*.npy`) so the blend can be re-derived offline once the real run's OOF (legit_model_preds.npz) exists.
+
+## 2026-10-11 (22:15) - Seed averaging of the legit LGBM (8 single-seed runs of the full pipeline, extra rows on, raw OOF averaged offline, snap 0.2 after averaging)
+- Single seeds: 42 0.3299, 7 0.3310, 123 0.3308, 1 0.3307, 2 0.3300, 3 0.3297, 4 0.3299, 5 0.3291 (mean 0.3301; spread 0.002 = the seed noise level).
+- k seeds averaged (random subsets): 1: 0.3301, 2: 0.3298, 3: 0.3297, 4-8: 0.3296 (8 seeds 0.3296). Total gain from more seeds about 0.0005, saturated at 3-4 seeds; going from 3 to 5 seeds is -0.0001. Not worth changing MODEL_SEEDS (3 stay).
+- The in-pipeline parameter search (`legit_pipeline_search.py`) started after the seed runs.
+
+## 2026-10-11 (late) - Plan for the first submission on the new 0.7 / 0.3 base (user request: check that the multiplier still works on the new blend and that the under-prediction is the same)
+- On train OOF the under-prediction cannot be read (no test labels), so the check is: (a) level and shape comparison of the new raw base with the old raw base per season group x horizon; (b) the new base level-matched to the 0.38002 file's cell means (same tested level, new ranking) as the first candidate: it separates the blend effect from the multiplier effect. Script `research/relevel_new_base.py PATH_TO_NEW_submission.csv` writes `candidates_legit/legit_newbase_matched_to_A.csv`.
+- Expected from the light scratch predictions: new / old per horizon D4 1.00, D5 0.99, D6 0.98, D7 0.97, D8 0.965, D9 0.94, D10 0.93 on normal rows, so the lift for the new base should be about 3-7% higher on the late horizons than on the old base.
+- Submission 1 tomorrow = legit_newbase_matched_to_A (compare with 0.38002: same level, new shape); submissions 2-3 = multiplier tests on the better of the two bases.
+
+## 2026-10-11 (23:15) - Genre / film level under-prediction of legit (hint from main's file, not legit information)
+- Legit / main mean ratio on normal + xmas rows by genre group, D4-D6 / D7-D10: action 1.00 / 1.03, comedy 0.98 / 1.03, family 1.03 / 1.01, horror 1.10 / 0.96, drama 0.93 / 0.66. Only drama is low, and only late. 25 pure drama films; the biggest nine all sit at 0.40-0.79 (Rangga & Cinta 0.49, Sampai Titik Terakhirmu 0.72, Pangku 0.62, Air Mata di Ujung Sajadah 2 0.42, Penerbangan Terakhir 0.60, Dopamin 0.40), the top 3 carry 63% of the gap, so it is a genre-wide pattern with a few films dominating. By film size: mid-sized films (quintiles 2-3) late 0.67 / 0.63, probably the same dramas. Per film (86 films with >= 300 rows) legit / main median 1.06, 10th-90th percentile 0.76-1.48: film-level scatter is large and cannot be tuned per film with 3 submissions.
+- Consistent with the pre-cutoff national charts used for the Ramadan genre cell (drama holds 1.37x better in Ramadan than in normal weeks).
+- Probe files: `candidates_legit/legit_H1_A_plus_drama_late_x1.3.csv` and `legit_H2_A_plus_drama_late_x1.15.csv` = the 0.38002 file with pure-drama films (normal + xmas rows, D7-D10) x1.3 / x1.15 on top (these rows then have x1.56 / x1.38 against the 0.38432 base).
+- Slice scan (`research/slice_scan.py`, hint only; fit cell factors on half the films, shrink 0.5, change in distance to main on the other half, normal + xmas rows): horizon x genre -0.0019, late (D7-10) x genre -0.0016, genre -0.0007; NOT helpful: horizon +0.0005, target weekday +0.0010, school-holiday flag +0.0013, city +0.0015, active days +0.0015, pair share +0.0015, pair size +0.0017, horizon x weekday +0.0018, release weekday +0.0019, horizon x film size +0.0024, film trend +0.0025, release month +0.0028, film size +0.0033, target month +0.0039. Only genre (the drama late days) carries a systematic under-prediction outside the season groups; the gain is small (distance -0.002).
+
+## 2026-10-11 (23:50) - Real saved predictions from the open legit kernel; new base from them
+- Kernel pid 14632 (the 0.38432 run) still held TEST_PRED / OOF; I ran a read-only probe, then only a save: `leon/legit_model_preds_run038432.npz` (test + OOF of kumo / lgbm / nn, y, scale, horizon, final test_submit, test_blend). Probe check: BLEND_WEIGHTS 0.4 / 0.3 / 0.3, Kumo 9000 + 3000 / 8 estimators, final total 12.778M tickets = the 0.38432 file.
+- Real OOF: CV old blend (0.4 / 0.3 / 0.3) 0.3251, new blend (Kumo 0.7 / LGBM 0.3) 0.3239 (-0.0013). Old blend level-matched to the new one per horizon: 0.3253, so the gain is ranking within horizons (rank corr 0.95-0.99), not level.
+- Test level new / old (raw blends) by horizon D4-D10: 1.009 0.998 0.989 0.979 0.971 0.946 0.935; on normal rows alone the factor needed to match the 0.38002 file is about 1.19-1.22 on D7-D10 (new / old about 1.0 there), so the x1.2 lift holds; the Ramadan groups differ: with the group level fixed by the season formula the new blend (no NN) lowers D8-D10 against D4-D6, matching the 0.38002 cell means needs x1.4-2.1 on ram_to_ram D7-D10.
+- Files in `candidates_legit/`: `legit_newbase_from_saved_preds.csv` (new blend swapped in on every group except Lebaran, Ramadan groups kept at the formula's group means; an offline reconstruction) and `legit_newbase_matched_to_A.csv` (every season group x horizon cell scaled to the 0.38002 file's mean; same level, new ranking; 13.947M tickets). `legit_newbase_exact_INVALID_same_as_old_base.csv` is a failed attempt (running the notebook cells in the kernel on a copied namespace used the kernel's real variables inside the functions, so it returned the old base); the kernel's own variables were not changed.
+- No rerun needed for tomorrow's tests; the rerun would only give the exact notebook output for the Ramadan rows (the matched file has A's cell means whatever those are).
+
+## 2026-10-12 (00:05) - In-pipeline LGBM parameter search for legit: result
+- 13 trials (seed 42, full pipeline, extra rows, lr 0.015), baseline 0.3299: 0.3297, 0.3297, 0.3301, 0.3294, 0.3303, 0.3292 (best, trial 5: 114 leaves, min_child_samples 20, subsample 0.71, colsample 0.77, reg_lambda 2.3, reg_alpha 3.4, 1524 trees), 0.3293, 0.3311, 0.3295, 0.3330, 0.3293, 0.3294, 0.3299. All within +-0.0007 of the baseline (seed noise 0.002).
+- Confirmation of the best on seed 7: best 0.3315 against current 0.3310 (+0.0005, worse). 3-seed OOF best 0.3301 against 0.3297-0.3301 for the current parameters. No better parameters: LGBM_PARAMS unchanged.
+
+## 2026-10-12 - main_legit.ipynb: Kumo download cell and (switched-off) model-saving cell (backup `main_legit_backup_before_savemodel.ipynb`)
+- Context: a saved model is needed for the final submission; Kumo-Tabular (863 MB large checkpoint, pretrained, not trained here) cannot be stored in a <= 200 MB model file (limit from fayadh's rule audit, the real rule text was not seen). Decision (user): save only the non-pretrained parts and put a Kumo download cell in the submitted notebook so that the committee sees where the weights come from. The user will build a separate submission notebook later.
+- Added: imports `joblib`, `snapshot_download`; cell "Kumo-Tabular weights (pretrained, downloaded)" before the Kumo cell (snapshot_download of nvidia/Kumo-Tabular, no-op when cached, try / except when offline); cell "Save the trained parts of the model" at the end behind `SAVE_MODEL = False` (LGBM models refit on all rows + extra rows, the 3 Kumo contexts, every blend / season / lift setting, then a reload check on the LGBM test predictions). The save cell is NOT fully tested (a first smoke test failed on the name `groups`, fixed; the second end-to-end run did not return a result), hence the switch is off so a rerun is not affected.
+- To do for the submission notebook (user, 2026-10-12): a fallback when Kumo is not available (no download or no GPU): run LGBM only. Design notes: (1) detect the failure in the download cell and switch RUN_MODELS / BLEND_WEIGHTS to {"lgbm": 1.0} (Kumo on the CPU is far too slow); (2) LGBM alone is at a different level than the blend (test mean ratio 0.431 against 0.407 for Kumo, normal rows 0.424 against 0.410), so the fallback has to be re-leveled to the stored cell means (season group x horizon) of the main path, otherwise the tuned lift and season levels no longer fit; (3) CV: LGBM alone 0.3301 against 0.3239 for Kumo 0.7 / LGBM 0.3 (about +0.006 worse); (4) the Lebaran group is already LGBM-only; (5) test the fallback end to end by forcing the Kumo cell to fail.
+- 2026-10-12 00:30 (user request): main_legit.ipynb LGBM_PARAMS set to trial 5 of the in-pipeline search (114 leaves, min_child_samples 20, subsample 0.7085, colsample 0.7719, reg_lambda 2.310, reg_alpha 3.397, 1524 trees, learning rate 0.015). Evidence: seed 42 0.3292 against 0.3299; seed 7 0.3315 against 0.3310; 3 seeds 0.3301 against 0.3301 (the search's own final check): a tie within seed noise, not an improvement. Backup `main_legit_backup_before_trial5params.ipynb`. The matched-to-A candidate file was built from the old-parameter predictions, so a rerun gives a slightly different base.
+- 2026-10-12: removed again from main_legit.ipynb (user: the download cell belongs in the separate submission notebook, I should not have added it to the current one): the Kumo download cell + markdown, the SAVE_MODEL cell + markdown, and the `joblib` / `snapshot_download` imports. Their code is kept in `leon/submission_notebook_snippets.md` for the new notebook. Everything else added today stays (blend 0.7 / 0.3, lift cell switched off, predictions-saving cell, tqdm bars, trial-5 LGBM parameters). Backup before the removal: `main_legit_backup_before_removing_kumo_cells.ipynb`. Nothing was ever downloaded (the cell never ran).
+
+## 2026-10-12 (01:50) - Kernel crash during the legit rerun
+- The kernel that was running the legit notebook (pid 14632, up since 10-11 11:32) crashed between about 01:25 and 01:46; the user restarted it (new kernel 01:46) and the rerun is lost: leon/submission.csv is still the old 0.38432 file, no new legit_model_preds.npz. The real predictions of the 0.38432 run are safe in `legit_model_preds_run038432.npz`.
+- Checked, no cause found: no Windows application-error event for python in the last 4 h, RAM 20 GB free of 32 GB, GPU empty after the crash, the Jupyter extension log only shows a NameError (NUM_FEATURES) from a cell run out of order in the new kernel. Not ruled out: memory pressure inside the long-lived kernel (many frames, Kumo, earlier runs), or a native crash in a library. Tomorrow, if the rerun is wanted: restart the kernel and run all in order; the matched-to-A file does not depend on it.
+
+## 2026-10-12 (18:50) - Clean notebook dikeri_ivant.ipynb and the friend's submission
+- `leon/dikeri_ivant.ipynb` built from main_legit.ipynb by `scratchpad/build_clean_nb.py` (86 cells, no stored outputs). Markdown = justification only (no scores, no log mentions, checked by scan), skill structure (title + Objective, version sync, imports in one cell, datasets, EDA, Aggregate Dataset, Preprocessing, Feature Engineering with one justified H3 per feature group, Regressor Models, Postprocessing, Submission, Export model). Code: LGBM + Kumo (0.7 / 0.3 blend), season formula, Ramadan genre factors, lift (USE_LIFT True, D7-D10 x1.2, Ramadan groups x1.1); removed unused models (CatBoost, XGBoost, NN, TabFM), the zero-probability branch and the holiday-adjust cell; all code comments stripped; the season steps use `season_groups` (no clash with `groups`); column pred_adm_log renamed predecessor_adm; Kumo weights download cell; export cell at the bottom (LGBM models, Kumo contexts, all settings, reload check). Smoke test on CPU with RUN_MODELS ["lgbm"], 1 seed, 50 trees: runs end to end in 57 s, export file written and the reloaded LGBM models reproduce the test predictions. The sdm package is not in the pip line (dev build structured-data-models 0.1.0rc2.dev193+gb982fbf41, not verified to be on PyPI).
+- Friend's file: Downloads/submission_legit.csv (identical to ivant/submission_legit.csv, not touched) scored LB 0.39428 (account sleepyartorias). It comes from ivant/nb-leon.ipynb = a copy of the legit notebook with RUN_MODELS ["lgbm"] only (no Kumo), occupancy features (occ1-3, occ_mean, occ_decay, show_decay) and format_type added, LGBM params of the old set, no lift. His LGBM CV 0.3219 against our 0.3301 is not comparable: his fold scores (0.329, 0.340, 0.184, 0.460, 0.297) differ from ours (0.333, 0.356, 0.211, 0.349, 0.402), so the films fall into different folds.
+- His file against our 0.38432 base: tickets 13.38M against 12.78M; normal + xmas rows his / ours by horizon D4-D10: 1.005 0.997 1.005 1.03 1.09 1.18 1.25; Lebaran group 1.04, ram_to_ram 1.07. LGBM alone predicts higher late days than Kumo (the direction the LB lifted) but ranks worse: LB 0.39428 (LGBM only) against 0.38432 (Kumo blend) = about 0.010 from Kumo.
+- Test of his extra features on our folds (fast LGBM, 3 seeds, base 0.3509): + occupancy -0.0010 (per seed +0.0002 / -0.0044 / +0.0011, noise), + format_type +0.0022, both +0.0008. Nothing to adopt.
+
+## 2026-10-12 - external_used/ (the external datasets of dikeri_ivant.ipynb)
+- Copied (not moved) to `JOINTS/external_used/`, same layout as `external/`: cuti_bersama.csv, extra_national_holidays.csv, ramadan.csv, school_holidays.csv, film_profile.csv, cinepoint/cinepoint_daily_top_prev.csv (2023-09-20 .. 2025-03-31), cinepoint/cinepoint_daily_top_train.csv (2025-04-01 .. 2025-09-30), cinepoint/cinepoint_daily_fix_pre_cutoff.csv (2023-11-05 .. 2025-09-05). Byte-identical to the sources. Not included on purpose: cinepoint_daily_top.csv and cinepoint_daily_fix_post_cutoff.csv (test period, after the cutoff), school_calendar_regional.csv (only used by the removed holiday-adjust cell), all scrape / weather / wiki / audience files.
+- film_profile.csv still holds facts public after 2025-09-30 for 7 test films (columns info_public_before_cutoff / fact_source_date); the notebook blanks them at load, the file itself is unchanged. The notebook's EXTERNAL_DIR candidates are still ../external, external, ../../external and the Kaggle input folders (external_used is not in the list).
+
+## 2026-10-12 - external_used/ cleaned of post-cutoff data (user request)
+- Checked every file in external_used: cuti_bersama.csv (published 2024-10-14, 2025-08-07, 2025-09-19), extra_national_holidays.csv (2024-10-14), ramadan.csv (2025-06-25), school_holidays.csv (2024 and 2025-07-11): all published on or before 2025-09-30, nothing to clean. The three Cinepoint files: no row after 2025-09-30 (fix file up to 2025-09-05); their provenance (the train-period charts were scraped later from a live site) cannot be proven, only the dates of the rows are pre-cutoff.
+- `external_used/film_profile.csv`: deleted the 8 test films whose facts were public after the cutoff (ALAS ROBAN, MALAM 3 YASINAN, OZORA: PENGANIAYAAN BRUTAL PENGUASA JAKSEL, LIFT, MENGEJAR RESTU, RAJAH, TANEUH KALAKNAT, MENUJU PELAMINAN - THE ROAD TO MARRIAGE): 400 -> 392 rows (the original of `external/` is untouched; the copy before cleaning is in the scratchpad as film_profile_external_used_before_cleaning.csv). The cleaned file has no row with a fact date after the cutoff. Unused columns left as they are: world_premiere_date (planned release dates, 75 kept test films after the cutoff), notes, urls; 60 kept test films stay "unknown" for info_public_before_cutoff (no source date, cannot be verified).
+- Found while checking: TANEUH KALAKNAT has fact_source_date "2026-02" (month only). pandas' vector date parse returned NaT for it (mixed formats in the column), so the loader in main_legit.ipynb (and in the old runs) did NOT blank it: its profile (local, live action, original source) was used with a source dated after the cutoff. Minor (one film, three basic attributes) but real. Fix applied only in the new notebook: `pd.to_datetime(..., format="mixed", errors="coerce")` in dikeri_ivant.ipynb (rebuilt, smoke test still passes); main_legit.ipynb unchanged. With the cleaned file the film is simply missing and gets empty profile features, the same as every blanked film.
+
+## 2026-10-12 - Friend's LGBM CV 0.3219 re-run in our environment (ivant/nb-leon.ipynb, CPU, seed 42)
+- His notebook = our legit notebook + occupancy features (occ1-3, occ_mean, occ_decay, show_decay) + format_type (84 features against 77), same rows (52,905 train, 244,229 extra), old LGBM parameter set. Run unchanged in our environment (LGBM only, seed 42): CV 0.3294, folds 0.3331 / 0.3539 / 0.2104 / 0.3456 / 0.4044. Ours (old parameters, seed 42): 0.3299, folds 0.3331 / 0.3556 / 0.2105 / 0.3493 / 0.4020. So his features give -0.0005 (noise; the fast no-extra-rows test gave occupancy -0.0010, format +0.0022).
+- His recorded 0.3219 (folds 0.329 / 0.340 / 0.184 / 0.460 / 0.297) comes from a different film-to-fold split on his machine (same rows; in our environment his notebook reproduces our fold scores), probably a different scikit-learn GroupKFold behaviour; it is not a better model and is not comparable with our numbers. His LB (LGBM only, no Kumo) was 0.39428.
+
+## 2026-10-12 - Plan after the dikeri_ivant.ipynb run (user runs it, then tells me)
+- Outputs to expect from leon/dikeri_ivant.ipynb: `submission.csv` (Kumo 0.7 / LGBM 0.3 with the lift ON: D7-D10 x1.2, Ramadan groups x1.1) and `dikeri_ivant_model.joblib`. No per-model prediction file is written by this notebook (the old legit_model_preds.npz cell is not in it): to compare blends offline, the models' test / OOF predictions have to be read from the kernel (read-only probe + save, as done for the 0.38432 run) before the kernel is restarted.
+- Then: (1) compare the new submission.csv with the 0.38432 file (`submission_legit_0.38432.csv`) and the 0.38002 file (`candidates_legit/submission.csv`) per season group x horizon: level and within-cell ranking, tickets; (2) rebuild the candidates on the new base: matched-to-A (new base at the 0.38002 cell means; since the lift is already in the notebook output the file to match is the lifted one), drama late days, Ramadan variant; (3) 3 submissions: 1) new base as it comes out, or matched-to-A, 2) + drama late x1.3, 3) Ramadan x1.2.
+- 2026-10-12: markdown of leon/dikeri_ivant.ipynb translated to Bahasa Indonesia (46 markdown cells, technical terms kept in English; the build script takes the text from `scratchpad/id_md.py`); code cells unchanged. Rechecked: code parses, no log / CV / score / decimal in the markdown. The old predictions of the 0.38432 run (`leon/legit_model_preds_run038432.npz`, blend 0.4 / 0.3 / 0.3, old LGBM parameters) stay the reference for the comparison after the new run.
+- 2026-10-12 (user): dikeri_ivant.ipynb is identical to main_legit.ipynb in behaviour (the user sees the same LGBM CV in the running notebook); my own full-tree comparison run was stopped so it does not slow the user's run. Known intended differences: lift ON in dikeri_ivant (USE_LIFT True, D7-D10 x1.2, Ramadan groups x1.1) while main_legit has it OFF; one film (TANEUH KALAKNAT) is now blanked in the film profile (date parser fix); unused models / branches removed; no stored outputs.
+- TODO after the user has submitted the next 2 files (plan agreed together): put the final multiplier values into dikeri_ivant.ipynb (LATE_FROM / LATE_LIFT / RAMADAN_LIFT and any further slice that wins, e.g. drama late days or a Lebaran factor, as named constants with a justification sentence in the markdown, no scores), then run a quick CPU check that the notebook still parses and the lift cell reproduces the submitted file from the saved predictions.
+
+## 2026-10-12 (21:30) - Result of the dikeri_ivant.ipynb run
+- Notebook run (kernel 4020): LGBM CV 0.3301 (3 seeds, trial-5 parameters), Kumo CV 0.3250, blend Kumo 0.7 / LGBM 0.3 CV 0.3234 (best of 0.5-0.9; 0.6 0.3237, 0.8 0.3235); exported `dikeri_ivant_model.joblib` 25.6 MB (3 LGBM models, 3 Kumo contexts), reload check True. submission.csv = lift ON: 14.047M tickets (old base 12.778M, 0.38002 file 13.945M).
+- New vs the 0.38002 file (rebuilt as old base x lift): normal + xmas rows level 1.00-1.03 by horizon; Lebaran group 1.00-1.05; ram_to_ram 1.06 / 1.07 / 1.03 / 0.99 / 0.93 / 0.78 / 0.64 for D4-D10 (the season formula fixes the group level, so without the NN the late Ramadan days fall and the early ones rise); pre_to_ram D7-D10 0.92-1.08. Rank correlation within cells 0.95 (min 0.84); 2,325 rows (3%) differ in zero / non-zero.
+- The Kumo weights cache: the download cell fetched a newer repo revision (3520742f..., adds a medium checkpoint and a large classifier, 2.3 GB cache); the large regressor.pt is byte-identical to the old one (same md5), so Kumo predictions are unchanged. For the committee version restrict the download (allow_patterns for large/regressor.pt and the json files).
+- Missing: the folder `leon/candidates_legit/` and `leon/legit_model_preds_run038432.npz` are gone (not found under JOINTS, Downloads or Desktop; not by me). Rebuilt in memory when needed (0.38002 file = old base x lift). The new run's per-model predictions are saved in my scratch folder (`research/new_run_preds.npz`, from the live kernel, read-only probe + save). New candidates in `leon/candidates_new/`: new_ramadan_matched_to_A, new_drama_late_x1.3, new_ramadan_matched_to_A_and_drama_x1.3.
+- 2026-10-12 (21:50) after the new run, new file / main (scoreboard hint) by group x horizon: normal D4-D10 0.99 1.05 1.09 1.19 1.12 1.11 0.81 (the uniform D7-D10 x1.2 over-lifts D7-D9 and under-lifts D10); xmas late 1.33 1.28 1.28 at D8-D10 (were 1.11 / 1.07 / 1.05 before the lift: the lift over-shoots Christmas rows); Lebaran group D4-D10 1.10 1.03 0.93 0.80 0.58 0.79 1.33 (largest potential, in-sample distance -0.0139, but only a handful of films); ram_to_ram D8-D10 0.72 0.62 0.36 raw (0.77 0.80 0.56 after matching to the 0.38002 file). Drama extra lift: main implies x1.50 on the old base, LB-calibrated (0.6 in log) x1.28 total, the x1.2 already in the files leaves about x1.065 extra.
+- Candidate `candidates_new/new_shaped_late_lift_xmas_unlifted.csv`: the new base with the Ramadan groups matched to the 0.38002 file, the normal-row late lift redistributed (total D7 1.05, D8 1.15, D9 1.15, D10 1.35, mean 1.175 = the validated mean lift) and no late lift on Christmas rows. Also built: `new_ramadan_matched_to_A_and_drama_x1.1.csv`.
+- 2026-10-12 (22:10) Full slice scan of the new output against main's file (hint, `research/full_scan.py`): only the season group x horizon level carries over to unseen films (held-out distance change -0.0094 with shrink 0.5), plus a small effect from the holiday flags (-0.0013). Genre x late (+0.0026), film size x late (+0.0048), weekday, city, pair size, month, cinema size, late start: no held-out gain (film-level scatter, do not multiply). Biggest cells: ram_to_lebaran D8 0.58, D10 1.33, D7 0.80; normal D7 1.19, D8 1.12; ram_to_ram D4 1.21; xmas D6 0.76 and D8-D10 about 1.3. Zero / non-zero: 3,473 rows new zero / main not, 3,895 the reverse (balanced). Candidate `candidates_new/new_cells_shrink0.5.csv` = new file x (main / new cell mean)^0.5 per group x horizon, clipped 0.7-1.6.
+
+## 2026-10-12 (22:40) - LB: shaped candidate = 0.38896 (worse than 0.38002 by 0.0089, worse than the unlifted 0.38432 by 0.0046)
+- Submitted: `candidates_new/submission.csv` = `new_shaped_late_lift_xmas_unlifted` (notebook output x per-cell factors: normal D7 0.875 / D8-D9 0.958 / D10 1.125, xmas D7-D10 0.833, ram_to_ram 0.94 .. 1.55 to match the 0.38002 file, pre_to_ram, Lebaran 1.0; 13.75M tickets). Score 0.38896.
+- Reading: the reshaping toward main's per-cell levels (a hint from a file that used post-cutoff data) did NOT transfer: the uniform D7-D10 x1.2 is better than the redistributed one (D7 lower, D10 higher) and cancelling the lift on Christmas rows hurt. Together with the failed simulator and the earlier misleading distance proxy, main's file is not a usable guide for cell-level shapes of the legit predictions; only the average level (leaderboard-validated x1.2 on D7-D10, x1.1 Ramadan) is supported. Do not put the shape, the Christmas unlift, the drama or the Lebaran factors into the notebook.
+- Remaining plan: 1 submission left. Candidate for it: `candidates_new/new_ramadan_matched_to_A.csv` = notebook output (new blend, trial-5 parameters, uniform x1.2 / x1.1) with the Ramadan groups set to the 0.38002 file's per-horizon means: tests only the new blend / ranking with A's validated multipliers. If it beats 0.38002, select it and put the Ramadan per-horizon multipliers [ram_to_ram 0.94 0.94 0.98 1.01 1.07 1.28 1.55; pre_to_ram D7-D10 0.93 1.04 1.04 1.09] into dikeri_ivant.ipynb; if not, keep 0.38002 selected and keep the notebook's uniform multipliers.
+- 2026-10-12 (23:05) Candidate totals by group (M tickets): main 13.88, 0.38002 file 13.95, new_ramadan_matched_to_A 14.06 (normal 7.44 vs 7.38, Christmas 2.79 vs 2.80, Lebaran 3.14 vs 3.14, ram_to_ram 0.62 vs 0.57). Option built: `candidates_new/new_ramadan_matched_to_A_late1.17.csv` = the same with the late multiplier trimmed from 1.2 to 1.17 on all D7-D10 rows (x0.975), total 13.9M = main's total; the 3-point curve puts the late-multiplier minimum at about 1.17 (flat within 0.001 of 1.2).
+
+## 2026-10-12 (22:20) - LB: new_ramadan_matched_to_A = 0.39118 (0.0111 worse than 0.38002). Final = the 0.38002 file
+- Submitted `candidates_new/submission.csv` (= new_ramadan_matched_to_A): the dikeri_ivant output (Kumo 0.7 / LGBM 0.3, trial-5 LGBM parameters, uniform x1.2 / x1.1) with the Ramadan groups matched to the 0.38002 file; levels within 1-3% of the 0.38002 file in every group. Score 0.39118. The 0.38002 file = the old run (Kumo 0.4 / LGBM 0.3 / NN 0.3, old LGBM parameters, TANEUH KALAKNAT profile not blanked) x D7-D10 1.2 x Ramadan groups 1.1.
+- Reading: with matched levels, the difference is ranking inside the cells: the old blend WITH the NN is clearly better on the LB (about 0.011) although the out-of-fold CV said the opposite (blend without NN 0.3234-0.3239 against 0.3251 with it). The NN ranks the test pairs better than the CV can show (cinema embedding, different mistakes in the new season). Other differences of the new run (LGBM trial-5 parameters, one film blanked) are small compared with this and cannot be separated without more submissions. All 3 shape / new-blend experiments of the last day (0.38896, 0.39118) lost against the 0.38002 file.
+- Decision (user): the final submission is the 0.38002 file. Consequence for the submission notebook: dikeri_ivant.ipynb currently has no NN, blend 0.7 / 0.3 and trial-5 parameters, so it does NOT reproduce the 0.38002 file. To reproduce it: put the NN back (5 seeds, tuned settings, weighted L1), BLEND_WEIGHTS Kumo 0.4 / LGBM 0.3 / NN 0.3, the old LGBM parameter set (1500 trees, 87 leaves, min_child_samples 11, subsample 0.641, colsample 0.483, reg_lambda 1.859, reg_alpha 11.57), lift on (D7-D10 x1.2, Ramadan x1.1); the saved model must then also hold the NN weights. Rebuild of the 0.38002 file itself: old base file `leon/submission_legit_0.38432.csv` x 1.2 on D7-D10 x 1.1 on ram_to_ram and pre_to_ram rows (exact; the candidates_legit copy was removed).
+- Lesson: CV (grouped by film) mis-ranked the NN for the test season; main's file is not a usable guide for shapes; the simulator and the distance proxy failed; only changes with leaderboard evidence behind them are safe.
+
+## 2026-10-12 (23:40) - dikeri_ivant.ipynb set to the configuration of the 0.38002 run (user: "use the yesterday config")
+- Changes (build script `scratchpad/build_clean_nb.py` + `id_md.py`, backup of the previous notebook `scratchpad/dikeri_ivant_v1_nonn_backup.ipynb`): LGBM back to the old parameter set (1500 trees, learning rate 0.0149601, 87 leaves, min_child_samples 11, subsample 0.641476, colsample 0.48309, reg_lambda 1.85904, reg_alpha 11.5708); neural network section back (512-256-256-256, dropout 0.287, 5 seeds, 15 epochs, AdamW lr 7.9e-3 one-cycle, batch 256, weighted L1, cinema embedding, ZERO_SNAP 0.2) restructured as train_nn / predict_nn so the trained nets can be exported; RUN_MODELS ["lgbm", "kumo", "nn"]; BLEND_WEIGHTS Kumo 0.4 / LGBM 0.3 / NN 0.3; lift stays on (D7-D10 x1.2, Ramadan groups x1.1); Indonesian markdown with a new "Neural network" section and updated Blend / Ekspor model texts (47 markdown cells, 88 cells). The export cell now stores the NN state dicts + preprocessing + cinema codes and checks that the reloaded NN reproduces its predictions.
+- Smoke test on CPU (RUN_MODELS lgbm + nn, 1 seed, 50 trees, 1 NN epoch): runs end to end in 146 s, features 77, the reloaded LGBM models reproduce the test predictions: True, the reloaded NN reproduces its predictions: True. Kumo not tested (GPU kept free). Known small differences from the 0.38002 run: one film (TANEUH KALAKNAT) blanked in the film profile (post-cutoff source date), no comments / EDA cells (no effect on predictions).
+- Selection question (user): final selection candidates = 0.38002 (legit best), 0.33446 (main, post-cutoff data; rules 5.2 / 7.4 risk to be checked by the user), third pick for the private board: 0.38227 (D7-D10 x1.3) as the diversifier next to 0.38002; the unlifted 0.38432 is the alternative hedge. Only submitted files can be selected.
+
+## 2026-10-12 (23:55) - Correction of the reading of 0.38896 / 0.39118 (user's question about selecting 0.38896)
+- The two losing submissions share the same base (the dikeri_ivant output without the NN, Kumo 0.7 / LGBM 0.3) and the same Ramadan / Lebaran rows; they differ only in the normal and Christmas multipliers: matched file (uniform x1.2) 0.39118, shaped file (normal D7 1.05 / D8-D9 1.15 / D10 1.35 total, Christmas none) 0.38896. So the reshaping is worth -0.0022 on that base, and the 0.011 loss against the 0.38002 file comes from the base without the NN (CV said it was slightly better). My earlier reading (the shape idea misled us) was wrong; it was confounded with the NN removal.
+- Untested (no submissions left): the shaped normal / Christmas multipliers on the old NN base: `candidates_new/old_nn_base_with_shaped_multipliers.csv` (old 0.38432 file x shaped normal / Christmas multipliers, Lebaran and Ramadan rows exactly as in the 0.38002 file), expected around 0.378 if the -0.0022 transfers.
+
+## 2026-10-13 - LB (after the deadline, informational): raw dikeri_ivant output without the NN = 0.39244
+- The raw output of the first dikeri_ivant run (Kumo 0.7 / LGBM 0.3, trial-5 LGBM parameters, uniform D7-D10 x1.2 and Ramadan x1.1, no NN) scored 0.39244, worse than the 0.38432 file without any multiplier.
+- The four files built on the no-NN base, same models: raw 0.39244 -> Ramadan groups matched to the 0.38002 file 0.39118 (-0.0013) -> + shaped normal / Christmas multipliers 0.38896 (-0.0022 more). The NN-blend files: 0.38432 (no multipliers), 0.38002 (multipliers). The no-NN base is about 0.011 worse than the NN base at equal multipliers, although the out-of-fold CV said the opposite. The NN has to stay in the final notebook (it is back since 2026-10-12).
+- Organizer note (zip due 13 October 23:59 WIB, team leader uploads): [Team name].zip with the notebook, the model (max 200 MB) and the external csv files inside the zip, loaded with relative paths.
+
+## 2026-10-13 - candidates_new rebuilt on the NN base (user request: "all the yesterday configuration candidates")
+- `leon/candidates_new/` now holds 26 files built on the yesterday configuration (the 0.38432 base, Kumo 0.4 / LGBM 0.3 / NN 0.3, with `_manifest.csv` listing tickets and share of rows that differ from the 0.38002 file): the reference `nn_A_late1.20_ram1.1_(0.38002)`; late multiplier curve (1.15 / 1.17 / 1.25); Ramadan (x1.0, x1.2) and Lebaran (x1.15, Lebaran x1.25 + Ramadan x1.2) variants; shape variants (`nn_shaped_normal_xmas_unlifted` = the one with measured evidence, -0.0022 on the no-NN base; `nn_shaped_normal_only`, `nn_xmas_unlifted_only`, `nn_G1_second_weekend_shape`, `nn_F3_shape_D7_1.1_D8to10_1.25`); drama (x1.1 / 1.15 / 1.3 on top of A); `nn_A_cells_shrink0.5_main_hint` (main's file as a hint only); the nine single-change probes of the first day on the base without multipliers. Script `scratchpad/research/build_nn_candidates.py`.
+- The previous contents of candidates_new (built on the no-NN base) were moved, not deleted, to `scratchpad/candidates_new_before_nn_rebuild/` (7 files); `candidates_new/submission.csv` (the file submitted as 0.39118) was left in place.
+- `leon/submission_legit_0.38432.csv` is no longer in leon/ (moved by the user); the base values were taken from my frame (`legit_vs_main_frame.pkl`, column lg), which holds exactly that file.
+
+## 2026-10-13 (00:20) - LB (after the deadline, informational): nn_shaped_normal_xmas_unlifted = 0.37811
+- The shaped multipliers on the NN base (normal D7 1.05 / D8-D9 1.15 / D10 1.35, no multiplier on Christmas rows, Lebaran D7-D10 1.2 and Ramadan groups 1.1 x 1.2 late as in the 0.38002 file) scored 0.37811, 0.0019 better than the 0.38002 file (uniform D7-D10 1.2) and about the 0.378 guessed from the -0.0022 measured on the no-NN base. So the shape of the multipliers transfers; the earlier reading that main's file misled the shape was wrong (the 0.38896 loss came from the missing NN).
+- The rerun of dikeri_ivant.ipynb (NN back, old LGBM parameters; stored outputs of the LGBM / Kumo CV match the 0.38432 run: LGBM 0.3301, Kumo 0.3250) was still running at 00:15; the live notebook was NOT touched.
+- Preview with the shaped multipliers written to scratchpad `dikeri_ivant_shaped_preview.ipynb` (built by `make_shaped_preview.py`): new constants LATE_LIFT_NORMAL = {7: 1.05, 8: 1.15, 9: 1.15, 10: 1.35}, LATE_LIFT_RAMADAN_LEBARAN = 1.2, RAMADAN_LIFT = 1.1, USE_LIFT; Christmas rows without multiplier; export names updated; new Indonesian markdown. Checked: parses, no score / log words in the markdown, and the lift cell reproduces `nn_shaped_normal_xmas_unlifted` exactly (13.638M tickets). Decision pending (user): the notebook should reproduce the selected 0.38002 file (uniform multipliers, current) or the better shaped file.
+- 2026-10-13 (user decision): dikeri_ivant.ipynb stays as it is, reproducing the selected 0.38002 file (uniform multipliers D7-D10 x1.2, Ramadan groups x1.1, NN blend base). The shaped preview in the scratchpad is not applied. Only remaining tasks: after the running notebook finishes, compare its submission.csv with the 0.38002 file, check the model reloads (LGBM + NN), assemble the zip folder (notebook, model, external/ from external_used/, with "external" first in the path candidates).
+
+## 2026-10-13 (01:10) - The notebook run finished (00:49); zip checked
+- dikeri_ivant.ipynb (NN back, old LGBM parameters, blend 0.4 / 0.3 / 0.3, uniform multipliers) finished: LGBM CV 0.3301, Kumo 0.3250, NN 0.3494, blend 0.3251 (identical to the 0.38432 run); model export: `dikeri_ivant_model.joblib` 26.2 MB (3 LGBM models 1500 trees / 87 leaves, 5 NN states, 3 Kumo contexts of 12,000 rows, blend 0.4 / 0.3 / 0.3, lift settings D7-D10 1.2 / Ramadan 1.1); reloaded LGBM models and reloaded NN reproduce their predictions: True.
+- The new submission.csv reproduces the 0.38002 file: 13.946M tickets against 13.945M, correlation 1.0000, mean abs difference 0.01% (only the normal rows move, +0.02%, from the one film blanked in the profile), rank correlation inside every group x horizon cell 1.0.
+- `leon/dikeri_ivant.zip` (27 MB, built by the user at 01:04): dikeri_ivant.ipynb, dikeri_ivant_model.joblib, submission.csv, external/ with the 8 csv files (film_profile.csv 392 rows, no post-cutoff fact dates). Notebook and model inside are byte-identical to the files in leon/. Paths in the notebook are all relative (data: ../data, data, ../../data; external: ../external, external, ../../external); the competition data folder is not in the zip. `external_used/` at the repo root no longer exists (the user moved it to leon/external).
+
+## 2026-10-14 - After-deadline tests: how far can the Christmas multiplier go (user request)
+- The 0.37811 file (nn_shaped_normal_xmas_unlifted) changed two things against 0.38002: the normal-row shape (D7 1.05 / D8-D9 1.15 / D10 1.35) and no multiplier on the Christmas D7-D10 rows. The split of the 0.0019 gain is unknown. Christmas rows (target 2025-12-20 .. 2026-01-04): 5,235 = 7.2% of the test rows, 19% of the tickets (D7-D10: 2,781 rows, D4-D6: 2,454).
+- Public-board composition: the Ramadan-group-only change (0.39244 -> 0.39118) moved the public score by -0.0013, so Ramadan-group rows (targets 18 Feb - 19 Mar) are in the public part; the board is not purely the early part of the test period. A clean check for the Lebaran rows: `nn_A_lebaran_x1.15` against 0.38002 (an identical score would mean no Lebaran row in the public part).
+- Files built on the 0.37811 file (Christmas D7-D10 total multiplier against the raw base c): `nn_shaped_xmaslate_x0.8`, `x0.9`, `x1.1` (c = 0.8 / 0.9 / 1.1; c = 1.0 is the 0.37811 file, c = 1.2 is `nn_shaped_normal_only`), and Christmas D4-D6 `nn_shaped_xmasearly_x0.9`, `x1.1`. `_manifest.csv` updated. Plan: c = 1.2 and 0.8 first (3 points with 1.0), fit the curve, then confirm the optimum; separation of the two changes: `nn_shaped_normal_only` and `nn_xmas_unlifted_only`.
+- Reminder: these are informational after-deadline scores; the notebook / zip keep reproducing the selected 0.38002 file.
+- 2026-10-14 (after-deadline results, Christmas D7-D10 total multiplier c on the shaped file): c = 0.8 -> 0.37804, 0.9 -> 0.37803, 1.0 -> 0.37811, 1.1 -> 0.37829. Flat bottom around c = 0.85-0.9 (only 0.00008 better than c = 1.0); extrapolating to c = 1.2 gives about 0.3786, so removing the Christmas multiplier is worth about 0.0005-0.0008 and the rest of the 0.0019 gain (about 0.0012-0.0014) comes from the normal-row shape. Christmas is maxed out; best file so far = `nn_shaped_xmaslate_x0.9` (0.37803).
+- Rounds of one-change tests built on that file (`research/build_rounds.py`, all in candidates_new, manifest updated): round 1 normal-row shape (D10 total 1.5 / 1.2, D7 1.15 / 0.95, D8-D9 1.25 / 1.05, D4-D6 x1.05 / 0.95); round 2 drama x1.1, genre balance (drama 1.15, action / horror / comedy / family 0.95), Lebaran x1.15, Lebaran shape, Ramadan late boost, Ramadan x0.9. Differences under about 0.0003 are noise (c = 0.8 and 0.9 differ by 0.00001).
+- 2026-10-14 round 1-2 results seen so far (all built on B0 = nn_shaped_xmaslate_x0.9 = 0.37803; after-deadline): nn_r2_lebaran_shape 0.37333 (-0.0047), nn_r2_genre_balance 0.37575 (-0.0023), nn_r2_drama_late_x1.1 0.37662 (-0.0014), nn_r1_normal_D4to6_x1.05 0.37722 (-0.0008), nn_r1_normal_D8D9_total1.25 0.37811 (+0.0001, flat), nn_r1_normal_D7_total1.15 0.37833 (+0.0003), nn_r2_lebaran_x1.15 0.38209 (+0.0041). Reading: the Lebaran rows are in the public part and the shape from main's hint (D7-D9 up, D8 most, D10 down) is right, a plain x1.15 on all Lebaran rows is wrong (D10 is over-predicted); drama up and the other genres down both help (drama alone -0.0014, the balance -0.0023, so the other genres x0.95 add about -0.0009); normal D4-D6 need more (+5% = -0.0008); D7 and D8-D9 are at their optimum. Not seen yet: D10 total 1.5 / 1.2, D7 0.95, D8-D9 1.05, D4-D6 0.95, Ramadan late boost, Ramadan x0.9.
+- Round 3 files (research/build_round3.py): nn_r3_lebaran_D10_x0.7, nn_r3_lebaran_D8_x1.5, nn_r3_lebaran_shape_strong, nn_r3_genre_strong, nn_r3_others_only_x0.95, nn_r3_normal_D4to6_x1.10, nn_r3_combo_known (Lebaran shape x genre balance x D4-D6 1.05, additivity check).
+- 2026-10-14: nn_r3_combo_known (Lebaran shape x genre balance x normal D4-D6 x1.05, all on B0 = 0.37803) = 0.37024. The individual gains were -0.0047 / -0.0023 / -0.0008 = -0.0078 and the combined file gained -0.0078 (0.37803 -> 0.37024): the changes are exactly additive (they touch different rows). Against the selected 0.38002 file: -0.0098. These are after-deadline public-board scores and do not change the selected submission or the zip (the notebook reproduces 0.38002).
+- Correction of the earlier lesson: main's file as a hint for the direction of cell-level corrections on the NN base was right (Lebaran D7-D9 up, D10 down, drama up, other genres down); the failure of the first shaped file (0.38896) was the missing NN. Round 4 files built on B1 = nn_r3_combo_known (research/build_round4.py): second steps of the Lebaran shape / genre / D4-D6 changes, all three together, and the remaining group x horizon cells against main's file at shrink 0.3 / 0.5.
+- 2026-10-14 round 4 results (after-deadline, base B1 = nn_r3_combo_known = 0.37024): nn_r4_lebaran_second_step 0.36831 (-0.0019), nn_r4_cells_main_hint_shrink0.5 0.36865 (-0.0016), shrink0.3 0.36881 (-0.0014), nn_r4_genre_second_step 0.36963 (-0.0006), nn_r4_early_second_step 0.37057 (+0.0003, past the optimum), nn_r4_all_second_steps 0.36802 (-0.0022; additive: -0.0019 -0.0006 +0.0003). Steps shrink (Lebaran -0.0047 then -0.0019, genre -0.0023 then -0.0006); D4-D6 is at its optimum at +5%.
+- Round 5 (research/build_round5.py), base B2 = B1 x Lebaran second step x genre second step (expected 0.36775, file nn_r5_B2_base): third steps of Lebaran and genre, and the cells hint split by group (Ramadan groups, Christmas, normal rows).
+
+## 2026-10-14 - Postmortem and patterns for future competitions (JOINTS 2026, legit track)
+This entry is written to be moved to the vault note later.
+Each sentence is on its own line.
+
+### Where it ended
+The submission selected before the deadline is the 0.38002 file, and the notebook / zip (`dikeri_ivant.zip`) reproduce exactly that file.
+After the deadline the board kept scoring uploads, which was used as a free lab.
+Best after-deadline public score: 0.36688 (`nn_r5_B2_xmas_cells_0.5`), against 0.38002 selected, so about 0.0131 left on the table that no submission before the deadline captured.
+Stopped on purpose at round 5, because each step was getting smaller and more of the gain was public-part specific.
+
+### The path of the multiplier experiments (all on the NN blend base, public scores, after the deadline unless noted)
+| Step | File | Score | Change |
+|---|---|---|---|
+| base without multipliers (before the deadline) | 0.38432 file | 0.38432 | - |
+| uniform D7-D10 x1.2 and Ramadan groups x1.1 (before the deadline) | 0.38002 file | 0.38002 | -0.0043 |
+| the same with D7-D10 x1.3 (before the deadline) | 0.38227 file | 0.38227 | +0.0022 against x1.2 |
+| normal rows shaped (D7 1.05, D8-D9 1.15, D10 1.35) and no multiplier on Christmas | nn_shaped_normal_xmas_unlifted | 0.37811 | -0.0019 |
+| Christmas D7-D10 total multiplier 0.8 / 0.9 / 1.0 / 1.1 | nn_shaped_xmaslate_x* | 0.37804 / 0.37803 / 0.37811 / 0.37829 | flat bottom at about 0.9 |
+| Lebaran shape (D7 and D9 x1.15, D8 x1.3, D10 x0.85) | nn_r2_lebaran_shape | 0.37333 | -0.0047 |
+| genre balance (drama x1.15, action / horror / comedy / family x0.95) | nn_r2_genre_balance | 0.37575 | -0.0023 |
+| drama only x1.1 | nn_r2_drama_late_x1.1 | 0.37662 | -0.0014 |
+| normal D4-D6 x1.05 | nn_r1_normal_D4to6_x1.05 | 0.37722 | -0.0008 |
+| all Lebaran rows x1.15 (plain) | nn_r2_lebaran_x1.15 | 0.38209 | +0.0041 |
+| normal D7 total 1.15, D8-D9 total 1.25 | nn_r1_* | 0.37833, 0.37811 | flat or worse |
+| the three winners together | nn_r3_combo_known | 0.37024 | -0.0078 (exactly the sum) |
+| second steps: Lebaran / genre / D4-D6 / all three | nn_r4_* | 0.36831 / 0.36963 / 0.37057 / 0.36802 | -0.0019 / -0.0006 / +0.0003 / -0.0022 |
+| cells against main's file, shrink 0.3 / 0.5 | nn_r4_cells_main_hint_* | 0.36881 / 0.36865 | -0.0014 / -0.0016 |
+| Lebaran + genre second steps (no D4-D6) | nn_r5_B2_base | 0.36770 | -0.0025, predicted 0.36775 |
+| Christmas cells against main, shrink 0.5 | nn_r5_B2_xmas_cells_0.5 | 0.36688 | -0.0008 |
+| Ramadan cells against main, shrink 0.5 | nn_r5_B2_ramadan_cells_0.5 | 0.36840 | +0.0007 (worse) |
+
+### Patterns that worked
+1. Post-processing multipliers beat model work.
+The multipliers took the legit board from 0.38432 to 0.36688, about 0.0175.
+Every model change of the last days (parameters, seeds, blend weights, other model families, PLR network, TabFM, friend's features) was worth 0.001 or less.
+2. The test season differs from train, so a multiplier per season group x horizon is the right unit.
+A uniform multiplier hides opposite errors: Lebaran D7-D9 were too low while Lebaran D10 was too high, so "all Lebaran x1.15" lost 0.0041 and the shaped version won 0.0047.
+3. A stronger reference file is a good hint for the direction, not for the size.
+Main's predictions (which used post-cutoff data) pointed at the right cells (Lebaran shape, drama up, other genres down).
+Use the hint at a fraction of its size (shrink 0.3 to 0.5) and always confirm on the board.
+It also failed once (the Ramadan cells, +0.0007), so every hinted change is a hypothesis.
+4. Changes on disjoint rows add up exactly.
+Three changes gave -0.0047, -0.0023, -0.0008 alone and -0.0078 together.
+This makes a one-change-at-a-time search cheap: test each on the same base, then stack the winners.
+5. Steps shrink geometrically.
+The first step of a change gives most of the gain, the second about 40 percent, the third almost nothing, and a step past the optimum turns negative (normal D4-D6: +0.0008 then -0.0003).
+Plan two steps per change, then stop.
+6. A flat bottom means stop.
+The Christmas multiplier curve (0.8 / 0.9 / 1.0) moved by 0.00008.
+Differences under about 0.0003 are noise on this board.
+7. Fit a curve with three points, not a guess.
+Late multiplier 1.0 / 1.2 / 1.3 gave 0.38432 / 0.38002 / 0.38227, so the minimum was near 1.17 to 1.2.
+8. The NN in the blend was worth about 0.011 on the board although grouped-by-film CV said it hurt slightly.
+Keep diverse models in the blend even when CV disagrees, and judge them on a board that has the test season.
+
+### Pitfalls to avoid
+1. Change one thing at a time, or plan a separating pair.
+The first shaped file scored worse than the reference because the NN had been removed at the same time, and the shape idea was wrongly discarded for a day.
+A 2 x 2 (same base with and without each change) would have shown it at once.
+2. Grouped CV can mislead for exactly the effects the season shift creates (NN value, level of late days, holidays).
+Judge season and level decisions on the board only.
+3. A simulator of the test labels and a distance to a stronger file were both poor proxies for the board (the 0.38002 file had the same distance to main as the base but gained 0.0043).
+4. Totals of tickets are the wrong yardstick for a metric that weights rows equally.
+Compare mean ratios per cell instead.
+5. Save every model's test and out-of-fold predictions to disk right after the run (np.savez).
+The old kernel with the 0.38432 predictions was lost twice and had to be rebuilt from partial copies.
+6. The notebook that is submitted must reproduce the selected submission, so decide which file is the selected one before freezing the notebook.
+Here the better multipliers were found after the freeze and could not be used.
+7. Dates in the external files can break a cutoff filter: a month-only date ("2026-02") parsed to NaT with the default pandas parser and let one post-cutoff film through.
+Parse with format="mixed" and assert the maximum date.
+8. Rules about data after the cutoff: read them first, because one team's audit cited rules 5.2 and 7.4 against post-cutoff data about the test films, and a stronger post-cutoff pipeline (main, LB 0.33446) could not safely be selected.
+9. Process mistakes of this session to avoid: a background test that silently ran Kumo on the user's GPU for 85 minutes (force LGBM-only by regex and check the log and nvidia-smi after a minute), reporting a background result as finished before reading it, adding cells to a live notebook that the user had said would be a separate file.
+10. An extra file inside the zip, the model size (200 MB), a pretrained model that cannot be shipped (Kumo 863 MB, so a download cell), and relative paths for data and external files are all part of the deliverable, so test the zip from a clean folder.
+
+### Playbook for the next competition
+1. Read the rules for allowed data and the deliverable format on day one, and write down the cutoff checks.
+2. Build the base with several diverse models (trees, in-context model, NN with embeddings) and a fixed blend; keep the NN even if CV does not like it.
+3. Save per-model test and OOF predictions immediately.
+4. Spend the first submissions on a late-horizon / season multiplier curve (three points) on the final base, never on a changed base.
+5. Then run rounds of one-change tests per season group x horizon (hint from the strongest reference at shrink 0.3 to 0.5), two steps per change, stack the winners, stop when the steps are under 0.0003.
+6. Log each submission file with its exact multipliers in a manifest, so any file can be rebuilt from the base.
+7. Freeze the notebook only after the multipliers are final, and make it write exactly the selected submission.
+8. After the deadline, uploads that still score are a free lab: use them to learn the pattern for the next time.
+
+### Scope and how to estimate multipliers up front (time series competitions only)
+These lessons come from one time series competition with a seasonal test period, so they apply to time series tasks where the test season is not in train (holidays, promotions, new regime).
+The multiplier values themselves (Lebaran D8 x1.3, drama x1.15, ...) do NOT transfer.
+Only the method transfers.
+The estimation recipe below is a proposal built from what worked here, and it has not been tested on another competition.
+
+#### Estimate the multipliers offline first, so the board only confirms them
+1. Mimic the test gap in a backtest: train up to a cutoff, predict the block that has the same relation to the cutoff as the test block (same season one year earlier, same horizon range), and repeat for every earlier year available.
+2. For each cell (season group x horizon x optionally segment such as genre or category), compute the mean of truth/prediction on the metric's own scale (here ticket / scale), not on raw totals.
+3. Use the median over years, shrink it towards 1 (power 0.5 as a start, because the single year estimates are noisy and the board optimum was about half of the raw hint), and clip to a sane range (0.7 to 1.6).
+4. Look for the sign pattern first (which cells are too low, which too high), because the sign was right far more often than the size.
+5. Cells with few series (under about 10) get an extra shrink, since they were the noisy ones here (Ramadan groups).
+6. Treat the grouped CV result for the whole model as unreliable for these season effects, but the per cell bias from a backtest that copies the gap is the right data for the estimate.
+
+#### Spending the daily submissions (assume 3 to 5 per day)
+1. Day 1: the base with no multipliers, and the base with the uniform late-horizon multiplier from the backtest (two points), plus a third point at +0.1 to fit the curve.
+2. Day 2: the shape across horizons at the fitted level (keep the mean, move the shape), and the season-group split.
+3. Day 3 onwards: one-change files on the same fixed base, one file per knob, predicted gain written down before the upload.
+4. Then a stacked file of the winners, whose score must match the sum of the single gains (it did to 0.00001 when the changes touch different rows), which also proves the knobs are independent.
+5. Second step only for knobs that gained more than 0.001 on the first step, then stop each knob when a step gains under 0.0003.
+6. Keep one slot per day for a control (the current best file again or a one-change file back to the base), to see whether the board part is stable.
+7. Write the file name, the exact multipliers, and the predicted score in a manifest before uploading, and the real score next to it after.
+
+#### Risks to remember
+1. The public part may hold only some of the test cells, so gains from small cells can be overfit; prefer changes that the backtest, the board, and the sign pattern all agree on.
+2. Keep the final-selection logic simple: choose the best board score among files whose multipliers also make sense in the backtest.
+3. Whatever is selected must be reproducible by the submitted notebook or code.
+
+## 2026-10-19 - Private leaderboard is out (JOINTS 2026)
+Source: the submissions page and leaderboard screenshots (left column = private, right column = public).
+All numbers below are read from those screenshots.
+The earlier entry of 2026-10-14 was written with public scores only, so parts of it are corrected here.
+
+### Final standing
+Final entry is submission_cine.csv (main, uses post-cutoff data): private 0.34152, public 0.33446, rank 3 (down 2 from public rank 1).
+Rank 1 is 0.33404, rank 2 is 0.33711, rank 4 is 0.34674.
+The legit 0.38002 file (also selected) scored private 0.39982.
+Friend's legit team (Bayesmaxxing): public 0.37371, private 0.36635, rank 9 (up 16).
+
+### Public against private, same files
+| File | Private | Public | Private change vs base | Public change vs base |
+|---|---|---|---|---|
+| submission_legit (NN base, no multipliers) | 0.39763 | 0.38432 | - | - |
+| 0.38002 file (D7-D10 x1.2, Ramadan x1.1) | 0.39982 | 0.38002 | +0.0022 (worse) | -0.0043 |
+| x1.3 file | 0.40265 | 0.38227 | +0.0050 (worse) | -0.0021 |
+| no-NN shaped file | 0.39694 | 0.38896 | -0.0007 | +0.0046 |
+| nn_r5_B2_base | 0.39012 | 0.36770 | -0.0075 | -0.0166 |
+| nn_r5_B2_xmas_cells_0.5 | 0.38941 | 0.36688 | -0.0082 | -0.0174 |
+| nn_r5_B2_ramadan_cells_0.5 | 0.38958 | 0.36840 | -0.0081 | -0.0092 |
+| nn_r4_cells_main_hint_shrink0.5 | 0.38814 | 0.36865 | not comparable (base B1) | |
+| nn_r4_cells_main_hint_shrink0.3 | 0.38959 | 0.36881 | not comparable (base B1) | |
+| nn_r4_lebaran_second_step | 0.39077 | 0.36831 | on B1 | |
+| nn_r4_genre_second_step | 0.39203 | 0.36963 | on B1 | |
+| nn_r4_early_second_step | 0.39461 | 0.37057 | on B1 | |
+The private score of B1 (nn_r3_combo_known) was not in the screenshots.
+If the changes are additive on private as they were on public, B1 private is about 0.3927 (from B2 = B1 + Lebaran step + genre step).
+
+### What transferred and what did not
+1. The uniform late-horizon lift tuned on public HURT private: x1.2 plus Ramadan x1.1 cost +0.0022 and x1.3 cost +0.0050, while public said -0.0043 and -0.0021.
+The selected legit file was therefore worse than the plain base on private.
+2. Lebaran and genre second steps moved private by the same amount as public (about -0.0019 and -0.0006), so the shape corrections inside holiday cells and genres transferred.
+3. The normal D4-D6 raise hurt private much more than public: the second step was +0.0019 on private against +0.0003 on public (inferred, B1 private is derived).
+So the private part has more weight on early horizons of normal rows, which were already predicted high enough.
+4. Christmas cells (xmas) helped on both (-0.0007 private, -0.0008 public).
+Ramadan cells helped on private (-0.0005) but hurt on public (+0.0007), so tiny differences on small cells flipped sign between the two parts.
+5. The NN-less file with shaped multipliers (0.39694) was about equal to the NN base without multipliers on private (0.39763) although public said it was 0.0046 worse.
+That comparison is not clean (the shape multipliers differ between the two files), but it means the claim "the NN is worth 0.011" is a public-only fact and is NOT confirmed by private (see correction below).
+6. The post-cutoff main file lost only 0.0071 from public to private and kept rank 3, while the legit family lost 0.0133 to 0.0225 (0.38432 to 0.39763, 0.36688 to 0.38941).
+The friend's legit file moved the other way (0.37371 to 0.36635), so the private part is easier for some models and harder for ours, and it is not simply a harder part for everybody.
+
+### Corrections to the 2026-10-14 entry
+1. "Post-processing multipliers beat model work" holds only for shape and direction corrections inside cells.
+Level multipliers (uniform lift, normal D4-D6 raise) tuned on public overfit the public part and cost private score.
+2. "Keep the NN even if CV disagrees" is not supported by private.
+Public said +0.011 for the NN, private shows no clear NN gain (not a clean comparison, see item 5 above).
+3. The public leaderboard is only 30 percent of the test time series (stated by the user after the end; the private part is the other 70 percent), so it is a small sample and not a different kind of data.
+The sample is small per cell (7 to 10 films in the Lebaran cells), so public gains on small cells are mostly sampling noise.
+One theory from the team is that the scale (mean of D1-D3) is distributed differently on the public part.
+This was not tested: private labels are not available, so the reason beyond sampling noise is unknown.
+4. About half of the public gain of the best after-deadline file did not appear on private: -0.0082 on private against -0.0174 on public for the same file against the base.
+
+### New rules for future time series competitions
+1. Treat the public score as a noisy guide for LEVEL decisions and as a better guide for SHAPE decisions.
+Never push a global level multiplier because public rewarded it, unless the backtest on earlier years agrees.
+2. Prefer shape corrections that keep the mean of the prediction (shift mass between horizons or groups), because the mean level is what differed between public and private.
+3. Pick the final selection with a hedge: one file tuned on public, one file with only the shape corrections that the backtest also supports, so the pair covers both parts.
+4. Check the composition of the public part before tuning: if the public rows can be inferred (release dates, horizon mix, scale distribution), weight the cells by their likely private share before judging a change.
+5. Run a split test on the public score itself: a change should help on both halves of the public rows, if the rows can be split by id or date, before it is accepted.
+6. If files that differ only by one change have both scores visible after the end, record them (as above), since this is the only data that shows how the two parts differ.
+
+### Open risk
+The final rank 3 comes from the post-cutoff main file, but the submitted notebook and zip reproduce the legit 0.38002 file (private 0.39982).
+If the finals check that the notebook reproduces the ranked submission, these two do not match.
+This needs to be checked with the organizers against the rules (5.2 and 7.4 were cited in fayadh's notes) and was not decided here.
+
+### Addendum 2026-10-19 - public is 30 percent of the series, so use it as a sample
+This should have been stated at the start of the competition and used for planning.
+Assuming the private score shown is on the other 70 percent only, the score on the whole test set is 0.3 x public + 0.7 x private:
+| File | Public | Private | Whole test |
+|---|---|---|---|
+| submission_legit (NN base) | 0.38432 | 0.39763 | 0.39364 |
+| 0.38002 file (selected legit) | 0.38002 | 0.39982 | 0.39388 |
+| nn_r5_B2_xmas_cells_0.5 | 0.36688 | 0.38941 | 0.38265 |
+| submission_cine (main, selected) | 0.33446 | 0.34152 | 0.33940 |
+1. On the whole test set the selected legit file was no better than the plain base (+0.0002), although public showed -0.0043.
+The best after-deadline file gains about 0.0110 on the whole test set, not the 0.0174 that public showed.
+2. A change is only worth keeping if its gain is large compared with the sampling error of a 30 percent sample.
+Estimate that error by resampling the public series (bootstrap over films) or by leave-films-out folds, and keep a change only if the gain is more than about 2 standard errors.
+3. Shrink every public gain before believing it, roughly by (number of public series in the changed cells) / (number of series in those cells in the whole test set), then by the noise factor.
+Level changes touch all cells and still failed, so the shrink alone is not enough: they also need the backtest on earlier years to agree.
+4. Because the public part is a random sample of the same series, a weakness seen on public (a cell that is too low) is expected on the other 70 percent too, but the size is noisy.
+Use the public score to find the direction of a weakness and the backtest to size it.
+5. Write the split fraction (public share, how it is sampled: by series, by date, random) into the log on day one, and use it in every decision.
