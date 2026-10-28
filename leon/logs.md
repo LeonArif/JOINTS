@@ -2650,3 +2650,70 @@ D4 0.3711 / 0.3669 / 0.4017 / 0.3616, D5 0.3499 / 0.3567 / 0.4088 / 0.3585, D6 0
 - The NN does not help in any scheme (film CV +0.0012, time CV +0.0076 pooled, +0.0234 in agustus where the NN alone is 0.4591). The user decided to drop the NN from the concept of the final model (Kumo + LGBM only).
 - Premise "models learn differently so errors differ" is weak for Kumo vs LGBM (corr 0.98).
 - Private LB of the no-NN file (0.39694) is not a clean comparison: it differs from the NN files also in the level / shape multipliers, and the NN files with shape corrections reached private 0.3894-0.3901 after the deadline.
+
+## 2026-10-29 - model_explore_time_cv.ipynb (models that pass the EDA filter, clean legit pipeline, time CV)
+
+Notebook: `model_explore_time_cv.ipynb` (new, same rows, features and 3 forward time folds as `blend_poc_time_cv.ipynb`, CPU only, no Kumo and no NN). Not run at full settings yet.
+
+### Why
+- The earlier scores of the other model families (ExtraTrees, RandomForest, HistGB, Ridge, LinearSVR, kNN, ElasticNet, PLR NN, TabFM 0.3325) were measured on main's scratch rows, which use post-cutoff Cinepoint national-chart columns, so they are not clean. See the note of 2026-10-29 above.
+- Subset of the models that pass the EDA filter (L1 loss, nonlinear, categorical and missing values): XGBoost, CatBoost, HistGradientBoosting, with LGBM as the reference. ExtraTrees and RandomForest left out: sklearn's absolute_error criterion is too slow on about 200k rows, and the squared-error version does not match the metric.
+
+### Setup
+- XGBoost: reg:absoluteerror, 800 trees, lr 0.03, depth 8, subsample 0.7, colsample 0.5, native categories. CatBoost: MAE, 700 iterations, lr 0.05, depth 8, categories as text. HistGB: absolute_error, 600 iterations, lr 0.05, 63 leaves, native categories, no early stopping. All with sample weight 0.5 on shifted rows, zero-snap 0.2, one seed (42). The three are not tuned, LGBM uses its tuned parameters, so the comparison slightly favours LGBM.
+- Reference scores copied from `blend_poc_time_cv.ipynb` (Kumo, NN, LGBM 3 seeds, Kumo 0.7 / LGBM 0.3) are shown in the same table. Also error correlation and bootstrap by film against LGBM.
+
+### Smoke test (CPU, 40 trees each, not a result)
+- The whole notebook ran end to end and all tables printed. Scores from that run (for example LGBM 0.3230, XGBoost 0.3486, CatBoost 0.3384, HistGB 0.3367 pooled) come from 40-tree models and must not be quoted.
+
+### To do
+- Run the notebook at full settings (CPU), paste the tables here.
+
+## 2026-10-29 - model_explore_time_cv.ipynb changed: model families instead of more trees
+
+- The user asked for different model types instead of XGBoost, CatBoost and HistGB (they are trees like LGBM). The final model to present stays Kumo 0.7 / LGBM 0.3. NN is already in blend_poc_time_cv and is not part of the solution.
+- Models now in the notebook (CPU only, time folds juli / agustus / september, one seed): LGBM (reference), Linear Regression (ElasticNet, alpha 1e-3, l1_ratio 0.5, squared loss), SVM (LinearSVR, epsilon-insensitive loss with epsilon 0 = L1, C 1; RBF kernel not used, quadratic cost in rows), LSTM (the first three days as a 3-step sequence of ticket / scale and show / show_mean, plus static features and embeddings, weighted L1, 6 epochs, hidden 32), Logistic Regression (zero vs non-zero classifier; also a two-stage model: linear regression prediction set to 0 where P(non-zero) < 0.5).
+- Also: error correlation, bootstrap by film against LGBM, and zero-row classification (accuracy, F1, AUC) of Logistic Regression vs LGBM.
+- XGBoost, CatBoost and HistGB removed from the notebook (can be added back). The note of 2026-10-29 about rerunning trees on the legit pipeline is superseded.
+- Smoke test (CPU, LGBM 40 trees, LSTM 1 epoch, small max_iter, not a result): every cell ran. Full run started in the background on the CPU, results to be logged next.
+
+## 2026-10-29 - Result: model_explore_time_cv.ipynb (full run on the CPU, 3 forward time folds, one seed)
+
+Same rows, features and folds as blend_poc_time_cv (juli 37 films, agustus 35, september 23). Not tuned, default-style parameters. Convergence warnings of ElasticNet / LinearSVR were not checked.
+
+| Model | juli | agustus | september | mean of folds | pooled |
+|---|---|---|---|---|---|
+| naive ratio 1 | 0.7255 | 0.7334 | 0.6686 | 0.7092 | 0.7139 |
+| naive 0 | 0.6369 | 0.5569 | 0.5356 | 0.5764 | 0.5827 |
+| lgbm (1 seed) | 0.3508 | 0.3226 | 0.2534 | 0.3089 | 0.3161 |
+| linear regression (ElasticNet) | 0.4536 | 0.4337 | 0.3455 | 0.4110 | 0.4191 |
+| SVM (LinearSVR, L1) | 0.4120 | 0.3937 | 0.3336 | 0.3798 | 0.3856 |
+| LSTM | 0.3731 | 0.4400 | 0.2487 | 0.3539 | 0.3653 |
+| logreg + linreg (two stage) | 0.4149 | 0.3910 | 0.3207 | 0.3756 | 0.3825 |
+| reference from blend_poc_time_cv: kumo | 0.3520 | 0.3218 | 0.2400 | 0.3046 | 0.3129 |
+| reference: nn MLP | 0.3824 | 0.4591 | 0.2539 | 0.3651 | 0.3771 |
+| reference: lgbm 3 seeds | 0.3471 | 0.3229 | 0.2537 | 0.3079 | 0.3148 |
+| reference: kumo 0.7 / lgbm 0.3 | 0.3480 | 0.3191 | 0.2407 | 0.3026 | 0.3105 |
+
+- Bootstrap by film, difference vs LGBM (pooled, 95 films): linreg +0.1030 [0.0733, 0.1311], SVM +0.0695 [0.0435, 0.0967], LSTM +0.0492 [0.0101, 0.1066], two stage +0.0665 [0.0467, 0.0862]. All worse than LGBM, no interval crosses 0.
+- Zero vs non-zero (all validation rows, 70.3% non-zero): predict all non-zero accuracy 0.7030 / F1 0.8256, logistic regression accuracy 0.8367 / F1 0.8827 / AUC 0.9016, LGBM (prediction > 0) accuracy 0.8382 / F1 0.8842. A linear classifier finds the zero rows almost as well as LGBM.
+- Error correlation with LGBM (signed, pooled): linreg 0.934, SVM 0.948, LSTM 0.919, two stage 0.948. LSTM has the lowest correlation with the other models (0.887-0.919).
+- LSTM is unstable across folds (0.3731 / 0.4400 / 0.2487, one seed): good in september (better than LGBM 0.2534, close to Kumo 0.2400), bad in agustus. The MLP NN also failed in agustus (0.4591). The cause was not checked.
+- Reading: the linear model, SVM and the two-stage model are clearly worse (consistent with the EDA reasoning that the data needs nonlinear interactions and an absolute loss), the LSTM and NN sequence/network models are unstable, and the final model stays Kumo 0.7 / LGBM 0.3 (0.3105 pooled).
+
+## 2026-10-29 - Result: model_explore_trees_time_cv.ipynb (XGBoost and CatBoost, full run on the CPU)
+
+Notebook: `model_explore_trees_time_cv.ipynb` (new, separate from `model_explore_time_cv.ipynb` which the user had opened). Same rows, features and 3 forward time folds as blend_poc_time_cv. One seed (42), not tuned: XGBoost reg:absoluteerror 800 trees lr 0.03 depth 8 subsample 0.7 colsample 0.5; CatBoost MAE 700 iterations lr 0.05 depth 8 l2 10; sample weight 0.5 on shifted rows, zero-snap 0.2.
+
+| Model | juli | agustus | september | mean of folds | pooled |
+|---|---|---|---|---|---|
+| lgbm (1 seed) | 0.3508 | 0.3226 | 0.2534 | 0.3089 | 0.3161 |
+| xgboost (1 seed) | 0.3498 | 0.3281 | 0.2518 | 0.3099 | 0.3173 |
+| catboost (1 seed) | 0.3586 | 0.3239 | 0.2536 | 0.3120 | 0.3196 |
+| reference: lgbm 3 seeds | 0.3471 | 0.3229 | 0.2537 | 0.3079 | 0.3148 |
+| reference: kumo | 0.3520 | 0.3218 | 0.2400 | 0.3046 | 0.3129 |
+| reference: kumo 0.7 / lgbm 0.3 | 0.3480 | 0.3191 | 0.2407 | 0.3026 | 0.3105 |
+
+- Bootstrap by film vs LGBM (1 seed, pooled, 95 films): xgboost +0.0012 [-0.0037, 0.0060], P(better) 0.32. catboost +0.0035 [-0.0050, 0.0113], P(better) 0.19. Both intervals cross 0: the trees are tied with LGBM within noise.
+- XGBoost is better than LGBM in juli (0.3498 vs 0.3508) and september (0.2518 vs 0.2534) and worse in agustus. Error correlation with LGBM: xgboost 0.992, catboost 0.987.
+- Reading: the three tree models are almost the same (error corr 0.98-0.99). LGBM is slightly ahead pooled, not significantly. The benchmark table says "lost narrowly to LightGBM".
