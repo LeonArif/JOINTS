@@ -2557,3 +2557,96 @@ Level changes touch all cells and still failed, so the shrink alone is not enoug
 4. Because the public part is a random sample of the same series, a weakness seen on public (a cell that is too low) is expected on the other 70 percent too, but the size is noisy.
 Use the public score to find the direction of a weakness and the backtest to size it.
 5. Write the split fraction (public share, how it is sampled: by series, by date, random) into the log on day one, and use it in every decision.
+
+## 2026-10-29 - blend_poc.ipynb (surge-window validation for the blend proof of concept)
+
+Notebook: `blend_poc.ipynb` (new; copy of the `dikeri_ivant.ipynb` pipeline up to the shifted-window rows, no EDA, no postprocessing, no export). Not run on the GPU yet, so there are no real results.
+
+### Why
+- GroupKFold by film (5 folds) mixes all months, so it tests unseen films but not an unseen season. Its blend gain over Kumo is 0.0001 (0.3251 vs 0.3250), inside the noise (fold range 0.20-0.41).
+- Christmas cannot be a validation window: train.csv ends 2025-09-30 and test_history.csv only holds D1-D3 of the test films, so no labels exist for it.
+- Surges that do exist in train (national weekly tickets vs the median of the period): Lebaran weeks ending 6 / 13 / 20 Apr 2025 = 2.05x / 2.47x / 2.04x, July school holiday 1.22x / 1.30x, 17 Aug long weekend about 1.13x. The 8 and 15 June dips (0.36x, 0.27x) are the incomplete recording days, not demand.
+
+### Setup
+- Validation = films whose D1 falls in the window, train = films (real and shifted rows) whose D1-D10 window stays at least GAP_DAYS = 10 days away from the validation span, so the model has never seen that surge. Shifted rows of validation films are excluded.
+- Windows (in this order): `lebaran` D1 2025-04-02 .. 04-20 = 13 films, 3,108 validation rows, 44,386 real + 210,524 shifted train rows, mean target 0.886 vs 0.594 in train. `libur_sekolah` D1 2025-06-26 .. 07-13 = 22 films, 6,440 validation rows, 36,868 real + 169,371 shifted train rows, mean target 0.792 vs 0.605. (13 films, not the 17 first estimated: the notebook's D1 rules drop some films.)
+- Same models and settings as dikeri_ivant (Kumo 9000 + 3000 context rows x 3 context seeds, LGBM 3 seeds, NN 5 seeds), one fit per model per window, zero-snap 0.2 for LGBM and NN, blend snap 0.1. No postprocessing, so the raw blend is tested.
+- Compared: naive (ratio 1 and 0), each model, Kumo + LGBM with the best weight (grid 0.05), Kumo + LGBM + NN at 0.4 / 0.3 / 0.3, Kumo + LGBM + NN best weights (grid 0.1) with the top 10 combinations, weights chosen on one window and scored on the other, bootstrap by film (2000 draws) of the MASE difference vs Kumo, error correlation between models, MASE per horizon.
+- Best weights are chosen on the same window that scores them, so they are optimistic. The cross-window table is the honest one. With 13 and 22 films, a difference near 0.001 cannot be proven.
+
+### Smoke test (CPU only, not a result)
+- The whole notebook ran end to end on the CPU with Kumo replaced by a stub (LGBM x0.9 + 0.01), LGBM 60 trees x 1 seed, NN 2 epochs x 1 seed. Every table printed. Those scores (for example Lebaran: naive ratio 1 = 0.8512, naive 0 = 0.8859, models about 0.63) and the Kumo-LGBM error correlation of 0.999 come from the stub and the tiny settings and must not be quoted.
+- One thing that is real: the naive scores on the surge windows are far above the CV level (0.85 and 0.78 vs 0.7393 in CV), so these windows are harder than the CV rows.
+
+### To do
+- Run the full notebook on the GPU (the user runs it), then paste the tables here and decide what the slide "Mengapa blend bekerja" can claim.
+
+## 2026-10-29 - blend_poc_time_cv.ipynb (forward time CV for the blend proof of concept)
+
+Notebook: `blend_poc_time_cv.ipynb` (new, same pipeline and models as `blend_poc.ipynb`, only the validation differs). Not run on the GPU yet, so there are no real results.
+
+### Setup
+- 3 forward folds by film D1 month, GAP_DAYS = 10. Validation = films with D1 in the month, train = films (real and shifted rows) whose D10 is before the validation start minus 10 days, so the model always predicts the future. Films in the gap are used on neither side.
+- Folds as built (film counts after the notebook's own D1 rules): `juli` 37 films, 12,348 validation rows, train D10 before 2025-06-21 (15,280 real + 65,708 shifted rows). `agustus` 35 films, 11,235 rows, train D10 before 2025-07-22 (25,787 + 111,635). `september` 23 films, 8,008 rows, train D10 before 2025-08-22 (37,645 + 171,079).
+- Compared, same as the surge-window notebook: naive, Kumo, LGBM, NN, Kumo + LGBM (0.7/0.3, 0.5/0.5), Kumo + LGBM + NN (0.6/0.2/0.2, 0.5/0.3/0.2, 0.4/0.3/0.3, 0.4/0.2/0.4, 0.34/0.33/0.33). Fold score, mean of the 3 fold scores and pooled MASE.
+- Honest weight check: for each fold the best weights (grid 0.05 for Kumo + LGBM, 0.1 for three models) are chosen on the other two folds and scored on the held-out fold.
+- Also: top 10 weights on the pooled rows (optimistic), bootstrap by film (2000 draws) of the MASE difference vs Kumo per fold and pooled, error correlation between models, MASE per horizon.
+- Kumo is fitted 3 times (once per fold), NN 3 times, LGBM 3 times.
+
+### Smoke test (CPU only, not a result)
+- Whole notebook ran end to end on the CPU with Kumo replaced by a stub (LGBM x0.9 + 0.01), LGBM 60 trees x 1 seed, NN 2 epochs x 1 seed. All tables printed.
+- Those scores and the Kumo-LGBM error correlation (0.99+) come from the stub and the tiny settings and must not be quoted. Only the fold sizes above are real.
+
+### To do
+- The user runs the surge-window notebook on the GPU first, then this one. Paste the tables here and decide what the slide "Mengapa blend bekerja" can claim.
+
+## 2026-10-29 - Note for tomorrow: model exploration slide needs a clean rerun
+
+- The scores of the "other model families" (ExtraTrees, RandomForest, HistGB, Ridge, LinearSVR, kNN, ElasticNet, PLR NN; logs 2026-10-11) and the TabFM re-test (0.3325) were measured on main's scratch rows (national-ratio target, base blend 0.2723). main uses the post-cutoff Cinepoint national-chart columns about the test films, so those numbers are not clean and must not go on a slide. The legit pipeline sits at CV about 0.33, main at about 0.29.
+- The tuned XGBoost / CatBoost / LightGBM / Kumo-5k comparison (63 features, 2026-10-07) predates the national-chart columns (added 2026-10-10), so it is probably clean, but its feature set and rows differ from the final pipeline. Unverified.
+- Only Kumo 0.3250, LGBM 0.3301, NN 0.3494 come from the legit pipeline (dikeri_ivant, 77 features, shifted rows, 5-fold GroupKFold by film).
+- Plan: rerun only a subset of the models that pass the EDA filter on the legit pipeline, same rows and folds as dikeri_ivant, CPU only (no GPU): XGBoost, CatBoost, ExtraTrees (suggested, the user may change the list). Not the full list. Linear models and kNN stay as "filtered by EDA".
+- The TabFM CV 0.3964 (2026-10-06) is on an early main feature set, so label it as such or leave it out.
+
+## 2026-10-29 - Result: blend_poc_time_cv.ipynb (user's GPU run, 3 forward time folds)
+
+Source: the executed outputs saved in `blend_poc_time_cv.ipynb`. `blend_poc.ipynb` (Lebaran and school-holiday windows) has no outputs yet, it was not run.
+
+### Scores (MASE of target_ratio, lower is better)
+Folds: juli 37 films / 12,348 rows, agustus 35 / 11,235, september 23 / 8,008 (train D10 before 2025-06-21 / 07-22 / 08-22).
+
+| Config | juli | agustus | september | mean of folds | pooled |
+|---|---|---|---|---|---|
+| naive ratio 1 | 0.7255 | 0.7334 | 0.6686 | 0.7092 | 0.7139 |
+| naive 0 | 0.6369 | 0.5569 | 0.5356 | 0.5764 | 0.5827 |
+| kumo | 0.3520 | 0.3218 | 0.2400 | 0.3046 | 0.3129 |
+| lgbm | 0.3471 | 0.3229 | 0.2537 | 0.3079 | 0.3148 |
+| nn | 0.3824 | 0.4591 | 0.2539 | 0.3651 | 0.3771 |
+| kumo 0.7 / lgbm 0.3 | 0.3480 | 0.3191 | 0.2407 | **0.3026** | **0.3105** |
+| kumo 0.5 / lgbm 0.5 | 0.3462 | 0.3190 | 0.2444 | 0.3032 | 0.3107 |
+| kumo 0.6 / lgbm 0.2 / nn 0.2 | 0.3507 | 0.3348 | 0.2372 | 0.3076 | 0.3163 |
+| kumo 0.5 / lgbm 0.3 / nn 0.2 | 0.3496 | 0.3337 | 0.2381 | 0.3071 | 0.3157 |
+| kumo 0.4 / lgbm 0.3 / nn 0.3 (used in dikeri_ivant) | 0.3515 | 0.3452 | 0.2380 | 0.3116 | 0.3205 |
+| kumo 0.4 / lgbm 0.2 / nn 0.4 | 0.3551 | 0.3600 | 0.2378 | 0.3176 | 0.3271 |
+| kumo 0.34 / lgbm 0.33 / nn 0.33 | 0.3519 | 0.3487 | 0.2386 | 0.3131 | 0.3220 |
+
+- Pooled grid (optimistic): kumo 0.6 / lgbm 0.4 = 0.3104, 0.7 / 0.3 = 0.3105, 0.5 / 0.5 = 0.3107, 0.4 / 0.6 = 0.3111, 0.8 / 0.2 = 0.3112. Every top-10 row has nn <= 0.1. Flat around 0.6-0.7 Kumo.
+- Weights chosen on the other two folds (kumo + lgbm): juli 0.75 / 0.25 -> 0.3488 (kumo 0.3520), agustus 0.65 / 0.35 -> 0.3189 (kumo 0.3218), september 0.4 / 0.6 -> 0.2460 (kumo 0.2400, worse than Kumo alone).
+
+### Bootstrap by film (2000 draws), MASE difference vs Kumo alone
+| Config | juli | agustus | september | pooled (95 films) |
+|---|---|---|---|---|
+| kumo 0.7 / lgbm 0.3 | -0.0040 [-0.0092, 0.0000] | -0.0027 [-0.0061, 0.0005] | +0.0007 [-0.0039, 0.0043] | -0.0024 [-0.0048, -0.0000], P(better) 0.977 |
+| kumo 0.4 / lgbm 0.3 / nn 0.3 | -0.0005 [-0.0130, 0.0101] | +0.0234 [0.0024, 0.0464] | -0.0019 [-0.0120, 0.0064] | +0.0076 [-0.0021, 0.0184], P(better) 0.066 |
+
+### Error correlation (signed error, pooled)
+kumo-lgbm 0.980, kumo-nn 0.902, lgbm-nn 0.885. Per fold kumo-lgbm 0.990 / 0.967 / 0.954. The Kumo and LGBM errors are almost the same, so the gain of mixing them is small.
+
+### Per horizon (pooled, kumo / lgbm / nn / blend 0.4-0.3-0.3)
+D4 0.3711 / 0.3669 / 0.4017 / 0.3616, D5 0.3499 / 0.3567 / 0.4088 / 0.3585, D6 0.3015 / 0.3017 / 0.3752 / 0.3136, D7 0.3074 / 0.3089 / 0.3771 / 0.3178, D8 0.2769 / 0.2838 / 0.3454 / 0.2900, D9 0.2765 / 0.2789 / 0.3472 / 0.2872, D10 0.3067 / 0.3069 / 0.3842 / 0.3146. The three-model blend beats Kumo only at D4.
+
+### Reading
+- Kumo 0.7 / LGBM 0.3 is the best config in the mean of folds and pooled, and matches the film CV (0.3239 vs Kumo 0.3250). The gain over Kumo alone is small (-0.0024 pooled), significant only at the edge (upper CI 0.0000), clear in juli and agustus and a tie in september.
+- The NN does not help in any scheme (film CV +0.0012, time CV +0.0076 pooled, +0.0234 in agustus where the NN alone is 0.4591). The user decided to drop the NN from the concept of the final model (Kumo + LGBM only).
+- Premise "models learn differently so errors differ" is weak for Kumo vs LGBM (corr 0.98).
+- Private LB of the no-NN file (0.39694) is not a clean comparison: it differs from the NN files also in the level / shape multipliers, and the NN files with shape corrections reached private 0.3894-0.3901 after the deadline.
